@@ -1094,7 +1094,7 @@ def promise(chat_id):
     r = random.choice(rows)
     send_msg(
         chat_id,
-        f"📩 وعده امروز خداوند برای شما :\n\n✨ {value(r, 'متن وعده')}\n\n📖 {value(r, 'آیه')}",
+        f"📩 وعده امروز خداوند برای شما :\n\n✨ {r.get('promise_text','')}\n\n📖 {r.get('verse_reference','')}",
         {"inline_keyboard": [[{"text": "📩 وعده بعدی", "callback_data": "promise_next"}]]}
     )
 
