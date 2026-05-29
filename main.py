@@ -1084,7 +1084,7 @@ def song_list(chat_id, page=0):
 def promise(chat_id):
     
     try:
-    rows = requests.get(f"{API_BASE}/promises", timeout=10).json()
+        rows = requests.get(f"{API_BASE}/promises", timeout=10).json()
 except Exception:
     rows = []
 
