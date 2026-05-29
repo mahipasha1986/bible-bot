@@ -930,17 +930,32 @@ def find_word(text):
     exact = None
     partial = []
 
-    for r in sheet("Word"):
-        word = value(r, "کلمه")
+    try:
+        rows = requests.get(f"{API_BASE}/bible-words", timeout=10).json()
+    except Exception:
+        rows = []
+
+    for r in rows:
+        word = r.get("word") or ""
+        normalized = r.get("normalized_word") or word
+
         if not word:
             continue
 
-        if norm(word) == norm(text):
-            exact = r
+        mapped = {
+            "کلمه": word,
+            "معنی": r.get("meaning") or "",
+            "ریشه": r.get("root_text") or "",
+            "آیه مرتبط": r.get("related_verse") or "",
+            "عهد": "NT" if r.get("root_language") == "یونانی" else "OT",
+        }
+
+        if norm(word) == norm(text) or norm(normalized) == norm(text):
+            exact = mapped
             break
 
         if norm(text) in norm(word) or norm(word) in norm(text):
-            partial.append(r)
+            partial.append(mapped)
 
     return exact, partial
 
