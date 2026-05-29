@@ -1082,7 +1082,11 @@ def song_list(chat_id, page=0):
 
 
 def promise(chat_id):
-    rows = [r for r in sheet("Promises") if value(r, "متن وعده")]
+    
+    try:
+    rows = requests.get(f"{API_BASE}/promises", timeout=10).json()
+except Exception:
+    rows = []
 
     if not rows:
         send_msg(chat_id, "📩 هنوز وعده‌ای ثبت نشده است.")
