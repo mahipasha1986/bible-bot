@@ -10,6 +10,7 @@ app = Flask(__name__)
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 SHEET_ID = "1m6dqGbvS-CHQO1eAO6l6A_2vSkxSIWdhlS5WnNl4zA0"
 BASE = f"https://opensheet.elk.sh/{SHEET_ID}"
+API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev"
 TG = f"https://api.telegram.org/bot{BOT_TOKEN}/"
 CHANNEL_URL = "https://t.me/persian_bible"
 WEBAPP_URL = "https://bible-bot-4eo2.onrender.com/webapp"
