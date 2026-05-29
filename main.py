@@ -1082,11 +1082,10 @@ def song_list(chat_id, page=0):
 
 
 def promise(chat_id):
-
-try:
-    rows = requests.get(f"{API_BASE}/promises", timeout=10).json()
-except Exception:
-    rows = []
+    try:
+        rows = requests.get(f"{API_BASE}/promises", timeout=10).json()
+    except Exception:
+        rows = []
 
     if not rows:
         send_msg(chat_id, "📩 هنوز وعده‌ای ثبت نشده است.")
@@ -1095,7 +1094,7 @@ except Exception:
     r = random.choice(rows)
     send_msg(
         chat_id,
-        f"📩 وعده‌ امروز خداوند برای شما :\n\n✨ {value(r, 'متن وعده')}\n\n📖 {value(r, 'آیه')}",
+        f"📩 وعده امروز خداوند برای شما :\n\n✨ {value(r, 'متن وعده')}\n\n📖 {value(r, 'آیه')}",
         {"inline_keyboard": [[{"text": "📩 وعده بعدی", "callback_data": "promise_next"}]]}
     )
 
