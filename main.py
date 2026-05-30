@@ -1202,26 +1202,29 @@ def save_prayer(chat_id, text):
 
 
 def random_prayer(chat_id):
-    rows = sheet("Prayers", use_cache=False)
-    valid = []
+    try:
+        rows = requests.get(f"{API_BASE}/prayers", timeout=10).json()
+    except Exception:
+        rows = []
 
-    for i, r in enumerate(rows, start=2):
-        if value(r, "متن دعا"):
-            valid.append((i, r))
-
-    if not valid:
+    if not rows:
         send_msg(chat_id, "🙏 هنوز درخواست دعایی ثبت نشده است.")
         return
 
-    row_number, r = random.choice(valid)
-    count = value(r, "تعداد دعا") or "0"
+    r = random.choice(rows)
 
-    send_msg(chat_id,
-             f"🙏 درخواست دعا: {value(r, 'متن دعا')}\n\n⭕️ {count} نفر برای این درخواست دعا کردند",
-             {"inline_keyboard": [
-                 [{"text": "🙌 من هم دعا کردم", "callback_data": f"praydone|{row_number}"}],
-                 [{"text": "✍️ ثبت درخواست دعا", "callback_data": "prayer_request"}],
-             ]})
+    prayer_id = r.get("id")
+    prayer_text = r.get("prayer_text", "")
+    count = r.get("prayer_count", 0)
+
+    send_msg(
+        chat_id,
+        f"🙏 درخواست دعا:\n\n{prayer_text}\n\n⭕ تا الان {count} نفر برای این دعا، دعا کردند.",
+        {"inline_keyboard": [
+            [{"text": "🙌 من هم دعا کردم", "callback_data": f"praydone_{prayer_id}"}],
+            [{"text": "✍️ ثبت درخواست دعا", "callback_data": "prayer_request"}]
+        ]}
+    )
 
 
 @app.route("/", methods=["GET"])
@@ -1400,10 +1403,10 @@ def webhook():
             else:
                 send_msg(chat_id, "این درخواست دعا پیدا نشد یا قبلاً بررسی شده است.")
 
-        elif cb.startswith("praydone|"):
-            row_number = cb.split("|", 1)[1]
-            result = writer({"type": "prayer_count", "row": row_number})
-            count = result.get("count", "")
+        elif cb.startswith("praydone_"):
+            prayer_id = cb.split("_", 1)[1]
+            result = requests.post(f"{API_BASE}/prayers/prayed", json={"prayer_id": int(prayer_id)}, timeout=10).json()
+            count = result.get("prayer_count", "")
 
             clear_cache("Prayers")
 
