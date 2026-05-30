@@ -1100,16 +1100,28 @@ def promise(chat_id):
 
 
 def fact(chat_id):
-    rows = [r for r in sheet("Facts") if value(r, "متن دانستنی")]
+    try:
+        rows = requests.get(f"{API_BASE}/facts", timeout=10).json()
+    except Exception:
+        rows = []
 
     if not rows:
         send_msg(chat_id, "💡 هنوز دانستنی ثبت نشده است.")
         return
 
     r = random.choice(rows)
+
+    fact_text = r.get("fact_text", "") or r.get("text", "")
+    source = r.get("source", "")
+
+    msg = f"💡 آیا می‌دانستید؟\n\n{fact_text}"
+
+    if source:
+        msg += f"\n\n📍 منبع: {source}"
+
     send_msg(
         chat_id,
-        f"💡 آیا میدانستید:\n\n▫️ {value(r, 'متن دانستنی')}\n\n📍 {value(r, 'منبع')}",
+        msg,
         {"inline_keyboard": [[{"text": "💡 دانستنی بعدی", "callback_data": "fact_next"}]]}
     )
 
