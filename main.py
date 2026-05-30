@@ -1384,9 +1384,17 @@ def webhook():
                 send_msg(chat_id, "این درخواست دعا پیدا نشد یا قبلاً بررسی شده است.")
                 return "ok"
 
-            result = writer({"type": "prayer", "text": prayer["public_text"]})
+            result = requests.post(
+            f"{API_BASE}/prayers/submit",
+            json={
+                "prayer_text": prayer["public_text"],
+                "user_name": prayer.get("display_name", ""),
+                "is_anonymous": prayer.get("visibility") == "anon"
+            },
+            timeout=10
+        ).json()
 
-            if result.get("ok"):
+            if result.get("id"):
                 clear_cache("Prayers")
                 send_msg(chat_id, "✅ دعا تایید و در بخش دعا ثبت شد.")
                 send_msg(prayer["user_chat_id"], "🙏 درخواست دعای شما تایید شد و در بخش دعا قرار گرفت.")
