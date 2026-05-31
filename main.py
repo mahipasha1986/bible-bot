@@ -1452,7 +1452,12 @@ def webhook():
         elif cb.startswith("praydone_"):
             prayer_id = cb.split("_", 1)[1]
             result = requests.post(f"{API_BASE}/prayers/prayed", json={"prayer_id": int(prayer_id)}, timeout=10).json()
-            count = result.get("prayer_count", "")
+            if isinstance(result, list) and result:
+                count = result[0].get("prayer_count", "")
+            elif isinstance(result, dict):
+                count = result.get("prayer_count", "")
+            else:
+                count = ""
 
             clear_cache("Prayers")
 
