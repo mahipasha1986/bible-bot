@@ -1001,9 +1001,9 @@ def search_song(chat_id, text):
     exact = None
     partial = []
 
-    for s in sheet("Songs", use_cache=False):
-        song_name = value(s, "اسم سرود")
-        file_id = value(s, "فایل")
+    for s in get_all_songs():
+        song_name = s.get("title", "")
+        file_id = s.get("audio_file_id", "")
 
         if not song_name or not file_id:
             continue
@@ -1020,7 +1020,7 @@ def search_song(chat_id, text):
     chosen = exact or (partial[0] if partial else None)
 
     if chosen:
-        send_audio(chat_id, value(chosen, "فایل"), "🎶 این سرود تقدیم به شما\n\n🎵 " + value(chosen, "اسم سرود"))
+        send_audio(chat_id, chosen.get("audio_file_id"), "🎶\n\nاین سرود تقدیم به شما\n🎶 " + chosen.get("title", ""))
         return
 
     not_found(chat_id)
