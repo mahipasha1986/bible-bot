@@ -1219,7 +1219,7 @@ def save_prayer(chat_id, text):
     except Exception:
         result = {}
 
-    if result.get("id"):
+    if result:
         send_msg(chat_id, "🙏 درخواست دعای شما ثبت شد و پس از تایید خادمین نمایش داده می‌شود.")
     else:
         send_msg(chat_id, "متأسفانه ثبت دعا انجام نشد. لطفاً دوباره تلاش کنید.")
