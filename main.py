@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+  from flask import Flask, request, jsonify, Response
 import requests
 import os
 import re
@@ -1049,7 +1049,7 @@ def library(chat_id):
         return
 
     buttons = [
-        [{"text": "📖 " + value(b, "اسم کتاب"), "callback_data": f"book|{i}"}]
+        [{"text": "📖 " + b.get("title", ""), "callback_data": f"book|{i}"}]
         for i, b in enumerate(books)
     ]
 
@@ -1313,7 +1313,12 @@ def webhook():
         if cb.startswith("book|"):
             books = get_library_books()
             b = books[int(cb.split("|")[1])]
-            send_doc(chat_id, value(b, "فایل"), "📚 " + value(b, "اسم کتاب"))
+
+            send_doc(
+                chat_id,
+                b.get("file_id"),
+                "📚 " + b.get("title", "")
+            )
 
         elif cb.startswith("cat|"):
             cat_index = int(cb.split("|", 1)[1])
