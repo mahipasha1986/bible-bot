@@ -1017,24 +1017,24 @@ def search_song(chat_id, text):
         if query in clean_name:
             partial.append(s)
 
-   results = [exact] if exact else partial[:20]
+    results = [exact] if exact else partial[:20]
 
-   if results:
-       buttons = []
-       all_songs = get_all_songs()
+    if results:
+        buttons = []
+        all_songs = get_all_songs()
 
-       for r in results:
-           buttons.append([{
-               "text": "🎵 " + r.get("title", ""),
-               "callback_data": f"allsong|{all_songs.index(r)}"
-           }])
+        for r in results:
+            buttons.append([{
+                "text": "🎵 " + r.get("title", ""),
+                "callback_data": f"allsong|{all_songs.index(r)}"
+            }])
 
-       send_msg(
-           chat_id,
-           f"🎵 نتایج جستجو برای «{query}»:\n\nلطفاً سرود مورد نظر را انتخاب کنید:",
-           {"inline_keyboard": buttons}
-       )
-       return 
+        send_msg(
+            chat_id,
+            f"🎵 نتایج جستجو برای «{query}»:\n\nلطفا سرود مورد نظر را انتخاب کنید:",
+            {"inline_keyboard": buttons}
+        )
+        return
 
     not_found(chat_id)
 
