@@ -1311,10 +1311,10 @@ def webhook():
             send_doc(chat_id, value(b, "فایل"), "📚 " + value(b, "اسم کتاب"))
 
         elif cb.startswith("cat|"):
-    cat_index = int(cb.split("|", 1)[1])
-    category = SONG_CATEGORIES[cat_index]
-    category_id = category["category_id"]
-    cat_button = category["button"]
+            cat_index = int(cb.split("|", 1)[1])
+            category = SONG_CATEGORIES[cat_index]
+            category_id = category["category_id"]
+            cat_button = category["button"]
 
     try:
         songs = requests.get(f"{API_BASE}/hymns?category_id={category_id}", timeout=10).json()
@@ -1345,21 +1345,24 @@ def webhook():
             songs_menu(chat_id)
 
         elif cb.startswith("catsong|"):
-    song_id = int(cb.split("|", 1)[1])
+            song_id = int(cb.split("|", 1)[1])
 
-    try:
-        rows = requests.get(f"{API_BASE}/hymns/{song_id}", timeout=10).json()
-    except Exception:
-        rows = []
+            try:
+                rows = requests.get(
+                    f"{API_BASE}/hymns/{song_id}",
+                    timeout=10
+                ).json()
+            except Exception:
+                rows = []
 
-    if rows:
-        s = rows[0]
-        send_audio(
-            chat_id,
-            s.get("audio_file_id"),
-            "🎶\n\nاین سرود تقدیم به شما\n🎶 "
-            + s.get("title", "")
-        )
+            if rows:
+                s = rows[0]
+                send_audio(
+                    chat_id,
+                    s.get("audio_file_id"),
+                    "🎶\n\nاین سرود تقدیم به شما\n🎶 "
+                    + s.get("title", "")
+                )
 
         elif cb == "random_song":
             random_song(chat_id)
