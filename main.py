@@ -201,9 +201,14 @@ def not_found(chat_id):
 
 
 def get_all_songs():
+    try:
+        rows = requests.get(f"{API_BASE}/hymns", timeout=10).json()
+    except Exception:
+        rows = []
+
     return [
-        r for r in sheet("Songs", use_cache=False)
-        if value(r, "اسم سرود") and value(r, "فایل")
+        r for r in rows
+        if r.get("title") and r.get("audio_file_id") and r.get("is_active", True)
     ]
 
 
@@ -229,7 +234,7 @@ def random_song(chat_id):
         return
 
     s = random.choice(songs)
-    send_audio(chat_id, value(s, "فایل"), "🎶 این سرود تقدیم به شما\n\n🎵 " + value(s, "اسم سرود"))
+    send_audio(chat_id, s.get("audio_file_id"), "🎶\n\nاین سرود تقدیم به شما\n🎶 " + s.get("title", ""))
 
 
 @app.route("/api/songs", methods=["GET"])
