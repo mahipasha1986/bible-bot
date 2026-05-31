@@ -1010,14 +1010,11 @@ def search_song(chat_id, text):
 
         clean_name = norm(song_name)
 
-        if clean_name == query:
-            exact = s
-            break
 
         if query in clean_name:
             partial.append(s)
 
-    results = [exact] if exact else partial[:20]
+    results = partial[:20]
 
     if results:
         buttons = []
