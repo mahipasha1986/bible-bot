@@ -1316,30 +1316,30 @@ def webhook():
             category_id = category["category_id"]
             cat_button = category["button"]
 
-    try:
-        songs = requests.get(f"{API_BASE}/hymns?category_id={category_id}", timeout=10).json()
-    except Exception:
-        songs = []
+            try:
+                songs = requests.get(f"{API_BASE}/hymns?category_id={category_id}", timeout=10).json()
+            except Exception:
+                songs = []
 
-    songs = [
-        s for s in songs
-        if s.get("title") and s.get("audio_file_id") and s.get("is_active", True)
-    ]
+            songs = [
+                s for s in songs
+                if s.get("title") and s.get("audio_file_id") and s.get("is_active", True)
+            ]
 
-    if not songs:
-        send_msg(chat_id, f"🎵\n\nهنوز سرودی برای این مناسبت ثبت نشده است:\n\n{cat_button}")
-        return "ok"
+            if not songs:
+                send_msg(chat_id, f"🎵\n\nهنوز سرودی برای این مناسبت ثبت نشده است:\n\n{cat_button}")
+                return "ok"
 
-    buttons = [
-        [{
-            "text": "🎵 " + s.get("title", ""),
-            "callback_data": f"catsong|{s.get('id')}"
-        }]
-        for s in songs
-    ]
+            buttons = [
+                [{
+                    "text": "🎵 " + s.get("title", ""),
+                    "callback_data": f"catsong|{s.get('id')}"
+                }]
+                for s in songs
+            ]
 
-    buttons.append([{"text": "➡️ برگشت", "callback_data": "songs_menu"}])
-    send_msg(chat_id, f"🎵 {cat_button}:", {"inline_keyboard": buttons})
+            buttons.append([{"text": "➡️ برگشت", "callback_data": "songs_menu"}])
+            send_msg(chat_id, f"🎵 {cat_button}:", {"inline_keyboard": buttons})
 
         elif cb == "songs_menu":
             songs_menu(chat_id)
