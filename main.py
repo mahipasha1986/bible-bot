@@ -220,9 +220,14 @@ def get_category_songs():
 
 
 def get_library_books():
+    try:
+        rows = requests.get(f"{API_BASE}/books", timeout=10).json()
+    except Exception:
+        rows = []
+
     return [
-        r for r in sheet("Library", use_cache=False)
-        if value(r, "اسم کتاب") and value(r, "فایل")
+        r for r in rows
+        if r.get("title") and r.get("file_id") and r.get("is_active", True)
     ]
 
 
@@ -440,8 +445,8 @@ def api_send_book():
 
     send_doc(
         chat_id,
-        value(b, "فایل"),
-        "📚 " + value(b, "اسم کتاب")
+        b.get("file_id"),
+        "📚 " + b.get("title", "")
     )
 
     return jsonify({"ok": True})
