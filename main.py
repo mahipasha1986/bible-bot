@@ -19,9 +19,9 @@ WRITER_URL = "https://script.google.com/macros/s/AKfycbwEQknEZsWHgdAyg8BI1tm0R-U
 ADMIN_CHAT_ID = "987273459"
 
 SONG_CATEGORIES = [
-    {"button": "✝️ سرودهای عید قیام", "value": "عید قیام"},
-    {"button": "🎄 سرودهای تولد مسیح", "value": "تولد مسیح"},
-    {"button": "🩸 سرودهای جمعه صلیب", "value": "جمعه صلیب"},
+    {"button": "✝️ سرودهای عید قیام", "value": "عید قیام", "category_id": 1},
+    {"button": "🎄 سرودهای تولد مسیح", "value": "تولد مسیح", "category_id": 2},
+    {"button": "🩸 سرودهای جمعه صلیب", "value": "جمعه صلیب", "category_id": 3},
 ]
 
 SONGS_PER_PAGE = 20
@@ -1311,43 +1311,55 @@ def webhook():
             send_doc(chat_id, value(b, "فایل"), "📚 " + value(b, "اسم کتاب"))
 
         elif cb.startswith("cat|"):
-            cat_index = int(cb.split("|", 1)[1])
-            cat_value = SONG_CATEGORIES[cat_index]["value"]
-            cat_button = SONG_CATEGORIES[cat_index]["button"]
+    cat_index = int(cb.split("|", 1)[1])
+    category = SONG_CATEGORIES[cat_index]
+    category_id = category["category_id"]
+    cat_button = category["button"]
 
-            all_category_songs = get_category_songs()
+    try:
+        songs = requests.get(f"{API_BASE}/hymns?category_id={category_id}", timeout=10).json()
+    except Exception:
+        songs = []
 
-            songs = [
-                {"index": i, "row": r}
-                for i, r in enumerate(all_category_songs)
-                if norm(value(r, "مناسبت")) == norm(cat_value)
-            ]
+    songs = [
+        s for s in songs
+        if s.get("title") and s.get("audio_file_id") and s.get("is_active", True)
+    ]
 
-            if not songs:
-                send_msg(chat_id, f"🎵 هنوز سرودی برای این مناسبت ثبت نشده است:\n\n{cat_value}")
-                return "ok"
+    if not songs:
+        send_msg(chat_id, f"🎵\n\nهنوز سرودی برای این مناسبت ثبت نشده است:\n\n{cat_button}")
+        return "ok"
 
-            buttons = [
-                [{
-                    "text": "🎵 " + value(item["row"], "اسم سرود"),
-                    "callback_data": f"catsong|{item['index']}"
-                }]
-                for item in songs
-            ]
+    buttons = [
+        [{
+            "text": "🎵 " + s.get("title", ""),
+            "callback_data": f"catsong|{s.get('id')}"
+        }]
+        for s in songs
+    ]
 
-            buttons.append([{"text": "➡️ برگشت", "callback_data": "songs_menu"}])
-            send_msg(chat_id, f"🎵 {cat_button}:", {"inline_keyboard": buttons})
+    buttons.append([{"text": "➡️ برگشت", "callback_data": "songs_menu"}])
+    send_msg(chat_id, f"🎵 {cat_button}:", {"inline_keyboard": buttons})
 
         elif cb == "songs_menu":
             songs_menu(chat_id)
 
         elif cb.startswith("catsong|"):
-            index = int(cb.split("|", 1)[1])
-            all_category_songs = get_category_songs()
+    song_id = int(cb.split("|", 1)[1])
 
-            if 0 <= index < len(all_category_songs):
-                s = all_category_songs[index]
-                send_audio(chat_id, value(s, "فایل"), "🎶 این سرود تقدیم به شما\n\n🎵 " + value(s, "اسم سرود"))
+    try:
+        rows = requests.get(f"{API_BASE}/hymns/{song_id}", timeout=10).json()
+    except Exception:
+        rows = []
+
+    if rows:
+        s = rows[0]
+        send_audio(
+            chat_id,
+            s.get("audio_file_id"),
+            "🎶\n\nاین سرود تقدیم به شما\n🎶 "
+            + s.get("title", "")
+        )
 
         elif cb == "random_song":
             random_song(chat_id)
