@@ -1008,7 +1008,7 @@ def search_song(chat_id, text):
         if not song_name or not file_id:
             continue
 
-        clean_name = norm(song_name)
+        clean_name = norm(song_name + " " + s.get("search_title", ""))
 
 
         if query in clean_name:
