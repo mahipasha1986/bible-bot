@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+ from flask import Flask, request, jsonify, Response
 import requests
 import os
 import re
@@ -1017,11 +1017,24 @@ def search_song(chat_id, text):
         if query in clean_name:
             partial.append(s)
 
-    chosen = exact or (partial[0] if partial else None)
+   results = [exact] if exact else partial[:20]
 
-    if chosen:
-        send_audio(chat_id, chosen.get("audio_file_id"), "🎶\n\nاین سرود تقدیم به شما\n🎶 " + chosen.get("title", ""))
-        return
+   if results:
+       buttons = []
+       all_songs = get_all_songs()
+
+       for r in results:
+           buttons.append([{
+               "text": "🎵 " + r.get("title", ""),
+               "callback_data": f"allsong|{all_songs.index(r)}"
+           }])
+
+       send_msg(
+           chat_id,
+           f"🎵 نتایج جستجو برای «{query}»:\n\nلطفاً سرود مورد نظر را انتخاب کنید:",
+           {"inline_keyboard": buttons}
+       )
+       return 
 
     not_found(chat_id)
 
@@ -1062,7 +1075,7 @@ def song_list(chat_id, page=0):
     buttons = []
 
     for i in range(start, end):
-        song_name = value(songs[i], "اسم سرود")
+        song_name = songs[i].get("title", "")
         buttons.append([{
             "text": f"🎵 {song_name}",
             "callback_data": f"allsong|{i}"
@@ -1352,7 +1365,12 @@ def webhook():
 
             if 0 <= index < len(songs):
                 s = songs[index]
-                send_audio(chat_id, value(s, "فایل"), "🎶 این سرود تقدیم به شما\n\n🎵 " + value(s, "اسم سرود"))
+                send_audio(
+                    chat_id,
+                    s.get("audio_file_id"),
+                    "🎶\n\nاین سرود تقدیم به شما\n🎶 "
+                + s.get("title", "")
+                )
 
         elif cb == "promise_next":
             promise(chat_id)
