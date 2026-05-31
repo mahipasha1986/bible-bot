@@ -130,13 +130,7 @@ def main_keyboard():
 
 
 def welcome(chat_id):
-    result = writer({"type": "user", "chat_id": chat_id})
-
-    if result.get("exists"):
-        text = "✨ خوشحالیم دوباره می‌بینیمت.\nبه ربات «کلمه‌یاب و سرودیاب» خوش آمدید 🕊️"
-    else:
-        text = "✨ شالوم بر شما فرزندان نور\nبه ربات «کلمه‌یاب و سرودیاب» خوش آمدید 🕊️"
-
+    text = "✨ شالوم بر شما فرزندان نور\nبه ربات «کلمه‌یاب و سرودیاب» خوش آمدید 🕊️"
     send_msg(chat_id, text, main_keyboard())
 
 
@@ -1212,11 +1206,21 @@ def save_prayer(chat_id, text):
         send_msg(chat_id, "🙏 لطفاً بعد از «دعا:» متن درخواست دعای خود را بنویسید.")
         return
 
-    result = writer({"type": "prayer", "text": prayer})
+    try:
+        result = requests.post(
+            f"{API_BASE}/prayers/submit",
+            json={
+                "prayer_text": prayer,
+                "user_name": "ناشناس",
+                "is_anonymous": True
+            },
+            timeout=10
+        ).json()
+    except Exception:
+        result = {}
 
-    if result.get("ok"):
-        clear_cache("Prayers")
-        send_msg(chat_id, "🙏 درخواست دعای شما به صورت ناشناس ثبت شد.\nخادمین برای شما دعا خواهند کرد 🙏")
+    if result.get("id"):
+        send_msg(chat_id, "🙏 درخواست دعای شما ثبت شد و پس از تایید خادمین نمایش داده می‌شود.")
     else:
         send_msg(chat_id, "متأسفانه ثبت دعا انجام نشد. لطفاً دوباره تلاش کنید.")
 
