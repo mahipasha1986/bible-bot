@@ -1171,32 +1171,21 @@ def receive_prayer_text(chat_id, text, user):
         display_name = "ناشناس"
         public_text = text
 
-    pending_id = str(int(time.time() * 1000))
-    PENDING_PRAYERS[pending_id] = {
-        "user_chat_id": chat_id,
-        "display_name": display_name,
-        "public_text": public_text,
-        "original_text": text
-    }
-
     PRAYER_STATES.pop(str(chat_id), None)
 
-    send_msg(chat_id, "🙏 درخواست دعای شما دریافت شد و پس از تایید خادمین در بخش دعا نمایش داده می‌شود.")
-
-    admin_text = (
-        "🙏 درخواست دعای جدید برای تایید\n\n"
-        f"👤 نمایش برای دیگران: {display_name}\n\n"
-        f"📝 متن دعا:\n{text}"
-    )
-
-    send_msg(
-        ADMIN_CHAT_ID,
-        admin_text,
-        {"inline_keyboard": [
-            [{"text": "✅ تایید", "callback_data": f"approve_prayer|{pending_id}"}],
-            [{"text": "❌ رد", "callback_data": f"reject_prayer|{pending_id}"}],
-        ]}
-    )
+    try:
+        requests.post(
+            f"{API_BASE}/prayers/submit",
+            json={
+                "prayer_text": public_text,
+                "user_name": display_name,
+                "is_anonymous": visibility != "name"
+            },
+            timeout=10
+        )
+        send_msg(chat_id, "🙏 درخواست دعای شما ثبت شد.")
+    except Exception:
+        send_msg(chat_id, "متأسفانه ثبت دعا انجام نشد. لطفاً دوباره تلاش کنید.")
 
 
 def save_prayer(chat_id, text):
