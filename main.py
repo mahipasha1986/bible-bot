@@ -278,7 +278,6 @@ def api_send_song():
 
     send_audio(
         chat_id,
-        value(s, "فایل"),
         s.get("audio_file_id"),
         "🎶 این سرود تقدیم به شما\n\n🎵 " + s.get("title", "")
     )
