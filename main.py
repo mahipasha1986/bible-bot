@@ -1414,7 +1414,7 @@ def webhook():
                 send_msg(chat_id, "✅ دعا تایید و در بخش دعا ثبت شد.")
                 send_msg(prayer["user_chat_id"], "🙏 درخواست دعای شما تایید شد و در بخش دعا قرار گرفت.")
             else:
-                send_msg(chat_id, "❌ ثبت دعا در شیت انجام نشد. دوباره تلاش کنید.")
+                send_msg(chat_id, "❌ ثبت دعا انجام نشد. دوباره تلاش کنید.")
 
         elif cb.startswith("reject_prayer|"):
             pending_id = cb.split("|", 1)[1]
