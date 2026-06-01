@@ -3,7 +3,6 @@ import requests
 import os
 import re
 import random
-import time
 
 app = Flask(__name__)
 
@@ -23,7 +22,6 @@ SONG_CATEGORIES = [
 
 SONGS_PER_PAGE = 20
 CACHE = {}
-CACHE_TIME = 300
 
 PRAYER_STATES = {}
 PENDING_PRAYERS = {}
@@ -235,7 +233,6 @@ def api_category(cat_index):
     if cat_index < 0 or cat_index >= len(SONG_CATEGORIES):
         return jsonify({"ok": False, "songs": []})
 
-    cat_value = SONG_CATEGORIES[cat_index]["value"]
     rows = get_category_songs()
     songs = []
 
