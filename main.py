@@ -224,7 +224,7 @@ def api_songs():
     for i, r in enumerate(rows):
         songs.append({
             "index": i,
-            "name": value(r, "اسم سرود")
+            "name": r.get("title", "")
         })
 
     return jsonify({"ok": True, "songs": songs})
@@ -304,7 +304,7 @@ def api_audio():
     if index < 0 or index >= len(rows):
         return Response("not found", status=404)
 
-    file_id = value(rows[index], "فایل")
+    file_id = rows[index].get("audio_file_id")
 
     if not file_id:
         return Response("file not found", status=404)
@@ -375,8 +375,8 @@ def api_random_song():
 
     send_audio(
         chat_id,
-        value(s, "فایل"),
-        "🎶 این سرود تقدیم به شما\n\n🎵 " + value(s, "اسم سرود")
+        s.get("audio_file_id"),
+        "🎶 این سرود تقدیم به شما\n\n🎵 " + s.get("title", "")
     )
 
     return jsonify({"ok": True})
@@ -390,7 +390,7 @@ def api_books():
     for i, r in enumerate(rows):
         books.append({
             "index": i,
-            "name": value(r, "اسم کتاب")
+            "name": r.get("title", "")
         })
 
     return jsonify({"ok": True, "books": books})
