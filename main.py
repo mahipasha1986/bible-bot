@@ -8,13 +8,10 @@ import time
 app = Flask(__name__)
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-SHEET_ID = "1m6dqGbvS-CHQO1eAO6l6A_2vSkxSIWdhlS5WnNl4zA0"
-BASE = f"https://opensheet.elk.sh/{SHEET_ID}"
 API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev"
 TG = f"https://api.telegram.org/bot{BOT_TOKEN}/"
 CHANNEL_URL = "https://t.me/persian_bible"
 WEBAPP_URL = "https://bible-bot-4eo2.onrender.com/webapp"
-WRITER_URL = "https://script.google.com/macros/s/AKfycbwEQknEZsWHgdAyg8BI1tm0R-UDjUiD1gQFcifqa3sSuAWUPT1GmqJ0eSSSmVdNpXVV/exec"
 
 ADMIN_CHAT_ID = "987273459"
 
@@ -50,20 +47,6 @@ def clear_cache(name=None):
         CACHE.clear()
 
 
-def sheet(name, use_cache=True):
-    now = time.time()
-    if use_cache and name in CACHE and now - CACHE[name]["time"] < CACHE_TIME:
-        return CACHE[name]["data"]
-
-    try:
-        data = requests.get(f"{BASE}/{name}", timeout=15).json()
-        CACHE[name] = {"time": now, "data": data}
-        return data
-    except Exception as e:
-        print("Sheet error:", name, e)
-        return []
-
-
 def value(row, key):
     wanted = norm(key)
     for k, v in row.items():
@@ -93,14 +76,6 @@ def send_doc(chat_id, file_id, caption=""):
         "document": file_id,
         "caption": caption
     })
-
-
-def writer(payload):
-    try:
-        return requests.post(WRITER_URL, json=payload, timeout=10).json()
-    except Exception as e:
-        print("Writer error:", e)
-        return {"ok": False}
 
 
 def get_user_name(user):
@@ -207,9 +182,14 @@ def get_all_songs():
 
 
 def get_category_songs():
+    try:
+        rows = requests.get(f"{API_BASE}/hymns", timeout=10).json()
+    except Exception:
+        rows = []
+
     return [
-        r for r in sheet("CategorySongs", use_cache=False)
-        if value(r, "اسم سرود") and value(r, "فایل")
+        r for r in rows
+        if r.get("title") and r.get("audio_file_id") and r.get("is_active", True)
     ]
 
 
@@ -260,10 +240,10 @@ def api_category(cat_index):
     songs = []
 
     for i, r in enumerate(rows):
-        if norm(value(r, "مناسبت")) == norm(cat_value):
+        if r.get("category_id") == SONG_CATEGORIES[cat_index]["category_id"]:
             songs.append({
                 "index": i,
-                "name": value(r, "اسم سرود")
+                "name": r.get("title", "")
             })
 
     return jsonify({
@@ -299,7 +279,8 @@ def api_send_song():
     send_audio(
         chat_id,
         value(s, "فایل"),
-        "🎶 این سرود تقدیم به شما\n\n🎵 " + value(s, "اسم سرود")
+        s.get("audio_file_id"),
+        "🎶 این سرود تقدیم به شما\n\n🎵 " + s.get("title", "")
     )
 
     return jsonify({"ok": True})
