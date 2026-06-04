@@ -1115,7 +1115,89 @@ def fact(chat_id):
         msg,
         {"inline_keyboard": [[{"text": "💡 دانستنی بعدی", "callback_data": "fact_next"}]]}
     )
+def bible_menu(chat_id):
+    send_msg(
+        chat_id,
+        "📖 بخش کتاب مقدس\n\nیکی از گزینه‌ها را انتخاب کنید:",
+        {"inline_keyboard": [
+            [{"text": "📜 عهد عتیق", "callback_data": "bible_testament|OT"}],
+            [{"text": "📘 عهد جدید", "callback_data": "bible_testament|NT"}],
+        ]}
+    )
 
+
+def bible_books(chat_id, testament):
+    try:
+        rows = requests.get(f"{API_BASE}/bible/books", timeout=10).json()
+    except Exception:
+        rows = []
+
+    books = [b for b in rows if b.get("testament") == testament]
+
+    if not books:
+        send_msg(chat_id, "📖 هنوز کتابی برای این بخش ثبت نشده است.")
+        return
+
+    buttons = []
+    for b in books:
+        buttons.append([{
+            "text": "📖 " + b.get("name_fa", ""),
+            "callback_data": f"bible_book|{b.get('id')}"
+        }])
+
+    send_msg(chat_id, "📖 کتاب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
+
+
+def bible_chapters(chat_id, book_id):
+    try:
+        rows = requests.get(f"{API_BASE}/bible/chapters?book_id={book_id}", timeout=10).json()
+    except Exception:
+        rows = []
+
+    if not rows:
+        send_msg(chat_id, "📖 هنوز فصلی برای این کتاب ثبت نشده است.")
+        return
+
+    buttons = []
+    row = []
+
+    for ch in rows:
+        row.append({
+            "text": str(ch.get("chapter_number")),
+            "callback_data": f"bible_chapter|{book_id}|{ch.get('chapter_number')}"
+        })
+
+        if len(row) == 5:
+            buttons.append(row)
+            row = []
+
+    if row:
+        buttons.append(row)
+
+    send_msg(chat_id, "📖 باب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
+
+
+def bible_verses(chat_id, book_id, chapter_number):
+    try:
+        rows = requests.get(
+            f"{API_BASE}/bible/verses?book_id={book_id}&chapter_number={chapter_number}",
+            timeout=10
+        ).json()
+    except Exception:
+        rows = []
+
+    if not rows:
+        send_msg(
+            chat_id,
+            "📖 آیات این باب به‌زودی اضافه می‌شود.\n\nاین بخش در حال تکمیل است."
+        )
+        return
+
+    text = f"📖 باب {chapter_number}\n\n"
+    for v in rows:
+        text += f"{v.get('verse_number')}. {v.get('verse_text')}\n\n"
+
+    send_msg(chat_id, text)
 
 def prayer_menu(chat_id):
     send_msg(chat_id, "یکی از گزینه‌ها را انتخاب کنید 👇",
