@@ -1340,6 +1340,8 @@ def webhook():
             prayer_menu(chat_id)
         elif text == "📖 کلمات کتاب مقدس":
             word_instruction(chat_id)
+        elif text == "📖 کتاب مقدس":
+            bible_menu(chat_id)
         elif text == "📩 وعده‌های خدا":
             promise(chat_id)
         elif text == "💡 دانستنی‌های جالب":
