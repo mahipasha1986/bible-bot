@@ -1458,6 +1458,20 @@ def webhook():
         elif cb == "back_main":
             send_msg(chat_id, "🏠 از منوی پایین، بخش مورد نظر را انتخاب کنید.", main_keyboard())
 
+        elif cb.startswith("bible_testament|"):
+            testament = cb.split("|", 1)[1]
+            bible_books(chat_id, testament)
+
+        elif cb.startswith("bible_book|"):
+            book_id = cb.split("|", 1)[1]
+            bible_chapters(chat_id, book_id)
+
+        elif cb.startswith("bible_chapter|"):
+            parts = cb.split("|")
+            book_id = parts[1]
+            chapter_number = parts[2]
+            bible_verses(chat_id, book_id, chapter_number)
+
         elif cb == "prayer_request":
             ask_prayer_visibility(chat_id)
 
