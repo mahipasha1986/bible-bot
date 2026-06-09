@@ -549,6 +549,7 @@ audio{
 <div class="tab-buttons">
   <button class="purple" onclick="showSection('songsSection')">🎼 سرودها</button>
   <button class="green" onclick="showSection('librarySection')">📚 کتابخانه</button>
+  <button class="gold" onclick="showSection('bibleSection')">📖 کتاب مقدس</button>
 </div>
 
 <div id="songsSection" class="section active">
@@ -604,6 +605,35 @@ audio{
 
 </div>
 
+<div id="bibleSection" class="section">
+
+    <div class="card">
+        <h1>📖 کتاب مقدس</h1>
+
+        <p>
+            به بخش کتاب مقدس خوش آمدید.<br>
+            از این قسمت می‌توانید عهد عتیق و عهد جدید را مطالعه کنید.
+        </p>
+    </div>
+
+    <div class="card">
+        <button class="gold">
+            📜 عهد عتیق
+        </button>
+
+        <button class="blue">
+            ✨ عهد جدید
+        </button>
+    </div>
+
+    <div class="card">
+        <div id="bibleContent">
+            انتخاب یکی از بخش‌های بالا...
+        </div>
+    </div>
+
+</div>
+
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
@@ -619,6 +649,7 @@ let allBooks = [];
 function showSection(sectionId){
   document.getElementById("songsSection").classList.remove("active");
   document.getElementById("librarySection").classList.remove("active");
+  document.getElementById("bibleSection").classList.remove("active");
   document.getElementById(sectionId).classList.add("active");
 }
 
