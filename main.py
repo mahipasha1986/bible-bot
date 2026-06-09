@@ -757,14 +757,12 @@ async function loadBibleVerses(bookId, chapterNumber, bookName){
             </div>
 
             ${verses.map(v => `
-                <div class="book-item">
-                    <div style="font-weight:bold; margin-bottom:8px;">
-                        آیه ${v.verse_number}
-                    </div>
-
-                    <div style="line-height:2; font-size:17px;">
-                        ${v.verse_text}
-                    </div>
+                <div style="margin-bottom:10px; line-height:2; font-size:17px;
+            text-align:right;">
+                    <span style="font-weight:bold; color:#ffd700;">
+                        ${v.verse_number}
+                    </span>
+                    ${v.verse_text}
                 </div>
             `).join("")}
         `;
