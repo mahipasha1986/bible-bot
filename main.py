@@ -672,7 +672,7 @@ async function loadBibleBooks(testament){
 
         bibleContent.innerHTML = filtered.map(book => `
             <div class="book-item">
-                📖 ${book.name}
+                 📖 ${book.book_name_fa || book.name || book.title}
             </div>
         `).join("");
 
