@@ -659,6 +659,7 @@ async function loadBibleBooks(testament){
         );
 
         const books = await res.json();
+        console.log("Bible books data:", books);
 
         let filtered = books;
 
