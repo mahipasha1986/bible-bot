@@ -752,6 +752,11 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                  ⬅️ بازگشت به باب‌ها
             </div>
 
+            <div class="book-item"
+                 onclick="loadBibleBooks(currentBibleTestament)">
+                 ⬅️ بازگشت به کتاب‌ها
+            </div>
+
             <div class="small">
                 📖 ${bookName} - باب ${chapterNumber}
             </div>
