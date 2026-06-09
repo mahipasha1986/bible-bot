@@ -646,7 +646,11 @@ let selectedSong = null;
 
 let allBooks = [];
 
+let currentBibleTestament = "old";
+
 async function loadBibleBooks(testament){
+
+    currentBibleTestament = testament;
 
     const bibleContent = document.getElementById("bibleContent");
 
@@ -702,7 +706,13 @@ async function loadBibleChapters(bookId, bookName){
         const chapters = await res.json();
 
         bibleContent.innerHTML = `
+            <div class="book-item"
+                 onclick="loadBibleBooks(currentBibleTestament)">
+                 ⬅️ بازگشت به کتاب‌ها
+            </div>
+
             <div class="small">📖 ${bookName}</div>
+
             ${chapters.map(chapter => `
                 <div class="book-item">
                     باب ${chapter.chapter_number}
