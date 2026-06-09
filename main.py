@@ -765,7 +765,24 @@ async function loadBibleVerses(bookId, chapterNumber, bookName){
                     ${v.verse_text}
                 </div>
             `).join("")}
-        `;
+
+            <div style="display:flex; gap:10px; margin-top:25px;">
+
+                <div class="book-item"
+                     onclick="loadBibleVerses(bookId, chapterNumber - 1, bookName)"
+                     style="flex:1;">
+                     ⬅️ باب قبل
+                </div>
+
+                <div class="book-item"
+                     onclick="loadBibleVerses(bookId, chapterNumber + 1, bookName)"
+                     style="flex:1;">
+                     باب بعد ➡️
+                </div>
+
+            </div>
+            
+            `;
 
     }catch(err){
 
