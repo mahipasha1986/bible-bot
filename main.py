@@ -767,23 +767,17 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             `).join("")}
 
             <div style="display:flex; gap:10px; margin-top:25px;">
+                <div class="book-item"
+                     onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
+                     style="flex:1; display:${chapterNumber > 1 ? 'block' : 'none'};">
+                     باب قبل
+                </div>
 
-                ${chapterNumber > 1 ? `
-                    <div class="book-item"
-                         onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
-                         style="flex:1;">
-                         باب قبل
-                    </div>
-                ` : `<div style="flex:1;"></div>`}
-
-                ${chapterNumber < totalChapters ? `
-                    <div class="book-item"
-                         onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
-                         style="flex:1;">
-                         باب بعد 
-                    </div>
-                ` : `<div style="flex:1;"></div>`}
-
+                <div class="book-item"
+                     onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                     style="flex:1; display:${chapterNumber < totalChapters ? 'block' : 'none'};">
+                     باب بعد
+                </div>
             </div>
             
             `;
