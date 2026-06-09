@@ -617,11 +617,11 @@ audio{
     </div>
 
     <div class="card">
-        <button class="gold">
+        <button class="gold" onclick="loadBibleBooks('old')">
             📜 عهد عتیق
         </button>
 
-        <button class="blue">
+        <button class="gold" onclick="loadBibleBooks('new')">
             ✨ عهد جدید
         </button>
     </div>
@@ -646,11 +646,50 @@ let selectedSong = null;
 
 let allBooks = [];
 
+async function loadBibleBooks(testament){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    bibleContent.innerHTML = "⏳ در حال دریافت کتاب‌ها...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/books"
+        );
+
+        const books = await res.json();
+
+        let filtered = books;
+
+        if(testament === "old"){
+            filtered = books.filter(b => b.testament === "old");
+        }
+
+        if(testament === "new"){
+            filtered = books.filter(b => b.testament === "new");
+        }
+
+        bibleContent.innerHTML = filtered.map(book => `
+            <div class="book-item">
+                📖 ${book.name}
+            </div>
+        `).join("");
+
+    }catch(err){
+
+        bibleContent.innerHTML =
+            "❌ خطا در دریافت کتاب‌های کتاب مقدس";
+
+    }
+}
+
 function showSection(sectionId){
-  document.getElementById("songsSection").classList.remove("active");
-  document.getElementById("librarySection").classList.remove("active");
-  document.getElementById("bibleSection").classList.remove("active");
-  document.getElementById(sectionId).classList.add("active");
+
+    document.getElementById("songsSection").classList.remove("active");
+    document.getElementById("librarySection").classList.remove("active");
+    document.getElementById("bibleSection").classList.remove("active");
+    document.getElementById(sectionId).classList.add("active");
 }
 
 function getChatId(){
