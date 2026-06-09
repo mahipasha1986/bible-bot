@@ -714,7 +714,8 @@ async function loadBibleChapters(bookId, bookName){
             <div class="small">📖 ${bookName}</div>
 
             ${chapters.map(chapter => `
-                <div class="book-item">
+                <div class="book-item"
+                     onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}')">
                     باب ${chapter.chapter_number}
                 </div>
             `).join("")}
@@ -723,6 +724,51 @@ async function loadBibleChapters(bookId, bookName){
     }catch(err){
 
         bibleContent.innerHTML = "❌ خطا در دریافت باب‌ها";
+
+    }
+}
+
+async function loadBibleVerses(bookId, chapterNumber, bookName){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    bibleContent.innerHTML =
+        "⌛ در حال دریافت آیات...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/verses?book_id="
+            + bookId +
+            "&chapter_number=" +
+            chapterNumber
+        );
+
+        const verses = await res.json();
+
+        bibleContent.innerHTML = `
+            <div class="book-item"
+                 onclick="loadBibleChapters(${bookId}, '${bookName}')">
+                 ⬅️ بازگشت به باب‌ها
+            </div>
+
+            <div class="small">
+                📖 ${bookName} - باب ${chapterNumber}
+            </div>
+
+            ${verses.map(v => `
+                <div class="card">
+                    <b>${v.verse_number}</b>
+                    <br>
+                    ${v.verse_text}
+                </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+
+        bibleContent.innerHTML =
+            "❌ خطا در دریافت آیات";
 
     }
 }
