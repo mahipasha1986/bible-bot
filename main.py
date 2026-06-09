@@ -674,7 +674,7 @@ async function loadBibleBooks(testament){
         }
 
         bibleContent.innerHTML = filtered.map(book => `
-            <div class="book-item">
+            <div class="book-item" onclick="loadBibleChapters(${book.id}, '${book.name_fa || book.name}')">
                  📖 ${book.name_fa || book.book_name_fa || book.name || book.title}
             </div>
         `).join("");
@@ -683,6 +683,36 @@ async function loadBibleBooks(testament){
 
         bibleContent.innerHTML =
             "❌ خطا در دریافت کتاب‌های کتاب مقدس";
+
+    }
+}
+
+async function loadBibleChapters(bookId, bookName){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    bibleContent.innerHTML = "⏳ در حال دریافت باب‌های " + bookName + "...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/chapters?book_id=" + bookId
+        );
+
+        const chapters = await res.json();
+
+        bibleContent.innerHTML = `
+            <div class="small">📖 ${bookName}</div>
+            ${chapters.map(chapter => `
+                <div class="book-item">
+                    باب ${chapter.chapter_number}
+                </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+
+        bibleContent.innerHTML = "❌ خطا در دریافت باب‌ها";
 
     }
 }
