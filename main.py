@@ -769,15 +769,15 @@ async function loadBibleVerses(bookId, chapterNumber, bookName){
             <div style="display:flex; gap:10px; margin-top:25px;">
 
                 <div class="book-item"
-                     onclick="loadBibleVerses(bookId, chapterNumber - 1, bookName)"
+                     onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}')"
                      style="flex:1;">
-                     ⬅️ باب قبل
+                     باب قبل
                 </div>
 
                 <div class="book-item"
-                     onclick="loadBibleVerses(bookId, chapterNumber + 1, bookName)"
+                     onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}')"
                      style="flex:1;">
-                     باب بعد ➡️
+                     باب بعد
                 </div>
 
             </div>
