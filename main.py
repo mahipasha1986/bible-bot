@@ -776,12 +776,13 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 </div>
                 ` : `<div style="flex:1;"></div>`}
 
+                ${chapterNumber < totalChapters ? `
                 <div class="book-item"
-                     onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}')"
-                     style="flex:1;">
-                     باب بعد
-                </div>
-
+                     onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                style="flex:1;">
+                باب بعد
+           </div>
+           ` : `<div style="flex:1;"></div>`}
             </div>
             
             `;
