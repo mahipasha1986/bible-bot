@@ -661,14 +661,16 @@ async function loadBibleBooks(testament){
         const books = await res.json();
         console.log("Bible books data:", books);
 
-        let filtered = books;
+        let bookList = Array.isArray(books) ? books : (books.books || books.data || []);
+
+        let filtered = bookList;
 
         if(testament === "old"){
-            filtered = books.filter(b => b.testament === "old");
+            filtered = bookList.filter(b => b.testament === "old");
         }
 
         if(testament === "new"){
-            filtered = books.filter(b => b.testament === "new");
+            filtered = bookList.filter(b => b.testament === "new");
         }
 
         bibleContent.innerHTML = filtered.map(book => `
