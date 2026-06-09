@@ -715,7 +715,7 @@ async function loadBibleChapters(bookId, bookName){
 
             ${chapters.map(chapter => `
                 <div class="book-item"
-                     onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}')">
+                     onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})"
                     باب ${chapter.chapter_number}
                 </div>
             `).join("")}
@@ -728,7 +728,7 @@ async function loadBibleChapters(bookId, bookName){
     }
 }
 
-async function loadBibleVerses(bookId, chapterNumber, bookName){
+async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
     const bibleContent = document.getElementById("bibleContent");
 
