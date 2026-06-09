@@ -665,14 +665,6 @@ async function loadBibleBooks(testament){
 
         let filtered = bookList;
 
-        if(testament === "old"){
-            filtered = bookList.filter(b => b.testament === "old");
-        }
-
-        if(testament === "new"){
-            filtered = bookList.filter(b => b.testament === "new");
-        }
-
         bibleContent.innerHTML = filtered.map(book => `
             <div class="book-item">
                  📖 ${book.book_name_fa || book.name || book.title}
