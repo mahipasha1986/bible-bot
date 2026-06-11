@@ -627,6 +627,20 @@ audio{
     </div>
 
     <div class="card">
+
+        <input
+            id="bibleSearchInput"
+            type="text"
+            placeholder="🔍 جستجوی آیه..."
+            style="width:100%; padding:12px; border-radius:12px; margin-bottom:10px;">
+
+        <button class="gold" onclick="searchBibleVerse()">
+            🔍 جستجو
+        </button>
+
+    </div>
+
+    <div class="card">
         <div id="bibleContent">
             انتخاب یکی از بخش‌های بالا...
         </div>
