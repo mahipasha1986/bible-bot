@@ -662,6 +662,48 @@ let allBooks = [];
 
 let currentBibleTestament = "old";
 
+async function searchBibleVerse(){
+
+    const input = document.getElementById("bibleSearchInput");
+    const bibleContent = document.getElementById("bibleContent");
+
+    const q = input.value.trim();
+
+    if(!q){
+        bibleContent.innerHTML = "لطفاً عبارت جستجو را وارد کنید";
+        return;
+    }
+
+    bibleContent.innerHTML = "⏳ در حال جستجو...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" + encodeURIComponent(q)
+        );
+
+        const results = await res.json();
+
+        bibleContent.innerHTML = `
+            <div class="small">
+                🔍 نتیجه جستجو برای: ${q}
+            </div>
+
+            ${results.map(v => `
+                <div style="margin-bottom:12px; line-height:2;">
+                    <span style="font-weight:bold;color:#ffd700;">
+                        ${v.chapter_number}:${v.verse_number}
+                    </span>
+                    ${v.verse_text}
+                </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+        bibleContent.innerHTML = "❌ خطا در جستجو";
+    }
+}
+
 async function loadBibleBooks(testament){
 
     currentBibleTestament = testament;
