@@ -638,6 +638,10 @@ audio{
             🔍 جستجو
         </button>
 
+        <button class="gold" onclick="loadDailyVerse()">
+            🌟 آیه روز
+        </button>
+
     </div>
 
     <div class="card">
@@ -701,6 +705,39 @@ async function searchBibleVerse(){
 
     }catch(err){
         bibleContent.innerHTML = "❌ خطا در جستجو";
+    }
+}
+
+async function loadDailyVerse(){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    bibleContent.innerHTML = "⏳ در حال دریافت آیه روز...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse"
+        );
+
+        const data = await res.json();
+        const verse = data[0];
+
+        bibleContent.innerHTML = `
+            <div class="small">
+                🌟 آیه روز
+            </div>
+
+            <div style="margin-bottom:12px; line-height:2; font-size:17px; text-align:right;">
+                <span style="font-weight:bold; color:#ffd700;">
+                    ${verse.chapter_number}:${verse.verse_number}
+                </span>
+                ${verse.verse_text}
+            </div>
+        `;
+
+    }catch(err){
+        bibleContent.innerHTML = "❌ خطا در دریافت آیه روز";
     }
 }
 
