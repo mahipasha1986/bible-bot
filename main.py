@@ -547,25 +547,85 @@ audio{
 <body>
 
 <div class="tab-buttons">
-  <button class="purple" onclick="showSection('songsSection')">🎼 سرودها</button>
-  <button class="green" onclick="showSection('librarySection')">📚 کتابخانه</button>
-  <button class="gold" onclick="showSection('bibleSection')">📖 کتاب مقدس</button>
+
+    <button class="gold"
+        onclick="showSection('homeSection')">
+        🏠 خانه
+    </button>
+
+    <button class="gold"
+        onclick="showSection('bibleSection')">
+        📖 کتاب مقدس
+    </button>
+
+    <button class="gold"
+        onclick="alert('🔍 دانشنامه کتاب مقدس در حال تکمیل است')">
+        🔍 دانشنامه کتاب مقدس
+    </button>
+
 </div>
 
-<div id="songsSection" class="section active">
+<div id="homeSection" class="section active">
 
 <div class="card">
-  <h1>🎼 سرودهای پرستشی</h1>
-  <p>
-به بخش سرودیاب خوش آمدید.<br>
-از گزینه‌های زیر می‌توانید سرودهای مناسبتی یا لیست کامل سرودها را انتخاب کنید.
+
+<h1>کلام حیات</h1>
+
+<p>
+مطالعه، درک و زندگی با کلام خدا
 </p>
 
-  <button class="gold" onclick="loadCategory(0)">✝️ سرودهای عید قیام</button>
-  <button class="blue" onclick="loadCategory(1)">🎄 سرودهای تولد مسیح</button>
-  <button class="red" onclick="loadCategory(2)">🩸 سرودهای جمعه صلیب</button>
-  <button class="green" onclick="loadSongs()">🎼 لیست کامل سرودها</button>
+<div class="small">
+پلتفرم جامع فارسی برای مطالعه کتاب مقدس،
+دانشنامه کتاب مقدس،
+سرودها،
+کتابخانه،
+کتاب مقدس صوتی
+و بازی‌ها و آزمون‌های کتاب مقدس
 </div>
+
+</div>
+
+<div class="card">
+  <h1>🌟 آیه روز</h1>
+  <div id="homeDailyVerse" class="small">
+    در حال دریافت آیه روز...
+  </div>
+</div>
+
+<div class="card">
+  <h1>🔍 دانشنامه کتاب مقدس</h1>
+  <p>
+    واژه‌ها • شخصیت‌ها • مکان‌ها • آیات مرتبط
+  </p>
+  <button class="gold" onclick="showBibleEncyclopedia()">
+    ورود به دانشنامه
+  </button>
+</div>
+
+<div class="card">
+  <button class="gold" onclick="showSection('bibleSection')">
+    📖 کتاب مقدس
+  </button>
+
+  <button class="gold" onclick="showSection('songsSection')">
+    🎵 سرودها
+  </button>
+
+  <button class="gold" onclick="showSection('librarySection')">
+    📚 کتابخانه
+  </button>
+
+  <button class="gold" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
+    🎧 کتاب مقدس صوتی
+  </button>
+
+  <button class="gold" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
+    🎮 بازی‌ها و آزمون‌ها
+  </button>
+</div>
+
+<div id="songsSection" class="section">
 
 <div class="card">
   <input id="search" placeholder="🔍 جستجوی نام سرود..." oninput="filterSongs()">
