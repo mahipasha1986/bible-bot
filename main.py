@@ -436,44 +436,53 @@ def webapp():
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:radial-gradient(circle at top,#5d347d,#1b102b 65%);
-  color:white;
-  padding:18px;
-  text-align:center;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f7;
+    color:#222;
+    padding:18px;
+    text-align:center;
 }
 .card{
-  background:rgba(255,255,255,0.13);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:28px;
+  background:#ffffff;
+  border:1px solid #e7e7ec;
+  border-radius:24px;
   padding:20px;
   margin-bottom:16px;
-  box-shadow:0 12px 40px rgba(0,0,0,0.35);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
-h1{font-size:25px;margin:5px 0 12px;}
-p{line-height:1.9;font-size:15px;opacity:.94;}
+h1{
+    font-size:30px;
+    font-weight:700;
+    color:#2c2c2c;
+    margin:8px 0 16px;
+}
+
+p{
+    line-height:2;
+    font-size:16px;
+    color:#555;
+}
 button{
   width:100%;
-  padding:15px;
+  padding:14px;
   margin-top:11px;
   border:none;
-  border-radius:18px;
-  font-size:16px;
-  font-weight:bold;
-  color:white;
+  border-radius:16px;
+  font-size:15px;
+  font-weight:700;
+  color:#222;
   cursor:pointer;
-  box-shadow:0 8px 22px rgba(0,0,0,.28);
+  box-shadow:none;
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
 .green{background:linear-gradient(135deg,#56ab2f,#a8e063);color:#102000;}
 .gold{
-  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(255,255,255,.07));
-  color:#f4e7bd;
-  border:1px solid rgba(212,175,55,.38);
-  box-shadow:0 10px 28px rgba(0,0,0,.22);
-  letter-spacing:.2px;
+  background:#d4af37;
+  color:#1f1f1f;
+  border:1px solid #c9a227;
+  box-shadow:0 6px 16px rgba(212,175,55,.22);
 }
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
@@ -481,43 +490,54 @@ input{
   box-sizing:border-box;
   padding:15px;
   border-radius:18px;
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.12);
-  color:white;
+  border:1px solid #dedee6;
+  background:#ffffff;
+  color:#222;
   margin-top:12px;
   font-size:16px;
   text-align:right;
   outline:none;
 }
-input::placeholder{color:rgba(255,255,255,.7);}
+input::placeholder{color:#999;}
 .song-item, .book-item{
-  background:rgba(255,255,255,0.12);
-  border:1px solid rgba(255,255,255,.14);
-  padding:13px;
-  border-radius:16px;
-  margin-top:10px;
-  cursor:pointer;
-  text-align:right;
+    background:#ffffff;
+    border:1px solid #e7e7ec;
+    padding:16px;
+    border-radius:18px;
+    margin-top:12px;
+    cursor:pointer;
+    text-align:right;
+    color:#333;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.song-item:hover,
+.book-item:hover{
+    background:#fafafa;
+    border-color:#d4d4dc;
+    transform:translateY(-1px);
+    transition:all .2s ease;
 }
 .small{
-  font-size:13px;
-  opacity:.82;
-  margin-top:10px;
-  line-height:1.7;
+    font-size:14px;
+    color:#777;
+    margin-top:10px;
+    line-height:1.8;
 }
 .player-card{
   display:none;
-  background:rgba(255,255,255,0.13);
-  border:1px solid rgba(255,255,255,.18);
+  background:#ffffff;
+  border:1px solid #e7e7ec;
   border-radius:22px;
   padding:16px;
   margin-top:16px;
   text-align:right;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 .player-title{
   font-size:16px;
   font-weight:bold;
   margin-bottom:12px;
+  color:#2c2c2c;
 }
 audio{
   width:100%;
