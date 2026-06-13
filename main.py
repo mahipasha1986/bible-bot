@@ -634,8 +634,8 @@ audio{
 </div>
 
 <div class="card">
-  <button class="gold" onclick="showSection('librarySection'); loadBooks();">
-    📖 کتاب مقدس
+  <button class="gold" onclick="showSection('bibleSection')">
+      📖 کتاب مقدس
   </button>
 
   <button class="gold" onclick="showSection('songsSection'); loadSongs();">
