@@ -642,6 +642,10 @@ audio{
             🌟 آیه روز
         </button>
 
+        <button class="gold" onclick="loadBookmarks()">
+            🔖 آیات ذخیره‌شده
+        </button>
+
     </div>
 
     <div class="card">
@@ -768,6 +772,49 @@ async function loadDailyVerse(){
 
     }catch(err){
         bibleContent.innerHTML = "❌ خطا در دریافت آیه روز";
+    }
+}
+
+async function loadBookmarks(){
+
+    const userId = Telegram.WebApp.initDataUnsafe.user?.id;
+    const bibleContent = document.getElementById("bibleContent");
+
+    if(!userId){
+        bibleContent.innerHTML = "کاربر شناسایی نشد";
+        return;
+    }
+
+    bibleContent.innerHTML = "⏳ در حال دریافت آیات ذخیره‌شده...";
+
+    try{
+
+        const res = await fetch(
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarked-verses?user_id=${userId}`
+        );
+
+        const verses = await res.json();
+
+        if(!verses.length){
+            bibleContent.innerHTML = "هنوز آیه‌ای ذخیره نکرده‌اید.";
+            return;
+        }
+
+        bibleContent.innerHTML = `
+            <div class="small">🔖 آیات ذخیره‌شده</div>
+
+            ${verses.map(v => `
+                <div style="margin-bottom:14px; line-height:2;">
+                    <span style="font-weight:bold;color:#ffd700;">
+                        ${v.chapter_number}:${v.verse_number}
+                    </span>
+                    ${v.verse_text}
+                </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+        bibleContent.innerHTML = "❌ خطا در دریافت آیات ذخیره‌شده";
     }
 }
 
@@ -1361,14 +1408,14 @@ def song_list(chat_id, page=0):
 
     nav = []
     if page > 0:
-        nav.append({"text": "⬅️ صفحه قبل", "callback_data": f"songpage|{page - 1}"})
+        nav.append({"text": "صفحه قبل ➡️", "callback_data": f"songpage|{page - 1}"})
     if page < total_pages - 1:
-        nav.append({"text": "صفحه بعد ➡️", "callback_data": f"songpage|{page + 1}"})
+        nav.append({"text": "⬅️ صفحه بعد", "callback_data": f"songpage|{page + 1}"})
 
     if nav:
         buttons.append(nav)
 
-    buttons.append([{"text": "⬅️ برگشت", "callback_data": "songs_menu"}])
+    buttons.append([{"text": "برگشت ➡️", "callback_data": "songs_menu"}])
 
     send_msg(
         chat_id,
