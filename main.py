@@ -657,23 +657,23 @@ audio{
 
 <div class="card">
   <button class="gold" onclick="showSection('bibleSection')">
-      کتاب مقدس 📖
+      کتاب مقدس 
   </button>
 
   <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
-      سرودها 🎵
+      سرودها 
   </button>
 
   <button class="secondary" onclick="showSection('librarySection')">
-      کتابخانه 📚
+      کتابخانه 
   </button>
 
   <button class="secondary" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
-     کتاب مقدس صوتی 🎧
+     کتاب مقدس صوتی 
   </button>
 
   <button class="secondary" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
-     بازی‌ها و آزمون‌ها 🎮
+     بازی‌ها و آزمون‌ها 
   </button>
 </div>
 
@@ -686,15 +686,15 @@ audio{
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
     <button class="gold" onclick="loadCategory(0)">
-        ✝️ سرودهای عید قیام
+         سرودهای عید قیام
     </button>
 
     <button class="gold" onclick="loadCategory(1)">
-        🎄 سرودهای تولد مسیح
+         سرودهای تولد مسیح
     </button>
 
     <button class="gold" onclick="loadCategory(2)">
-        🩸 سرودهای جمعه صلیب
+         سرودهای جمعه صلیب
     </button>
 
     <button class="gold" onclick="loadSongs()">
@@ -754,11 +754,11 @@ audio{
 
     <div class="card">
         <button class="gold" onclick="loadBibleBooks('old')">
-            📜 عهد عتیق
+             عهد عتیق
         </button>
 
         <button class="gold" onclick="loadBibleBooks('new')">
-            ✨ عهد جدید
+             عهد جدید
         </button>
     </div>
 
