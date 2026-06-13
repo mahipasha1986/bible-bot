@@ -890,7 +890,7 @@ async function loadDailyVerse(){
             </div>
 
             <div style="margin-bottom:12px; line-height:2; font-size:17px; text-align:right;">
-                <span style="font-weight:bold; color:#ffd700;">
+                <span style="font-weight:bold; color:#1f4e79;">
                     ${verse.chapter_number}:${verse.verse_number}
                 </span>
                 ${verse.verse_text}
@@ -932,7 +932,7 @@ async function loadBookmarks(){
 
             ${verses.map(v => `
                 <div style="margin-bottom:14px; line-height:2;">
-                    <span style="font-weight:bold;color:#ffd700;">
+                    <span style="font-weight:bold;color:#1f4e79;">
                         ${v.chapter_number}:${v.verse_number}
                     </span>
                     ${v.verse_text}
@@ -1086,7 +1086,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             ${verses.map(v => `
                 <div style="margin-bottom:10px; line-height:2; font-size:17px;
             text-align:right;">
-                    <span style="font-weight:bold; color:#ffd700;">
+                    <span style="font-weight:bold; color:#1f4e79;">
                         ${v.verse_number}
                     </span>
                     ${v.verse_text}
@@ -1405,6 +1405,8 @@ async function sendBook(index){
     document.getElementById("bookStatus").innerText = "❌ ارسال کتاب انجام نشد.";
   }
 }
+loadDailyVerse();
+
 </script>
 
 </body>
