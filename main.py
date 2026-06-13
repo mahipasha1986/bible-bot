@@ -462,21 +462,31 @@ p{
     line-height:2;
     font-size:16px;
     color:#555;
-}button{
+}
+button{
     width:100%;
-    padding:16px 18px;
+    padding:16px;
     margin-top:12px;
     border:none;
     border-radius:20px;
     font-size:16px;
-    font-weight:600;
-    color:white;
+    font-weight:700;
     cursor:pointer;
-    background:#1f4e79;
-    box-shadow:0 8px 20px rgba(31,78,121,0.25);
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,0.08);
+
+    transition:all .25s ease;
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
-.blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
+.blue{
+    background:linear-gradient(
+        135deg,
+        #1f4e79,
+        #3b82c4
+    );
+    color:white;
+}
 .green{
     background:linear-gradient(135deg,#1f4e79,#3d7fc0);
     color:white;
@@ -816,7 +826,7 @@ async function searchBibleVerse(){
 
             ${results.map(v => `
                 <div style="margin-bottom:12px; line-height:2;">
-                    <span style="font-weight:bold;color:#ffd700;">
+                    <span style="font-weight:bold;color:#1f4e79;">
                         ${v.chapter_number}:${v.verse_number}
                     </span>
                     ${v.verse_text}
