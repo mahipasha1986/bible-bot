@@ -720,6 +720,8 @@ async function addBookmark(verseId){
         alert("کاربر شناسایی نشد");
         return;
     }
+    
+    alert("User ID: " + userId);
 
     try{
 
