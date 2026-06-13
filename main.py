@@ -462,27 +462,30 @@ p{
     line-height:2;
     font-size:16px;
     color:#555;
-}
-button{
+}button{
     width:100%;
     padding:16px 18px;
     margin-top:12px;
-    border:1px solid #ded6c3;
+    border:none;
     border-radius:20px;
     font-size:16px;
     font-weight:600;
-    color:#2c2c2c;
+    color:white;
     cursor:pointer;
-    background:#ffffff;
-    box-shadow:0 6px 16px rgba(0,0,0,0.06);
+    background:#1f4e79;
+    box-shadow:0 8px 20px rgba(31,78,121,0.25);
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
-.green{background:linear-gradient(135deg,#56ab2f,#a8e063);color:#102000;}
+.green{
+    background:linear-gradient(135deg,#1f4e79,#3d7fc0);
+    color:white;
+    box-shadow:0 6px 18px rgba(31,78,121,0.25);
+}
 .gold{
-    background:linear-gradient(135deg,#ffffff,#f8f5ee);
-    color:#2c2c2c;
-    border:1px solid #d8c28a;
+    background:linear-gradient(135deg,#1f4e79,#2f6fa8);
+    color:white;
+    border:none;
 }
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
