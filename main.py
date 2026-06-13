@@ -699,12 +699,42 @@ async function searchBibleVerse(){
                         ${v.chapter_number}:${v.verse_number}
                     </span>
                     ${v.verse_text}
+
+                    <button class="gold" onclick="addBookmark(${v.id})" style="margin-top:8px;">
+                        🔖 ذخیره آیه
+                    </button>
                 </div>
             `).join("")}
         `;
 
     }catch(err){
         bibleContent.innerHTML = "❌ خطا در جستجو";
+    }
+}
+
+async function addBookmark(verseId){
+
+    const userId = Telegram.WebApp.initDataUnsafe.user?.id;
+
+    if(!userId){
+        alert("کاربر شناسایی نشد");
+        return;
+    }
+
+    try{
+
+        const res = await fetch(
+            `${API_BASE}/bible/bookmarks/add?user_id=${userId}&verse_id=${verseId}`
+        );
+
+        const data = await res.json();
+
+        alert("✅ آیه ذخیره شد");
+
+    }catch(err){
+
+        alert("❌ خطا در ذخیره آیه");
+
     }
 }
 
