@@ -452,23 +452,25 @@ body{
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 h1{
-    font-size:28px;
-    font-weight:700;
-    color:#2c2c2c;
+    font-size:38px;
+    font-weight:800;
+    color:#1f2937;
+    line-height:1.4;
     margin:8px 0 16px;
 }
 
 h2{
-    font-size:24px;
+    font-size:30px;
     font-weight:800;
-    color:#2c2c2c;
+    color:#1f2937;
+    line-height:1.5;
     margin:8px 0 18px;
 }
 
 p{
     line-height:2;
-    font-size:16px;
-    color:#555;
+    font-size:18px;
+    color:#4b5563;
 }
 button{
     width:100%;
@@ -476,8 +478,8 @@ button{
     margin-top:10px;
     border:none;
     border-radius:18px;
-    font-size:17px;
-    font-weight:800;
+    font-size:18px;
+    font-weight:700;
     cursor:pointer;
 
     box-shadow:
@@ -545,10 +547,9 @@ input::placeholder{color:#999;}
     transition:all .2s ease;
 }
 .small{
-    font-size:14px;
-    color:#777;
-    margin-top:10px;
-    line-height:1.8;
+    font-size:16px;
+    color:#6b7280;
+    line-height:2;
 }
 .player-card{
   display:none;
