@@ -898,7 +898,7 @@ async function loadDailyVerse(){
         `;
 
     }catch(err){
-        bibleContent.innerHTML = "❌ خطا در دریافت آیه روز";
+        bibleContent.innerHTML = "❌ " + err.message;
     }
 }
 
