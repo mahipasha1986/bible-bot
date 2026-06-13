@@ -664,15 +664,15 @@ audio{
 
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
-    <button class="gold" onclick="loadCategory(1)">
+    <button class="gold" onclick="loadCategory(0)">
         ✝️ سرودهای عید قیام
     </button>
 
-    <button class="gold" onclick="loadCategory(2)">
+    <button class="gold" onclick="loadCategory(1)">
         🎄 سرودهای تولد مسیح
     </button>
 
-    <button class="gold" onclick="loadCategory(3)">
+    <button class="gold" onclick="loadCategory(2)">
         🩸 سرودهای جمعه صلیب
     </button>
 
@@ -1107,12 +1107,13 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
 function showSection(sectionId){
 
+    document.getElementById("homeSection").classList.remove("active");
     document.getElementById("songsSection").classList.remove("active");
     document.getElementById("librarySection").classList.remove("active");
     document.getElementById("bibleSection").classList.remove("active");
+
     document.getElementById(sectionId).classList.add("active");
 }
-
 function getChatId(){
   const user = Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
   return user ? user.id : null;
