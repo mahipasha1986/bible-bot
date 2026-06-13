@@ -528,13 +528,18 @@ audio{
   padding:13px;
 }
 .tab-buttons{
-  display:flex;
-  gap:10px;
-  margin-bottom:16px;
+    display:flex;
+    gap:10px;
+    margin-bottom:16px;
+    overflow-x:auto;
+    padding-bottom:5px;
 }
+
 .tab-buttons button{
-  flex:1;
-  font-size:14px;
+    flex:none;
+    min-width:140px;
+    font-size:14px;
+    white-space:nowrap;
 }
 .section{
   display:none;
