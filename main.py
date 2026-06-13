@@ -1107,24 +1107,23 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
 function showSection(sectionId){
 
-    const sections = [
-        "homeSection",
-        "songsSection",
-        "librarySection",
-        "bibleSection"
-    ];
+    console.log("Opening section:", sectionId);
 
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        if(el){
-            el.classList.remove("active");
-        }
+    const sections = document.querySelectorAll(".section");
+
+    sections.forEach(section => {
+        section.classList.remove("active");
     });
 
     const target = document.getElementById(sectionId);
-    if(target){
-        target.classList.add("active");
+
+    if(!target){
+        alert("Section پیدا نشد: " + sectionId);
+        return;
     }
+
+    target.classList.add("active");
+    window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function getChatId(){
