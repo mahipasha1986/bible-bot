@@ -468,7 +468,13 @@ button{
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
 .green{background:linear-gradient(135deg,#56ab2f,#a8e063);color:#102000;}
-.gold{background:linear-gradient(135deg,#f7971e,#ffd200);color:#2b1900;}
+.gold{
+  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(255,255,255,.07));
+  color:#f4e7bd;
+  border:1px solid rgba(212,175,55,.38);
+  box-shadow:0 10px 28px rgba(0,0,0,.22);
+  letter-spacing:.2px;
+}
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
   width:100%;
