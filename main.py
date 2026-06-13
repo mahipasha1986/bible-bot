@@ -437,7 +437,7 @@ def webapp():
 <style>
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+    font-family:Tahoma,sans-serif;
     background:#f5f5f7;
     color:#222;
     padding:18px;
@@ -447,7 +447,7 @@ body{
   background:#ffffff;
   border:1px solid #e7e7ec;
   border-radius:24px;
-  padding:20px;
+  padding:16px;
   margin-bottom:16px;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
@@ -479,10 +479,10 @@ button{
 .blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
 .green{background:linear-gradient(135deg,#56ab2f,#a8e063);color:#102000;}
 .gold{
-  background:#d4af37;
-  color:#1f1f1f;
-  border:1px solid #c9a227;
-  box-shadow:0 6px 16px rgba(212,175,55,.22);
+    background:#ffffff;
+    color:#333;
+    border:1px solid #e5e5e5;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
 }
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
