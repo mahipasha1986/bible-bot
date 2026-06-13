@@ -809,12 +809,37 @@ async function loadBookmarks(){
                         ${v.chapter_number}:${v.verse_number}
                     </span>
                     ${v.verse_text}
+                    <button class="gold" onclick="deleteBookmark(${v.id})" style="margin-top:8px;">
+                        🗑 حذف از ذخیره‌ها
+                    </button>
                 </div>
             `).join("")}
         `;
 
     }catch(err){
         bibleContent.innerHTML = "❌ خطا در دریافت آیات ذخیره‌شده";
+    }
+}
+
+async function deleteBookmark(verseId){
+
+    const userId = Telegram.WebApp.initDataUnsafe.user?.id;
+
+    if(!userId){
+        alert("کاربر شناسایی نشد");
+        return;
+    }
+
+    try{
+        await fetch(
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarks/delete?user_id=${userId}&verse_id=${verseId}`
+        );
+
+        alert("🗑 آیه حذف شد");
+        loadBookmarks();
+
+    }catch(err){
+        alert("❌ خطا در حذف آیه");
     }
 }
 
