@@ -464,25 +464,25 @@ p{
     color:#555;
 }
 button{
-  width:100%;
-  padding:14px;
-  margin-top:11px;
-  border:none;
-  border-radius:16px;
-  font-size:15px;
-  font-weight:700;
-  color:#222;
-  cursor:pointer;
-  box-shadow:none;
+    width:100%;
+    padding:16px 18px;
+    margin-top:12px;
+    border:1px solid #ded6c3;
+    border-radius:20px;
+    font-size:16px;
+    font-weight:600;
+    color:#2c2c2c;
+    cursor:pointer;
+    background:#ffffff;
+    box-shadow:0 6px 16px rgba(0,0,0,0.06);
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{background:linear-gradient(135deg,#36d1dc,#5b86e5);}
 .green{background:linear-gradient(135deg,#56ab2f,#a8e063);color:#102000;}
 .gold{
-    background:#ffffff;
-    color:#333;
-    border:1px solid #e5e5e5;
-    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    background:linear-gradient(135deg,#ffffff,#f8f5ee);
+    color:#2c2c2c;
+    border:1px solid #d8c28a;
 }
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
