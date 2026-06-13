@@ -608,7 +608,7 @@ audio{
 
     <button class="gold"
         onclick="showSection('homeSection')">
-        🏠 خانه
+         خانه
     </button>
 
     <button class="gold" onclick="alert('Bible clicked'); showSection('bibleSection')">
@@ -626,7 +626,7 @@ audio{
 
 <div class="card">
 
-<h1>📖 کلام حیات</h1>
+<h1>کلام حیات</h1>
 
 <p>
 مطالعه، پرستش و رشد در کلام خدا
@@ -730,7 +730,7 @@ audio{
     به بخش کتابخانه خوش آمدید<br>
     کتاب‌های موجود را مشاهده کنید و برای دریافت فایل، روی نام کتاب بزنید.
   </p>
-  <button class="green" onclick="loadBooks()">📚 نمایش کتاب‌ها</button>
+  <button class="secondary" onclick="loadBooks()">📚 نمایش کتاب‌ها</button>
 </div>
 
 <div class="card">
