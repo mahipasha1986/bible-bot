@@ -1107,13 +1107,26 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
 function showSection(sectionId){
 
-    document.getElementById("homeSection").classList.remove("active");
-    document.getElementById("songsSection").classList.remove("active");
-    document.getElementById("librarySection").classList.remove("active");
-    document.getElementById("bibleSection").classList.remove("active");
+    const sections = [
+        "homeSection",
+        "songsSection",
+        "librarySection",
+        "bibleSection"
+    ];
 
-    document.getElementById(sectionId).classList.add("active");
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if(el){
+            el.classList.remove("active");
+        }
+    });
+
+    const target = document.getElementById(sectionId);
+    if(target){
+        target.classList.add("active");
+    }
 }
+
 function getChatId(){
   const user = Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
   return user ? user.id : null;
