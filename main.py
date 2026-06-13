@@ -438,24 +438,31 @@ def webapp():
 body{
     margin:0;
     font-family:Tahoma,sans-serif;
-    background:#f5f5f7;
+    background:#f7f9fc;
     color:#222;
     padding:18px;
     text-align:center;
 }
 .card{
-  background:#ffffff;
-  border:1px solid #e7e7ec;
-  border-radius:24px;
-  padding:16px;
-  margin-bottom:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    background:#ffffff;
+    border:1px solid #e8edf3;
+    border-radius:26px;
+    padding:22px 18px;
+    margin-bottom:14px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 h1{
     font-size:30px;
     font-weight:700;
     color:#2c2c2c;
     margin:8px 0 16px;
+}
+
+h2{
+    font-size:28px;
+    font-weight:800;
+    color:#2c2c2c;
+    margin:8px 0 18px;
 }
 
 p{
@@ -469,7 +476,7 @@ button{
     margin-top:12px;
     border:none;
     border-radius:20px;
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
     cursor:pointer;
 
@@ -493,9 +500,10 @@ button{
     box-shadow:0 6px 18px rgba(31,78,121,0.25);
 }
 .gold{
-    background:linear-gradient(135deg,#1f4e79,#2f6fa8);
-    color:white;
-    border:none;
+    background:white;
+    color:#1f4e79;
+    border:2px solid #1f4e79;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 .secondary{
     background:white;
@@ -618,25 +626,20 @@ audio{
 
 <div class="card">
 
-<h1>کلام حیات</h1>
+<h1>📖 کلام حیات</h1>
 
 <p>
-مطالعه، درک و زندگی با کلام خدا
+مطالعه، پرستش و رشد در کلام خدا
 </p>
 
 <div class="small">
-پلتفرم جامع فارسی برای مطالعه کتاب مقدس،
-دانشنامه کتاب مقدس،
-سرودها،
-کتابخانه،
-کتاب مقدس صوتی
-و بازی‌ها و آزمون‌های کتاب مقدس
+کشف حقیقت، رشد ایمان و زندگی با کلام خدا
 </div>
 
 </div>
 
 <div class="card">
-  <h1>🌟 آیه روز</h1>
+  <h2>🌟 آیه روز</h2>
   <div id="homeDailyVerse" class="small">
     در حال دریافت آیه روز...
   </div>
