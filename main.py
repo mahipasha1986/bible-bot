@@ -497,6 +497,12 @@ button{
     color:white;
     border:none;
 }
+.secondary{
+    background:white;
+    color:#1f4e79;
+    border:2px solid #1f4e79;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
   width:100%;
@@ -651,19 +657,19 @@ audio{
       📖 کتاب مقدس
   </button>
 
-  <button class="gold" onclick="showSection('songsSection'); loadSongs();">
+  <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
       🎵 سرودها
   </button>
 
-  <button class="gold" onclick="showSection('librarySection')">
+  <button class="secondary" onclick="showSection('librarySection')">
     📚 کتابخانه
   </button>
 
-  <button class="gold" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
+  <button class="secondary" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
     🎧 کتاب مقدس صوتی
   </button>
 
-  <button class="gold" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
+  <button class="secondary" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
     🎮 بازی‌ها و آزمون‌ها
   </button>
 </div>
