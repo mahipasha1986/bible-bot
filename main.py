@@ -646,7 +646,7 @@ audio{
 </div>
 
 <div class="card">
-  <h1>🔍 دانشنامه کتاب مقدس</h1>
+  <h2>دانشنامه کتاب مقدس 🔎</h2>
   <p>
     واژه‌ها • شخصیت‌ها • مکان‌ها • آیات مرتبط
   </p>
@@ -657,23 +657,23 @@ audio{
 
 <div class="card">
   <button class="gold" onclick="showSection('bibleSection')">
-      📖 کتاب مقدس
+      کتاب مقدس 📖
   </button>
 
   <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
-      🎵 سرودها
+      سرودها 🎵
   </button>
 
   <button class="secondary" onclick="showSection('librarySection')">
-    📚 کتابخانه
+      کتابخانه 📚
   </button>
 
   <button class="secondary" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
-    🎧 کتاب مقدس صوتی
+     کتاب مقدس صوتی 🎧
   </button>
 
   <button class="secondary" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
-    🎮 بازی‌ها و آزمون‌ها
+     بازی‌ها و آزمون‌ها 🎮
   </button>
 </div>
 
