@@ -104,14 +104,14 @@ def main_keyboard():
 
 
 def welcome(chat_id):
-    text = "✨ شالوم بر شما فرزندان نور\nبه ربات «کلمه‌یاب و سرودیاب» خوش آمدید 🕊️"
+    text = "✨ شالوم بر شما فرزندان نور\nبه ربات «کلام حیات» خوش آمدید 🕊️"
     send_msg(chat_id, text, main_keyboard())
 
 
 def guide(chat_id):
     send_msg(chat_id, """⚠️ راهنمای ربات
 
-به ربات «کلمه‌یاب و سرودیاب» خوش آمدید 🕊️
+به ربات «کلام حیات» خوش آمدید 🕊️
 
 برای ورود به App سرودها و کتابخانه، از منوی اصلی روی دکمه «🕊️ بخش سرودها و کتابخانه» بزنید.
 در این بخش می‌توانید:
@@ -432,7 +432,7 @@ def webapp():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سرودها و کتابخانه</title>
+<title>کلام حیات</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
@@ -657,6 +657,30 @@ audio{
 </div>
 
 <div id="songsSection" class="section">
+
+<div class="card">
+
+    <h1>سرودها 🎵</h1>
+
+    <p>دسته‌بندی سرودهای مناسبتی</p>
+
+    <button class="gold" onclick="loadCategory(1)">
+        ✝️ سرودهای عید قیام
+    </button>
+
+    <button class="gold" onclick="loadCategory(2)">
+        🎄 سرودهای تولد مسیح
+    </button>
+
+    <button class="gold" onclick="loadCategory(3)">
+        🩸 سرودهای جمعه صلیب
+    </button>
+
+    <button class="gold" onclick="loadSongs()">
+        🎼 همه سرودها
+    </button>
+
+</div>
 
 <div class="card">
   <input id="search" placeholder="🔍 جستجوی نام سرود..." oninput="filterSongs()">
