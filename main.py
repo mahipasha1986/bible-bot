@@ -720,13 +720,11 @@ async function addBookmark(verseId){
         alert("کاربر شناسایی نشد");
         return;
     }
-    
-    alert("User ID: " + userId);
 
     try{
 
         const res = await fetch(
-            `${API_BASE}/bible/bookmarks/add?user_id=${userId}&verse_id=${verseId}`
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarks/add?user_id=${userId}&verse_id=${verseId}`
         );
 
         const data = await res.json();
