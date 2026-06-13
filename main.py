@@ -447,19 +447,19 @@ body{
     background:#ffffff;
     border:1px solid #e8edf3;
     border-radius:26px;
-    padding:22px 18px;
-    margin-bottom:14px;
+    padding:16px 14px;
+    margin-bottom:8px;
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 h1{
-    font-size:30px;
+    font-size:28px;
     font-weight:700;
     color:#2c2c2c;
     margin:8px 0 16px;
 }
 
 h2{
-    font-size:28px;
+    font-size:24px;
     font-weight:800;
     color:#2c2c2c;
     margin:8px 0 18px;
@@ -472,12 +472,12 @@ p{
 }
 button{
     width:100%;
-    padding:16px;
-    margin-top:12px;
+    padding:13px;
+    margin-top:10px;
     border:none;
-    border-radius:20px;
-    font-size:18px;
-    font-weight:700;
+    border-radius:18px;
+    font-size:17px;
+    font-weight:800;
     cursor:pointer;
 
     box-shadow:
