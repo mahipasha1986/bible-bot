@@ -683,12 +683,8 @@ audio{
   <button class="gold" onclick="showBibleEncyclopedia()">
     ورود به دانشنامه
   </button>
-</div>
-
-<div class="card">
-  <button class="gold" onclick="showSection('bibleSection')">
-      مطالعه کتاب مقدس 
-  </button>
+  
+  </div>
 
   <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
       سرودهای پرستشی 
@@ -715,19 +711,19 @@ audio{
 
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
-    <button class="gold" onclick="loadCategory(0)">
+    <button class="secondary" onclick="loadCategory(0)">
          سرودهای عید قیام
     </button>
 
-    <button class="gold" onclick="loadCategory(1)">
+    <button class="secondary" onclick="loadCategory(1)">
          سرودهای تولد مسیح
     </button>
 
-    <button class="gold" onclick="loadCategory(2)">
+    <button class="secondary" onclick="loadCategory(2)">
          سرودهای جمعه صلیب
     </button>
 
-    <button class="gold" onclick="loadSongs()">
+    <button class="secondary" onclick="loadSongs()">
         آرشیو سرودهای پرستشی
     </button>
 
