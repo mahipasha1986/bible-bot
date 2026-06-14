@@ -455,6 +455,13 @@ body{
     margin-bottom:8px;
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
+.hero-card{
+    background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+    padding:50px 24px;
+    border:none;
+    box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
 h1{
     font-family:'Lalezar','Vazirmatn',sans-serif;
     font-size:42px;
@@ -508,10 +515,18 @@ button{
     box-shadow:0 6px 18px rgba(31,78,121,0.25);
 }
 .gold{
-    background:white;
-    color:#1f4e79;
-    border:2px solid #1f4e79;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    background:linear-gradient(135deg,#1f4e79,#2d6aa0);
+    color:white;
+    border:none;
+    border-radius:18px;
+    padding:16px 22px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.25);
+    transition:all 0.25s ease;
+}
+
+.gold:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 32px rgba(31,78,121,0.35);
 }
 .secondary{
     background:white;
@@ -631,7 +646,7 @@ audio{
 
 <div id="homeSection" class="section active">
 
-<div class="card">
+<div class="card hero-card">
 
 <h1>کلام حیات</h1>
 
@@ -642,6 +657,10 @@ audio{
 <div class="small">
 مسیر روزانه‌ای برای رشد ایمان، پرستش و شناخت عمیق‌تر خدا
 </div>
+
+<button class="gold" onclick="showSection('bibleSection')">
+    شروع مطالعه کتاب مقدس
+</button>
 
 </div>
 
