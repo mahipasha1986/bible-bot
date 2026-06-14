@@ -148,7 +148,7 @@ def songs_menu(chat_id):
 
 
 def word_instruction(chat_id):
-    send_msg(chat_id, "📖 نام کلمه مورد نظر را بنویسید.")
+    send_msg(chat_id, "نام کلمه مورد نظر را بنویسید.")
 
 
 def handle_file(msg):
@@ -863,7 +863,7 @@ async function searchBibleVerse(){
                     ${v.verse_text}
 
                     <button class="gold" onclick="addBookmark(${v.id})" style="margin-top:8px;">
-                        🔖 ذخیره آیه
+                         ذخیره آیه
                     </button>
                 </div>
             `).join("")}
@@ -959,7 +959,7 @@ async function loadBookmarks(){
         }
 
         bibleContent.innerHTML = `
-            <div class="small">🔖 آیات ذخیره‌شده</div>
+            <div class="small">آیات ذخیره‌شده</div>
 
             ${verses.map(v => `
                 <div style="margin-bottom:14px; line-height:2;">
@@ -1032,7 +1032,7 @@ async function loadBibleBooks(testament){
 
         bibleContent.innerHTML = filtered.map(book => `
             <div class="book-item" onclick="loadBibleChapters(${book.id}, '${book.name_fa || book.name}')">
-                 📖 ${book.name_fa || book.book_name_fa || book.name || book.title}
+                 ${book.name_fa || book.book_name_fa || book.name || book.title}
             </div>
         `).join("");
 
@@ -1064,7 +1064,7 @@ async function loadBibleChapters(bookId, bookName){
                  ⬅️ بازگشت به کتاب‌ها
             </div>
 
-            <div class="small">📖 ${bookName}</div>
+            <div class="small">${bookName}</div>
 
             ${chapters.map(chapter => `
                 <div class="book-item"
@@ -1186,7 +1186,7 @@ async function loadSongs(){
   document.getElementById("search").value = "";
   renderPage();
 
-  setStatus("🎼 لیست کامل سرودها");
+  setStatus("لیست کامل سرودها");
 }
 
 async function loadCategory(index){
@@ -1397,7 +1397,7 @@ function renderBooks(books){
   books.forEach(book => {
     const div = document.createElement("div");
     div.className = "book-item";
-    div.innerText = "📖 " + book.name;
+    div.innerText = book.name;
     div.onclick = () => sendBook(book.index);
     container.appendChild(div);
   });
@@ -1493,8 +1493,8 @@ def word_result(chat_id, text):
 
         send_msg(chat_id, f"🔍 اطلاعات کلمه «{value(w, 'کلمه')}» یافت شد:",
                  {"inline_keyboard": [
-                     [{"text": "📜 آیه مرتبط", "callback_data": f"wverse|{value(w, 'کلمه')}"}],
-                     [{"text": "📖 معنی", "callback_data": f"wmean|{value(w, 'کلمه')}"}],
+                     [{"text": "آیه مرتبط", "callback_data": f"wverse|{value(w, 'کلمه')}"}],
+                     [{"text": "معنی", "callback_data": f"wmean|{value(w, 'کلمه')}"}],
                      [{"text": root, "callback_data": f"wroot|{value(w, 'کلمه')}"}],
                  ]})
         return
@@ -1559,7 +1559,7 @@ def library(chat_id):
     books = get_library_books()
 
     if not books:
-        send_msg(chat_id, "📚 هنوز کتابی در کتابخانه ثبت نشده است.")
+        send_msg(chat_id, "هنوز کتابی در کتابخانه ثبت نشده است.")
         return
 
     buttons = [
@@ -1567,14 +1567,14 @@ def library(chat_id):
         for i, b in enumerate(books)
     ]
 
-    send_msg(chat_id, "📚 کتاب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
+    send_msg(chat_id, "کتاب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
 
 
 def song_list(chat_id, page=0):
     songs = get_all_songs()
 
     if not songs:
-        send_msg(chat_id, "🎼 هنوز سرودی در لیست ثبت نشده است.")
+        send_msg(chat_id, "هنوز سرودی در لیست ثبت نشده است.")
         return
 
     total = len(songs)
@@ -1610,7 +1610,7 @@ def song_list(chat_id, page=0):
 
     send_msg(
         chat_id,
-        f"🎼 لیست سرودها — صفحه {page + 1} از {total_pages}\n\nبرای دریافت، روی نام سرود بزنید:",
+        f"لیست سرودها — صفحه {page + 1} از {total_pages}\n\nبرای دریافت، روی نام سرود بزنید:",
         {"inline_keyboard": buttons}
     )
 
@@ -1661,10 +1661,10 @@ def fact(chat_id):
 def bible_menu(chat_id):
     send_msg(
         chat_id,
-        "📖 بخش کتاب مقدس\n\nیکی از گزینه‌ها را انتخاب کنید:",
+        "بخش کتاب مقدس\n\nیکی از گزینه‌ها را انتخاب کنید:",
         {"inline_keyboard": [
-            [{"text": "📜 عهد عتیق", "callback_data": "bible_testament|OT"}],
-            [{"text": "📘 عهد جدید", "callback_data": "bible_testament|NT"}],
+            [{"text": "عهد عتیق", "callback_data": "bible_testament|OT"}],
+            [{"text": "عهد جدید", "callback_data": "bible_testament|NT"}],
         ]}
     )
 
@@ -1678,17 +1678,17 @@ def bible_books(chat_id, testament):
     books = [b for b in rows if b.get("testament") == testament]
 
     if not books:
-        send_msg(chat_id, "📖 هنوز کتابی برای این بخش ثبت نشده است.")
+        send_msg(chat_id, "هنوز کتابی برای این بخش ثبت نشده است.")
         return
 
     buttons = []
     for b in books:
         buttons.append([{
-            "text": "📖 " + b.get("name_fa", ""),
+            "text": b.get("name_fa", ""),
             "callback_data": f"bible_book|{b.get('id')}"
         }])
 
-    send_msg(chat_id, "📖 کتاب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
+    send_msg(chat_id, "کتاب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
 
 
 def bible_chapters(chat_id, book_id):
@@ -1698,7 +1698,7 @@ def bible_chapters(chat_id, book_id):
         rows = []
 
     if not rows:
-        send_msg(chat_id, "📖 هنوز فصلی برای این کتاب ثبت نشده است.")
+        send_msg(chat_id, "هنوز فصلی برای این کتاب ثبت نشده است.")
         return
 
     buttons = []
@@ -1717,7 +1717,7 @@ def bible_chapters(chat_id, book_id):
     if row:
         buttons.append(row)
 
-    send_msg(chat_id, "📖 باب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
+    send_msg(chat_id, "باب مورد نظر را انتخاب کنید:", {"inline_keyboard": buttons})
 
 
 def bible_verses(chat_id, book_id, chapter_number):
@@ -1732,11 +1732,11 @@ def bible_verses(chat_id, book_id, chapter_number):
     if not rows:
         send_msg(
             chat_id,
-            "📖 آیات این باب به‌زودی اضافه می‌شود.\n\nاین بخش در حال تکمیل است."
+            "آیات این باب به‌زودی اضافه می‌شود.\n\nاین بخش در حال تکمیل است."
         )
         return
 
-    text = f"📖 باب {chapter_number}\n\n"
+    text = f"باب {chapter_number}\n\n"
     for v in rows:
         text += f"{v.get('verse_number')}. {v.get('verse_text')}\n\n"
 
@@ -1874,7 +1874,7 @@ def webhook():
             guide(chat_id)
         elif text == "📣 کانال" or text == "📣 کانال تلگرام":
             channel(chat_id)
-        elif text == "🕊️ بخش سرودها و کتابخانه" or text == "🎼 سرودها و کتابخانه" or text == "🎼 سرودها":
+        elif text == "🕊️ پلتفرم کلام حیات" or text == "🎼 سرودها و کتابخانه" or text == "🎼 سرودها":
             songs_menu(chat_id)
         elif text == "📚 کتابخانه":
             library(chat_id)
@@ -2095,9 +2095,9 @@ def webhook():
 
             if w:
                 if action == "wverse":
-                    send_msg(chat_id, "📜 آیه مرتبط:\n\n" + value(w, "آیه مرتبط"))
+                    send_msg(chat_id, "آیه مرتبط:\n\n" + value(w, "آیه مرتبط"))
                 elif action == "wmean":
-                    send_msg(chat_id, "📖 معنی:\n\n" + value(w, "معنی"))
+                    send_msg(chat_id, "معنی:\n\n" + value(w, "معنی"))
                 elif action == "wroot":
                     title = "💡 ریشه یونانی" if value(w, "عهد") == "NT" else "💡 ریشه عبری"
                     send_msg(chat_id, title + ":\n\n" + value(w, "ریشه"))
