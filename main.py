@@ -1213,24 +1213,67 @@ async function searchBibleEncyclopedia(){
             return;
         }
 
-        content.innerHTML = results.map(item => `
+        content.innerHTML = results.map((item, index) => `
             <div class="card">
 
                 <h3>${item.word || ""}</h3>
 
-                <p>${item.meaning || ""}</p>
+                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'meaning')">
+                    معنی
+                </button>
 
-                <p><strong>زبان اصلی:</strong> ${item.root_language || "-"}</p>
+                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'root')">
+                    ریشه ${item.root_language || ""}
+                </button>
 
-                <p><strong>ریشه:</strong> ${item.root_text || "-"}</p>
+                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'verse')">
+                    آیه مرتبط
+                </button>
 
-                <p><strong>آیه مرتبط:</strong> ${item.related_verse || "-"}</p>
+                <div id="encyclopediaResult-${index}" class="small">
+            یکی از بخش‌های بالا را انتخاب کنید.
+        </div>
 
-            </div>
-        `).join("");
+    </div>
+`).join("");
+
+window.encyclopediaResults = results;
 
     }catch(err){
         content.innerHTML = "خطا در دریافت اطلاعات دانشنامه.";
+    }
+}
+
+function showEncyclopediaPart(index, type){
+
+    const item = window.encyclopediaResults[index];
+    const target = document.getElementById(`encyclopediaResult-${index}`);
+
+    if(type === "meaning"){
+        target.innerHTML = `
+            <div class="card">
+                <h4>معنی</h4>
+                <p>${item.meaning || "-"}</p>
+            </div>
+        `;
+    }
+
+    if(type === "root"){
+        target.innerHTML = `
+            <div class="card">
+                <h4>ریشه ${item.root_language || ""}</h4>
+                <p>${item.root_text || "-"}</p>
+            </div>
+        `;
+    }
+
+    if(type === "verse"){
+        target.innerHTML = `
+            <div class="card">
+                <h4>آیه مرتبط</h4>
+                <p>${item.related_verse || "-"}</p>
+            </div>
+        `;
     }
 }
 
