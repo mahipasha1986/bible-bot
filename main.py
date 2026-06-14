@@ -1270,66 +1270,76 @@ function showEncyclopediaPart(index, type){
     const item = window.encyclopediaResults[index];
     const target = document.getElementById(`encyclopediaResult-${index}`);
 
+    if(!item || !target){
+        return;
+    }
+
     if(type === "meaning"){
         target.innerHTML = `
-            <div class="card">
+            <div class="ency-result">
                 <h4>معنی</h4>
                 <p>${item.meaning || "-"}</p>
             </div>
         `;
+        return;
     }
 
     if(type === "root"){
         target.innerHTML = `
-            <div class="card">
+            <div class="ency-result">
                 <h4>ریشه ${item.root_language || ""}</h4>
                 <p>${item.root_text || "-"}</p>
             </div>
         `;
+        return;
     }
 
     if(type === "verse"){
 
-    target.innerHTML = "در حال دریافت متن آیه...";
-
-    try{
-        const res = await fetch(
-            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" 
-            + encodeURIComponent(item.related_verse || "")
-        );
-
-        const verses = await res.json();
-
-        if(!verses.length){
-            target.innerHTML = `
-                <div class="ency-result">
-                    <h4>آیه مرتبط</h4>
-                    <p>${item.related_verse || "-"}</p>
-                </div>
-            `;
-            return;
-        }
-
-        target.innerHTML = verses.map(v => `
-            <div class="ency-result">
-                <h4>آیه مرتبط</h4>
-                <p>
-                    <strong>${v.chapter_number}:${v.verse_number}</strong>
-                    ${v.verse_text || ""}
-                </p>
-            </div>
-        `).join("");
-
-    }catch(err){
         target.innerHTML = `
             <div class="ency-result">
                 <h4>آیه مرتبط</h4>
-                <p>${item.related_verse || "-"}</p>
+                <p>در حال دریافت متن آیه...</p>
             </div>
         `;
+
+        fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" + encodeURIComponent(item.related_verse || ""))
+            .then(res => res.json())
+            .then(verses => {
+
+                if(!verses || !verses.length){
+                    target.innerHTML = `
+                        <div class="ency-result">
+                            <h4>آیه مرتبط</h4>
+                            <p>${item.related_verse || "-"}</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                target.innerHTML = verses.map(v => `
+                    <div class="ency-result">
+                        <h4>آیه مرتبط</h4>
+                        <p>
+                            <strong>${v.chapter_number}:${v.verse_number}</strong>
+                            ${v.verse_text || ""}
+                        </p>
+                    </div>
+                `).join("");
+            })
+            .catch(() => {
+                target.innerHTML = `
+                    <div class="ency-result">
+                        <h4>آیه مرتبط</h4>
+                        <p>${item.related_verse || "-"}</p>
+                    </div>
+                `;
+            });
+
+        return;
     }
 }
-
+    
 function showSection(sectionId){
 
     document.getElementById("homeSection").classList.remove("active");
