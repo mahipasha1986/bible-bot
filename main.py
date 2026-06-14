@@ -92,10 +92,8 @@ def get_user_name(user):
 def main_keyboard():
     return {
         "keyboard": [
-            [{"text": "🕊️ بخش سرودها و کتابخانه"}],
+            [{"text": "🌍 پلتفرم کلام حیات"}],
             [{"text": "🎵 یک سرود برام انتخاب کن"}],
-            [{"text": "🙏 دعا"}, {"text": "📖 کلمات کتاب مقدس"}],
-            [{"text": "📖 کتاب مقدس"}],
             [{"text": "📩 وعده‌های خدا"}, {"text": "💡 دانستنی‌های جالب"}],
             [{"text": "📣 کانال"}, {"text": "⚠️ راهنما"}],
         ],
@@ -140,9 +138,10 @@ def channel(chat_id):
 def songs_menu(chat_id):
     send_msg(
         chat_id,
-        "برای ورود به بخش سرودها و کتابخانه روی دکمه زیر کلیک کنید",
+        "برای ورود به پلتفرم کلام حیات روی دکمه زیر کلیک کنید",
         {"inline_keyboard": [[
-            {"text": "🕊️ ورود به بخش سرودها و کتابخانه", "web_app": {"url": WEBAPP_URL}}
+            {"text": "🌍 ورود به پلتفرم کلام حیات",
+             "web_app": {"url": WEBAPP_URL}}
         ]]}
     )
 
@@ -1874,16 +1873,12 @@ def webhook():
             guide(chat_id)
         elif text == "📣 کانال" or text == "📣 کانال تلگرام":
             channel(chat_id)
-        elif text == "🕊️ پلتفرم کلام حیات" or text == "🎼 سرودها و کتابخانه" or text == "🎼 سرودها":
+        elif "🌍 پلتفرم کلام حیات" in text:
             songs_menu(chat_id)
         elif text == "📚 کتابخانه":
             library(chat_id)
         elif text == "🙏 دعا" or text == "🙏 دعا کنیم":
             prayer_menu(chat_id)
-        elif text == "📖 کلمات کتاب مقدس":
-            word_instruction(chat_id)
-        elif text == "📖 کتاب مقدس":
-            bible_menu(chat_id)
         elif text == "📩 وعده‌های خدا":
             promise(chat_id)
         elif text == "💡 دانستنی‌های جالب":
