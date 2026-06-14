@@ -613,7 +613,7 @@ audio{
     </button>
 
     <button class="gold" onclick="alert('Bible clicked'); showSection('bibleSection')">
-    📖 کتاب مقدس
+    مطالعه کتاب مقدس
 </button>
 
     <button class="gold"
@@ -649,32 +649,32 @@ audio{
 <div class="card">
   <h2>دانشنامه کتاب مقدس 🔎</h2>
   <p>
-    واژه‌ها • شخصیت‌ها • مکان‌ها • آیات مرتبط
+    واژه‌ها • شخصیت‌ها • مکان‌ها و مفاهیم مهم کتاب مقدس 
   </p>
   <button class="gold" onclick="showBibleEncyclopedia()">
-    ورود به دانشنامه
+    مطالعه دانشنامه
   </button>
 </div>
 
 <div class="card">
   <button class="gold" onclick="showSection('bibleSection')">
-      کتاب مقدس 
+      مطالعه کتاب مقدس 
   </button>
 
   <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
-      سرودها 
+      سرودهای پرستشی 
   </button>
 
   <button class="secondary" onclick="showSection('librarySection')">
-      کتابخانه 
+      کتابخانه مسیحی 
   </button>
 
-  <button class="secondary" onclick="alert('🎧 کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
+  <button class="secondary" onclick="alert('کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
      کتاب مقدس صوتی 
   </button>
 
-  <button class="secondary" onclick="alert('🎮 بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
-     بازی‌ها و آزمون‌ها 
+  <button class="secondary" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
+     بازی‌ها و آزمون‌های کتاب مقدس 
   </button>
 </div>
 
@@ -682,7 +682,7 @@ audio{
 
 <div class="card">
 
-    <h1>سرودها 🎵</h1>
+    <h1>سرودهای پرستشی</h1>
 
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
@@ -699,7 +699,7 @@ audio{
     </button>
 
     <button class="gold" onclick="loadSongs()">
-        🎼 همه سرودها
+        🎼 آرشیو سرودهای پرستشی
     </button>
 
 </div>
@@ -726,9 +726,9 @@ audio{
 <div id="librarySection" class="section">
 
 <div class="card">
-  <h1>📚 کتابخانه</h1>
+  <h1>کتابخانه مسیحی</h1>
   <p>
-    به بخش کتابخانه خوش آمدید<br>
+    به بخش کتابخانه مسیحی خوش آمدید<br>
     کتاب‌های موجود را مشاهده کنید و برای دریافت فایل، روی نام کتاب بزنید.
   </p>
   <button class="secondary" onclick="loadBooks()">📚 نمایش کتاب‌ها</button>
@@ -745,11 +745,11 @@ audio{
 <div id="bibleSection" class="section">
 
     <div class="card">
-        <h1>📖 کتاب مقدس</h1>
+        <h1>مطالعه کتاب مقدس</h1>
 
         <p>
-            به بخش کتاب مقدس خوش آمدید.<br>
-            از این قسمت می‌توانید عهد عتیق و عهد جدید را مطالعه کنید.
+            به کلام خدا خوش آمدید.<br>
+            کتاب مقدس را بخوانید، در آن تأمل کنید و اجازه دهید کلام خدا زندگی شما را تبدیل کنید.
         </p>
     </div>
 
@@ -1090,7 +1090,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             </div>
 
             <div class="small">
-                📖 ${bookName} - باب ${chapterNumber}
+                 ${bookName} - باب ${chapterNumber}
             </div>
 
             ${verses.map(v => `
@@ -1176,7 +1176,7 @@ async function loadCategory(index){
   document.getElementById("search").value = "";
   renderPage();
 
-  setStatus(data.title || "🎵 سرودهای مناسبتی");
+  setStatus(data.title || "سرودهای مناسبتی");
 }
 
 function renderPage(){
@@ -1355,7 +1355,7 @@ async function loadBooks(){
   document.getElementById("bookSearch").value = "";
   renderBooks(allBooks);
 
-  document.getElementById("bookStatus").innerText = "📚 کتابخانه";
+  document.getElementById("bookStatus").innerText = "کتابخانه";
 }
 
 function renderBooks(books){
