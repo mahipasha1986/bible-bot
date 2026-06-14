@@ -15,9 +15,9 @@ WEBAPP_URL = "https://bible-bot-4eo2.onrender.com/webapp"
 ADMIN_CHAT_ID = "987273459"
 
 SONG_CATEGORIES = [
-    {"button": "✝️ سرودهای عید قیام", "value": "عید قیام", "category_id": 1},
-    {"button": "🎄 سرودهای تولد مسیح", "value": "تولد مسیح", "category_id": 2},
-    {"button": "🩸 سرودهای جمعه صلیب", "value": "جمعه صلیب", "category_id": 3},
+    {"button": "سرودهای عید قیام", "value": "عید قیام", "category_id": 1},
+    {"button": "سرودهای تولد مسیح", "value": "تولد مسیح", "category_id": 2},
+    {"button": "سرودهای جمعه صلیب", "value": "جمعه صلیب", "category_id": 3},
 ]
 
 SONGS_PER_PAGE = 20
