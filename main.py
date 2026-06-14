@@ -922,9 +922,13 @@ async function addBookmark(verseId){
 
 async function loadDailyVerse(){
 
-    const bibleContent = document.getElementById("bibleContent");
+    const homeDailyVerse = document.getElementById("homeDailyVerse");
 
-    bibleContent.innerHTML = "⏳ در حال دریافت آیه روز...";
+    if(!homeDailyVerse){
+        return;
+    }
+
+    homeDailyVerse.innerHTML = "در حال دریافت آیه روز...";
 
     try{
 
@@ -935,21 +939,18 @@ async function loadDailyVerse(){
         const data = await res.json();
         const verse = data[0];
 
-        bibleContent.innerHTML = `
-            <div class="small">
-                 آیه روز
-            </div>
-
-            <div style="margin-bottom:12px; line-height:2; font-size:17px; text-align:right;">
-                <span style="font-weight:bold; color:#1f4e79;">
+        homeDailyVerse.innerHTML = `
+            <div style="line-height:2.2; font-size:18px; text-align:center;">
+                <strong style="color:#1f4e79;">
                     ${verse.chapter_number}:${verse.verse_number}
-                </span>
+                </strong>
+                <br>
                 ${verse.verse_text}
             </div>
         `;
 
     }catch(err){
-        bibleContent.innerHTML = "❌ " + err.message;
+        homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
     }
 }
 
