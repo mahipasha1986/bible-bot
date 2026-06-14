@@ -917,7 +917,7 @@ async function loadDailyVerse(){
 
         bibleContent.innerHTML = `
             <div class="small">
-                🌟 آیه روز
+                 آیه روز
             </div>
 
             <div style="margin-bottom:12px; line-height:2; font-size:17px; text-align:right;">
@@ -1436,7 +1436,6 @@ async function sendBook(index){
     document.getElementById("bookStatus").innerText = "❌ ارسال کتاب انجام نشد.";
   }
 }
-loadDailyVerse();
 
 </script>
 
