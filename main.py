@@ -1181,6 +1181,59 @@ function showBibleEncyclopedia(){
     window.scrollTo({top:0, behavior:"smooth"});
 }
 
+async function searchBibleEncyclopedia(){
+
+    const input = document.getElementById("encyclopediaSearchInput");
+    const content = document.getElementById("encyclopediaContent");
+
+    const q = input.value.trim();
+
+    if(!q){
+        content.innerHTML = "لطفاً یک واژه، شخصیت یا مکان را وارد کنید.";
+        return;
+    }
+
+    content.innerHTML = "در حال جستجو...";
+
+    try{
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible-words"
+        );
+
+        const rows = await res.json();
+
+        const results = rows.filter(item =>
+            (item.word || "").includes(q) ||
+            (item.meaning || "").includes(q) ||
+            (item.related_verse || "").includes(q)
+        );
+
+        if(!results.length){
+            content.innerHTML = "موردی پیدا نشد.";
+            return;
+        }
+
+        content.innerHTML = results.map(item => `
+            <div class="card">
+
+                <h3>${item.word || ""}</h3>
+
+                <p>${item.meaning || ""}</p>
+
+                <p><strong>زبان اصلی:</strong> ${item.root_language || "-"}</p>
+
+                <p><strong>ریشه:</strong> ${item.root_text || "-"}</p>
+
+                <p><strong>آیه مرتبط:</strong> ${item.related_verse || "-"}</p>
+
+            </div>
+        `).join("");
+
+    }catch(err){
+        content.innerHTML = "خطا در دریافت اطلاعات دانشنامه.";
+    }
+}
+
 function showSection(sectionId){
 
     document.getElementById("homeSection").classList.remove("active");
