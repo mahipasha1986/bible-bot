@@ -533,6 +533,27 @@ button{
     border:2px solid #1f4e79;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
+.ency-btn{
+    background:#ffffff;
+    color:#1f4e79;
+    border:2px solid #1f4e79;
+    border-radius:18px;
+    padding:15px;
+    margin-top:10px;
+    font-size:18px;
+    font-weight:800;
+    box-shadow:0 4px 14px rgba(31,78,121,0.08);
+}
+
+.ency-result{
+    background:#f8fafc;
+    border-radius:20px;
+    padding:20px;
+    margin-top:16px;
+    text-align:center;
+    line-height:2.2;
+    color:#374151;
+}
 .purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
 input{
   width:100%;
@@ -1218,15 +1239,15 @@ async function searchBibleEncyclopedia(){
 
                 <h3>${item.word || ""}</h3>
 
-                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'meaning')">
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'meaning')">
                     معنی
                 </button>
 
-                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'root')">
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'root')">
                     ریشه ${item.root_language || ""}
                 </button>
 
-                <button class="secondary" onclick="showEncyclopediaPart(${index}, 'verse')">
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'verse')">
                     آیه مرتبط
                 </button>
 
@@ -1276,6 +1297,25 @@ function showEncyclopediaPart(index, type){
         `;
     }
 }
+
+<style>
+.ency-btn{
+    width:100%;
+    margin:8px 0;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#1f5b93;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.ency-btn:hover{
+    background:#174a79;
+}
+</style>
 
 function showSection(sectionId){
 
