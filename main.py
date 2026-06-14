@@ -452,7 +452,7 @@ body{
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 h1{
-    font-size:38px;
+    font-size:34px;
     font-weight:800;
     color:#1f2937;
     line-height:1.4;
@@ -460,7 +460,7 @@ h1{
 }
 
 h2{
-    font-size:30px;
+    font-size:24px;
     font-weight:800;
     color:#1f2937;
     line-height:1.5;
@@ -649,10 +649,10 @@ audio{
 <div class="card">
   <h2>دانشنامه کتاب مقدس 🔎</h2>
   <p>
-    واژه‌ها • شخصیت‌ها • مکان‌ها و مفاهیم مهم کتاب مقدس 
+    واژه‌ها • شخصیت‌ها • مکان‌ها • مفاهیم مهم کتاب مقدس 
   </p>
   <button class="gold" onclick="showBibleEncyclopedia()">
-    مطالعه دانشنامه
+    ورود به دانشنامه
   </button>
 </div>
 
@@ -682,7 +682,7 @@ audio{
 
 <div class="card">
 
-    <h1>سرودهای پرستشی</h1>
+    <h2>سرودهای پرستشی</h2>
 
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
@@ -699,7 +699,7 @@ audio{
     </button>
 
     <button class="gold" onclick="loadSongs()">
-        🎼 آرشیو سرودهای پرستشی
+        آرشیو سرودهای پرستشی
     </button>
 
 </div>
@@ -726,12 +726,12 @@ audio{
 <div id="librarySection" class="section">
 
 <div class="card">
-  <h1>کتابخانه مسیحی</h1>
+  <h2>کتابخانه مسیحی</h2>
   <p>
     به بخش کتابخانه مسیحی خوش آمدید<br>
-    کتاب‌های موجود را مشاهده کنید و برای دریافت فایل، روی نام کتاب بزنید.
+    مجموعه‌‌ای از کتاب‌ها و منابع مسیحی برای مطالعه، یادگیری و رشد روحانی _ برای دریافت فایل، روی نام کتاب بزنید.
   </p>
-  <button class="secondary" onclick="loadBooks()">📚 نمایش کتاب‌ها</button>
+  <button class="secondary" onclick="loadBooks()">مشاهده کتاب‌ها</button>
 </div>
 
 <div class="card">
