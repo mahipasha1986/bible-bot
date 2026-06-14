@@ -1147,6 +1147,40 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
     }
 }
 
+function showBibleEncyclopedia(){
+
+    const homeSection = document.getElementById("homeSection");
+
+    homeSection.innerHTML = `
+        <div class="card">
+            <h1>دانشنامه کتاب مقدس</h1>
+            <p>
+                واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را در این بخش جستجو و مطالعه کنید.
+            </p>
+        </div>
+
+        <div class="card">
+            <input id="encyclopediaSearchInput"
+                   type="text"
+                   placeholder="جستجوی واژه، شخصیت یا مکان...">
+
+            <button class="gold" onclick="searchBibleEncyclopedia()">
+                جستجو در دانشنامه
+            </button>
+
+            <div id="encyclopediaContent" class="small">
+                این بخش در حال آماده‌سازی است.
+            </div>
+        </div>
+
+        <button class="secondary" onclick="location.reload()">
+            بازگشت به خانه
+        </button>
+    `;
+
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
 function showSection(sectionId){
 
     document.getElementById("homeSection").classList.remove("active");
