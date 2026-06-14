@@ -711,19 +711,19 @@ audio{
 
     <p>دسته‌بندی سرودهای مناسبتی</p>
 
-    <button class="secondary" onclick="loadCategory(0)">
+    <button class="gold" onclick="loadCategory(0)">
          سرودهای عید قیام
     </button>
 
-    <button class="secondary" onclick="loadCategory(1)">
+    <button class="gold" onclick="loadCategory(1)">
          سرودهای تولد مسیح
     </button>
 
-    <button class="secondary" onclick="loadCategory(2)">
+    <button class="gold" onclick="loadCategory(2)">
          سرودهای جمعه صلیب
     </button>
 
-    <button class="secondary" onclick="loadSongs()">
+    <button class="gold" onclick="loadSongs()">
         آرشیو سرودهای پرستشی
     </button>
 
@@ -756,7 +756,7 @@ audio{
     به بخش کتابخانه مسیحی خوش آمدید<br>
     مجموعه‌‌ای از کتاب‌ها و منابع مسیحی برای مطالعه، یادگیری و رشد روحانی _ برای دریافت فایل، روی نام کتاب بزنید.
   </p>
-  <button class="secondary" onclick="loadBooks()">مشاهده کتاب‌ها</button>
+  <button class="gold" onclick="loadBooks()">مشاهده کتاب‌ها</button>
 </div>
 
 <div class="card">
