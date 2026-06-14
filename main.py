@@ -604,10 +604,14 @@ audio{
 }
 .tab-buttons{
     display:flex;
-    gap:10px;
-    margin-bottom:16px;
+    gap:8px;
+    margin-bottom:14px;
     overflow-x:auto;
-    padding-bottom:5px;
+    padding:8px;
+    background:rgba(255,255,255,0.85);
+    border:1px solid #e8edf3;
+    border-radius:22px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 
 .tab-buttons button{
