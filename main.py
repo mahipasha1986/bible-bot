@@ -1150,11 +1150,17 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
 function showSection(sectionId){
 
+    document.getElementById("homeSection").classList.remove("active");
     document.getElementById("songsSection").classList.remove("active");
     document.getElementById("librarySection").classList.remove("active");
     document.getElementById("bibleSection").classList.remove("active");
 
     document.getElementById(sectionId).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 function getChatId(){
