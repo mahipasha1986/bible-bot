@@ -436,8 +436,7 @@ def webapp():
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
@@ -457,17 +456,19 @@ body{
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 h1{
-    font-size:34px;
-    font-weight:800;
-    color:#1f2937;
+    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-size:42px;
+    font-weight:400;
+    color:#111827;
     line-height:1.4;
     margin:8px 0 16px;
 }
 
 h2{
-    font-size:24px;
-    font-weight:800;
-    color:#1f2937;
+    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-size:34px;
+    font-weight:400;
+    color:#111827;
     line-height:1.5;
     margin:8px 0 18px;
 }
