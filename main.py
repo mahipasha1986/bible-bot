@@ -451,13 +451,13 @@ body{
     background:#ffffff;
     border:1px solid #e8edf3;
     border-radius:26px;
-    padding:16px 14px;
+    padding:12px 14px;
     margin-bottom:8px;
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
 .hero-card{
     background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
-    padding:50px 24px;
+    padding:40px 24px;
     border:none;
     box-shadow:0 12px 40px rgba(0,0,0,0.08);
     margin-bottom:20px;
