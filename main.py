@@ -1289,8 +1289,40 @@ function showEncyclopediaPart(index, type){
     }
 
     if(type === "verse"){
+
+    target.innerHTML = "در حال دریافت متن آیه...";
+
+    try{
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" 
+            + encodeURIComponent(item.related_verse || "")
+        );
+
+        const verses = await res.json();
+
+        if(!verses.length){
+            target.innerHTML = `
+                <div class="ency-result">
+                    <h4>آیه مرتبط</h4>
+                    <p>${item.related_verse || "-"}</p>
+                </div>
+            `;
+            return;
+        }
+
+        target.innerHTML = verses.map(v => `
+            <div class="ency-result">
+                <h4>آیه مرتبط</h4>
+                <p>
+                    <strong>${v.chapter_number}:${v.verse_number}</strong>
+                    ${v.verse_text || ""}
+                </p>
+            </div>
+        `).join("");
+
+    }catch(err){
         target.innerHTML = `
-            <div class="card">
+            <div class="ency-result">
                 <h4>آیه مرتبط</h4>
                 <p>${item.related_verse || "-"}</p>
             </div>
