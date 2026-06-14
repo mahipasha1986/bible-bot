@@ -433,11 +433,16 @@ def webapp():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کلام حیات</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
     margin:0;
-    font-family:Tahoma,sans-serif;
+    font-family:'Vazirmatn',sans-serif;
     background:#f7f9fc;
     color:#222;
     padding:18px;
