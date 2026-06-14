@@ -1298,25 +1298,6 @@ function showEncyclopediaPart(index, type){
     }
 }
 
-<style>
-.ency-btn{
-    width:100%;
-    margin:8px 0;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#1f5b93;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.ency-btn:hover{
-    background:#174a79;
-}
-</style>
-
 function showSection(sectionId){
 
     document.getElementById("homeSection").classList.remove("active");
