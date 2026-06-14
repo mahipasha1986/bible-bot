@@ -800,12 +800,8 @@ audio{
             🔍 جستجو
         </button>
 
-        <button class="gold" onclick="loadDailyVerse()">
-            🌟 آیه روز
-        </button>
-
         <button class="gold" onclick="loadBookmarks()">
-            🔖 آیات ذخیره‌شده
+             آیات ذخیره‌شده
         </button>
 
     </div>
