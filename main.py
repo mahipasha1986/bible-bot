@@ -942,7 +942,7 @@ async function loadDailyVerse(){
         homeDailyVerse.innerHTML = `
             <div style="line-height:2.2; font-size:18px; text-align:center;">
                 <strong style="color:#1f4e79;">
-                    ${verse.chapter_number}:${verse.verse_number}
+                    ${verse.book_name_fa || verse.book_name || ""} ${verse.chapter_number}:${verse.verse_number}
                 </strong>
                 <br>
                 ${verse.verse_text}
