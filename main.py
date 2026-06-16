@@ -1683,11 +1683,57 @@ books.forEach(book => {
         </div>
     `;
 
-    div.onclick = () => sendBook(book.index);
+    div.onclick = () => showBookDetails(book.index);
 
     container.appendChild(div);
 
 });
+}
+
+function showBookDetails(index){
+
+    const book = allBooks.find(b => b.index === index);
+    const container = document.getElementById("books");
+
+    if(!book){
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="card">
+
+            <img
+                src="${book.cover_url || 'https://via.placeholder.com/160x220'}"
+                style="
+                    width:160px;
+                    height:220px;
+                    object-fit:cover;
+                    border-radius:18px;
+                    margin-bottom:18px;
+                    border:1px solid #ddd;
+                "
+            >
+
+            <h2>${book.name || ""}</h2>
+
+            <div class="small">
+                ${book.author || ""}
+            </div>
+
+            <p style="line-height:2; color:#555;">
+                ${book.description || ""}
+            </p>
+
+            <button class="gold" onclick="sendBook(${book.index})">
+                دریافت کتاب
+            </button>
+
+            <button class="secondary" onclick="renderBooks(allBooks)">
+                بازگشت به کتابخانه
+            </button>
+
+        </div>
+    `;
 }
 
 function filterBooks(){
