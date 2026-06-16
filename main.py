@@ -386,7 +386,10 @@ def api_books():
     for i, r in enumerate(rows):
         books.append({
             "index": i,
-            "name": r.get("title", "")
+            "name": r.get("title", ""),
+            "author": r.get("author", ""),
+            "description": r.get("description", ""),
+            "cover_url": r.get("cover_url", "")
         })
 
     return jsonify({"ok": True, "books": books})
@@ -1624,13 +1627,67 @@ function renderBooks(books){
     return;
   }
 
-  books.forEach(book => {
+books.forEach(book => {
+
     const div = document.createElement("div");
+
     div.className = "book-item";
-    div.innerText = book.name;
+
+    div.innerHTML = `
+        <div style="
+            display:flex;
+            gap:12px;
+            align-items:center;
+            text-align:right;
+        ">
+
+            <img
+                src="${book.cover_url || 'https://via.placeholder.com/80x120'}"
+                style="
+                    width:80px;
+                    height:120px;
+                    object-fit:cover;
+                    border-radius:12px;
+                    border:1px solid #ddd;
+                "
+            >
+
+            <div style="flex:1">
+
+                <div style="
+                    font-size:18px;
+                    font-weight:bold;
+                    margin-bottom:6px;
+                ">
+                    ${book.name}
+                </div>
+
+                <div style="
+                    color:#666;
+                    font-size:14px;
+                    margin-bottom:8px;
+                ">
+                    ${book.author || ""}
+                </div>
+
+                <div style="
+                    color:#888;
+                    font-size:13px;
+                    line-height:1.7;
+                ">
+                    ${(book.description || "").substring(0,120)}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
     div.onclick = () => sendBook(book.index);
+
     container.appendChild(div);
-  });
+
+});
 }
 
 function filterBooks(){
