@@ -454,6 +454,43 @@ body{
     margin-bottom:8px;
     box-shadow:0 8px 24px rgba(31,78,121,0.08);
 }
+.home-hero{
+    background:
+        linear-gradient(135deg, rgba(31,78,121,0.95), rgba(17,24,39,0.92)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 35%);
+    color:white;
+    border-radius:30px;
+    padding:34px 22px;
+    margin-bottom:18px;
+    box-shadow:0 18px 45px rgba(31,78,121,0.25);
+}
+
+.home-hero h1{
+    color:white;
+    font-size:46px;
+    margin-bottom:8px;
+}
+
+.home-hero p,
+.home-hero .small{
+    color:rgba(255,255,255,0.86);
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+}
+
+.quick-card{
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:22px;
+    padding:16px 10px;
+    color:white;
+    font-weight:800;
+}
 .hero-card{
     background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
     padding:40px 24px;
@@ -675,7 +712,7 @@ audio{
 <h1>کلام حیات</h1>
 
 <p>
-کلام خدا را بخوانیم، بشناسیم و با آن زندگی کنیم
+هر روز یک قدم نزدیکتر به خدا
 </p>
 
 <div class="small">
