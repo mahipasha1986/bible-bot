@@ -1636,6 +1636,8 @@ async function sendBook(index){
   }
 }
 
+loadDailyVerse();
+
 </script>
 
 </body>
