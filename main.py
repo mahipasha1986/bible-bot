@@ -1700,7 +1700,11 @@ function showBookDetails(index){
     }
 
     container.innerHTML = `
-        <div class="card">
+        <div class="card" style="
+        background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+        border:1px solid #dbe7f3;
+        box-shadow:0 18px 45px rgba(31,78,121,0.12);
+        ">
 
             <img
                 src="${book.cover_url || 'https://via.placeholder.com/160x220'}"
@@ -1716,8 +1720,8 @@ function showBookDetails(index){
 
             <h2>${book.name || ""}</h2>
 
-            <div class="small">
-                ${book.author || ""}
+            <div class="small" style="margin-bottom:18px;">
+                ${book.author ? "نویسنده: " + book.author : ""}
             </div>
 
             <p style="line-height:2; color:#555;">
