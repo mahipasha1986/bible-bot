@@ -1675,7 +1675,7 @@ books.forEach(book => {
                     font-size:13px;
                     line-height:1.7;
                 ">
-                    ${(book.description || "").substring(0,120)}
+                    ${book.description || ""}
                 </div>
 
             </div>
