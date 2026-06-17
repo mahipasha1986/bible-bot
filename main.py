@@ -732,18 +732,15 @@ audio{
     box-shadow:0 14px 32px rgba(31,78,121,.16);
 }
 .daily-verse-card{
-    background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200');
-    background-size:cover;
-    background-position:center;
+    background:linear-gradient(135deg,#1f4e79,#2f6ba5);
+    border-radius:28px;
+    padding:35px 25px;
+    text-align:center;
     color:white;
+    box-shadow:0 12px 30px rgba(31,78,121,.25);
 }
 
-.daily-verse-card h2,
-.daily-verse-card h3,
-.daily-verse-card p,
-.daily-verse-card .small{
+.daily-verse-card *{
     color:white !important;
 }
 .section{
