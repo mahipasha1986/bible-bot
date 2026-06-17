@@ -1318,7 +1318,7 @@ async function loadDailyVerseLikes(verseId){
     const data = await res.json();
 
     document.getElementById("dailyVerseLikeCount").innerText =
-        data.likes + " نفر";
+        data.length + " نفر";
 }
 
 async function loadBookmarks(){
