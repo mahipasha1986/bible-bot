@@ -758,6 +758,8 @@ audio{
 .encyclopedia-card{
     background:linear-gradient(135deg,#ffffff,#f7fafc);
     border:1px solid #e6edf5;
+    padding:30px 25px;
+    text-align:center;
 }
 
 .encyclopedia-card h2{
