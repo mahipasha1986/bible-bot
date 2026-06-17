@@ -765,11 +765,33 @@ audio{
 
 <div id="songsSection" class="section">
 
-<div class="card">
+<div
+    style="
+    background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:24px;
+    padding:60px 24px;
+    color:white;
+    text-align:center;
+    margin-bottom:20px;
+">
 
-    <h2>سرودهای پرستشی</h2>
+    <h1 style="color:white;margin-bottom:14px;">
+        سرودهای پرستشی
+    </h1>
 
-    <p>دسته‌بندی سرودهای مناسبتی</p>
+    <div style="
+        font-size:18px;
+        line-height:1.9;
+        opacity:.95;
+    ">
+        مجموعه‌ای از سرودهای پرستشی
+    </div>
+
+</div>
 
     <button class="gold" onclick="loadCategory(0)">
          سرودهای عید قیام
@@ -837,8 +859,22 @@ audio{
         شاگردی و شناخت عمیق‌تر خدا
     </div>
 
-    <button class="gold" onclick="loadBooks()">
-        مشاهده کتاب‌ها
+    <button
+        onclick="loadBooks()"
+        style="
+            background:#1f4e79;
+            color:white;
+            border:none;
+            border-radius:30px;
+            padding:12px 28px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            width:auto;
+            display:inline-block;
+            margin-top:10px;
+        ">
+        📚 مشاهده کتاب‌ها
     </button>
 
 </div>
