@@ -1274,22 +1274,6 @@ async function loadDailyVerse(){
                   <span>پسندیدن</span>
               </button>
 
-              <button onclick="alert('نظرها به‌زودی فعال می‌شود')">
-                  <svg viewBox="0 0 24 24">
-                      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.8-.9L3 20l1.1-4.8A8.1 8.1 0 0 1 3 11.5C3 6.8 7 3 12 3s9 3.8 9 8.5z"/>
-                  </svg>
-                  <span>نظرها</span>
-              </button>
-
-              <button onclick="shareDailyVerse()">
-                  <svg viewBox="0 0 24 24">
-                      <circle cx="18" cy="5" r="3"/>
-                      <circle cx="6" cy="12" r="3"/>
-                      <circle cx="18" cy="19" r="3"/>
-                      <path d="M8.7 10.7 15.3 6.3M8.7 13.3l6.6 4.4"/>
-                  </svg>
-                  <span>اشتراک</span>
-              </button>
           </div>
 
       </div>
@@ -1298,17 +1282,6 @@ async function loadDailyVerse(){
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
     }
-}
-
-function shareDailyVerse() {
-
-    const text = 
-        "📖 آیه روز\n\n" +
-        document.querySelector(".daily-verse-card div:nth-child(2)")?.innerText;
-
-    navigator.clipboard.writeText(text);
-
-    alert("متن آیه آماده و کپی شد. حالا می‌توانید آن را در تلگرام یا واتساپ ارسال کنید.");
 }
 
 async function loadBookmarks(){
