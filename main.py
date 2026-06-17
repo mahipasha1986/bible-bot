@@ -1317,8 +1317,12 @@ async function loadDailyVerseLikes(verseId){
 
     const data = await res.json();
 
+    const count = Array.isArray(data)
+        ? data.length
+        : Number(data.likes || 0);
+
     document.getElementById("dailyVerseLikeCount").innerText =
-        data.length + " نفر";
+        count + " نفر";
 }
 
 async function loadBookmarks(){
