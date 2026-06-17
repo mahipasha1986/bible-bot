@@ -680,6 +680,18 @@ audio{
     font-size:14px;
     white-space:nowrap;
 }
+.top-home-btn{
+    width:auto !important;
+    min-width:90px;
+    padding:10px 22px;
+    border-radius:999px;
+    background:white;
+    color:#1f4e79;
+    border:2px solid #1f4e79;
+    font-size:15px;
+    font-weight:800;
+    box-shadow:0 6px 18px rgba(31,78,121,.12);
+}
 .section{
   display:none;
 }
@@ -692,9 +704,8 @@ audio{
 
 <div class="tab-buttons">
 
-    <button class="gold"
-        onclick="showSection('homeSection')">
-         خانه
+    <button class="top-home-btn" onclick="location.reload()">
+        خانه
     </button>
 
     <button class="gold" onclick="showSection('bibleSection')">
