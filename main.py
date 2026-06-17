@@ -821,11 +821,10 @@ audio{
 
 <div class="card">
   <input id="search" placeholder="🔍 جستجوی نام سرود..." oninput="filterSongs()">
-  <div class="small">برای دریافت سرود، روی نام آن بزنید.</div>
   <div id="status" class="small"></div>
 
   <div id="playerCard" class="player-card">
-    <div id="playerTitle" class="player-title">🎵 نام سرود</div>
+    <div id="playerTitle" class="player-title">نام سرود</div>
     <audio id="audioPlayer" controls></audio>
     <div class="player-actions">
       <button class="green" onclick="sendSelectedSong()">📩 ارسال در تلگرام</button>
