@@ -1215,14 +1215,34 @@ async function loadDailyVerse(){
         const verse = data[0];
 
         homeDailyVerse.innerHTML = `
-            <div style="line-height:2.2; font-size:18px; text-align:center;">
-                <strong style="color:#1f4e79;">
-                    ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
-                </strong>
-                <br>
-                ${verse.verse_text}
+        <div style="line-height:2.2; text-align:center;">
+
+            <div style="
+                font-size:15px;
+                opacity:.9;
+                margin-bottom:8px;
+            ">
+                آیه منتخب امروز
             </div>
-        `;
+
+            <div style="
+                font-size:24px;
+                font-weight:700;
+                margin-bottom:15px;
+            ">
+                ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
+            </div>
+
+    <div style="
+        font-size:20px;
+        max-width:700px;
+        margin:auto;
+    ">
+        ${verse.verse_text}
+    </div>
+
+</div>
+`;
 
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
@@ -1398,12 +1418,12 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
         bibleContent.innerHTML = `
             <div class="book-item"
                  onclick="loadBibleChapters(${bookId}, '${bookName}')">
-                 ⬅️ بازگشت به باب‌ها
+                 بازگشت به باب‌ها
             </div>
 
             <div class="book-item"
                  onclick="loadBibleBooks(currentBibleTestament)">
-                 ⬅️ بازگشت به کتاب‌ها
+                 بازگشت به کتاب‌ها
             </div>
 
             <div class="small">
