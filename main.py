@@ -1302,14 +1302,13 @@ async function loadDailyVerse(){
 
 function shareDailyVerse() {
 
-    const text =
-        document.getElementById("homeDailyVerse")?.innerText ||
-        "آیه روز";
+    const text = 
+        "📖 آیه روز\n\n" +
+        document.querySelector(".daily-verse-card div:nth-child(2)")?.innerText;
 
-    const shareUrl =
-        "https://t.me/share/url?url=&text=" + encodeURIComponent(text);
+    navigator.clipboard.writeText(text);
 
-    Telegram.WebApp.openTelegramLink(shareUrl);
+    alert("متن آیه آماده و کپی شد. حالا می‌توانید آن را در تلگرام یا واتساپ ارسال کنید.");
 }
 
 async function loadBookmarks(){
