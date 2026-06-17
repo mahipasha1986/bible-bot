@@ -708,10 +708,6 @@ audio{
         خانه
     </button>
 
-    <button class="gold" onclick="showSection('bibleSection')">
-    مطالعه کتاب مقدس
-</button>
-
     <button class="gold"
         onclick="alert('🔍 دانشنامه کتاب مقدس در حال تکمیل است')">
         🔍 دانشنامه کتاب مقدس
