@@ -732,7 +732,11 @@ audio{
     box-shadow:0 14px 32px rgba(31,78,121,.16);
 }
 .daily-verse-card{
-    background:linear-gradient(135deg,#1f4e79,#2f6ba5);
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200');
+    background-size:cover;
+    background-position:center;
     border-radius:28px;
     padding:35px 25px;
     text-align:center;
