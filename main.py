@@ -817,8 +817,6 @@ audio{
         آرشیو سرودهای پرستشی
     </button>
 
-</div>
-
 <div class="card">
   <input id="search" placeholder="🔍 جستجوی نام سرود..." oninput="filterSongs()">
   <div id="status" class="small"></div>
@@ -833,6 +831,8 @@ audio{
   </div>
 
   <div id="songs"></div>
+</div>
+
 </div>
 
 <div id="librarySection" class="section">
