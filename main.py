@@ -731,6 +731,21 @@ audio{
     transform:translateY(-2px);
     box-shadow:0 14px 32px rgba(31,78,121,.16);
 }
+.daily-verse-card{
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.daily-verse-card h2,
+.daily-verse-card h3,
+.daily-verse-card p,
+.daily-verse-card .small{
+    color:white !important;
+}
 .section{
   display:none;
 }
@@ -764,12 +779,12 @@ audio{
 </div>
 
 <button class="gold" onclick="showSection('bibleSection')">
-    شروع مطالعه کتاب مقدس
+    مطالعه کتاب مقدس
 </button>
 
 </div>
 
-<div class="card">
+<div class="card daily-verse-card">
   <h2>آیه روز</h2>
   <div id="homeDailyVerse" class="small">
     در انتظار دریافت آیه روز...
