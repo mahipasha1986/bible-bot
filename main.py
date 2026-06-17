@@ -1306,18 +1306,10 @@ function shareDailyVerse() {
         document.getElementById("homeDailyVerse")?.innerText ||
         "آیه روز";
 
-    if (navigator.share) {
+    const shareUrl =
+        "https://t.me/share/url?url=&text=" + encodeURIComponent(text);
 
-        navigator.share({
-            title: "آیه روز",
-            text: text
-        });
-
-    } else {
-
-        alert("اشتراک گذاری پشتیبانی نمی‌شود");
-
-    }
+    Telegram.WebApp.openTelegramLink(shareUrl);
 }
 
 async function loadBookmarks(){
