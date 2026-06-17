@@ -877,7 +877,7 @@ audio{
             box-shadow:0 14px 35px rgba(0,0,0,.14);
         ">
             <h2 style="color:white;margin:0 0 8px;">عهد عتیق</h2>
-            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • آفرینش، شریعت، تاریخ، حکمت و پیامبران</div>
+            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • شریعت، تاریخ، حکمت و پیامبران</div>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
@@ -903,7 +903,7 @@ audio{
         <input
             id="bibleSearchInput"
             type="text"
-            placeholder="جستجوی کتاب، باب یا آیه..."
+            placeholder="جستجو در کتاب مقدس..."
             style="width:100%; padding:12px; border-radius:12px; margin-bottom:10px;">
 
         <button class="gold" onclick="searchBibleVerse()">
@@ -966,15 +966,42 @@ async function searchBibleVerse(){
             </div>
 
             ${results.map(v => `
-                <div style="margin-bottom:12px; line-height:2;">
-                    <span style="font-weight:bold;color:#1f4e79;">
-                        ${v.chapter_number}:${v.verse_number}
-                    </span>
-                    ${v.verse_text}
+                <div style="
+                background:white;
+                padding:16px;
+                border-radius:14px;
+                margin-bottom:12px;
+                box-shadow:0 2px 8px rgba(0,0,0,.08);
+                ">
 
-                    <button class="gold" onclick="addBookmark(${v.id})" style="margin-top:8px;">
-                         ذخیره آیه
+                    <div style="
+                    font-weight:bold;
+                    color:#1f4e79;
+                    margin-bottom:10px;
+                    ">
+                        ${v.chapter_number}:${v.verse_number}
+                    </div>
+
+                    <div style="
+                    line-height:2;
+                    margin-bottom:14px;
+                    ">
+                        ${v.verse_text}
+                    </div>
+
+                    <button
+                        onclick="addBookmark(${v.id})"
+                        style="
+                        background:#1f4e79;
+                        color:white;
+                        border:none;
+                        border-radius:10px;
+                        padding:8px 14px;
+                        cursor:pointer;
+                        ">
+                        ذخیره
                     </button>
+
                 </div>
             `).join("")}
         `;
