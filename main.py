@@ -804,6 +804,8 @@ audio{
     <button class="home-menu-btn" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
         بازی‌ها و آزمون‌های کتاب مقدس
     </button>
+    
+</div>
 
 </div>
 
