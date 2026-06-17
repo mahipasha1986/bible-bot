@@ -773,6 +773,47 @@ audio{
     max-width:700px;
     margin:0 auto 14px;
 }
+.verse-actions{
+    display:flex;
+    justify-content:center;
+    gap:34px;
+    margin-top:26px;
+}
+
+.verse-actions button{
+    width:auto !important;
+    background:transparent;
+    box-shadow:none;
+    border:none;
+    color:white;
+    font-size:30px;
+    padding:0;
+    margin:0;
+}
+
+.verse-actions span{
+    display:block;
+    font-size:13px;
+    margin-top:4px;
+    font-weight:500;
+    opacity:.9;
+}
+.verse-actions svg{
+    width:28px;
+    height:28px;
+    display:block;
+    margin:0 auto 6px;
+    fill:none;
+    stroke:white;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.verse-actions button:hover{
+    transform:translateY(-2px);
+    opacity:.9;
+}
 .section{
   display:none;
 }
@@ -1215,34 +1256,44 @@ async function loadDailyVerse(){
         const verse = data[0];
 
         homeDailyVerse.innerHTML = `
-        <div style="line-height:2.2; text-align:center;">
+       <div style="line-height:2.2; text-align:center;">
 
-            <div style="
-                font-size:15px;
-                opacity:.9;
-                margin-bottom:8px;
-            ">
-                آیه منتخب امروز
-            </div>
+          <div style="display:inline-block; padding:8px 18px; border-radius:999px; background:rgba(255,255,255,.16); font-size:20px; font-weight:700; margin-bottom:20px;">
+              ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
+          </div>
 
-            <div style="
-                font-size:24px;
-                font-weight:700;
-                margin-bottom:15px;
-            ">
-                ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
-            </div>
+          <div style="font-size:20px; max-width:700px; margin:auto;">
+              ${verse.verse_text}
+          </div>
 
-    <div style="
-        font-size:20px;
-        max-width:700px;
-        margin:auto;
-    ">
-        ${verse.verse_text}
-    </div>
+          <div class="verse-actions">
+              <button onclick="alert('پسندیدن به‌زودی فعال می‌شود')">
+                  <svg viewBox="0 0 24 24">
+                      <path d="M20.8 4.6c-1.8-1.7-4.6-1.6-6.3.2L12 7.3 9.5 4.8C7.8 3 5 2.9 3.2 4.6c-2 1.9-2.1 5-.2 7l9 8.8 9-8.8c1.9-2 1.8-5.1-.2-7z"/>
+                  </svg>
+                  <span>پسندیدن</span>
+              </button>
 
-</div>
-`;
+              <button onclick="alert('نظرها به‌زودی فعال می‌شود')">
+                  <svg viewBox="0 0 24 24">
+                      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.8-.9L3 20l1.1-4.8A8.1 8.1 0 0 1 3 11.5C3 6.8 7 3 12 3s9 3.8 9 8.5z"/>
+                  </svg>
+                  <span>نظرها</span>
+              </button>
+
+              <button onclick="shareDailyVerse()">
+                  <svg viewBox="0 0 24 24">
+                      <circle cx="18" cy="5" r="3"/>
+                      <circle cx="6" cy="12" r="3"/>
+                      <circle cx="18" cy="19" r="3"/>
+                      <path d="M8.7 10.7 15.3 6.3M8.7 13.3l6.6 4.4"/>
+                  </svg>
+                  <span>اشتراک</span>
+              </button>
+          </div>
+
+      </div>
+      `;
 
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
