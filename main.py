@@ -734,7 +734,7 @@ audio{
 .daily-verse-card{
     background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200');
     background-size:cover;
     background-position:center;
     color:white;
