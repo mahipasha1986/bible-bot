@@ -979,7 +979,7 @@ async function searchBibleVerse(){
                     color:#1f4e79;
                     margin-bottom:10px;
                     ">
-                        ${v.book_name || v.name_fa || v.book || ""} ${v.chapter_number}:${v.verse_number}
+                        ${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}
                     </div>
 
                     <div style="
