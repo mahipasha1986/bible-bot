@@ -1317,8 +1317,6 @@ async function loadDailyVerseLikes(verseId){
 
     const data = await res.json();
 
-    alert(JSON.stringify(data));
-
     const count = Array.isArray(data)
         ? data.length
         : Number(data.likes || 0);
