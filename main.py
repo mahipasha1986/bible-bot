@@ -697,7 +697,7 @@ audio{
          خانه
     </button>
 
-    <button class="gold" onclick="alert('Bible clicked'); showSection('bibleSection')">
+    <button class="gold" onclick="showSection('bibleSection')">
     مطالعه کتاب مقدس
 </button>
 
