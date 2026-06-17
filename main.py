@@ -525,7 +525,7 @@ p{
     color:#4b5563;
 }
 button{
-    width:100%;
+    width:auto;
     padding:13px;
     margin-top:10px;
     border:none;
