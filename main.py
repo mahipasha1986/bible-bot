@@ -1306,7 +1306,7 @@ async function likeDailyVerse(){
     const data = await res.json();
 
     document.getElementById("dailyVerseLikeCount").innerText =
-        data.likes + " نفر";
+        (data.likes ?? data.length) + " نفر";
 }
 
 async function loadDailyVerseLikes(verseId){
