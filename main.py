@@ -810,13 +810,37 @@ audio{
 
 <div id="librarySection" class="section">
 
-<div class="card">
-  <h2>کتابخانه مسیحی</h2>
-  <p>
-    به بخش کتابخانه مسیحی خوش آمدید<br>
-    مجموعه‌‌ای از کتاب‌ها و منابع مسیحی برای مطالعه، یادگیری و رشد روحانی _ برای دریافت فایل، روی نام کتاب بزنید.
-  </p>
-  <button class="gold" onclick="loadBooks()">مشاهده کتاب‌ها</button>
+<div
+    style="
+    background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:24px;
+    padding:60px 24px;
+    color:white;
+    text-align:center;
+">
+
+    <h1 style="color:white;margin-bottom:14px;">
+        کتابخانه مسیحی
+    </h1>
+
+    <div style="
+        font-size:18px;
+        line-height:1.9;
+        margin-bottom:24px;
+        opacity:.95;
+    ">
+        کتاب‌هایی برای رشد ایمان،
+        شاگردی و شناخت عمیق‌تر خدا
+    </div>
+
+    <button class="gold" onclick="loadBooks()">
+        مشاهده کتاب‌ها
+    </button>
+
 </div>
 
 <div class="card">
