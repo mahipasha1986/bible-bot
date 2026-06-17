@@ -692,6 +692,15 @@ audio{
     font-weight:800;
     box-shadow:0 6px 18px rgba(31,78,121,.12);
 }
+.compact-btn{
+    width:auto !important;
+    display:inline-block;
+    padding:10px 24px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:800;
+    margin:8px 6px;
+}
 .section{
   display:none;
 }
@@ -973,11 +982,11 @@ audio{
             placeholder="جستجو در کتاب مقدس..."
             style="width:100%; padding:12px; border-radius:12px; margin-bottom:10px;">
 
-        <button class="gold" onclick="searchBibleVerse()">
+        <button class="gold compact-btn" onclick="searchBibleVerse()">
             جستجو
         </button>
 
-        <button class="gold" onclick="loadBookmarks()">
+        <button class="gold compact-btn" onclick="loadBookmarks()">
              آیات ذخیره‌شده
         </button>
 
