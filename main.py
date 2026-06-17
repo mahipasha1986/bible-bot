@@ -1269,11 +1269,12 @@ async function loadDailyVerse(){
           </div>
 
           <div class="verse-actions">
-              <button onclick="alert('پسندیدن به‌زودی فعال می‌شود')">
+              <button onclick="likeDailyVerse()">
                   <svg viewBox="0 0 24 24">
                       <path d="M20.8 4.6c-1.8-1.7-4.6-1.6-6.3.2L12 7.3 9.5 4.8C7.8 3 5 2.9 3.2 4.6c-2 1.9-2.1 5-.2 7l9 8.8 9-8.8c1.9-2 1.8-5.1-.2-7z"/>
                   </svg>
                   <span>پسندیدن</span>
+                  <span id="dailyVerseLikeCount">0 نفر</span>
               </button>
 
           </div>
@@ -1284,6 +1285,26 @@ async function loadDailyVerse(){
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
     }
+}
+
+async function likeDailyVerse(){
+
+    const userId = Telegram.WebApp.initDataUnsafe.user?.id;
+
+    if(!userId){
+        return;
+    }
+
+    const verseId = window.currentDailyVerseId;
+
+    const res = await fetch(
+        `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse/like?user_id=${userId}&verse_id=${verseId}`
+    );
+
+    const data = await res.json();
+
+    document.getElementById("dailyVerseLikeCount").innerText =
+        data.likes + " نفر";
 }
 
 async function loadBookmarks(){
