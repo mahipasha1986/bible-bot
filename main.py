@@ -877,7 +877,7 @@ audio{
             box-shadow:0 14px 35px rgba(0,0,0,.14);
         ">
             <h2 style="color:white;margin:0 0 8px;">عهد عتیق</h2>
-            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • شریعت، تاریخ، حکمت و پیامبران</div>
+            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • شریعت، تاریخ، حکمت و انبیا</div>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
@@ -890,7 +890,7 @@ audio{
             box-shadow:0 14px 35px rgba(0,0,0,.14);
         ">
             <h2 style="color:white;margin:0 0 8px;">عهد جدید</h2>
-            <div style="opacity:.9;line-height:1.8;">۲۷ کتاب • انجیل‌ها، اعمال، رساله‌ها و مکاشفه</div>
+            <div style="opacity:.9;line-height:1.8;">۲۷ کتاب • انجیل‌ها، اعمال رسولان، رساله‌ها و مکاشفه</div>
         </div>
 
     </div>
@@ -995,9 +995,13 @@ async function searchBibleVerse(){
                         background:#1f4e79;
                         color:white;
                         border:none;
-                        border-radius:10px;
-                        padding:8px 14px;
+                        border-radius:999px;
+                        padding:6px 16px;
+                        font-size:13px;
                         cursor:pointer;
+                        display:inline-block;
+                        width:auto;
+                        margin-top:10px;
                         ">
                         ذخیره
                     </button>
