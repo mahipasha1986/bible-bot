@@ -1529,12 +1529,16 @@ function showEncyclopediaPart(index, type){
     
 function showSection(sectionId){
 
-    document.getElementById("homeSection").classList.remove("active");
-    document.getElementById("songsSection").classList.remove("active");
-    document.getElementById("librarySection").classList.remove("active");
-    document.getElementById("bibleSection").classList.remove("active");
+    document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+        sec.style.display = "none";
+    });
 
-    document.getElementById(sectionId).classList.add("active");
+    const target = document.getElementById(sectionId);
+    if(target){
+        target.classList.add("active");
+        target.style.display = "block";
+    }
 
     window.scrollTo({
         top:0,
