@@ -1257,8 +1257,6 @@ async function loadDailyVerse(){
 
         window.currentDailyVerseId = verse.id;
 
-        await loadDailyVerseLikes(verse.id);
-
         homeDailyVerse.innerHTML = `
        <div style="line-height:2.2; text-align:center;">
 
@@ -1283,6 +1281,8 @@ async function loadDailyVerse(){
 
       </div>
       `;
+
+      await loadDailyVerseLikes(verse.id);
 
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
