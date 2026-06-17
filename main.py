@@ -1257,6 +1257,8 @@ async function loadDailyVerse(){
 
         window.currentDailyVerseId = verse.id;
 
+        await loadDailyVerseLikes(verse.id);
+
         homeDailyVerse.innerHTML = `
        <div style="line-height:2.2; text-align:center;">
 
@@ -1303,8 +1305,17 @@ async function likeDailyVerse(){
 
     const data = await res.json();
 
-    console.log(data);
-    alert(JSON.stringify(data));
+    document.getElementById("dailyVerseLikeCount").innerText =
+        data.likes + " نفر";
+}
+
+async function loadDailyVerseLikes(verseId){
+
+    const res = await fetch(
+        `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse/likes?verse_id=${verseId}`
+    );
+
+    const data = await res.json();
 
     document.getElementById("dailyVerseLikeCount").innerText =
         data.likes + " نفر";
