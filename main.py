@@ -769,7 +769,7 @@ audio{
     style="
     background:
     linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1200');
+    url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200');
     background-size:cover;
     background-position:center;
     border-radius:24px;
@@ -793,19 +793,27 @@ audio{
 
 </div>
 
-    <button class="gold" onclick="loadCategory(0)">
+    <button onclick="loadCategory(0)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px
+    22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;display:inline-block;margin:6px;box-shadow:0 8px 18px
+    rgba(31,78,121,.18);">
          سرودهای عید قیام
     </button>
 
-    <button class="gold" onclick="loadCategory(1)">
+    <button onclick="loadCategory(1)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px
+    22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;display:inline-block;margin:6px;box-shadow:0 8px 18px
+    rgba(31,78,121,.18);">
          سرودهای تولد مسیح
     </button>
 
-    <button class="gold" onclick="loadCategory(2)">
+    <button onclick="loadCategory(2)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px
+    22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;display:inline-block;margin:6px;box-shadow:0 8px 18px
+    rgba(31,78,121,.18);">
          سرودهای جمعه صلیب
     </button>
 
-    <button class="gold" onclick="loadSongs()">
+    <button onclick="loadSongs()" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px
+    22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;display:inline-block;margin:6px;box-shadow:0 8px 18px
+    rgba(31,78,121,.18);">
         آرشیو سرودهای پرستشی
     </button>
 
@@ -874,7 +882,7 @@ audio{
             display:inline-block;
             margin-top:10px;
         ">
-        📚 مشاهده کتاب‌ها
+         مشاهده کتاب‌ها
     </button>
 
 </div>
