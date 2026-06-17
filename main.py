@@ -1418,7 +1418,7 @@ function showBibleEncyclopedia(){
                    type="text"
                    placeholder="جستجوی واژه، شخصیت یا مکان...">
 
-            <button class="gold" onclick="searchBibleEncyclopedia()">
+            <button class="gold compact-btn" onclick="searchBibleEncyclopedia()">
                 جستجو در دانشنامه
             </button>
 
@@ -1427,7 +1427,7 @@ function showBibleEncyclopedia(){
             </div>
         </div>
 
-        <button class="secondary" onclick="location.reload()">
+        <button class="secondary compact-btn" onclick="location.reload()">
             بازگشت به خانه
         </button>
     `;
@@ -1924,11 +1924,11 @@ function showBookDetails(index){
                 ${book.description || ""}
             </p>
 
-            <button class="gold" onclick="sendBook(${book.index})">
+            <button class="gold compact-btn" onclick="sendBook(${book.index})">
                 دریافت کتاب
             </button>
 
-            <button class="secondary" onclick="renderBooks(allBooks)">
+            <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
                 بازگشت به کتابخانه
             </button>
 
