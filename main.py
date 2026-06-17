@@ -747,6 +747,30 @@ audio{
 .daily-verse-card *{
     color:white !important;
 }
+.encyclopedia-btn{
+    width:auto !important;
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+}
+.encyclopedia-card{
+    background:linear-gradient(135deg,#ffffff,#f7fafc);
+    border:1px solid #e6edf5;
+}
+
+.encyclopedia-card h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.encyclopedia-card p{
+    color:#667085;
+    line-height:2;
+    max-width:700px;
+    margin:0 auto 20px;
+}
 .section{
   display:none;
 }
@@ -792,12 +816,13 @@ audio{
   </div>
 </div>
 
-<div class="card">
-  <h2>دانشنامه کتاب مقدس 🔎</h2>
+<div class="card encyclopedia-card">
+  <h2>دانشنامه کتاب مقدس</h2>
   <p>
-    واژه‌ها • شخصیت‌ها • مکان‌ها • مفاهیم مهم کتاب مقدس 
+    جستجو در میان شخصیت‌ها، مکان‌ها،
+    واژه‌ها و مفاهیم کتاب مقدس 
   </p>
-  <button class="gold" onclick="showBibleEncyclopedia()">
+  <button class="gold encyclopedia-btn" onclick="showBibleEncyclopedia()">
     ورود به دانشنامه
   </button>
   
