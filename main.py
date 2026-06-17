@@ -758,7 +758,7 @@ audio{
 .encyclopedia-card{
     background:linear-gradient(135deg,#ffffff,#f7fafc);
     border:1px solid #e6edf5;
-    padding:30px 25px;
+    padding:24px 25px;
     text-align:center;
 }
 
@@ -771,7 +771,7 @@ audio{
     color:#667085;
     line-height:2;
     max-width:700px;
-    margin:0 auto 20px;
+    margin:0 auto 14px;
 }
 .section{
   display:none;
