@@ -835,8 +835,6 @@ audio{
   <div id="songs"></div>
 </div>
 
-</div>
-
 <div id="librarySection" class="section">
 
 <div
