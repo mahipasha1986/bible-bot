@@ -1255,6 +1255,8 @@ async function loadDailyVerse(){
         const data = await res.json();
         const verse = data[0];
 
+        window.currentDailyVerseId = verse.id;
+
         homeDailyVerse.innerHTML = `
        <div style="line-height:2.2; text-align:center;">
 
