@@ -525,7 +525,7 @@ p{
     color:#4b5563;
 }
 button{
-    width:auto;
+    width:100%;
     padding:13px;
     margin-top:10px;
     border:none;
@@ -701,6 +701,36 @@ audio{
     font-weight:800;
     margin:8px 6px;
 }
+.home-menu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+}
+
+.home-menu-btn{
+    width:100%;
+    min-height:74px;
+    background:white;
+    color:#1f4e79;
+    border:2px solid #dbe7f3;
+    border-radius:22px;
+    padding:14px 10px;
+    font-size:15px;
+    font-weight:900;
+    box-shadow:0 10px 26px rgba(31,78,121,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.7;
+}
+
+.home-menu-btn:hover{
+    border-color:#1f4e79;
+    transform:translateY(-2px);
+    box-shadow:0 14px 32px rgba(31,78,121,.16);
+}
 .section{
   display:none;
 }
@@ -757,21 +787,24 @@ audio{
   
   </div>
 
-  <button class="secondary" onclick="showSection('songsSection'); loadSongs();">
-      سرودهای پرستشی 
-  </button>
+ <div class="home-menu-grid">
 
-  <button class="secondary" onclick="showSection('librarySection')">
-      کتابخانه مسیحی 
-  </button>
+     <button class="home-menu-btn" onclick="showSection('songsSection'); loadSongs();">
+        سرودهای پرستشی
+    </button>
 
-  <button class="secondary" onclick="alert('کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
-     کتاب مقدس صوتی 
-  </button>
+    <button class="home-menu-btn" onclick="showSection('librarySection')">
+        کتابخانه مسیحی
+    </button>
 
-  <button class="secondary" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
-     بازی‌ها و آزمون‌های کتاب مقدس 
-  </button>
+    <button class="home-menu-btn" onclick="alert('کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
+        کتاب مقدس صوتی
+    </button>
+
+    <button class="home-menu-btn" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
+        بازی‌ها و آزمون‌های کتاب مقدس
+    </button>
+
 </div>
 
 <div id="songsSection" class="section">
