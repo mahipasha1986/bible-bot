@@ -1300,6 +1300,26 @@ async function loadDailyVerse(){
     }
 }
 
+function shareDailyVerse() {
+
+    const text =
+        document.getElementById("homeDailyVerse")?.innerText ||
+        "آیه روز";
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "آیه روز",
+            text: text
+        });
+
+    } else {
+
+        alert("اشتراک گذاری پشتیبانی نمی‌شود");
+
+    }
+}
+
 async function loadBookmarks(){
 
     const userId = Telegram.WebApp.initDataUnsafe.user?.id;
