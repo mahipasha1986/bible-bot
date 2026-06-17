@@ -829,35 +829,85 @@ audio{
 
 <div id="bibleSection" class="section">
 
-    <div class="card">
-        <h1>مطالعه کتاب مقدس</h1>
+    <div class="card hero-card" style="
+    background:
+    linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
+    url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:60px 24px;
+    ">
 
-        <p>
-            به کلام خدا خوش آمدید.<br>
-            کتاب مقدس را بخوانید، در آن تأمل کنید و اجازه دهید کلام خدا زندگی شما را تبدیل کنید.
-        </p>
+        <h1 style="color:white;margin-bottom:14px;">
+            مطالعه کتاب مقدس
+        </h1>
+
+        <div style="
+        font-size:18px;
+        line-height:1.9;
+        max-width:700px;
+        margin:auto;
+        ">
+            کلام تو برای پاهای من چراغ است
+            <br>
+            و برای راه من نور
+        </div>
+
+        <div style="
+        margin-top:20px;
+        font-size:14px;
+        opacity:.85;
+        ">
+            مزمور ۱۱۹:۱۰۵
+        </div>
+
     </div>
 
-    <div class="card">
-        <button class="gold" onclick="loadBibleBooks('old')">
-             عهد عتیق
-        </button>
+    <div class="card" style="display:grid; gap:14px;">
 
-        <button class="gold" onclick="loadBibleBooks('new')">
-             عهد جدید
-        </button>
+        <div onclick="loadBibleBooks('old')" style="
+            cursor:pointer;
+            border-radius:24px;
+            padding:28px 20px;
+            color:white;
+            text-align:right;
+            background:linear-gradient(135deg,rgba(88,55,25,.92),rgba(25,35,55,.88));
+            box-shadow:0 14px 35px rgba(0,0,0,.14);
+        ">
+            <h2 style="color:white;margin:0 0 8px;">عهد عتیق</h2>
+            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • آفرینش، شریعت، تاریخ، حکمت و پیامبران</div>
+        </div>
+
+        <div onclick="loadBibleBooks('new')" style="
+            cursor:pointer;
+            border-radius:24px;
+            padding:28px 20px;
+            color:white;
+            text-align:right;
+            background:linear-gradient(135deg,rgba(31,78,121,.95),rgba(14,25,45,.9));
+            box-shadow:0 14px 35px rgba(0,0,0,.14);
+        ">
+            <h2 style="color:white;margin:0 0 8px;">عهد جدید</h2>
+            <div style="opacity:.9;line-height:1.8;">۲۷ کتاب • انجیل‌ها، اعمال، رساله‌ها و مکاشفه</div>
+        </div>
+
     </div>
 
-    <div class="card">
+    <div class="card" style="
+    background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+    border:1px solid #dbe7f3;
+    ">
 
         <input
             id="bibleSearchInput"
             type="text"
-            placeholder="🔍 جستجوی آیه..."
+            placeholder="جستجوی کتاب، باب یا آیه..."
             style="width:100%; padding:12px; border-radius:12px; margin-bottom:10px;">
 
         <button class="gold" onclick="searchBibleVerse()">
-            🔍 جستجو
+            جستجو
         </button>
 
         <button class="gold" onclick="loadBookmarks()">
