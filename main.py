@@ -1491,12 +1491,6 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
         const verses = await res.json();
 
-        const wordsRes = await fetch(
-            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible-words"
-        );
-
-        const encyclopediaWords = await wordsRes.json();
-
         bibleContent.innerHTML = `
             <div class="book-item"
                  onclick="loadBibleChapters(${bookId}, '${bookName}')">
