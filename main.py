@@ -1462,19 +1462,47 @@ async function loadBibleChapters(bookId, bookName){
         const chapters = await res.json();
 
         bibleContent.innerHTML = `
-            <div class="book-item"
-                 onclick="loadBibleBooks(currentBibleTestament)">
-                 ⬅️ بازگشت به کتاب‌ها
-            </div>
+        <div style="
+            text-align:right;
+            font-size:30px;
+            font-weight:bold;
+            margin-bottom:24px;
+        ">
+            ${bookName}
+        </div>
 
-            <div class="small">${bookName}</div>
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(5,1fr);
+            gap:10px;
+        ">
 
             ${chapters.map(chapter => `
-                <div class="book-item"
-                     onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})">
-                     باب ${chapter.chapter_number}
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})"
+                    style="
+                        background:#efefef;
+                        border-radius:14px;
+                        height:58px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        font-size:22px;
+                        font-weight:bold;
+                        cursor:pointer;
+                    ">
+                    ${chapter.chapter_number}
                 </div>
             `).join("")}
+
+        </div>
+
+        <div
+            class="book-item"
+            style="margin-top:20px"
+            onclick="loadBibleBooks(currentBibleTestament)">
+            ← بازگشت به کتاب‌ها
+        </div>
         `;
 
     }catch(err){
