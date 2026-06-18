@@ -1578,7 +1578,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                     style="
                         font-size:28px;
                         cursor:pointer;
-                        visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};
+                        visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};
                     ">
                     ‹
                 </div>
@@ -1599,7 +1599,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                     style="
                         font-size:28px;
                         cursor:pointer;
-                        visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};
+                        visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};
                     ">
                     ›
                 </div>
