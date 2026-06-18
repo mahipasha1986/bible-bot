@@ -1422,11 +1422,22 @@ async function loadBibleBooks(testament){
             filtered = bookList.filter(b => b.testament === "NT");
         }
 
-        bibleContent.innerHTML = filtered.map(book => `
-            <div class="book-item" onclick="loadBibleChapters(${book.id}, '${book.name_fa || book.name}')">
-                 ${book.name_fa || book.book_name_fa || book.name || book.title}
+        bibleContent.innerHTML = `
+            <div style="text-align:right; direction:rtl;">
+                ${filtered.map(book => `
+                    <div onclick="loadBibleChapters(${book.id}, '${book.name_fa || book.name}')"
+                         style="
+                            padding:12px 4px;
+                            font-size:25px;
+                            font-weight:400;
+                            color:#111;
+                            cursor:pointer;
+                         ">
+                        ${book.name_fa || book.book_name_fa || book.name || book.title}
+                    </div>
+                `).join("")}
             </div>
-        `).join("");
+       `;
 
     }catch(err){
 
