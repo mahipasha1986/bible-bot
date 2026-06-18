@@ -1607,6 +1607,11 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             </div>
       `;
 
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+      });
+
     }catch(err){
 
         bibleContent.innerHTML =
