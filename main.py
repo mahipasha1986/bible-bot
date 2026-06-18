@@ -1024,7 +1024,7 @@ audio{
 
 <div id="bibleSection" class="section">
 
-    <div class="card hero-card" style="
+    <div id="bibleHero" class="card hero-card" style="
     background:
     linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
     url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
@@ -1060,7 +1060,7 @@ audio{
 
     </div>
 
-    <div class="card" style="display:grid; gap:14px;">
+    <div id="bibleTestamentCards" class="card" style="display:grid; gap:14px;">
 
         <div onclick="loadBibleBooks('old')" style="
             cursor:pointer;
@@ -1090,7 +1090,7 @@ audio{
 
     </div>
 
-    <div class="card" style="
+    <div id="bibleTools" class="card" style="
     background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
     border:1px solid #dbe7f3;
     ">
@@ -1399,6 +1399,9 @@ async function loadBibleBooks(testament){
 
     const bibleContent = document.getElementById("bibleContent");
 
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
+
     bibleContent.innerHTML = "⏳ در حال دریافت کتاب‌ها...";
 
     try{
@@ -1450,6 +1453,9 @@ async function loadBibleBooks(testament){
 async function loadBibleChapters(bookId, bookName){
 
     const bibleContent = document.getElementById("bibleContent");
+
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
 
     bibleContent.innerHTML = "⏳ در حال دریافت باب‌های " + bookName + "...";
 
@@ -1607,9 +1613,9 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             </div>
       `;
 
-      window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+      bibleContent.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
       });
 
     }catch(err){
