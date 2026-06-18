@@ -1531,45 +1531,65 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
         const verses = await res.json();
 
         bibleContent.innerHTML = `
-            <div class="book-item"
-                 onclick="loadBibleChapters(${bookId}, '${bookName}')">
-                 بازگشت به باب‌ها
+            <div style="text-align:center; direction:rtl; margin-bottom:34px;">
+                <div style="font-size:30px; color:#444; margin-bottom:8px;">
+                    ${bookName}
+                </div>
+
+                <div style="font-size:82px; font-weight:900; line-height:1;">
+                    ${chapterNumber}
+                </div>
             </div>
 
-            <div class="book-item"
-                 onclick="loadBibleBooks(currentBibleTestament)">
-                 بازگشت به کتاب‌ها
-            </div>
-
-            <div class="small">
-                 ${bookName} - باب ${chapterNumber}
-            </div>
-
-            ${verses.map(v => `
-                <div style="margin-bottom:10px; line-height:2; font-size:17px;
-            text-align:right;">
-                    <span style="font-weight:bold; color:#1f4e79;">
+            <div style="
+                text-align:right;
+                direction:rtl;
+                font-size:24px;
+                line-height:2.5;
+                color:#111;
+                padding:0 6px;
+            ">
+                ${verses.map(v => `
+                    <span style="
+                        font-size:14px;
+                        color:#1f4e79;
+                        font-weight:bold;
+                        vertical-align:super;
+                        margin-left:5px;
+                    ">
                         ${v.verse_number}
                     </span>
                     ${v.verse_text}
-                </div>
-            `).join("")}
+                `).join(" ")}
+            </div>
 
-            <div style="display:flex; gap:10px; margin-top:25px;">
-                <div class="book-item"
-                     onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
-                     style="flex:1; display:${chapterNumber > 1 ? 'block' : 'none'};">
-                     باب قبل
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-top:38px;
+                padding-top:18px;
+                border-top:1px solid #eee;
+                direction:ltr;
+                font-size:17px;
+                color:#555;
+            ">
+                <div onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
+                     style="cursor:pointer; visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};">
+                    ‹ ${bookName} ${chapterNumber - 1}
                 </div>
 
-                <div class="book-item"
-                     onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
-                     style="flex:1; display:${chapterNumber < totalChapters ? 'block' : 'none'};">
-                     باب بعد
+                <div onclick="loadBibleChapters(${bookId}, '${bookName}')"
+                     style="cursor:pointer; color:#1f4e79; font-weight:700;">
+                    باب‌ها
+                </div>
+
+                <div onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                     style="cursor:pointer; visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};">
+                    ${bookName} ${chapterNumber + 1} ›
                 </div>
             </div>
-            
-            `;
+      `;
 
     }catch(err){
 
