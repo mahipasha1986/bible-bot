@@ -1473,6 +1473,34 @@ async function loadBibleChapters(bookId, bookName){
     }
 }
 
+function linkEncyclopediaWords(text, encyclopediaWords){
+
+    let linkedText = text || "";
+
+    encyclopediaWords.forEach(item => {
+
+        const word = item.word;
+
+        if(!word){
+            return;
+        }
+
+        const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+        const regex = new RegExp(escapedWord, "g");
+
+        linkedText = linkedText.replace(regex, `
+            <span
+                style="color:#1f4e79; font-weight:800; cursor:pointer; border-bottom:1px dashed #1f4e79;"
+                onclick="openEncyclopediaEntry('${word.replace(/'/g, "\\'")}')">
+                ${word}
+            </span>
+        `);
+    });
+
+    return linkedText;
+}
+
 async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
     const bibleContent = document.getElementById("bibleContent");
@@ -1490,6 +1518,12 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
         );
 
         const verses = await res.json();
+
+        const wordsRes = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible-words"
+        );
+
+        const encyclopediaWords = await wordsRes.json();
 
         bibleContent.innerHTML = `
             <div class="book-item"
@@ -1512,7 +1546,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                     <span style="font-weight:bold; color:#1f4e79;">
                         ${v.verse_number}
                     </span>
-                    ${v.verse_text}
+                    ${linkEncyclopediaWords(v.verse_text, encyclopediaWords)}
                 </div>
             `).join("")}
 
