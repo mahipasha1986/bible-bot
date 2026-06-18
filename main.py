@@ -1540,6 +1540,23 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
     }
 }
 
+function openEncyclopediaEntry(word){
+
+    showBibleEncyclopedia();
+
+    setTimeout(() => {
+
+        const input = document.getElementById("encyclopediaSearchInput");
+
+        if(input){
+            input.value = word;
+            searchBibleEncyclopedia();
+        }
+
+    }, 300);
+
+}
+
 function showBibleEncyclopedia(){
 
     const homeSection = document.getElementById("homeSection");
