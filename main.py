@@ -1546,7 +1546,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                     <span style="font-weight:bold; color:#1f4e79;">
                         ${v.verse_number}
                     </span>
-                    ${linkEncyclopediaWords(v.verse_text, encyclopediaWords)}
+                    ${v.verse_text}
                 </div>
             `).join("")}
 
