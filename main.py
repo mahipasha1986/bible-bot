@@ -1399,6 +1399,7 @@ async function loadBibleBooks(testament){
 
     const bibleContent = document.getElementById("bibleContent");
 
+    document.getElementById("bibleHero").style.display = "none";
     document.getElementById("bibleTestamentCards").style.display = "none";
     document.getElementById("bibleTools").style.display = "none";
 
@@ -1454,6 +1455,7 @@ async function loadBibleChapters(bookId, bookName){
 
     const bibleContent = document.getElementById("bibleContent");
 
+    document.getElementById("bibleHero").style.display = "none";
     document.getElementById("bibleTestamentCards").style.display = "none";
     document.getElementById("bibleTools").style.display = "none";
 
@@ -1521,6 +1523,10 @@ async function loadBibleChapters(bookId, bookName){
 async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
     const bibleContent = document.getElementById("bibleContent");
+
+    document.getElementById("bibleHero").style.display = "none";
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
 
     bibleContent.innerHTML =
         "⌛ در حال دریافت آیات...";
