@@ -1473,34 +1473,6 @@ async function loadBibleChapters(bookId, bookName){
     }
 }
 
-function linkEncyclopediaWords(text, encyclopediaWords){
-
-    let linkedText = text || "";
-
-    encyclopediaWords.forEach(item => {
-
-        const word = item.word;
-
-        if(!word){
-            return;
-        }
-
-        const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-        const regex = new RegExp(escapedWord, "g");
-
-        linkedText = linkedText.replace(regex, `
-            <span
-                style="color:#1f4e79; font-weight:800; cursor:pointer; border-bottom:1px dashed #1f4e79;"
-                onclick="openEncyclopediaEntry('${word.replace(/'/g, "\\'")}')">
-                ${word}
-            </span>
-        `);
-    });
-
-    return linkedText;
-}
-
 async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
     const bibleContent = document.getElementById("bibleContent");
