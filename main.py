@@ -1564,30 +1564,46 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             </div>
 
             <div style="
-                display:flex;
-                justify-content:space-between;
-                align-items:center;
-                margin-top:38px;
-                padding-top:18px;
+                width:220px;
+                margin:30px auto 0;
+                padding-top:10px;
                 border-top:1px solid #eee;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
                 direction:ltr;
-                font-size:17px;
-                color:#555;
             ">
-                <div onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
-                     style="cursor:pointer; visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};">
-                    ‹ ${bookName} ${chapterNumber - 1}
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
+                    style="
+                        font-size:28px;
+                        cursor:pointer;
+                        visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};
+                    ">
+                    ‹
                 </div>
 
-                <div onclick="loadBibleChapters(${bookId}, '${bookName}')"
-                     style="cursor:pointer; color:#1f4e79; font-weight:700;">
-                    باب‌ها
+                <div
+                    onclick="loadBibleChapters(${bookId}, '${bookName}')"
+                    style="
+                        font-size:18px;
+                        font-weight:700;
+                        color:#1f4e79;
+                        cursor:pointer;
+                    ">
+                    ${bookName}
                 </div>
 
-                <div onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
-                     style="cursor:pointer; visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};">
-                    ${bookName} ${chapterNumber + 1} ›
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                    style="
+                        font-size:28px;
+                        cursor:pointer;
+                        visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};
+                    ">
+                    ›
                 </div>
+                
             </div>
       `;
 
