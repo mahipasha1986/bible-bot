@@ -1574,7 +1574,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 direction:ltr;
             ">
                 <div
-                    onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
                     style="
                         font-size:28px;
                         cursor:pointer;
@@ -1595,7 +1595,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 </div>
 
                 <div
-                    onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
                     style="
                         font-size:28px;
                         cursor:pointer;
