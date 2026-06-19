@@ -953,7 +953,7 @@ audio{
     </button>
 
 <div class="card">
-  <input id="search" placeholder="🔍 جستجوی نام سرود..." oninput="filterSongs()">
+  <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
   <div id="status" class="small"></div>
 
   <div id="playerCard" class="player-card">
@@ -1020,7 +1020,7 @@ audio{
 </div>
 
 <div class="card">
-  <input id="bookSearch" placeholder="🔍 جستجوی نام کتاب..." oninput="filterBooks()">
+  <input id="bookSearch" placeholder="جستجوی نام کتاب..." oninput="filterBooks()">
   <div id="bookStatus" class="small"></div>
   <div id="books"></div>
 </div>
@@ -1065,32 +1065,47 @@ audio{
 
     </div>
 
-    <div id="bibleTestamentCards" class="card" style="display:grid; gap:14px;">
-
+    <div id="bibleTestamentCards" class="card" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; padding:8px;">
         <div onclick="loadBibleBooks('old')" style="
             cursor:pointer;
-            border-radius:24px;
-            padding:28px 20px;
+            max-width:650px;
+            margin:auto;
+            border-radius:20px;
+            padding:18px 20px;
+            min-height:110px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
             color:white;
             text-align:right;
             background:linear-gradient(135deg,rgba(88,55,25,.92),rgba(25,35,55,.88));
-            box-shadow:0 14px 35px rgba(0,0,0,.14);
+            box-shadow:0 6px 18px rgba(0,0,0,.10);
         ">
-            <h2 style="color:white;margin:0 0 8px;">عهد عتیق</h2>
-            <div style="opacity:.9;line-height:1.8;">۳۹ کتاب • شریعت، تاریخ، حکمت و انبیا</div>
+            <h2 style="color:white;font-size:28px;font-weight:800;margin:0 0 6px;">
+                عهد عتیق  ◂
+            </h2>
+            <div style="opacity:.82;font-size:15px;line-height:1.5;">۳۹ کتاب • شریعت، تاریخ، حکمت و انبیا</div>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
             cursor:pointer;
-            border-radius:24px;
-            padding:28px 20px;
+            max-width:650px;
+            margin:auto;
+            border-radius:20px;
+            padding:18px 20px;
+            min-height:110px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
             color:white;
             text-align:right;
             background:linear-gradient(135deg,rgba(31,78,121,.95),rgba(14,25,45,.9));
-            box-shadow:0 14px 35px rgba(0,0,0,.14);
+            box-shadow:0 6px 18px rgba(0,0,0,.10);
         ">
-            <h2 style="color:white;margin:0 0 8px;">عهد جدید</h2>
-            <div style="opacity:.9;line-height:1.8;">۲۷ کتاب • انجیل‌ها، اعمال رسولان، رساله‌ها و مکاشفه</div>
+            <h2 style="color:white;font-size:28px;font-weight:800;margin:0 0 6px;">
+                عهد جدید  ◂
+            </h2>
+            <div style="opacity:.82;font-size:15px;line-height:1.5;">۲۷ کتاب • انجیل‌ها، اعمال رسولان، رساله‌ها و مکاشفه</div>
         </div>
 
     </div>
