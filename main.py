@@ -904,7 +904,7 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:11px 0;
-margin:0 18px;
+margin:-6px 18px 0 18px;
 cursor:pointer;
 border-bottom:1px solid #f2f2f2;
 direction:rtl;
