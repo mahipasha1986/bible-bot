@@ -851,9 +851,44 @@ audio{
 مسیر روزانه‌ای برای رشد ایمان، پرستش و شناخت عمیق‌تر خدا
 </div>
 
-<button class="gold" onclick="showSection('bibleSection')">
-    مطالعه کتاب مقدس
-</button>
+<div onclick="showSection('bibleSection')" style="
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 0;
+cursor:pointer;
+border-bottom:1px solid #ececec;
+direction:rtl;
+">
+
+<div style="display:flex;align-items:center;gap:12px;">
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+stroke="#1f4e79" stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+
+<span style="
+font-size:18px;
+font-weight:700;
+color:#222;
+">
+مطالعه کتاب مقدس
+</span>
+
+</div>
+
+<span style="
+font-size:22px;
+color:#999;
+">
+‹
+</span>
+
+</div>
 
 </div>
 
