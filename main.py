@@ -854,12 +854,19 @@ audio{
 
 .hero-bg-cross{
     position:absolute;
-    color:rgba(176,141,87,.18);
-    font-size:22px;
+    color:rgba(255,223,140,.92);
+    font-size:34px;
+    font-weight:700;
     line-height:1;
     pointer-events:none;
     z-index:1;
-    animation:softCrossFloat 18s ease-in-out infinite;
+
+    text-shadow:
+        0 0 8px rgba(255,230,170,.95),
+        0 0 18px rgba(255,220,120,.8),
+        0 0 35px rgba(255,210,90,.55);
+
+    animation:softCrossFloat 10s ease-in-out infinite;
 }
 
 .hero-bg-cross.c1{
@@ -982,23 +989,15 @@ audio{
 .hero-card::before{
     content:"";
     position:absolute;
-    top:-30%;
-    left:-80%;
-    width:55%;
-    height:160%;
-    background:linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,.08) 30%,
-        rgba(255,255,255,.9) 50%,
-        rgba(176,141,87,.18) 56%,
-        rgba(255,255,255,.08) 70%,
-        transparent 100%
-    );
-    transform:skewX(-18deg);
-    animation:heroLight 5.8s ease-in-out infinite;
+    inset:-35%;
+    background:
+        radial-gradient(circle at 50% 38%, rgba(255,255,255,.95) 0%, rgba(255,255,255,.45) 18%, transparent 38%),
+        radial-gradient(circle at 50% 45%, rgba(176,141,87,.22) 0%, rgba(176,141,87,.10) 16%, transparent 34%),
+        radial-gradient(circle at 30% 30%, rgba(31,78,121,.10) 0%, transparent 32%),
+        radial-gradient(circle at 75% 70%, rgba(176,141,87,.14) 0%, transparent 30%);
+    animation:heroGlow 6.5s ease-in-out infinite;
     pointer-events:none;
-    z-index:2;
+    z-index:1;
 }
 
 @keyframes heroEnter{
