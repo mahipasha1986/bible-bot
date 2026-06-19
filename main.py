@@ -690,6 +690,9 @@ audio{
     border:none;
     font-size:15px;
     font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:8px;
     box-shadow:none;
 }
 .compact-btn{
@@ -827,13 +830,16 @@ audio{
 <div class="tab-buttons">
 
     <button class="top-home-btn" onclick="location.reload()">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2.5"
-             stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 10.5L12 3l9 7.5"></path>
-            <path d="M5 9.5V21h14V9.5"></path>
-        </svg>
-    </button>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+
+    <span style="font-size:14px;font-weight:700;">Home</span>
+</button>
 
 </div>
 
@@ -935,7 +941,7 @@ color:#222;
 font-size:22px;
 color:#999;
 ">
-‹
+›
 </span>
 
 </div>
