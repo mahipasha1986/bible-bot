@@ -1065,14 +1065,15 @@ audio{
 
     </div>
 
-    <div id="bibleTestamentCards" class="card" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; padding:8px;">
+    <div id="bibleTestamentCards" class="card" style="display:grid; gap:10px; padding:8px;">
         <div onclick="loadBibleBooks('old')" style="
             cursor:pointer;
-            max-width:650px;
+            max-width:360px;
+            width:100%;
             margin:auto;
-            border-radius:16px;
-            padding:14px 18px;
-            min-height:110px;
+            border-radius:14px;
+            padding:12px 18px;
+            min-height:70px;
             display:flex;
             flex-direction:column;
             justify-content:center;
@@ -1081,18 +1082,19 @@ audio{
             background:linear-gradient(135deg,rgba(88,55,25,.92),rgba(25,35,55,.88));
             box-shadow:0 4px 12px rgba(0,0,0,.08);
         ">
-            <h2 style="color:white;font-size:22px;font-weight:800;margin:0;">
+            <h2 style="color:white;font-size:20px;font-weight:800;margin:0;">
                 عهد عتیق
             </h2>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
             cursor:pointer;
-            max-width:650px;
+            max-width:360px;
+            width:100%;
             margin:auto;
-            border-radius:16px;
-            padding:14px 18px;
-            min-height:110px;
+            border-radius:14px;
+            padding:12px 18px;
+            min-height:70px;
             display:flex;
             flex-direction:column;
             justify-content:center;
@@ -1101,7 +1103,7 @@ audio{
             background:linear-gradient(135deg,rgba(31,78,121,.95),rgba(14,25,45,.9));
             box-shadow:0 4px 12px rgba(0,0,0,.08);
         ">
-            <h2 style="color:white;font-size:22px;font-weight:800;margin:0;">
+            <h2 style="color:white;font-size:20px;font-weight:800;margin:0;">
                 عهد جدید
             </h2>
         </div>
