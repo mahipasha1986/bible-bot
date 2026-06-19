@@ -857,85 +857,83 @@ audio{
 مسیر روزانه‌ای برای رشد ایمان، پرستش و شناخت عمیق‌تر خدا
 </div>
 
-<div onclick="showSection('bibleSection')" style="
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:11px 0;
-margin:0 18px;
-cursor:pointer;
-border-bottom:1px solid #eee;
-direction:rtl;
-">
-
-<div style="display:flex;align-items:center;gap:12px;">
-
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-stroke="#1f4e79" stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
-</svg>
-
-<span style="
-font-size:17px;
-font-weight:600;
-color:#222;
-">
-مطالعه کتاب مقدس
-</span>
-
 </div>
 
-<span style="
-font-size:22px;
-color:#999;
-">
-›
-</span>
+<!-- Navigation -->
 
-</div>
+<div style="margin:18px;">
 
-</div>
+    <!-- مطالعه کتاب مقدس -->
 
-<div onclick="showBibleEncyclopedia()" style="
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:11px 0;
-margin:-6px 18px 0 18px;
-cursor:pointer;
-border-bottom:1px solid #f2f2f2;
-direction:rtl;
-">
+    <div onclick="showSection('bibleSection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
 
-<div style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
 
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-stroke="#1f4e79" stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
-</svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#1f4e79" stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
 
-<span style="
-font-size:17px;
-font-weight:700;
-color:#222;
-">
-دانشنامه کتاب مقدس
-</span>
+            <span style="
+                font-size:17px;
+                font-weight:700;
+                color:#222;
+            ">
+                مطالعه کتاب مقدس
+            </span>
 
-</div>
+        </div>
 
-<span style="
-font-size:22px;
-color:#999;
-">
-›
-</span>
+        <span style="font-size:22px;color:#999;">›</span>
+
+    </div>
+
+    <!-- دانشنامه -->
+
+    <div onclick="showBibleEncyclopedia()" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+
+        <div style="display:flex;align-items:center;gap:12px;">
+
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#1f4e79" stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+
+            <span style="
+                font-size:17px;
+                font-weight:700;
+                color:#222;
+            ">
+                دانشنامه کتاب مقدس
+            </span>
+
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+
+    </div>
 
 </div>
 
