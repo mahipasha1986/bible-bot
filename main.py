@@ -823,107 +823,57 @@ audio{
 .section.active{
   display:block;
 }
+
 .hero-card{
     position:relative;
     overflow:hidden;
-    background:
-        radial-gradient(circle at 50% 35%, rgba(255,218,130,.55), transparent 28%),
-        linear-gradient(135deg,#eef6ff 0%,#f7f0df 45%,#dcecff 100%);
-    border:1px solid rgba(176,141,87,.28);
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.8) inset,
-        0 22px 55px rgba(31,78,121,.14),
-        0 0 45px rgba(176,141,87,.22);
-    animation:heroEnter .9s ease-out both, heroCardBreath 4s ease-in-out infinite;
+    background:linear-gradient(135deg,#ffffff 0%,#f8fbff 55%,#eef7ff 100%);
+    border:1px solid rgba(31,78,121,.08);
+    box-shadow:0 18px 45px rgba(31,78,121,.12);
+    animation:heroEnter .8s ease-out both;
 }
 
 .hero-card::before{
     content:"";
     position:absolute;
-    top:-20%;
-    left:-70%;
-    width:55%;
-    height:140%;
-    background:linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,.12) 30%,
-        rgba(255,255,255,.85) 50%,
-        rgba(255,255,255,.12) 70%,
-        transparent 100%
-    );
-    transform:skewX(-18deg);
-    animation:heroLight 6s ease-in-out infinite;
-    pointer-events:none;
-    z-index:2;
-}
-
-.hero-bg-cross{
-    position:absolute;
-    color:rgba(255,223,140,.92);
-    font-size:34px;
-    font-weight:700;
-    line-height:1;
+    inset:0;
+    background:radial-gradient(circle at 50% 42%, rgba(176,141,87,.28), transparent 34%);
+    animation:heroSoftGlow 3.8s ease-in-out infinite;
     pointer-events:none;
     z-index:1;
-
-    text-shadow:
-        0 0 8px rgba(255,230,170,.95),
-        0 0 18px rgba(255,220,120,.8),
-        0 0 35px rgba(255,210,90,.55);
-
-    animation:softCrossFloat 10s ease-in-out infinite;
-}
-
-.hero-bg-cross.c1{
-    top:18%;
-    left:18%;
-    font-size:18px;
-    animation-duration:22s;
-}
-
-.hero-bg-cross.c2{
-    top:16%;
-    right:22%;
-    font-size:14px;
-    opacity:.55;
-    animation-duration:26s;
-}
-
-.hero-bg-cross.c3{
-    bottom:22%;
-    left:25%;
-    font-size:13px;
-    opacity:.45;
-    animation-duration:28s;
-}
-
-.hero-bg-cross.c4{
-    bottom:18%;
-    right:18%;
-    font-size:20px;
-    opacity:.5;
-    animation-duration:24s;
-}
-
-@keyframes softCrossFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(8px);
-    }
 }
 
 .hero-card > *{
     position:relative;
-    z-index:1;
+    z-index:3;
 }
 
+.hero-bg-cross{
+    position:absolute;
+    color:rgba(176,141,87,.42);
+    font-size:28px;
+    line-height:1;
+    pointer-events:none;
+    z-index:2;
+    text-shadow:0 0 14px rgba(176,141,87,.35);
+    animation:softCrossFloat 6s ease-in-out infinite;
+}
+
+.hero-bg-cross.c1{top:16%;left:22%;font-size:18px;}
+.hero-bg-cross.c2{top:17%;right:24%;font-size:18px;animation-duration:7s;}
+.hero-bg-cross.c3{bottom:25%;left:26%;font-size:16px;animation-duration:8s;}
+.hero-bg-cross.c4{bottom:22%;right:22%;font-size:22px;animation-duration:7.5s;}
+
 .hero-cross{
-    font-size:26px;
+    font-size:30px;
     color:#b08d57;
     margin-bottom:10px;
+    text-shadow:0 0 18px rgba(176,141,87,.5);
+    animation:holyGlow 3s ease-in-out infinite;
+}
+
+.hero-card h1{
+    text-shadow:0 10px 30px rgba(31,78,121,.18);
 }
 
 .hero-subtitle{
@@ -954,112 +904,24 @@ audio{
     margin:0 auto 12px;
 }
 
-@keyframes heroLight{
-    0%{
-        left:-70%;
-        opacity:0;
-    }
-    20%{
-        opacity:.65;
-    }
-    55%{
-        opacity:.45;
-    }
-    100%{
-        left:120%;
-        opacity:0;
-    }
-}
-
-@keyframes crossFloat{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(6px);}
-}
-.hero-card{
-    animation:heroEnter .9s ease-out both;
-}
-
-.hero-card h1{
-    text-shadow:0 10px 30px rgba(31,78,121,.18);
-}
-
-.hero-cross{
-    text-shadow:0 0 18px rgba(176,141,87,.45);
-    animation:holyGlow 3.8s ease-in-out infinite;
-}
-
-.hero-verse{
-    text-shadow:0 0 16px rgba(176,141,87,.18);
-}
-
-.hero-card::before{
-    content:"";
-    position:absolute;
-    inset:-35%;
-    background:
-        radial-gradient(circle at 50% 38%, rgba(255,255,255,.95) 0%, rgba(255,255,255,.45) 18%, transparent 38%),
-        radial-gradient(circle at 50% 45%, rgba(176,141,87,.22) 0%, rgba(176,141,87,.10) 16%, transparent 34%),
-        radial-gradient(circle at 30% 30%, rgba(31,78,121,.10) 0%, transparent 32%),
-        radial-gradient(circle at 75% 70%, rgba(176,141,87,.14) 0%, transparent 30%);
-    animation: holyGlow 4.5s ease-in-out infinite;
-    pointer-events:none;
-    filter: blur(18px);
-    opacity: .95;
-    mix-blend-mode: screen;
-    z-index:1;
-}
-
 @keyframes heroEnter{
-    from{
-        opacity:0;
-        transform:translateY(18px) scale(.985);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes heroSoftGlow{
+    0%,100%{opacity:.35;transform:scale(1);}
+    50%{opacity:.85;transform:scale(1.12);}
+}
+
+@keyframes softCrossFloat{
+    0%,100%{transform:translateY(0);opacity:.35;}
+    50%{transform:translateY(-14px);opacity:.9;}
 }
 
 @keyframes holyGlow{
-    0%,100%{
-        opacity:.75;
-        transform:translateY(0) scale(1);
-    }
-    50%{
-        opacity:1;
-        transform:translateY(-2px) scale(1.06);
-    }
-}
-
-@keyframes heroLight{
-    0%{
-        left:-80%;
-        opacity:0;
-    }
-    18%{
-        opacity:.6;
-    }
-    55%{
-        opacity:.42;
-    }
-    100%{
-        left:125%;
-        opacity:0;
-    }
-}
-@keyframes heroCardBreath{
-    0%,100%{
-        box-shadow:
-            0 0 0 1px rgba(255,255,255,.8) inset,
-            0 22px 55px rgba(31,78,121,.14),
-            0 0 35px rgba(176,141,87,.18);
-    }
-    50%{
-        box-shadow:
-            0 0 0 1px rgba(255,255,255,.9) inset,
-            0 28px 70px rgba(31,78,121,.18),
-            0 0 75px rgba(176,141,87,.45);
-    }
+    0%,100%{opacity:.75;transform:scale(1);}
+    50%{opacity:1;transform:scale(1.08);}
 }
 </style>
 </head>
