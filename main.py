@@ -1192,46 +1192,29 @@ async function searchBibleVerse(){
 
             ${results.map(v => `
                 <div style="
-                background:white;
-                padding:16px;
-                border-radius:14px;
-                margin-bottom:12px;
-                box-shadow:0 2px 8px rgba(0,0,0,.08);
+                    border-right:3px solid #111;
+                    padding:0 16px 24px 0;
+                    margin:0 0 24px 0;
+                    text-align:right;
+                    direction:rtl;
                 ">
+                   <div style="
+                       font-size:18px;
+                       line-height:2.3;
+                       color:#222;
+                       margin-bottom:12px;
+                   ">
+                       ${v.verse_text}
+                   </div>
 
-                    <div style="
-                    font-weight:bold;
-                    color:#1f4e79;
-                    margin-bottom:10px;
-                    ">
-                        ${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}
-                    </div>
-
-                    <div style="
-                    line-height:2;
-                    margin-bottom:14px;
-                    ">
-                        ${v.verse_text}
-                    </div>
-
-                    <button
-                        onclick="addBookmark(${v.id})"
-                        style="
-                        background:#1f4e79;
-                        color:white;
-                        border:none;
-                        border-radius:999px;
-                        padding:6px 16px;
-                        font-size:13px;
-                        cursor:pointer;
-                        display:inline-block;
-                        width:auto;
-                        margin-top:10px;
-                        ">
-                        ذخیره
-                    </button>
-
-                </div>
+                   <div style="
+                       font-size:16px;
+                       font-weight:700;
+                       color:#333;
+                   ">
+                       ${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}
+                   </div>
+               </div>
             `).join("")}
         `;
 
