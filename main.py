@@ -838,7 +838,7 @@ audio{
         <line x1="3" y1="18" x2="21" y2="18"/>
     </svg>
 
-    <span style="font-size:14px;font-weight:700;">Home</span>
+    <span style="font-size:14px;font-weight:700;">خانه</span>
 </button>
 
 </div>
