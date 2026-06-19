@@ -899,13 +899,6 @@ color:#999;
 
 </div>
 
-<div class="card daily-verse-card">
-  <h2>آیه روز</h2>
-  <div id="homeDailyVerse" class="small">
-    در انتظار دریافت آیه روز...
-  </div>
-</div>
-
 <div onclick="showBibleEncyclopedia()" style="
 display:flex;
 align-items:center;
@@ -913,7 +906,7 @@ justify-content:space-between;
 padding:11px 0;
 margin:0 18px;
 cursor:pointer;
-border-bottom:1px solid #eee;
+border-bottom:1px solid #f2f2f2;
 direction:rtl;
 ">
 
@@ -944,6 +937,13 @@ color:#999;
 ›
 </span>
 
+</div>
+
+div class="card daily-verse-card">
+  <h2>آیه روز</h2>
+  <div id="homeDailyVerse" class="small">
+    در انتظار دریافت آیه روز...
+  </div>
 </div>
 
  <div class="home-menu-grid">
