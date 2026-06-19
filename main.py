@@ -962,7 +962,7 @@ audio{
 
 <div class="hero-verse">
     <div class="hero-gold-line"></div>
-    <div>✝ «تخت خود را در عیلام برپا خواهم ساخت.»</div>
+    <div> «تخت خود را در عیلام برپا خواهم ساخت.»</div>
     <strong>ارمیا ۴۹:۳۸</strong>
 </div>
 
