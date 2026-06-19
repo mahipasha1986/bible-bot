@@ -834,24 +834,72 @@ audio{
 .hero-card::before{
     content:"";
     position:absolute;
-    inset:-40%;
-    background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.75) 50%,transparent 65%);
-    transform:translateX(-60%);
-    animation:heroLight 9s ease-in-out infinite;
+    top:-20%;
+    left:-70%;
+    width:55%;
+    height:140%;
+    background:linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,.12) 30%,
+        rgba(255,255,255,.85) 50%,
+        rgba(255,255,255,.12) 70%,
+        transparent 100%
+    );
+    transform:skewX(-18deg);
+    animation:heroLight 6s ease-in-out infinite;
     pointer-events:none;
+    z-index:2;
 }
 
-.hero-card::after{
-    content:"✝   ✝      ✝        ✝   ✝      ✝";
+.hero-bg-cross{
     position:absolute;
-    inset:0;
+    color:rgba(176,141,87,.18);
     font-size:22px;
-    letter-spacing:34px;
-    line-height:90px;
-    color:rgba(31,78,121,.055);
-    animation:crossFloat 24s ease-in-out infinite;
+    line-height:1;
     pointer-events:none;
-    z-index:0;
+    z-index:1;
+    animation:softCrossFloat 18s ease-in-out infinite;
+}
+
+.hero-bg-cross.c1{
+    top:18%;
+    left:18%;
+    font-size:18px;
+    animation-duration:22s;
+}
+
+.hero-bg-cross.c2{
+    top:16%;
+    right:22%;
+    font-size:14px;
+    opacity:.55;
+    animation-duration:26s;
+}
+
+.hero-bg-cross.c3{
+    bottom:22%;
+    left:25%;
+    font-size:13px;
+    opacity:.45;
+    animation-duration:28s;
+}
+
+.hero-bg-cross.c4{
+    bottom:18%;
+    right:18%;
+    font-size:20px;
+    opacity:.5;
+    animation-duration:24s;
+}
+
+@keyframes softCrossFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(8px);
+    }
 }
 
 .hero-card > *{
@@ -894,13 +942,102 @@ audio{
 }
 
 @keyframes heroLight{
-    0%,70%{transform:translateX(-65%);}
-    100%{transform:translateX(65%);}
+    0%{
+        left:-70%;
+        opacity:0;
+    }
+    20%{
+        opacity:.65;
+    }
+    55%{
+        opacity:.45;
+    }
+    100%{
+        left:120%;
+        opacity:0;
+    }
 }
 
 @keyframes crossFloat{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
+}
+.hero-card{
+    animation:heroEnter .9s ease-out both;
+}
+
+.hero-card h1{
+    text-shadow:0 10px 30px rgba(31,78,121,.18);
+}
+
+.hero-cross{
+    text-shadow:0 0 18px rgba(176,141,87,.45);
+    animation:holyGlow 3.8s ease-in-out infinite;
+}
+
+.hero-verse{
+    text-shadow:0 0 16px rgba(176,141,87,.18);
+}
+
+.hero-card::before{
+    content:"";
+    position:absolute;
+    top:-30%;
+    left:-80%;
+    width:55%;
+    height:160%;
+    background:linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,.08) 30%,
+        rgba(255,255,255,.9) 50%,
+        rgba(176,141,87,.18) 56%,
+        rgba(255,255,255,.08) 70%,
+        transparent 100%
+    );
+    transform:skewX(-18deg);
+    animation:heroLight 5.8s ease-in-out infinite;
+    pointer-events:none;
+    z-index:2;
+}
+
+@keyframes heroEnter{
+    from{
+        opacity:0;
+        transform:translateY(18px) scale(.985);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes holyGlow{
+    0%,100%{
+        opacity:.75;
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:translateY(-2px) scale(1.06);
+    }
+}
+
+@keyframes heroLight{
+    0%{
+        left:-80%;
+        opacity:0;
+    }
+    18%{
+        opacity:.6;
+    }
+    55%{
+        opacity:.42;
+    }
+    100%{
+        left:125%;
+        opacity:0;
+    }
 }
 </style>
 </head>
@@ -925,6 +1062,11 @@ audio{
 <div id="homeSection" class="section active">
 
 <div class="card hero-card">
+
+<span class="hero-bg-cross c1">✝</span>
+<span class="hero-bg-cross c2">✝</span>
+<span class="hero-bg-cross c3">✝</span>
+<span class="hero-bg-cross c4">✝</span>
 
 <div class="hero-cross">✝</div>
 
