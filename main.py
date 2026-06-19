@@ -823,6 +823,85 @@ audio{
 .section.active{
   display:block;
 }
+.hero-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffffff 0%,#f7fbff 55%,#eef7ff 100%);
+    border:1px solid rgba(31,78,121,.08);
+    box-shadow:0 18px 45px rgba(31,78,121,.10);
+}
+
+.hero-card::before{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.75) 50%,transparent 65%);
+    transform:translateX(-60%);
+    animation:heroLight 9s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.hero-card::after{
+    content:"✝   ✝      ✝        ✝   ✝      ✝";
+    position:absolute;
+    inset:0;
+    font-size:22px;
+    letter-spacing:34px;
+    line-height:90px;
+    color:rgba(31,78,121,.055);
+    animation:crossFloat 24s ease-in-out infinite;
+    pointer-events:none;
+    z-index:0;
+}
+
+.hero-card > *{
+    position:relative;
+    z-index:1;
+}
+
+.hero-cross{
+    font-size:26px;
+    color:#b08d57;
+    margin-bottom:10px;
+}
+
+.hero-subtitle{
+    font-size:18px;
+    font-weight:600;
+    color:#334155;
+    line-height:1.9;
+    margin:14px 0 18px;
+}
+
+.hero-verse{
+    margin-top:18px;
+    color:#8a6a35;
+    font-size:15px;
+    line-height:2;
+}
+
+.hero-verse strong{
+    display:block;
+    margin-top:4px;
+    color:#7a5b2e;
+}
+
+.hero-gold-line{
+    width:70px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#b08d57,transparent);
+    margin:0 auto 12px;
+}
+
+@keyframes heroLight{
+    0%,70%{transform:translateX(-65%);}
+    100%{transform:translateX(65%);}
+}
+
+@keyframes crossFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+}
 </style>
 </head>
 <body>
@@ -847,14 +926,18 @@ audio{
 
 <div class="card hero-card">
 
+<div class="hero-cross">✝</div>
+
 <h1>کلام حیات</h1>
 
-<p>
-هر روز یک قدم نزدیکتر به خدا
+<p class="hero-subtitle">
+مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا
 </p>
 
-<div class="small">
-مسیر روزانه‌ای برای رشد ایمان، پرستش و شناخت عمیق‌تر خدا
+<div class="hero-verse">
+    <div class="hero-gold-line"></div>
+    <div>✝ «تخت خود را در عیلام برپا خواهم ساخت.»</div>
+    <strong>ارمیا ۴۹:۳۸</strong>
 </div>
 
 </div>
