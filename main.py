@@ -1544,34 +1544,41 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
 
         bibleContent.innerHTML = `
             <div style="text-align:center; direction:rtl; margin-bottom:34px;">
-                <div style="font-size:30px; color:#444; margin-bottom:8px;">
+                <div style="
+                    font-family:Vazirmatn,sans-serif;
+                    font-size:15px;
+                    font-weight:500;
+                    color:#8a8a8a;
+                    letter-spacing:0.5px;
+                    margin-bottom:6px;
+                ">
                     ${bookName}
                 </div>
 
-                <div style="font-size:82px; font-weight:900; line-height:1;">
+                <div style="
+                    font-family:Vazirmatn,sans-serif;
+                    font-size:76px;
+                    font-weight:800;
+                    color:#111;
+                    line-height:0.9;
+                    letter-spacing:-2px;
+                    margin-bottom:34px;
+                ">
                     ${chapterNumber}
                 </div>
             </div>
 
             <div style="
-                font-size:22px;
-                font-weight:700;
-                color:#222;
-                margin:30px 0 22px;
-                text-align:right;
-            ">
-                آغاز آفرینش
-            </div>
-
-            <div style="
                 text-align:right;
                 direction:rtl;
-                font-size:18px;
-                line-height:2.15;
+                font-family:Vazirmatn,sans-serif;
+                font-size:17px;
+                line-height:2.45;
                 font-weight:400;
-                color:#222;
-                padding:0 18px;
+                color:#2b2b2b;
+                padding:0 22px;
                 text-align:justify;
+                letter-spacing:0;;
             ">
                 ${verses.map(v => `
                     <span style="
