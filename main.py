@@ -995,8 +995,11 @@ audio{
         radial-gradient(circle at 50% 45%, rgba(176,141,87,.22) 0%, rgba(176,141,87,.10) 16%, transparent 34%),
         radial-gradient(circle at 30% 30%, rgba(31,78,121,.10) 0%, transparent 32%),
         radial-gradient(circle at 75% 70%, rgba(176,141,87,.14) 0%, transparent 30%);
-    animation:heroGlow 6.5s ease-in-out infinite;
+    animation: holyGlow 4.5s ease-in-out infinite;
     pointer-events:none;
+    filter: blur(18px);
+    opacity: .95;
+    mix-blend-mode: screen;
     z-index:1;
 }
 
