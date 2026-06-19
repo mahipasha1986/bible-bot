@@ -939,7 +939,7 @@ color:#999;
 
 </div>
 
-div class="card daily-verse-card">
+<div class="card daily-verse-card">
   <h2>آیه روز</h2>
   <div id="homeDailyVerse" class="small">
     در انتظار دریافت آیه روز...
