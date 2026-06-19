@@ -856,8 +856,9 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:11px 0;
+margin:0 18px;
 cursor:pointer;
-border-bottom:1px solid #ececec;
+border-bottom:1px solid #eee;
 direction:rtl;
 ">
 
