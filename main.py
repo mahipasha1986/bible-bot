@@ -900,17 +900,45 @@ color:#999;
   </div>
 </div>
 
-<div class="card encyclopedia-card">
-  <h2>دانشنامه کتاب مقدس</h2>
-  <p>
-    جستجو در میان شخصیت‌ها، مکان‌ها،
-    واژه‌ها و مفاهیم کتاب مقدس 
-  </p>
-  <button class="gold encyclopedia-btn" onclick="showBibleEncyclopedia()">
-    ورود به دانشنامه
-  </button>
-  
-  </div>
+<div onclick="showBibleEncyclopedia()" style="
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:11px 0;
+margin:0 18px;
+cursor:pointer;
+border-bottom:1px solid #eee;
+direction:rtl;
+">
+
+<div style="display:flex;align-items:center;gap:12px;">
+
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+stroke="#1f4e79" stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+
+<span style="
+font-size:17px;
+font-weight:700;
+color:#222;
+">
+دانشنامه کتاب مقدس
+</span>
+
+</div>
+
+<span style="
+font-size:22px;
+color:#999;
+">
+‹
+</span>
+
+</div>
 
  <div class="home-menu-grid">
 
