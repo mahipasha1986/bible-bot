@@ -1138,6 +1138,8 @@ audio{
 
     </div>
 
+    <div id="bibleTools" style="display:none;"></div>
+
     <div class="card">
         <div id="bibleContent">
         </div>
