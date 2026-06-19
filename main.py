@@ -1070,8 +1070,8 @@ audio{
             cursor:pointer;
             max-width:650px;
             margin:auto;
-            border-radius:20px;
-            padding:18px 20px;
+            border-radius:16px;
+            padding:14px 18px;
             min-height:110px;
             display:flex;
             flex-direction:column;
@@ -1079,20 +1079,19 @@ audio{
             color:white;
             text-align:right;
             background:linear-gradient(135deg,rgba(88,55,25,.92),rgba(25,35,55,.88));
-            box-shadow:0 6px 18px rgba(0,0,0,.10);
+            box-shadow:0 4px 12px rgba(0,0,0,.08);
         ">
-            <h2 style="color:white;font-size:28px;font-weight:800;margin:0 0 6px;">
-                عهد عتیق  ◂
+            <h2 style="color:white;font-size:22px;font-weight:800;margin:0;">
+                عهد عتیق
             </h2>
-            <div style="opacity:.82;font-size:15px;line-height:1.5;">۳۹ کتاب • شریعت، تاریخ، حکمت و انبیا</div>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
             cursor:pointer;
             max-width:650px;
             margin:auto;
-            border-radius:20px;
-            padding:18px 20px;
+            border-radius:16px;
+            padding:14px 18px;
             min-height:110px;
             display:flex;
             flex-direction:column;
@@ -1100,12 +1099,11 @@ audio{
             color:white;
             text-align:right;
             background:linear-gradient(135deg,rgba(31,78,121,.95),rgba(14,25,45,.9));
-            box-shadow:0 6px 18px rgba(0,0,0,.10);
+            box-shadow:0 4px 12px rgba(0,0,0,.08);
         ">
-            <h2 style="color:white;font-size:28px;font-weight:800;margin:0 0 6px;">
-                عهد جدید  ◂
+            <h2 style="color:white;font-size:22px;font-weight:800;margin:0;">
+                عهد جدید
             </h2>
-            <div style="opacity:.82;font-size:15px;line-height:1.5;">۲۷ کتاب • انجیل‌ها، اعمال رسولان، رساله‌ها و مکاشفه</div>
         </div>
 
     </div>
