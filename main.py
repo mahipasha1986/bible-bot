@@ -1186,9 +1186,6 @@ async function searchBibleVerse(){
         const results = await res.json();
 
         bibleContent.innerHTML = `
-            <div class="small">
-                🔍 نتیجه جستجو برای: ${q}
-            </div>
 
             ${results.map(v => `
                 <div style="
