@@ -1065,95 +1065,76 @@ audio{
 
     </div>
 
-    <div id="bibleTestamentCards" class="card" style="display:grid; gap:10px; padding:8px;">
+    <div id="bibleTestamentCards" class="card" style="padding:14px 18px;">
+
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+            <input
+                id="bibleSearchInput"
+                type="text"
+                placeholder="جستجو در کتاب مقدس..."
+                style="flex:1; padding:11px 12px; border-radius:14px; border:1px solid #dbe7f3; direction:rtl; font-size:14px"
+            >
+
+            <button onclick="searchBibleVerse()" style="
+                border:none;
+                background:#1f4e79;
+                color:white;
+                border-radius:14px;
+                padding:0 16px;
+                font-weight:700;
+                font-size:14px;
+                cursor:pointer;
+            ">
+                جستجو
+            </button>
+        </div>
+
         <div onclick="loadBibleBooks('old')" style="
-            cursor:pointer;
-            max-width:360px;
-            width:100%;
-            margin:auto;
-            border-radius:14px;
-            padding:12px 18px;
-            min-height:70px;
             display:flex;
-            flex-direction:column;
-            justify-content:center;
-            color:white;
-            text-align:right;
-            background:linear-gradient(135deg,rgba(88,55,25,.92),rgba(25,35,55,.88));
-            box-shadow:0 4px 12px rgba(0,0,0,.08);
+            align-items:center;
+            justify-content:space-between;
+            padding:13px 0;
+            cursor:pointer;
+            direction:rtl;
+            border-bottom:1px solid #eee;
         ">
-            <h2 style="color:white;font-size:20px;font-weight:800;margin:0;">
-                عهد عتیق
-            </h2>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#1f4e79" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path>
+                </svg>
+                <span style="font-size:17px; font-weight:700; color:#222;">
+                    عهد عتیق
+                </span>
+            </div>
+            
+            <span style="font-size:22px; color:#999;">›</span>
         </div>
 
         <div onclick="loadBibleBooks('new')" style="
-            cursor:pointer;
-            max-width:360px;
-            width:100%;
-            margin:auto;
-            border-radius:14px;
-            padding:12px 18px;
-            min-height:70px;
             display:flex;
-            flex-direction:column;
-            justify-content:center;
-            color:white;
-            text-align:right;
-            background:linear-gradient(135deg,rgba(31,78,121,.95),rgba(14,25,45,.9));
-            box-shadow:0 4px 12px rgba(0,0,0,.08);
-        ">
-            <h2 style="color:white;font-size:20px;font-weight:800;margin:0;">
-                عهد جدید
-            </h2>
-        </div>
-
-    </div>
-
-    <div id="bibleTools" class="card" style="
-    background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
-    border:1px solid #dbe7f3;
-    ">
-
-        <input
-            id="bibleSearchInput"
-            type="text"
-            placeholder="جستجو در کتاب مقدس..."
-            style="width:100%; padding:12px; border-radius:12px; margin-bottom:10px;">
-
-        <button class="gold compact-btn" onclick="searchBibleVerse()">
-            جستجو
-        </button>
-
-        <button onclick="loadBookmarks()" style="
-            width:120px;
-            height:105px;
-            background:#f4f4f4;
-            border:none;
-            border-radius:26px;
-            display:flex;
-            flex-direction:column;
             align-items:center;
-            justify-content:center;
-            gap:10px;
+            justify-content:space-between;
+            padding:13px 0;
             cursor:pointer;
+            direction:rtl;
         ">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                 stroke="#111" stroke-width="2.2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round">
-                <path d="M6 3h12v18l-6-4-6 4V3z"/>
-            </svg>
-
-            <span style="
-                font-size:15px;
-                font-family:Vazirmatn,sans-serif;
-                color:#111;
-                font-weight:500;
-            ">
-                ذخیره‌شده
-            </span>
-        </button>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#1f4e79" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"></path>
+                    <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"></path>
+                </svg>
+                <span style="font-size:17px; font-weight:700; color:#222;">
+                    عهد جدید
+                </span>
+            </div>
+            
+            <span style="font-size:22px; color:#999;">›</span>
+        </div>
 
     </div>
 
