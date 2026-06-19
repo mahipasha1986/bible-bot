@@ -826,9 +826,15 @@ audio{
 .hero-card{
     position:relative;
     overflow:hidden;
-    background:linear-gradient(135deg,#ffffff 0%,#f7fbff 55%,#eef7ff 100%);
-    border:1px solid rgba(31,78,121,.08);
-    box-shadow:0 18px 45px rgba(31,78,121,.10);
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255,218,130,.55), transparent 28%),
+        linear-gradient(135deg,#eef6ff 0%,#f7f0df 45%,#dcecff 100%);
+    border:1px solid rgba(176,141,87,.28);
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.8) inset,
+        0 22px 55px rgba(31,78,121,.14),
+        0 0 45px rgba(176,141,87,.22);
+    animation:heroEnter .9s ease-out both, heroCardBreath 4s ease-in-out infinite;
 }
 
 .hero-card::before{
@@ -1039,6 +1045,20 @@ audio{
     100%{
         left:125%;
         opacity:0;
+    }
+}
+@keyframes heroCardBreath{
+    0%,100%{
+        box-shadow:
+            0 0 0 1px rgba(255,255,255,.8) inset,
+            0 22px 55px rgba(31,78,121,.14),
+            0 0 35px rgba(176,141,87,.18);
+    }
+    50%{
+        box-shadow:
+            0 0 0 1px rgba(255,255,255,.9) inset,
+            0 28px 70px rgba(31,78,121,.18),
+            0 0 75px rgba(176,141,87,.45);
     }
 }
 </style>
