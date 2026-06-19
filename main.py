@@ -855,7 +855,7 @@ audio{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:16px 0;
+padding:11px 0;
 cursor:pointer;
 border-bottom:1px solid #ececec;
 direction:rtl;
@@ -863,7 +863,7 @@ direction:rtl;
 
 <div style="display:flex;align-items:center;gap:12px;">
 
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
 stroke="#1f4e79" stroke-width="2"
 stroke-linecap="round"
 stroke-linejoin="round">
@@ -872,8 +872,8 @@ stroke-linejoin="round">
 </svg>
 
 <span style="
-font-size:18px;
-font-weight:700;
+font-size:17px;
+font-weight:600;
 color:#222;
 ">
 مطالعه کتاب مقدس
@@ -885,7 +885,7 @@ color:#222;
 font-size:22px;
 color:#999;
 ">
-‹
+›
 </span>
 
 </div>
