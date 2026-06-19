@@ -1472,9 +1472,11 @@ async function loadBibleChapters(bookId, bookName){
         bibleContent.innerHTML = `
         <div style="
             text-align:right;
-            font-size:30px;
-            font-weight:bold;
-            margin-bottom:24px;
+            font-family:Vazirmatn,sans-serif;
+            font-size:22px;
+            font-weight:600;
+            color:#444;
+            margin-bottom:18px;
         ">
             ${bookName}
         </div>
@@ -1482,7 +1484,7 @@ async function loadBibleChapters(bookId, bookName){
         <div style="
             display:grid;
             grid-template-columns:repeat(5,1fr);
-            gap:10px;
+            gap:8px;
         ">
 
             ${chapters.map(chapter => `
@@ -1490,13 +1492,13 @@ async function loadBibleChapters(bookId, bookName){
                     onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})"
                     style="
                         background:#efefef;
-                        border-radius:14px;
-                        height:58px;
+                        border-radius:12px;
+                        height:46px;
                         display:flex;
                         justify-content:center;
                         align-items:center;
-                        font-size:22px;
-                        font-weight:bold;
+                        font-size:18px;
+                        font-weight:700;
                         cursor:pointer;
                     ">
                     ${chapter.chapter_number}
@@ -1577,7 +1579,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 font-weight:400;
                 color:#2b2b2b;
                 padding:0 22px;
-                text-align:justify;
+                text-align:right;
                 letter-spacing:0;;
             ">
                 ${verses.map(v => `
