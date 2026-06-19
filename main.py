@@ -1072,21 +1072,10 @@ audio{
                 id="bibleSearchInput"
                 type="text"
                 placeholder="جستجو در کتاب مقدس..."
+                onkeydown="if(event.key==='Enter') searchBibleVerse()"
                 style="flex:1; padding:11px 12px; border-radius:14px; border:1px solid #dbe7f3; direction:rtl; font-size:14px"
             >
-
-            <button onclick="searchBibleVerse()" style="
-                border:none;
-                background:#1f4e79;
-                color:white;
-                border-radius:14px;
-                padding:0 16px;
-                font-weight:700;
-                font-size:14px;
-                cursor:pointer;
-            ">
-                جستجو
-            </button>
+            
         </div>
 
         <div onclick="loadBibleBooks('old')" style="
