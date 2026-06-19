@@ -827,7 +827,12 @@ audio{
 <div class="tab-buttons">
 
     <button class="top-home-btn" onclick="location.reload()">
-        خانه
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10.5L12 3l9 7.5"></path>
+            <path d="M5 9.5V21h14V9.5"></path>
+        </svg>
     </button>
 
 </div>
@@ -1105,15 +1110,40 @@ audio{
             جستجو
         </button>
 
-        <button class="gold compact-btn" onclick="loadBookmarks()">
-             آیات ذخیره‌شده
+        <button onclick="loadBookmarks()" style="
+            width:120px;
+            height:105px;
+            background:#f4f4f4;
+            border:none;
+            border-radius:26px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+            cursor:pointer;
+        ">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+                 stroke="#111" stroke-width="2.2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M6 3h12v18l-6-4-6 4V3z"/>
+            </svg>
+
+            <span style="
+                font-size:15px;
+                font-family:Vazirmatn,sans-serif;
+                color:#111;
+                font-weight:500;
+            ">
+                ذخیره‌شده
+            </span>
         </button>
 
     </div>
 
     <div class="card">
         <div id="bibleContent">
-            انتخاب یکی از بخش‌های بالا...
         </div>
     </div>
 
