@@ -1247,7 +1247,11 @@ audio{
 </div>
 
 <div class="card">
-  <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
+
+    <div id="searchBox">
+        <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
+    </div>
+    
   <div id="status" class="small"></div>
 
   <div id="playerCard" class="player-card">
@@ -2165,6 +2169,7 @@ function setStatus(text){
 
 async function loadSongs(){
   currentSource = "songs";
+  document.getElementById("searchBox").style.display = "block";
   closePlayer();
   setStatus("⏳ در حال دریافت لیست سرودها...");
 
@@ -2184,6 +2189,7 @@ async function loadSongs(){
 
 async function loadCategory(index){
     currentSource = "category";
+    document.getElementById("searchBox").style.display = "none";
     document.querySelectorAll(".song-category-btn").forEach(btn=>{
         btn.classList.remove("active");
     });
