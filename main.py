@@ -1196,26 +1196,26 @@ audio{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:18px;
+    gap:12px;
+    flex-wrap:nowrap;
     overflow-x:auto;
-    white-space:nowrap;
     padding:18px 0;
     scrollbar-width:none;
 ">
 
-<button onclick="loadCategory(0)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px 22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;flex:0 0 auto;margin:0;box-shadow:0 8px 18px rgba(31,78,121,.18);transition:all .25s ease;">
+<button onclick="loadCategory(0)" class="home-menu-btn">
     سرودهای عید قیام
 </button>
 
-<button onclick="loadCategory(1)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px 22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;flex:0 0 auto;margin:0;box-shadow:0 8px 18px rgba(31,78,121,.18);transition:all .25s ease;">
+<button onclick="loadCategory(1)" class="home-menu-btn">
     سرودهای تولد مسیح
 </button>
 
-<button onclick="loadCategory(2)" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px 22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;flex:0 0 auto;margin:0;box-shadow:0 8px 18px rgba(31,78,121,.18);transition:all .25s ease;">
+<button onclick="loadCategory(2)" class="home-menu-btn">
     سرودهای جمعه صلیب
 </button>
 
-<button onclick="loadSongs()" style="background:#1f4e79;color:white;border:none;border-radius:999px;padding:12px 22px;font-size:15px;font-weight:bold;cursor:pointer;width:auto;flex:0 0 auto;margin:0;box-shadow:0 8px 18px rgba(31,78,121,.18);transition:all .25s ease;">
+<button onclick="loadSongs()" class="home-menu-btn">
     آرشیو سرودهای پرستشی
 </button>
 
