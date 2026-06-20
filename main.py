@@ -923,6 +923,26 @@ audio{
     0%,100%{opacity:.75;transform:scale(1);}
     50%{opacity:1;transform:scale(1.08);}
 }
+.song-category-btn{
+    background: transparent;
+    border: none;
+    color: #1f4e79;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    transition: all .25s ease;
+}
+
+.song-category-btn:hover{
+    color:#163c5f;
+}
+
+.song-category-btn.active{
+    color:#b08d57;
+}
 </style>
 </head>
 <body>
@@ -1203,19 +1223,19 @@ audio{
     scrollbar-width:none;
 ">
 
-<button onclick="loadCategory(0)" class="home-menu-btn">
+<button onclick="loadCategory(0)" class="song-category-btn"
     سرودهای عید قیام
 </button>
 
-<button onclick="loadCategory(1)" class="home-menu-btn">
+<button onclick="loadCategory(1)" class="song-category-btn"
     سرودهای تولد مسیح
 </button>
 
-<button onclick="loadCategory(2)" class="home-menu-btn">
+<button onclick="loadCategory(2)" class="song-category-btn"
     سرودهای جمعه صلیب
 </button>
 
-<button onclick="loadSongs()" class="home-menu-btn">
+<button onclick="loadSongs()" class="song-category-btn"
     آرشیو سرودهای پرستشی
 </button>
 
