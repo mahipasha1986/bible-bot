@@ -1435,6 +1435,7 @@ Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
 let allSongs = [];
+let filteredSongs = [];
 let currentSource = "songs";
 let currentPage = 0;
 const songsPerPage = 30;
@@ -2170,6 +2171,7 @@ async function loadSongs(){
   const data = await res.json();
 
   allSongs = data.songs || [];
+  filteredSongs = allSongs;
   currentPage = 0;
 
   document.getElementById("search").value = "";
@@ -2192,6 +2194,7 @@ async function loadCategory(index){
   const data = await res.json();
 
   allSongs = data.songs || [];
+  filteredSongs = allSongs;
   currentPage = 0;
 
   document.getElementById("search").value = "";
@@ -2203,7 +2206,7 @@ async function loadCategory(index){
 function renderPage(){
   const start = currentPage * songsPerPage;
   const end = start + songsPerPage;
-  const songs = allSongs.slice(start, end);
+  const songs = filteredSongs.slice(start, end);
 
   renderSongs(songs, true);
 }
@@ -2231,7 +2234,7 @@ function renderSongs(songs, showPagination){
 }
 
 function renderPagination(container){
-  const totalPages = Math.ceil(allSongs.length / songsPerPage);
+  const totalPages = Math.ceil(filteredSongs.length / songsPerPage);
 
   if(totalPages <= 1) return;
 
