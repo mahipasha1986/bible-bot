@@ -1212,8 +1212,8 @@ audio{
 
 </div>
 
-<div id="songCategories" style="display:flex;align-items:center;gap:22px;padding:14px 18px 18px;direction:rtl;overflow-x:auto;overflow-y:hidden;white-space:nowrap;max-width:100%;box-sizing:border-box;-webkit-overflow-scrolling:touch;">
-
+<div id="songCategories" style="display:flex;align-items:center;gap:16px;padding:14px 18px 18px;direction:rtl;overflow-x:auto;overflow-y:hidden;white-space:nowrap;max-width:100%;box-sizing:border-box;-webkit-overflow-scrolling:touch;">
+    
     <button onclick="loadCategory(0)" class="song-category-btn active">
         سرودهای عید قیام
     </button>
