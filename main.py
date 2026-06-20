@@ -926,7 +926,7 @@ audio{
 .song-category-btn{
     background:#ffffff;
     border:2px solid #1f4e79;
-    color:#1f4e79;
+    color:#222;
     font-size:16px;
     font-weight:700;
     padding:13px 26px;
