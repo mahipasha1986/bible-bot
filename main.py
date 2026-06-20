@@ -1248,7 +1248,7 @@ audio{
 
 <div class="card">
 
-    <div id="searchBox">
+    <div id="searchBox" style="display:none;">
         <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
     </div>
     
