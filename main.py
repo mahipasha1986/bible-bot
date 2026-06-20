@@ -924,7 +924,6 @@ audio{
     50%{opacity:1;transform:scale(1.08);}
 }
 .song-category-btn{
-.song-category-btn{
     background:transparent;
     border:none;
     color:#222;
