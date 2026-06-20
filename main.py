@@ -1194,7 +1194,9 @@ audio{
 
 <div id="songCategories" style="
     display:flex;
-    gap:14px;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
     overflow-x:auto;
     white-space:nowrap;
     padding:18px 0;
