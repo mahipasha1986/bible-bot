@@ -2284,8 +2284,9 @@ function filterSongs(){
   const q = document.getElementById("search").value.toLowerCase().trim();
   
   if(allSongs.length === 0){
-    loadSongs();
-    return;
+      const res = await fetch("/api/songs");
+      const data = await res.json();
+      allSongs = data.songs || [];
   }
 
   if(!q){
