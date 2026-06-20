@@ -932,16 +932,16 @@ audio{
     margin:0 !important;
     padding:8px 2px 10px !important;
     color:#222 !important;
-    font-size:14px !important;
+    font-size:18px !important;
     font-weight:700 !important;
     cursor:pointer;
     white-space:nowrap;
-    border-bottom:3px solid transparent !important;
+    border-bottom:none !important;
 }
 
 .song-category-btn.active{
     color:#1f4e79 !important;
-    border-bottom-color:#1f4e79 !important;
+    border-bottom:none !important;
 }
 .songs-hero-animate{
     animation:songsHero .7s ease;
