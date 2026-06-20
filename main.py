@@ -1053,24 +1053,113 @@ audio{
   </div>
 </div>
 
- <div class="home-menu-grid">
+<div style="margin:18px;">
 
-     <button class="home-menu-btn" onclick="showSection('songsSection'); loadSongs();">
-        سرودهای پرستشی
-    </button>
+    <div onclick="showSection('songsSection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l11-2v13"/>
+                <circle cx="7" cy="18" r="2"/>
+                <circle cx="18" cy="16" r="2"/>
+            </svg>
 
-    <button class="home-menu-btn" onclick="showSection('librarySection')">
-        کتابخانه مسیحی
-    </button>
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                سرودهای پرستشی
+            </span>
+        </div>
 
-    <button class="home-menu-btn" onclick="alert('کتاب مقدس صوتی به‌زودی اضافه می‌شود')">
-        کتاب مقدس صوتی
-    </button>
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
 
-    <button class="home-menu-btn" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس به‌زودی اضافه می‌شود')">
-        بازی‌ها و آزمون‌های کتاب مقدس
-    </button>
-    
+    <div onclick="showSection('librarySection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                <path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5z"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                کتابخانه مسیحی
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
+    <div onclick="alert('کتاب مقدس صوتی بزودی اضافه می‌شود')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"/>
+                <path d="M8 6h8"/>
+                <path d="M8 18h8"/>
+                <path d="M16 9a3 3 0 010 6"/>
+                <path d="M18 7a6 6 0 010 10"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                کتاب مقدس صوتی
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
+    <div onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس بزودی اضافه می‌شود')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M9.5 9.5a2.5 2.5 0 115 0c0 2-2.5 2.2-2.5 4"/>
+                <circle cx="12" cy="17.5" r=".6" fill="#1f4e79" stroke="none"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                بازی‌ها و آزمون‌های کتاب مقدس
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
 </div>
 
 </div>
