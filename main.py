@@ -957,6 +957,37 @@ audio{
         transform:translateY(0) scale(1);
     }
 }
+#songCategories{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    margin:28px 0;
+}
+
+.song-archive-row{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.song-category-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.gold-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#D4AF37;
+    display:inline-block;
+    margin-left:8px;
+    flex-shrink:0;
+}
 </style>
 </head>
 <body>
@@ -1226,43 +1257,35 @@ audio{
 
 </div>
 
-<div id="songCategories" style="display:flex;align-items:center;gap:16px;padding:14px 18px 18px;direction:rtl;overflow-x:auto;overflow-y:hidden;white-space:nowrap;max-width:100%;box-sizing:border-box;-webkit-overflow-scrolling:touch;">
-    
-    <button onclick="loadSongs()" class="song-category-btn active">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:6px;">
-        <path d="M9 18V5l11-2v13"/>
-        <circle cx="7" cy="18" r="2"/>
-        <circle cx="18" cy="16" r="2"/>
-    </svg>
-    آرشیو سرودهای پرستشی
-</button>
+<div id="songCategories">
 
-<button onclick="loadCategory(0)" class="song-category-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:6px;">
-        <path d="M9 18V5l11-2v13"/>
-        <circle cx="7" cy="18" r="2"/>
-        <circle cx="18" cy="16" r="2"/>
-    </svg>
-    عید قیام
-</button>
+    <div class="song-archive-row">
 
-<button onclick="loadCategory(1)" class="song-category-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:6px;">
-        <path d="M9 18V5l11-2v13"/>
-        <circle cx="7" cy="18" r="2"/>
-        <circle cx="18" cy="16" r="2"/>
-    </svg>
-    تولد مسیح
-</button>
+        <button onclick="loadSongs()" class="song-category-btn active">
+            <span class="gold-dot"></span>
+            آرشیو سرودهای پرستشی
+        </button>
 
-<button onclick="loadCategory(2)" class="song-category-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:6px;">
-        <path d="M9 18V5l11-2v13"/>
-        <circle cx="7" cy="18" r="2"/>
-        <circle cx="18" cy="16" r="2"/>
-    </svg>
-    جمعه صلیب
-</button>
+    </div>
+
+    <div class="song-category-row">
+
+        <button onclick="loadCategory(0)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای عید قیام
+        </button>
+
+        <button onclick="loadCategory(1)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای تولد مسیح
+        </button>
+
+        <button onclick="loadCategory(2)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای جمعه صلیب
+        </button>
+
+    </div>
 
 </div>
 
