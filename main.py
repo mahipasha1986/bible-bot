@@ -924,24 +924,21 @@ audio{
     50%{opacity:1;transform:scale(1.08);}
 }
 .song-category-btn{
-    background: transparent;
-    border: none;
-    color: #1f4e79;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px 6px;
-    cursor: pointer;
-    white-space: nowrap;
-    flex: 0 0 auto;
-    transition: all .25s ease;
+    background:#ffffff;
+    border:1px solid #e6eef5;
+    color:#1f4e79;
+    font-size:16px;
+    font-weight:700;
+    padding:13px 26px;
+    border-radius:18px;
+    cursor:pointer;
+    white-space:nowrap;
+    flex:0 0 auto;
+    box-shadow:0 8px 22px rgba(31,78,121,.08);
 }
 
 .song-category-btn:hover{
-    color:#163c5f;
-}
-
-.song-category-btn.active{
-    color:#b08d57;
+    border-color:#1f4e79;
 }
 </style>
 </head>
