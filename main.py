@@ -2164,9 +2164,14 @@ async function loadSongs(){
 }
 
 async function loadCategory(index){
-  currentSource = "category";
-  closePlayer();
-  setStatus("⏳ در حال دریافت سرودهای مناسبتی...");
+    currentSource = "category";
+    document.querySelectorAll(".song-category-btn").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    document.querySelectorAll(".song-category-btn")[index].classList.add("active");
+    closePlayer();
+    setStatus("⏳ در حال دریافت سرودهای مناسبتی...");
 
   const res = await fetch("/api/category/" + index);
   const data = await res.json();
