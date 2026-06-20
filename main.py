@@ -1436,6 +1436,7 @@ Telegram.WebApp.expand();
 
 let allSongs = [];
 let filteredSongs = [];
+let masterSongs = [];
 let currentSource = "songs";
 let currentPage = 0;
 const songsPerPage = 30;
@@ -2172,6 +2173,7 @@ async function loadSongs(){
 
   allSongs = data.songs || [];
   filteredSongs = allSongs;
+  masterSongs = allSongs;
   currentPage = 0;
 
   document.getElementById("search").value = "";
@@ -2292,7 +2294,7 @@ function filterSongs(){
     return;
   }
 
-  const filtered = allSongs.filter(s => (s.name || "").toLowerCase().includes(q));
+  const filtered = (masterSongs.length ? masterSongs : allSongs).filter(s => (s.name || "").toLowerCase().includes(q));
   renderSongs(filtered.slice(0, 100), false);
 
   if(filtered.length > 100){
