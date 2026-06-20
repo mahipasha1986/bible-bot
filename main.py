@@ -612,8 +612,8 @@ input::placeholder{color:#999;}
 .song-item, .book-item{
     background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
     border:1px solid #edf1f5;
-    padding:10px 14px;
-    border-radius:18px;
+    padding:8px 14px;
+    border-radius:16px;
     margin-top:8px;
     cursor:pointer;
     text-align:right;
