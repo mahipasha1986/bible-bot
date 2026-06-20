@@ -617,11 +617,12 @@ input::placeholder{color:#999;}
     margin-top:12px;
     cursor:pointer;
     text-align:right;
-    color:#333;
+    color:#222;
     font-family: Vazirmatn, sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.9;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing:-0.3px;
+    line-height: 1.8;
     box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 .song-item:hover,
