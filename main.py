@@ -943,6 +943,20 @@ audio{
     color:#1f4e79 !important;
     border-bottom-color:#1f4e79 !important;
 }
+.songs-hero-animate{
+    animation:songsHero .7s ease;
+}
+
+@keyframes songsHero{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 </style>
 </head>
 <body>
@@ -1184,7 +1198,7 @@ audio{
 
 <div id="songsSection" class="section">
 
-<div
+<div class="songs-hero-animate"
     style="
     background:
     linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
