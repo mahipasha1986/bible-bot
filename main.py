@@ -610,26 +610,29 @@ input{
 }
 input::placeholder{color:#999;}
 .song-item, .book-item{
-    background:#ffffff;
-    border:1px solid #e7e7ec;
-    padding:16px;
+    background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
+    border:1px solid #edf1f5;
+    padding:14px 16px;
     border-radius:18px;
-    margin-top:12px;
+    margin-top:10px;
     cursor:pointer;
     text-align:right;
     color:#222;
-    font-family: Vazirmatn, sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing:-0.3px;
-    line-height: 1.8;
-    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+    font-family:'Vazirmatn',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:-0.2px;
+    line-height:1.7;
+
+    box-shadow:0 6px 18px rgba(31,78,121,0.06);
 }
 .song-item:hover,
 .book-item:hover{
-    background:#fafafa;
-    border-color:#d4d4dc;
+    background:#ffffff;
+    border-color:#dbe7f3;
     transform:translateY(-1px);
+    box-shadow:0 10px 24px rgba(31,78,121,0.10);
     transition:all .2s ease;
 }
 .small{
