@@ -1119,11 +1119,9 @@ audio{
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="#1f4e79" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v18"/>
-                <path d="M8 6h8"/>
-                <path d="M8 18h8"/>
-                <path d="M16 9a3 3 0 010 6"/>
-                <path d="M18 7a6 6 0 010 10"/>
+                <path d="M4 14v3a2 2 0 002 2h2v-7H6a2 2 0 00-2 2z"/>
+                <path d="M20 14v3a2 2 0 01-2 2h-2v-7h2a2 2 0 012 2z"/>
+                <path d="M6 12a6 6 0 0112 0"/>
             </svg>
 
             <span style="font-size:17px;font-weight:700;color:#222;">
