@@ -1213,19 +1213,19 @@ audio{
 
 <div id="songCategories" style="display:flex;justify-content:center;align-items:center;gap:20px;padding:10px 0 18px;direction:rtl;">
 
-    <button onclick="loadCategory(0)" class="song-category-btn active" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+    <button onclick="loadCategory(0)" class="song-category-btn active">
         سرودهای عید قیام
     </button>
 
-    <button onclick="loadCategory(1)" class="song-category-btn" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+    <button onclick="loadCategory(1)" class="song-category-btn">
         سرودهای تولد مسیح
     </button>
 
-    <button onclick="loadCategory(2)" class="song-category-btn" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+    <button onclick="loadCategory(2)" class="song-category-btn">
         سرودهای جمعه صلیب
     </button>
 
-    <button onclick="loadSongs()" class="song-category-btn" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+    <button onclick="loadSongs()" class="song-category-btn">
         آرشیو سرودهای پرستشی
     </button>
 
