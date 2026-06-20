@@ -2282,6 +2282,11 @@ function renderPagination(container){
 
 function filterSongs(){
   const q = document.getElementById("search").value.toLowerCase().trim();
+  
+  if(allSongs.length === 0){
+    loadSongs();
+    return;
+  }
 
   if(!q){
     closePlayer();
