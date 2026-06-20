@@ -612,19 +612,17 @@ input::placeholder{color:#999;}
 .song-item, .book-item{
     background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
     border:1px solid #edf1f5;
-    padding:14px 16px;
+    padding:10px 14px;
     border-radius:18px;
-    margin-top:10px;
+    margin-top:8px;
     cursor:pointer;
     text-align:right;
     color:#222;
-
     font-family:'Vazirmatn',sans-serif;
     font-size:20px;
     font-weight:600;
     letter-spacing:-0.2px;
-    line-height:1.7;
-
+    line-height:1.55;
     box-shadow:0 6px 18px rgba(31,78,121,0.06);
 }
 .song-item:hover,
