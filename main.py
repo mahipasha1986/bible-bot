@@ -930,9 +930,9 @@ audio{
     border-radius:0 !important;
     width:auto !important;
     margin:0 !important;
-    padding:8px 6px 10px !important;
+    padding:8px 2px 10px !important;
     color:#222 !important;
-    font-size:16px !important;
+    font-size:14px !important;
     font-weight:700 !important;
     cursor:pointer;
     white-space:nowrap;
