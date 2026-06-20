@@ -2222,7 +2222,7 @@ async function loadSongs(){
   currentSource = "songs";
   document.getElementById("searchBox").style.display = "block";
   closePlayer();
-  setStatus("⏳ در حال دریافت لیست سرودها...");
+  setStatus("");
 
   const res = await fetch("/api/songs");
   const data = await res.json();
@@ -2247,7 +2247,7 @@ async function loadCategory(index){
 
     document.querySelectorAll(".song-category-btn")[index].classList.add("active");
     closePlayer();
-    setStatus("⏳ در حال دریافت سرودهای مناسبتی...");
+    setStatus("");
 
   const res = await fetch("/api/category/" + index);
   const data = await res.json();
@@ -2385,11 +2385,11 @@ function openPlayer(song){
   const playerTitle = document.getElementById("playerTitle");
   const audioPlayer = document.getElementById("audioPlayer");
 
-  playerTitle.innerText = "🎵 " + song.name;
+  playerTitle.innerText = song.name;
   audioPlayer.src = "/api/audio?source=" + currentSource + "&index=" + song.index;
 
   playerCard.style.display = "block";
-  setStatus("🎧 برای پخش، دکمه Play را بزنید.");
+  setStatus("");
 
   playerCard.scrollIntoView({behavior:"smooth", block:"start"});
 }
