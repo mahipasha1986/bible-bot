@@ -2282,7 +2282,24 @@ function renderSongs(songs, showPagination){
   songs.forEach(song => {
     const div = document.createElement("div");
     div.className = "song-item";
-    div.innerText = song.name;
+    div.innerHTML = `
+<div style="display:flex;align-items:center;justify-content:space-between;">
+
+    <svg width="20" height="20" viewBox="0 0 24 24"
+        fill="none"
+        stroke="#1f4e79"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <polygon points="7 5 19 12 7 19"></polygon>
+    </svg>
+
+    <span style="flex:1;text-align:right;margin-right:14px;">
+        ${song.name}
+    </span>
+
+</div>
+`;
     div.onclick = () => openPlayer(song);
     container.appendChild(div);
   });
