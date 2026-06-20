@@ -618,6 +618,10 @@ input::placeholder{color:#999;}
     cursor:pointer;
     text-align:right;
     color:#333;
+    font-family: Vazirmatn, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.9;
     box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 .song-item:hover,
@@ -2274,7 +2278,7 @@ function renderSongs(songs, showPagination){
   songs.forEach(song => {
     const div = document.createElement("div");
     div.className = "song-item";
-    div.innerText = "🎵 " + song.name;
+    div.innerText = song.name;
     div.onclick = () => openPlayer(song);
     container.appendChild(div);
   });
