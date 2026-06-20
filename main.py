@@ -925,7 +925,7 @@ audio{
 }
 .song-category-btn{
     background:#ffffff;
-    border:1px solid #e6eef5;
+    border:2px solid #1f4e79;
     color:#1f4e79;
     font-size:16px;
     font-weight:700;
@@ -1209,32 +1209,23 @@ audio{
 
 </div>
 
-<div id="songCategories" style="
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    padding:18px 0;
-    scrollbar-width:none;
-">
+<div id="songCategories" style="display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:nowrap;overflow-x:auto;padding:18px 0;scrollbar-width:none;direction:rtl;">
 
-<button onclick="loadCategory(0)" class="song-category-btn"
-    سرودهای عید قیام
-</button>
+    <button onclick="loadCategory(0)" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+        سرودهای عید قیام
+    </button>
 
-<button onclick="loadCategory(1)" class="song-category-btn"
-    سرودهای تولد مسیح
-</button>
+    <button onclick="loadCategory(1)" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+        سرودهای تولد مسیح
+    </button>
 
-<button onclick="loadCategory(2)" class="song-category-btn"
-    سرودهای جمعه صلیب
-</button>
+    <button onclick="loadCategory(2)" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+        سرودهای جمعه صلیب
+    </button>
 
-<button onclick="loadSongs()" class="song-category-btn"
-    آرشیو سرودهای پرستشی
-</button>
+    <button onclick="loadSongs()" style="background:transparent;border:none;color:#1f4e79;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap;padding:8px 0;">
+        آرشیو سرودهای پرستشی
+    </button>
 
 </div>
 
