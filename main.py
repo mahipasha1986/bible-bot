@@ -2282,12 +2282,6 @@ function renderPagination(container){
 
 function filterSongs(){
   const q = document.getElementById("search").value.toLowerCase().trim();
-  
-  if(allSongs.length === 0){
-      const res = await fetch("/api/songs");
-      const data = await res.json();
-      allSongs = data.songs || [];
-  }
 
   if(!q){
     closePlayer();
