@@ -1364,7 +1364,7 @@ audio{
     <div id="playerTitle" class="player-title">نام سرود</div>
     <audio id="audioPlayer" controls></audio>
     <div class="player-actions">
-      <button class="green" onclick="sendSelectedSong()">📩 ارسال در تلگرام</button>
+      <button class="green" onclick="downloadSelectedSong()">⬇ دانلود سرود</button>
       <button class="red" onclick="closePlayer()">بستن</button>
     </div>
   </div>
@@ -2470,6 +2470,20 @@ function closePlayer(){
 
   playerCard.style.display = "none";
   selectedSong = null;
+}
+
+function downloadSelectedSong() {
+    if (!selectedSong) {
+        setStatus("ابتدا یک سرود را انتخاب کنید.");
+        return;
+    }
+
+    const link = document.createElement("a");
+    link.href = "/api/audio?source=" + currentSource + "&index=" + selectedSong.index;
+    link.download = selectedSong.name + ".mp3";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 async function sendSelectedSong(){
