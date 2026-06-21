@@ -1959,8 +1959,6 @@ async function loadBibleBooks(testament){
 
     const bibleContent = document.getElementById("bibleContent");
 
-    document.getElementById("bibleContentCard").style.display = "block";
-
     document.getElementById("bibleHero").style.display = "none";
     document.getElementById("bibleTestamentCards").style.display = "none";
     document.getElementById("bibleTools").style.display = "none";
