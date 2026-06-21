@@ -1103,12 +1103,20 @@ audio{
 
 <div class="card hero-card">
 
-<span class="hero-bg-cross c1">✝</span>
-<span class="hero-bg-cross c2">✝</span>
-<span class="hero-bg-cross c3">✝</span>
-<span class="hero-bg-cross c4">✝</span>
+<span class="hero-bg-cross c1">+</span>
+<span class="hero-bg-cross c2">+</span>
+<span class="hero-bg-cross c3">+</span>
+<span class="hero-bg-cross c4">+</span>
 
-<div class="hero-mark">✝</div>
+<div class="hero-mark">
+    <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+        <path d="M32 10v44M20 24h24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"/>
+    </svg>
+</div>
 
 <h1>کلام حیات</h1>
 
