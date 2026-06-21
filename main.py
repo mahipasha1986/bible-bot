@@ -877,6 +877,30 @@ audio{
     text-shadow:0 0 18px rgba(176,141,87,.5);
     animation:holyGlow 3s ease-in-out infinite;
 }
+.hero-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:18px;
+    animation:heroLogo 0.9s ease-out;
+}
+
+.hero-logo svg{
+    width:72px;
+    height:72px;
+    filter:drop-shadow(0 10px 22px rgba(31,78,121,.25));
+}
+
+@keyframes heroLogo{
+    from{
+        opacity:0;
+        transform:translateY(-12px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 
 .hero-card h1{
     text-shadow:0 10px 30px rgba(31,78,121,.18);
@@ -1023,7 +1047,31 @@ audio{
 <span class="hero-bg-cross c3">✝</span>
 <span class="hero-bg-cross c4">✝</span>
 
-<div class="hero-cross">✝</div>
+<div class="hero-logo">
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <rect width="72" height="72" rx="22" fill="#1f4e79"/>
+
+        <path
+            d="M18 43C24 39 30 39 36 44V25C30 21 24 21 18 25V43Z"
+            stroke="white"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <path
+            d="M54 43C48 39 42 39 36 44V25C42 21 48 21 54 25V43Z"
+            stroke="white"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <path
+            d="M36 12C40 17 40 21 36 25C32 21 32 17 36 12Z"
+            fill="#D4AF37"/>
+
+    </svg>
+</div>
 
 <h1>کلام حیات</h1>
 
@@ -1033,8 +1081,10 @@ audio{
 
 <div class="hero-verse">
     <div class="hero-gold-line"></div>
-    <div> «تخت خود را در عیلام برپا خواهم ساخت.»</div>
-    <strong>ارمیا ۴۹:۳۸</strong>
+    <div>
+        «...یعنی کلام حیات، آن را به شما اعلام می‌کنیم.»
+    </div>
+    <strong>۱ یوحنا ۱:۱</strong>
 </div>
 
 </div>
