@@ -1691,10 +1691,14 @@ audio{
 
 </div>
 
+</div>
+
 <div id="bibleTools" style="display:none;"></div>
 
 <div id="bibleContentCard" class="card" style="display:none;">
     <div id="bibleContent"></div>
+</div>
+
 </div>
 
 <script>
