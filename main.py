@@ -1148,27 +1148,24 @@ audio{
 
 .testament-card{
     display:flex;
-    flex-direction:row;
     align-items:center;
-    justify-content:space-between;
+    justify-content:flex-start;
+    gap:12px;
 
-    gap:10px;
     margin:8px 0;
-    padding:10px 16px;
+    padding:8px 14px;
 
-    min-height:64px;
+    height:56px;
 
-    background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
+    background:#fff;
     border:1px solid rgba(200,169,106,.18);
     border-top:3px solid #c8a96a;
+    border-radius:14px;
 
-    border-radius:16px;
+    box-shadow:0 2px 8px rgba(31,78,121,.05);
 
-    box-shadow:
-        0 4px 12px rgba(31,78,121,.05),
-        0 2px 4px rgba(200,169,106,.04);
-
-    transition:.25s;
+    cursor:pointer;
+    transition:.2s;
 }
 
 .testament-card:hover{
@@ -1196,14 +1193,15 @@ audio{
 }
 
 .testament-text{
-    flex:1;
-    text-align:right;
+    display:flex;
+    align-items:center;
 }
 
 .testament-title{
-    font-size:16px;
+    font-size:17px;
     font-weight:700;
     color:#183a5a;
+    margin:0;
 }
 
 .testament-subtitle{
@@ -1651,47 +1649,24 @@ audio{
     </div>
 
     <div id="bibleTestamentCards" class="card" style="padding:22px;">
+<div id="bibleTestamentCards" class="card bible-testament-wrap">
 
-    <div style="display:flex; gap:8px; margin-bottom:18px;">
-        <input
-            id="bibleSearchInput"
-            type="text"
-            placeholder="جستجو در کتاب مقدس..."
-            onkeydown="if(event.key==='Enter') searchBibleVerse()"
-            style="flex:1; padding:11px 12px; border-radius:14px; border:1px solid #dfe7ef;"
-        >
+    <input
+        id="bibleSearchInput"
+        type="text"
+        placeholder="جستجو در کتاب مقدس..."
+        onkeydown="if(event.key==='Enter') searchBibleVerse()"
+        class="bible-search-input"
+    >
+
+    <div class="testament-row" onclick="loadBibleBooks('old')">
+        <div class="testament-icon">▯</div>
+        <div class="testament-title">عهد عتیق</div>
     </div>
 
-    <div class="testament-card" onclick="loadBibleBooks('old')">
-        <div class="testament-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
-            </svg>
-        </div>
-
-        <div class="testament-text">
-            <div class="testament-title">عهد عتیق</div>
-        </div>
-
-    </div>
-
-    <div class="testament-card" onclick="loadBibleBooks('new')">
-        <div class="testament-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
-                <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
-            </svg>
-        </div>
-
-        <div class="testament-text">
-            <div class="testament-title">عهد جدید</div>
-        </div>
-
+    <div class="testament-row" onclick="loadBibleBooks('new')">
+        <div class="testament-icon">▯</div>
+        <div class="testament-title">عهد جدید</div>
     </div>
 
 </div>
