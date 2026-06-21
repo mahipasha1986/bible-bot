@@ -1202,6 +1202,17 @@ audio{
     font-weight:700;
     color:#183a5a;
 }
+
+.testament-subtitle{
+    margin-top:6px;
+    font-size:14px;
+    color:#7d8793;
+}
+
+.testament-arrow{
+    font-size:28px;
+    color:#c8a96a;
+}
 </style>
 </head>
 <body>
