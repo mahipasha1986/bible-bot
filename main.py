@@ -1674,7 +1674,6 @@ audio{
             <div class="testament-title">عهد عتیق</div>
         </div>
 
-        <div class="testament-arrow">‹</div>
     </div>
 
     <div class="testament-card" onclick="loadBibleBooks('new')">
@@ -1691,7 +1690,6 @@ audio{
             <div class="testament-title">عهد جدید</div>
         </div>
 
-        <div class="testament-arrow">‹</div>
     </div>
 
 </div>
