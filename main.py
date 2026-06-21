@@ -1020,7 +1020,7 @@ audio{
 /* Final polish — Home Hero */
 .hero-card{
     background:
-        radial-gradient(circle at 50% 18%, rgba(212,175,55,.32), transparent 28%),
+        radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
         radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
         linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%) !important;
     border:1px solid rgba(200,169,106,.18) !important;
