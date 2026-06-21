@@ -2317,18 +2317,29 @@ function renderSongs(songs, showPagination){
     const div = document.createElement("div");
     div.className = "song-item";
     div.innerHTML = `
-<div style="display:flex;align-items:center;justify-content:space-between;">
+   <div style="
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 4px;
+    border-bottom:1px solid rgba(212,175,55,.25);
+    ">
 
-    <svg width="20" height="20" viewBox="0 0 24 24"
-        fill="none"
-        stroke="#1f4e79"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round">
-        <polygon points="7 5 19 12 7 19"></polygon>
-    </svg>
+    <span style="
+    color:#1f4e79;
+    font-size:20px;
+    font-weight:700;
+    ">
+    ▶
+    </span>
 
-    <span style="flex:1;text-align:right;margin-right:14px;">
+    <span style="
+    flex:1;
+    text-align:right;
+    font-size:18px;
+    font-weight:600;
+    color:#243447;
+    ">
         ${song.name}
     </span>
 
