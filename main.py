@@ -1019,7 +1019,7 @@ audio{
     flex-shrink:0;
 }
 /* Final polish — Home Hero */
-.hero-card{
+#homeSection .hero-card{
     background:
         radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
         radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
