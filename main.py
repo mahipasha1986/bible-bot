@@ -1202,17 +1202,6 @@ audio{
     font-weight:700;
     color:#183a5a;
 }
-
-.testament-subtitle{
-    margin-top:6px;
-    font-size:14px;
-    color:#7d8793;
-}
-
-.testament-arrow{
-    font-size:28px;
-    color:#c8a96a;
-}
 </style>
 </head>
 <body>
@@ -1677,11 +1666,7 @@ audio{
 
             <div class="testament-text">
                 <div class="testament-title">عهد عتیق</div>
-                <div class="testament-subtitle">کتاب‌های عهد قدیم</div>
             </div>
-
-            <div class="testament-arrow">‹</div>
-        </div>
 
         <div class="testament-card" onclick="loadBibleBooks('new')">
             <div class="testament-icon">
@@ -1695,11 +1680,7 @@ audio{
 
             <div class="testament-text">
                 <div class="testament-title">عهد جدید</div>
-                <div class="testament-subtitle">انجیل‌ها و رسالات</div>
             </div>
-
-            <div class="testament-arrow">‹</div>
-        </div>
 
     </div>
 
