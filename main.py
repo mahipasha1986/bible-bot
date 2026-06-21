@@ -1693,7 +1693,7 @@ audio{
 
 <div id="bibleTools" style="display:none;"></div>
 
-<div class="card">
+<div id="bibleContentCard" class="card" style="display:none;">
     <div id="bibleContent"></div>
 </div>
 
@@ -1958,6 +1958,8 @@ async function loadBibleBooks(testament){
     currentBibleTestament = testament;
 
     const bibleContent = document.getElementById("bibleContent");
+
+    document.getElementById("bibleContentCard").style.display = "block";
 
     document.getElementById("bibleHero").style.display = "none";
     document.getElementById("bibleTestamentCards").style.display = "none";
