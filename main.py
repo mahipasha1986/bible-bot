@@ -1050,6 +1050,35 @@ audio{
     transform:none !important;
     box-shadow:none !important;
 }
+@media (max-width:480px){
+    #homeSection .hero-card{
+        padding:42px 18px 38px !important;
+        border-radius:26px !important;
+        margin-bottom:16px !important;
+    }
+
+    #homeSection .hero-bg-cross{
+        font-size:14px !important;
+        opacity:.18 !important;
+    }
+
+    #homeSection .hero-card h1{
+        font-size:36px !important;
+        margin-bottom:12px !important;
+    }
+
+    #homeSection .hero-subtitle{
+        font-size:15px !important;
+        line-height:1.9 !important;
+        margin:10px 0 14px !important;
+    }
+
+    #homeSection .hero-verse{
+        font-size:13px !important;
+        line-height:1.8 !important;
+        margin-top:14px !important;
+    }
+}
 </style>
 </head>
 <body>
