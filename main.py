@@ -1164,16 +1164,18 @@ audio{
 }
 
 .testament-list{
-    background:
-        radial-gradient(circle at 95% 15%, rgba(200,169,106,.14), transparent 28%),
-        linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
-    border:1px solid rgba(200,169,106,.26);
-    border-top:4px solid #c8a96a;
+.testament-list{
+    background:#ffffff;
+
+    border:1px solid rgba(200,169,106,.30);
     border-radius:22px;
+
     overflow:hidden;
+
     box-shadow:
         0 14px 34px rgba(31,78,121,.08),
-        0 4px 12px rgba(200,169,106,.08);
+        0 0 0 1px rgba(200,169,106,.18),
+        0 0 18px rgba(200,169,106,.18);
 }
 
 .testament-list-row{
