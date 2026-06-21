@@ -1665,7 +1665,6 @@ audio{
         <div class="testament-title">عهد جدید</div>
     </div>
 </div>
-
     <div id="bibleTools" style="display:none;"></div>
 
     <div class="card">
