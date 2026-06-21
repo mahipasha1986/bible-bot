@@ -665,7 +665,11 @@ input::placeholder{color:#999;}
 .player-card audio{
     width:100%;
     margin:18px 0 22px;
-    border-radius:14px;
+    height:56px;
+    border-radius:18px;
+    overflow:hidden;
+    background:#f6f8fb;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 .player-title{
   font-size:16px;
@@ -676,6 +680,32 @@ input::placeholder{color:#999;}
 audio{
   width:100%;
   margin-top:10px;
+}
+.player-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.player-icon{
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#2f6fb3,#5aa8ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:24px;
+    box-shadow:0 10px 24px rgba(47,111,179,.25);
+}
+
+.player-label{
+    font-size:12px;
+    color:#8a8f99;
+    margin-bottom:4px;
+    font-weight:600;
 }
 .player-actions{
     display:flex;
@@ -1434,13 +1464,24 @@ audio{
   <div id="status" class="small"></div>
 
   <div id="playerCard" class="player-card">
-    <div id="playerTitle" class="player-title">نام سرود</div>
-    <audio id="audioPlayer" controls></audio>
-    <div class="player-actions">
-      <button class="green" onclick="downloadSelectedSong()">⬇ دانلود سرود</button>
-      <button class="red" onclick="closePlayer()">بستن</button>
+
+    <div class="player-head">
+        <div class="player-icon">♪</div>
+
+        <div style="flex:1;">
+            <div class="player-label">در حال پخش</div>
+            <div id="playerTitle" class="player-title">نام سرود</div>
+        </div>
     </div>
-  </div>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div class="player-actions">
+        <button class="green" onclick="downloadSelectedSong()">⬇ دانلود سرود</button>
+        <button class="red" onclick="closePlayer()">بستن</button>
+    </div>
+
+</div>
 
   <div id="songs"></div>
 </div>
