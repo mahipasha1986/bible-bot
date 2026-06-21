@@ -1165,7 +1165,7 @@ audio{
     box-shadow:0 2px 8px rgba(31,78,121,.05);
 
     cursor:pointer;
-    transition:.2s;
+    transition:.25s;
 }
 
 .testament-card:hover{
@@ -1176,8 +1176,8 @@ audio{
 }
 
 .testament-icon{
-    width:40px;
-    height:40px;
+    width:32px;
+    height:32px;
 
     border-radius:12px;
 
@@ -1193,12 +1193,16 @@ audio{
 }
 
 .testament-text{
+    flex:1;
+    text-align:right;
+
     display:flex;
     align-items:center;
+    justify-content:flex-end;
 }
 
 .testament-title{
-    font-size:17px;
+    font-size:15px;
     font-weight:700;
     color:#183a5a;
     margin:0;
