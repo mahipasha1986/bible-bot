@@ -1164,16 +1164,20 @@ audio{
 }
 
 .testament-list{
-    background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
-    border:1px solid rgba(200,169,106,.24);
+    background:
+        radial-gradient(circle at 95% 15%, rgba(200,169,106,.14), transparent 28%),
+        linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
+    border:1px solid rgba(200,169,106,.26);
     border-top:4px solid #c8a96a;
     border-radius:22px;
     overflow:hidden;
-    box-shadow:0 10px 26px rgba(31,78,121,.07);
+    box-shadow:
+        0 14px 34px rgba(31,78,121,.08),
+        0 4px 12px rgba(200,169,106,.08);
 }
 
 .testament-list-row{
-    height:62px;
+    height:58px;
     display:flex;
     align-items:center;
     direction:rtl;
@@ -1183,14 +1187,14 @@ audio{
 }
 
 .testament-row-icon{
-    width:38px;
-    height:38px;
-    border-radius:14px;
+    width:36px;
+    height:36px;
+    border-radius:13px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#fbf8ef;
-    border:1px solid rgba(200,169,106,.24);
+    background:linear-gradient(135deg,#f8f0df,#ffffff);
+    border:1px solid rgba(200,169,106,.28);
     color:#1f4e79;
     flex-shrink:0;
 }
@@ -1207,7 +1211,7 @@ audio{
     height:1px;
     background:rgba(200,169,106,.16);
     margin:0 18px;
-}    
+}
 </style>
 </head>
 <body>
