@@ -640,14 +640,32 @@ input::placeholder{color:#999;}
     line-height:2;
 }
 .player-card{
-  display:none;
-  background:#ffffff;
-  border:1px solid #e7e7ec;
-  border-radius:22px;
-  padding:16px;
-  margin-top:16px;
-  text-align:right;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    display:none;
+    background:linear-gradient(180deg,#ffffff 0%,#fcfaf6 100%);
+    border:1px solid rgba(212,175,55,.22);
+    border-radius:28px;
+    padding:22px;
+    margin-top:18px;
+    text-align:right;
+    box-shadow:0 18px 45px rgba(0,0,0,.08);
+    overflow:hidden;
+    position:relative;
+}
+
+.player-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg,#d4af37,#8b6b2f,#d4af37);
+}
+
+.player-card audio{
+    width:100%;
+    margin:18px 0 22px;
+    border-radius:14px;
 }
 .player-title{
   font-size:16px;
@@ -660,14 +678,31 @@ audio{
   margin-top:10px;
 }
 .player-actions{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
+    display:flex;
+    gap:12px;
+    margin-top:6px;
 }
+
 .player-actions button{
-  flex:1;
-  font-size:14px;
-  padding:13px;
+    flex:1;
+    height:48px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:800;
+    padding:0 14px;
+    margin:0;
+    box-shadow:none;
+}
+
+.player-actions .green{
+    background:linear-gradient(135deg,#1f4e79,#2f78b7) !important;
+    color:white !important;
+}
+
+.player-actions .red{
+    background:white !important;
+    color:#8b6b2f !important;
+    border:1px solid rgba(212,175,55,.38) !important;
 }
 .tab-buttons{
     display:flex;
