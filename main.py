@@ -333,8 +333,7 @@ def api_audio():
             "Content-Type": content_type,
             "Accept-Ranges": "bytes",
             "Cache-Control": "public, max-age=3600",
-            "Content-Disposition": 'attachment;
-        filename="song.mp3"
+            "Content-Disposition": "attachment; filename=song.mp3"
         }
 
         if telegram_response.headers.get("Content-Length"):
