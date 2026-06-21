@@ -1654,24 +1654,40 @@ audio{
             
         </div>
 
-        <div class="testament-card" onclick="loadBibleBooks('old')">
+       <div class="testament-card" onclick="loadBibleBooks('old')">
+    <div class="testament-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
+        </svg>
+    </div>
+
     <div class="testament-text">
         <div class="testament-title">عهد عتیق</div>
+        <div class="testament-subtitle">کتاب‌های عهد قدیم</div>
     </div>
+
+    <div class="testament-arrow">‹</div>
 </div>
 
 <div class="testament-card" onclick="loadBibleBooks('new')">
+    <div class="testament-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
+            <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
+        </svg>
+    </div>
+
     <div class="testament-text">
         <div class="testament-title">عهد جدید</div>
-    </div>
-</div>
-    <div id="bibleTools" style="display:none;"></div>
-
-    <div class="card">
-        <div id="bibleContent">
-        </div>
+        <div class="testament-subtitle">انجیل‌ها و رسالات</div>
     </div>
 
+    <div class="testament-arrow">‹</div>
 </div>
 
 <script>
