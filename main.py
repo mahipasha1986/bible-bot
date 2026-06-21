@@ -1652,27 +1652,32 @@ audio{
 
     </div>
 
-    <div id="bibleTestamentCards" class="card" style="padding:22px;">
-<div id="bibleTestamentCards" class="card bible-testament-wrap">
+   <div id="bibleTestamentCards" class="card" style="padding:22px;">
 
-    <input
-        id="bibleSearchInput"
-        type="text"
-        placeholder="جستجو در کتاب مقدس..."
-        onkeydown="if(event.key==='Enter') searchBibleVerse()"
-        class="bible-search-input"
-    >
-
-    <div class="testament-row" onclick="loadBibleBooks('old')">
-        <div class="testament-icon">▯</div>
-        <div class="testament-title">عهد عتیق</div>
+    <div style="display:flex; gap:8px; margin-bottom:18px;">
+        <input
+            id="bibleSearchInput"
+            type="text"
+            placeholder="جستجو در کتاب مقدس..."
+            onkeydown="if(event.key==='Enter') searchBibleVerse()"
+            style="flex:1; padding:11px 12px; border-radius:14px; border:1px solid #dfe7ef;"
+        >
     </div>
 
-    <div class="testament-row" onclick="loadBibleBooks('new')">
-        <div class="testament-icon">▯</div>
-        <div class="testament-title">عهد جدید</div>
+    <div class="book-item" onclick="loadBibleBooks('old')">
+        عهد عتیق
     </div>
 
+    <div class="book-item" onclick="loadBibleBooks('new')">
+        عهد جدید
+    </div>
+
+</div>
+
+<div id="bibleTools" style="display:none;"></div>
+
+<div class="card">
+    <div id="bibleContent"></div>
 </div>
 
 <div id="bibleTools" style="display:none;"></div>
