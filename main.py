@@ -1958,12 +1958,17 @@ async function loadBibleBooks(testament){
     currentBibleTestament = testament;
 
     const bibleContent = document.getElementById("bibleContent");
+    const bibleContentCard = document.getElementById("bibleContentCard");
+
+    if(bibleContentCard){
+        bibleContentCard.style.display = "block";
+    }
 
     document.getElementById("bibleHero").style.display = "none";
     document.getElementById("bibleTestamentCards").style.display = "none";
     document.getElementById("bibleTools").style.display = "none";
 
-    bibleContent.innerHTML = "⏳ در حال دریافت کتاب‌ها...";
+    bibleContent.innerHTML = "⌛ در حال دریافت کتاب‌ها...";
 
     try{
 
@@ -1972,9 +1977,10 @@ async function loadBibleBooks(testament){
         );
 
         const books = await res.json();
-        console.log("Bible books data:", books);
 
-        let bookList = Array.isArray(books) ? books : (books.books || books.data || []);
+        let bookList = Array.isArray(books)
+            ? books
+            : (books.books || books.data || []);
 
         let filtered = bookList;
 
@@ -1988,25 +1994,30 @@ async function loadBibleBooks(testament){
 
         bibleContent.innerHTML = `
             <div style="text-align:right; direction:rtl;">
-                ${filtered.map(book => `
-                    <div onclick="loadBibleChapters(${book.id}, '${book.name_fa || book.name}')"
-                         style="
-                            padding:12px 4px;
-                            font-size:25px;
-                            font-weight:400;
-                            color:#111;
-                            cursor:pointer;
-                         ">
-                        ${book.name_fa || book.book_name_fa || book.name || book.title}
-                    </div>
-                `).join("")}
+                ${filtered.map(book => {
+                    const bookName = book.name_fa || book.book_name_fa || book.name || book.book_name || "";
+                    return `
+                        <div
+                            onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
+                            style="
+                                padding:12px 4px;
+                                font-size:25px;
+                                font-weight:400;
+                                color:#111;
+                                cursor:pointer;
+                                border-bottom:1px solid #eee;
+                            "
+                        >
+                            ${bookName}
+                        </div>
+                    `;
+                }).join("")}
             </div>
-       `;
+        `;
 
     }catch(err){
 
-        bibleContent.innerHTML =
-            "❌ خطا در دریافت کتاب‌های کتاب مقدس";
+        bibleContent.innerHTML = "❌ خطا در دریافت کتاب‌های کتاب مقدس";
 
     }
 }
