@@ -1150,22 +1150,23 @@ audio{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:18px;
-    margin:16px 0;
-    padding:22px;
-    cursor:pointer;
+
+    gap:14px;
+    margin:10px 0;
+    padding:14px 18px;
+    min-height:78px;
 
     background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
-    border:1px solid rgba(200,169,106,.25);
-    border-top:4px solid #c8a96a;
+    border:1px solid rgba(200,169,106,.20);
+    border-top:3px solid #c8a96a;
 
-    border-radius:24px;
+    border-radius:18px;
 
     box-shadow:
-        0 12px 30px rgba(31,78,121,.08),
-        0 3px 10px rgba(200,169,106,.08);
+        0 6px 18px rgba(31,78,121,.06),
+        0 2px 6px rgba(200,169,106,.05);
 
-    transition:.28s;
+    transition:.25s;
 }
 
 .testament-card:hover{
@@ -1176,10 +1177,10 @@ audio{
 }
 
 .testament-icon{
-    width:58px;
-    height:58px;
+    width:42px;
+    height:42px;
 
-    border-radius:18px;
+    border-radius:14px;
 
     display:flex;
     align-items:center;
@@ -1198,7 +1199,7 @@ audio{
 }
 
 .testament-title{
-    font-size:20px;
+    font-size:17px;
     font-weight:700;
     color:#183a5a;
 }
@@ -1207,11 +1208,6 @@ audio{
     margin-top:6px;
     font-size:14px;
     color:#7d8793;
-}
-
-.testament-arrow{
-    font-size:28px;
-    color:#c8a96a;
 }
 </style>
 </head>
@@ -1676,7 +1672,6 @@ audio{
 
         <div class="testament-text">
             <div class="testament-title">عهد عتیق</div>
-            <div class="testament-subtitle">کتاب‌های عهد قدیم</div>
         </div>
 
         <div class="testament-arrow">‹</div>
@@ -1694,7 +1689,6 @@ audio{
 
         <div class="testament-text">
             <div class="testament-title">عهد جدید</div>
-            <div class="testament-subtitle">انجیل‌ها و رسالات</div>
         </div>
 
         <div class="testament-arrow">‹</div>
