@@ -2479,12 +2479,10 @@ function downloadSelectedSong() {
         return;
     }
 
-    const link = document.createElement("a");
-    link.href = "/api/audio?source=" + currentSource + "&index=" + selectedSong.index;
-    link.download = selectedSong.name + ".mp3";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(
+        "/api/audio?source=" + currentSource + "&index=" + selectedSong.index,
+        "_blank"
+    );
 }
 
 async function sendSelectedSong(){
