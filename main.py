@@ -1145,7 +1145,7 @@ audio{
     }
 }
 
-/* ===== Bible Menu Card with SVG ===== */
+/* ===== Bible Testament List ===== */
 
 .bible-testament-box{
     padding:18px !important;
@@ -1163,9 +1163,9 @@ audio{
     outline:none;
 }
 
-.bible-menu-card{
+.testament-list{
     background:
-        radial-gradient(circle at 92% 12%, rgba(200,169,106,.14), transparent 30%),
+        radial-gradient(circle at 95% 15%, rgba(200,169,106,.14), transparent 28%),
         linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
     border:1px solid rgba(200,169,106,.26);
     border-top:4px solid #c8a96a;
@@ -1176,22 +1176,17 @@ audio{
         0 4px 12px rgba(200,169,106,.08);
 }
 
-.bible-menu-header,
-.bible-menu-row{
+.testament-list-row{
     height:58px;
     display:flex;
     align-items:center;
     direction:rtl;
     gap:12px;
     padding:0 18px;
-}
-
-.bible-menu-row{
     cursor:pointer;
 }
 
-.bible-menu-icon,
-.bible-row-icon{
+.testament-row-icon{
     width:36px;
     height:36px;
     border-radius:13px;
@@ -1204,8 +1199,7 @@ audio{
     flex-shrink:0;
 }
 
-.bible-menu-title,
-.bible-row-title{
+.testament-row-title{
     flex:1;
     text-align:right;
     font-size:17px;
@@ -1213,7 +1207,7 @@ audio{
     color:#183a5a;
 }
 
-.bible-menu-divider{
+.testament-divider{
     height:1px;
     background:rgba(200,169,106,.16);
     margin:0 18px;
@@ -1667,49 +1661,32 @@ audio{
         class="bible-search-input"
     >
 
-    <div class="testament-list bible-menu-card">
+    <div class="testament-list">
 
-    <div class="bible-menu-header">
-        <div class="bible-menu-icon">
+    <div class="testament-list-row" onclick="loadBibleBooks('old')">
+        <div class="testament-row-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            </svg>
-        </div>
-
-        <div class="bible-menu-title">کتاب مقدس</div>
-    </div>
-
-    <div class="bible-menu-divider"></div>
-
-    <div class="bible-menu-row" onclick="loadBibleBooks('old')">
-        <div class="bible-row-icon">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
             </svg>
         </div>
-
-        <div class="bible-row-title">عهد عتیق</div>
+        <div class="testament-row-title">عهد عتیق</div>
     </div>
 
-    <div class="bible-menu-divider"></div>
+    <div class="testament-divider"></div>
 
-    <div class="bible-menu-row" onclick="loadBibleBooks('new')">
-        <div class="bible-row-icon">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+    <div class="testament-list-row" onclick="loadBibleBooks('new')">
+        <div class="testament-row-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
                 <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
             </svg>
         </div>
-
-        <div class="bible-row-title">عهد جدید</div>
+        <div class="testament-row-title">عهد جدید</div>
     </div>
 
 </div>
