@@ -1701,6 +1701,12 @@ audio{
     <div class="testament-arrow">‹</div>
 </div>
 
+<div id="bibleTools" style="display:none;"></div>
+
+<div class="card">
+    <div id="bibleContent"></div>
+</div>
+
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
