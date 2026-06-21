@@ -1214,6 +1214,46 @@ audio{
     background:rgba(200,169,106,.16);
     margin:0 18px;
 }
+
+/* ===== Verse Action Sheet ===== */
+
+#verseActionOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.18);
+    z-index:9998;
+}
+
+#verseActionBox{
+    position:fixed;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    z-index:9999;
+
+    background:#ffffff;
+    border:1px solid #e8edf3;
+    border-radius:24px;
+    padding:14px;
+
+    box-shadow:0 18px 45px rgba(31,78,121,.18);
+}
+
+.verse-sheet-handle{
+    width:42px;
+    height:5px;
+    border-radius:999px;
+    background:#111;
+    margin:0 auto 14px;
+}
+
+#verseActionBox button{
+    background:#f8fafc;
+    color:#1f4e79;
+    border:1px solid #e1e8ef;
+    box-shadow:none;
+    margin-top:8px;
+}
 </style>
 </head>
 <body>
@@ -1703,6 +1743,22 @@ audio{
 
 </div>
 
+<div id="verseActionSheet" style="display:none;">
+    <div id="verseActionOverlay" onclick="closeVerseActionSheet()"></div>
+
+    <div id="verseActionBox">
+        <div class="verse-sheet-handle"></div>
+
+        <button onclick="highlightSelectedVerse()">
+            هایلایت آیه
+        </button>
+
+        <button onclick="copySelectedVerse()">
+            کپی آیه
+        </button>
+    </div>
+</div>
+
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
@@ -1718,6 +1774,10 @@ let selectedSong = null;
 let allBooks = [];
 
 let currentBibleTestament = "old";
+
+let selectedVerseElement = null;
+let selectedVerseText = "";
+let selectedHighlightColor = "#fff4a3";
 
 async function searchBibleVerse(){
 
@@ -2172,16 +2232,29 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 letter-spacing:0;;
             ">
                 ${verses.map(v => `
-                    <span style="
-                        font-size:11px;
-                        color:#777;
-                        font-weight:600;
-                        vertical-align:super;
-                        margin-left:5px;
-                    ">
-                        ${v.verse_number}
+                    <span
+                        class="bibleVerse"
+                        data-text="${(v.verse_text || "").replace(/"/g,'&quot;')}"
+                        onclick="openVerseActionSheet(this)"
+                        style="
+                            cursor:pointer;
+                            border-radius:8px;
+                            padding:2px 4px;
+                            transition:.2s;
+                        "
+                    >
+                        <span style="
+                            font-size:11px;
+                            color:#777;
+                            font-weight:600;
+                            vertical-align:super;
+                            margin-left:5px;
+                        ">
+                            ${v.verse_number}
+                        </span>
+
+                        ${v.verse_text}
                     </span>
-                    ${v.verse_text}
                 `).join(" ")}
             </div>
 
@@ -2240,6 +2313,35 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
             "❌ خطا در دریافت آیات";
 
     }
+}
+
+function openVerseActionSheet(el){
+
+    selectedVerseElement = el;
+    selectedVerseText = el.innerText.trim();
+
+    document.getElementById("verseActionSheet").style.display = "block";
+}
+
+function closeVerseActionSheet(){
+
+    document.getElementById("verseActionSheet").style.display = "none";
+}
+
+function highlightSelectedVerse(){
+
+    if(selectedVerseElement){
+        selectedVerseElement.style.background = selectedHighlightColor;
+    }
+
+    closeVerseActionSheet();
+}
+
+function copySelectedVerse(){
+
+    navigator.clipboard.writeText(selectedVerseText);
+
+    closeVerseActionSheet();
 }
 
 function openEncyclopediaEntry(word){
