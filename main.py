@@ -881,10 +881,10 @@ audio{
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-bottom:18px;
-    font-size:34px;
+    margin-bottom:26px;
+    font-size:26px;
     color:#C8A96A;
-    letter-spacing:8px;
+    letter-spacing:0px;
     opacity:.9;
     animation:heroMark 3s ease-in-out infinite;
 }
@@ -1046,9 +1046,7 @@ audio{
 <span class="hero-bg-cross c3">✝</span>
 <span class="hero-bg-cross c4">✝</span>
 
-<div class="hero-mark">
-✦ ✝ ✦
-</div>
+<div class="hero-mark">✝</div>
 
 <h1>کلام حیات</h1>
 
