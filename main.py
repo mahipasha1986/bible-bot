@@ -1254,6 +1254,11 @@ audio{
     box-shadow:none;
     margin-top:8px;
 }
+
+.bibleVerse{
+    -webkit-user-select:none;
+    user-select:none;
+}
 </style>
 </head>
 <body>
