@@ -1985,11 +1985,23 @@ async function loadBibleBooks(testament){
         let filtered = bookList;
 
         if(testament === "old"){
-            filtered = bookList.filter(b => b.testament === "OT");
+            filtered = bookList.filter(b =>
+                b.testament === "OT" ||
+                b.testament === "old" ||
+                b.testament === "عهد عتیق"
+            );
         }
 
         if(testament === "new"){
-            filtered = bookList.filter(b => b.testament === "NT");
+            filtered = bookList.filter(b =>
+                b.testament === "NT" ||
+                b.testament === "new" ||
+                b.testament === "عهد جدید"
+            );
+        }
+
+        if(filtered.length === 0){
+            filtered = bookList;
         }
 
         bibleContent.innerHTML = `
