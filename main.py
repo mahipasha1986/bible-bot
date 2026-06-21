@@ -1028,6 +1028,27 @@ audio{
     padding:58px 24px 52px !important;
     box-shadow:0 24px 60px rgba(31,78,121,.14) !important;
 }
+/* ===== Songs List Final ===== */
+
+#songs .song-item{
+    background:transparent !important;
+    border:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+#songs .song-item > div{
+    padding:18px 6px !important;
+    border-bottom:1px solid rgba(212,175,55,.20);
+}
+
+#songs .song-item:hover{
+    background:transparent !important;
+    transform:none !important;
+    box-shadow:none !important;
+}
 </style>
 </head>
 <body>
