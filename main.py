@@ -1147,24 +1147,26 @@ audio{
 /* ===== Bible Testament Cards ===== */
 
 .testament-card{
+.testament-card{
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    gap:14px;
-    margin:10px 0;
-    padding:14px 18px;
-    min-height:78px;
+    gap:10px;
+    margin:8px 0;
+    padding:10px 16px;
+
+    min-height:64px;
 
     background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
-    border:1px solid rgba(200,169,106,.20);
+    border:1px solid rgba(200,169,106,.18);
     border-top:3px solid #c8a96a;
 
-    border-radius:18px;
+    border-radius:16px;
 
     box-shadow:
-        0 6px 18px rgba(31,78,121,.06),
-        0 2px 6px rgba(200,169,106,.05);
+        0 4px 12px rgba(31,78,121,.05),
+        0 2px 4px rgba(200,169,106,.04);
 
     transition:.25s;
 }
@@ -1177,10 +1179,10 @@ audio{
 }
 
 .testament-icon{
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
 
-    border-radius:14px;
+    border-radius:12px;
 
     display:flex;
     align-items:center;
@@ -1199,7 +1201,7 @@ audio{
 }
 
 .testament-title{
-    font-size:17px;
+    font-size:16px;
     font-weight:700;
     color:#183a5a;
 }
