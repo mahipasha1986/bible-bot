@@ -1144,6 +1144,75 @@ audio{
         margin-top:14px !important;
     }
 }
+/* ===== Bible Testament Cards ===== */
+
+.testament-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    margin:16px 0;
+    padding:22px;
+    cursor:pointer;
+
+    background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
+    border:1px solid rgba(200,169,106,.25);
+    border-top:4px solid #c8a96a;
+
+    border-radius:24px;
+
+    box-shadow:
+        0 12px 30px rgba(31,78,121,.08),
+        0 3px 10px rgba(200,169,106,.08);
+
+    transition:.28s;
+}
+
+.testament-card:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 18px 40px rgba(31,78,121,.14),
+        0 6px 18px rgba(200,169,106,.12);
+}
+
+.testament-icon{
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#1f4e79;
+
+    background:linear-gradient(135deg,#f6efe0,#ffffff);
+
+    border:1px solid rgba(200,169,106,.25);
+}
+
+.testament-text{
+    flex:1;
+    text-align:right;
+}
+
+.testament-title{
+    font-size:20px;
+    font-weight:700;
+    color:#183a5a;
+}
+
+.testament-subtitle{
+    margin-top:6px;
+    font-size:14px;
+    color:#7d8793;
+}
+
+.testament-arrow{
+    font-size:28px;
+    color:#c8a96a;
+}
 </style>
 </head>
 <body>
@@ -1596,51 +1665,40 @@ audio{
             
         </div>
 
-        <div onclick="loadBibleBooks('old')" style="
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:13px 0;
-            cursor:pointer;
-            direction:rtl;
-            border-bottom:1px solid #eee;
-        ">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                     stroke="#1f4e79" stroke-width="2"
+        <div class="testament-card" onclick="loadBibleBooks('old')">
+            <div class="testament-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                    <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path>
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
                 </svg>
-                <span style="font-size:17px; font-weight:700; color:#222;">
-                    عهد عتیق
-                </span>
             </div>
-            
-            <span style="font-size:22px; color:#999;">›</span>
+
+            <div class="testament-text">
+                <div class="testament-title">عهد عتیق</div>
+                <div class="testament-subtitle">کتاب‌های عهد قدیم</div>
+            </div>
+
+            <div class="testament-arrow">‹</div>
         </div>
 
-        <div onclick="loadBibleBooks('new')" style="
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:13px 0;
-            cursor:pointer;
-            direction:rtl;
-        ">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                     stroke="#1f4e79" stroke-width="2"
+        <div class="testament-card" onclick="loadBibleBooks('new')">
+            <div class="testament-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"></path>
-                    <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"></path>
+                    <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
+                    <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
                 </svg>
-                <span style="font-size:17px; font-weight:700; color:#222;">
-                    عهد جدید
-                </span>
             </div>
-            
-            <span style="font-size:22px; color:#999;">›</span>
+
+            <div class="testament-text">
+                <div class="testament-title">عهد جدید</div>
+                <div class="testament-subtitle">انجیل‌ها و رسالات</div>
+            </div>
+
+            <div class="testament-arrow">‹</div>
         </div>
 
     </div>
