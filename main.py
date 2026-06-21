@@ -1144,75 +1144,70 @@ audio{
         margin-top:14px !important;
     }
 }
-/* ===== Bible Testament Cards ===== */
 
-.testament-card{
+/* ===== Bible Testament List ===== */
+
+.bible-testament-box{
+    padding:18px !important;
+}
+
+.bible-search-input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:16px;
+    border:1px solid #dfe7ef;
+    margin-bottom:16px;
+    font-size:15px;
+    text-align:right;
+    direction:rtl;
+    outline:none;
+}
+
+.testament-list{
+    background:linear-gradient(180deg,#ffffff 0%,#fdfcf7 100%);
+    border:1px solid rgba(200,169,106,.24);
+    border-top:4px solid #c8a96a;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 10px 26px rgba(31,78,121,.07);
+}
+
+.testament-list-row{
+    height:62px;
     display:flex;
     align-items:center;
-    justify-content:flex-start;
+    direction:rtl;
     gap:12px;
-
-    margin:8px 0;
-    padding:8px 14px;
-
-    height:56px;
-
-    background:#fff;
-    border:1px solid rgba(200,169,106,.18);
-    border-top:3px solid #c8a96a;
-    border-radius:14px;
-
-    box-shadow:0 2px 8px rgba(31,78,121,.05);
-
+    padding:0 18px;
     cursor:pointer;
-    transition:.25s;
 }
 
-.testament-card:hover{
-    transform:translateY(-2px);
-    box-shadow:
-        0 18px 40px rgba(31,78,121,.14),
-        0 6px 18px rgba(200,169,106,.12);
-}
-
-.testament-icon{
-    width:32px;
-    height:32px;
-
-    border-radius:12px;
-
+.testament-row-icon{
+    width:38px;
+    height:38px;
+    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
-
+    background:#fbf8ef;
+    border:1px solid rgba(200,169,106,.24);
     color:#1f4e79;
-
-    background:linear-gradient(135deg,#f6efe0,#ffffff);
-
-    border:1px solid rgba(200,169,106,.25);
+    flex-shrink:0;
 }
 
-.testament-text{
+.testament-row-title{
     flex:1;
     text-align:right;
-
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-}
-
-.testament-title{
-    font-size:15px;
-    font-weight:700;
+    font-size:17px;
+    font-weight:800;
     color:#183a5a;
-    margin:0;
 }
 
-.testament-subtitle{
-    margin-top:6px;
-    font-size:14px;
-    color:#7d8793;
-}
+.testament-divider{
+    height:1px;
+    background:rgba(200,169,106,.16);
+    margin:0 18px;
+}    
 </style>
 </head>
 <body>
@@ -1652,24 +1647,46 @@ audio{
 
     </div>
 
-   <div id="bibleTestamentCards" class="card" style="padding:22px;">
+   <div id="bibleTestamentCards" class="card bible-testament-box">
 
-    <div style="display:flex; gap:8px; margin-bottom:18px;">
-        <input
-            id="bibleSearchInput"
-            type="text"
-            placeholder="جستجو در کتاب مقدس..."
-            onkeydown="if(event.key==='Enter') searchBibleVerse()"
-            style="flex:1; padding:11px 12px; border-radius:14px; border:1px solid #dfe7ef;"
-        >
-    </div>
+    <input
+        id="bibleSearchInput"
+        type="text"
+        placeholder="جستجو در کتاب مقدس..."
+        onkeydown="if(event.key==='Enter') searchBibleVerse()"
+        class="bible-search-input"
+    >
 
-    <div class="book-item" onclick="loadBibleBooks('old')">
-        عهد عتیق
-    </div>
+    <div class="testament-list">
 
-    <div class="book-item" onclick="loadBibleBooks('new')">
-        عهد جدید
+        <div class="testament-list-row" onclick="loadBibleBooks('old')">
+            <div class="testament-row-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
+                </svg>
+            </div>
+
+            <div class="testament-row-title">عهد عتیق</div>
+        </div>
+
+        <div class="testament-divider"></div>
+
+        <div class="testament-list-row" onclick="loadBibleBooks('new')">
+            <div class="testament-row-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
+                    <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
+                </svg>
+            </div>
+
+            <div class="testament-row-title">عهد جدید</div>
+        </div>
+
     </div>
 
 </div>
