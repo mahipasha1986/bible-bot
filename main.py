@@ -1028,42 +1028,6 @@ audio{
     padding:58px 24px 52px !important;
     box-shadow:0 24px 60px rgba(31,78,121,.14) !important;
 }
-
-.hero-bg-cross{
-    opacity:.16 !important;
-    color:#C8A96A !important;
-}
-
-.hero-mark{
-    font-size:28px !important;
-    color:#C8A96A !important;
-    margin-bottom:24px !important;
-    text-shadow:0 0 24px rgba(200,169,106,.55);
-}
-
-.hero-card h1{
-    font-size:48px !important;
-    color:#111827 !important;
-    margin-bottom:18px !important;
-}
-
-.hero-subtitle{
-    color:#334155 !important;
-    font-size:18px !important;
-    font-weight:700 !important;
-    line-height:2 !important;
-}
-
-.hero-verse{
-    margin-top:22px !important;
-    color:#7c5f2e !important;
-    font-size:15px !important;
-}
-
-.hero-verse strong{
-    color:#5f4723 !important;
-    font-weight:800 !important;
-}
 </style>
 </head>
 <body>
