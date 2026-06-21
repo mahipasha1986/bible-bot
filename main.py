@@ -2239,13 +2239,17 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 ${verses.map(v => `
                     <span
                         class="bibleVerse"
-                        data-text="${(v.verse_text || "").replace(/"/g,'&quot;')}"
-                        onclick="openVerseActionSheet(this)"
+                        onclick="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return false;"
+                        ontouchstart="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return
+                    false;"
                         style="
                             cursor:pointer;
                             border-radius:8px;
                             padding:2px 4px;
                             transition:.2s;
+                            -webkit-user-select:none;
+                            user-select:none;
+                            -webkit-touch-callout:none;
                         "
                     >
                         <span style="
