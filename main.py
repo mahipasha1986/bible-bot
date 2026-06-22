@@ -1300,8 +1300,8 @@ audio{
     width:16px;
     height:16px;
     border-radius:50%;
-    background:#fff4a3;
-    border:1px solid #e0c85a;
+    background:#F7E27A;
+    border:1px solid #E0C85A;
     display:block;
 }
 </style>
