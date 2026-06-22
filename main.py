@@ -3119,8 +3119,8 @@ function showBookDetails(index){
                             onclick="renderBooks(allBooks)"
                             style="
                                 background:#ffffff;
-                                color:#1f4e79;
-                                border:1px solid #1f4e79;
+                                color:#444444;
+                                border:1px solid #d6d6d6;
                                 border-radius:30px;
                                 width:160px;
                                 height:48px;
