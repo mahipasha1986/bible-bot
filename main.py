@@ -2291,6 +2291,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                             border-radius:8px;
                             padding:2px 4px;
                             transition:.2s;
+                            background:${localStorage.getItem("highlight_${bookId}-${chapterNumber}-${v.verse_number}") ? "#fff4a3" : "transparent"};
                             -webkit-user-select:none;
                             user-select:none;
                             -webkit-touch-callout:none;
@@ -2417,11 +2418,22 @@ function closeVerseActionSheet(){
 function highlightSelectedVerse(){
 
     if(selectedVerseElement){
-        selectedVerseElement.style.background = selectedHighlightColor;
 
         const key = selectedVerseElement.dataset.key;
-        if(key){
-            localStorage.setItem("highlight_" + key, "1");
+
+        if(selectedVerseElement.style.background){
+            selectedVerseElement.style.background = "";
+
+            if(key){
+                localStorage.removeItem("highlight_" + key);
+            }
+
+        }else{
+            selectedVerseElement.style.background = "#fff4a3";
+
+            if(key){
+                localStorage.setItem("highlight_" + key, "1");
+            }
         }
     }
 
