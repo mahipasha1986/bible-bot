@@ -3092,9 +3092,11 @@ function showBookDetails(index){
 
                     <div style="
                         display:flex;
-                        gap:10px;
-                        flex-wrap:wrap;
-                        justify-content:${isMobile ? "center" : "flex-start"};
+                        justify-content:center;
+                        align-items:center;
+                        gap:12px;
+                        flex-wrap:nowrap;
+                        margin-top:12px;
                     ">
                         <button
                             onclick="sendBook(${book.index})"
@@ -3103,7 +3105,9 @@ function showBookDetails(index){
                                 color:white;
                                 border:none;
                                 border-radius:30px;
-                                padding:12px 28px;
+                                width:160px;
+                                height:48px;
+                                padding:0;
                                 font-weight:700;
                                 cursor:pointer;
                                 box-shadow:0 8px 18px rgba(31,78,121,.25);
@@ -3116,9 +3120,11 @@ function showBookDetails(index){
                             style="
                                 background:#ffffff;
                                 color:#8b6a2f;
-                                border:2px solid #d4af37;
+                                border:1px solid #d8c06b;
                                 border-radius:30px;
-                                padding:12px 28px;
+                                width:160px;
+                                height:48px;
+                                padding:0;
                                 font-weight:700;
                                 cursor:pointer;
                                 box-shadow:0 6px 18px rgba(212,175,55,.18);
