@@ -1262,28 +1262,42 @@ audio{
 
 .verse-inline-actions{
     display:inline-flex;
-    gap:8px;
-    margin:8px 0;
-    padding:6px;
-    border:1px solid #e5e5e5;
-    border-radius:12px;
-    background:#fff;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    align-items:center;
+    gap:6px;
+    margin:0 6px;
+    padding:4px 6px;
+    border-radius:999px;
+    background:#ffffff;
+    border:1px solid rgba(200,169,106,.25);
+    box-shadow:0 6px 16px rgba(31,78,121,.14);
     vertical-align:middle;
 }
 
 .verse-inline-actions button{
+    width:28px;
+    height:28px;
+    padding:0;
+    margin:0;
     border:none;
-    background:transparent;
-    color:#0b5ed7;
-    font-size:13px;
-    font-weight:600;
-    cursor:pointer;
-    padding:4px 8px;
+    border-radius:50%;
+    background:#f8fafc;
+    color:#1f4e79;
+    box-shadow:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:800;
 }
 
-.verse-inline-actions button:hover{
-    color:#083b88;
+.highlight-dot{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#fff4a3;
+    border:1px solid #e0c85a;
+    display:block;
+}
 }
 </style>
 </head>
@@ -2265,8 +2279,8 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 ${verses.map(v => `
                     <span
                         class="bibleVerse"
+                        data-key="${bookId}-${chapterNumber}-${v.verse_number}"
                         ondblclick="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return false;"
-                    false;"
                         style="
                             cursor:pointer;
                             border-radius:8px;
@@ -2276,7 +2290,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                             user-select:none;
                             -webkit-touch-callout:none;
                         "
-                    >
+                     >
                         <span style="
                             font-size:11px;
                             color:#777;
@@ -2358,9 +2372,24 @@ function openVerseActionSheet(el){
 
     const actionBox = document.createElement("span");
     actionBox.className = "verse-inline-actions";
+
     actionBox.innerHTML = `
-        <button onclick="highlightSelectedVerse(); event.stopPropagation();">هایلایت آیه</button>
-        <button onclick="copySelectedVerse(); event.stopPropagation();">کپی آیه</button>
+        <button onclick="highlightSelectedVerse(); event.stopPropagation();" title="هایلایت">
+            <span class="highlight-dot"></span>
+        </button>
+
+        <button onclick="copySelectedVerse(); event.stopPropagation();" title="کپی">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+        </button>
+
+        <button onclick="closeVerseActionSheet(); event.stopPropagation();" title="بستن">
+            ×
+        </button>
     `;
 
     el.insertAdjacentElement("afterend", actionBox);
@@ -2371,8 +2400,14 @@ function closeVerseActionSheet(){
 }
 
 function highlightSelectedVerse(){
+
     if(selectedVerseElement){
         selectedVerseElement.style.background = selectedHighlightColor;
+
+        const key = selectedVerseElement.dataset.key;
+        if(key){
+            localStorage.setItem("highlight_" + key, "1");
+        }
     }
 
     closeVerseActionSheet();
