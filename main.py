@@ -1261,33 +1261,39 @@ audio{
 }
 
 .verse-inline-actions{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    margin:0 6px;
-    padding:4px 6px;
-    border-radius:999px;
-    background:#ffffff;
-    border:1px solid rgba(200,169,106,.25);
-    box-shadow:0 6px 16px rgba(31,78,121,.14);
-    vertical-align:middle;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    width:auto !important;
+    min-width:118px !important;
+    max-width:140px !important;
+    height:34px !important;
+    margin:0 6px !important;
+    padding:3px 8px !important;
+    border-radius:999px !important;
+    background:#ffffff !important;
+    border:1px solid rgba(200,169,106,.28) !important;
+    box-shadow:0 6px 18px rgba(31,78,121,.14) !important;
+    vertical-align:middle !important;
 }
 
 .verse-inline-actions button{
-    width:28px;
-    height:28px;
-    padding:0;
-    margin:0;
-    border:none;
-    border-radius:50%;
-    background:#f8fafc;
-    color:#1f4e79;
-    box-shadow:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:18px;
-    font-weight:800;
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    padding:0 !important;
+    margin:0 !important;
+    border:none !important;
+    border-radius:50% !important;
+    background:transparent !important;
+    color:#1f4e79 !important;
+    box-shadow:none !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    font-size:18px !important;
+    font-weight:800 !important;
 }
 
 .highlight-dot{
@@ -1297,7 +1303,6 @@ audio{
     background:#fff4a3;
     border:1px solid #e0c85a;
     display:block;
-}
 }
 </style>
 </head>
