@@ -1650,7 +1650,7 @@ audio{
 
 <div id="librarySection" class="section">
 
-<div
+<div class="songs-hero-animate"
     style="
     background:
     linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
