@@ -2935,6 +2935,7 @@ async function loadBooks(){
 function renderBooks(books){
   const container = document.getElementById("books");
   container.innerHTML = "";
+  container.style.cssText = "display:grid;grid-template-columns:repeat(2,1fr);gap:14px;";
 
   if(!books.length){
     container.innerHTML = "<div class='small'>کتابی پیدا نشد.</div>";
@@ -2946,6 +2947,7 @@ books.forEach(book => {
     const div = document.createElement("div");
 
     div.className = "book-item";
+    div.style.cssText = "margin:0!important;padding:12px!important;border:1px solid rgba(200,169,106,.35)!important;border-radius:18px!important;box-shadow:0 8px 24px rgba(31,78,121,.08)!important;background:#fff!important;min-height:118px!important;";
 
     div.innerHTML = `
         <div style="
