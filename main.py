@@ -3017,88 +3017,98 @@ function showBookDetails(index){
         return;
     }
 
-    container.innerHTML = `
-    <div class="card" style="
-        background:#ffffff;
-        border:1px solid rgba(200,169,106,.35);
-        border-radius:22px;
-        padding:18px;
-        box-shadow:0 12px 32px rgba(31,78,121,.10);
-        text-align:right;
-        direction:rtl;
-    ">
+    const isMobile = window.innerWidth <= 520;
 
-        <div style="
-            display:flex;
-            gap:18px;
-            align-items:flex-start;
+    container.style.cssText = "display:block;";
+
+    container.innerHTML = `
+        <div class="card" style="
+            max-width:900px;
+            margin:22px auto;
+            background:#ffffff;
+            border:1px solid rgba(200,169,106,.35);
+            border-radius:22px;
+            padding:${isMobile ? "18px" : "18px"};
+            box-shadow:0 12px 32px rgba(31,78,121,.10);
+            text-align:right;
             direction:rtl;
         ">
 
-            <img
-                src="${book.cover_url || 'https://via.placeholder.com/120x170'}"
-                style="
-                    width:110px;
-                    height:155px;
-                    object-fit:cover;
-                    border-radius:14px;
-                    border:1px solid rgba(200,169,106,.35);
-                    flex-shrink:0;
-                "
-            >
+            <div style="
+                display:flex;
+                flex-direction:${isMobile ? "column" : "row"};
+                gap:18px;
+                align-items:${isMobile ? "center" : "flex-start"};
+                direction:rtl;
+            ">
 
-            <div style="flex:1; min-width:0;">
-
-                <h2 style="
-                    font-size:24px;
-                    margin:0 0 10px;
-                    line-height:1.6;
-                    color:#111827;
-                    text-align:right;
-                ">
-                    ${book.name || ""}
-                </h2>
-
-                <div class="small" style="
-                    margin-bottom:12px;
-                    color:#6b7280;
-                    text-align:right;
-                ">
-                    ${book.author ? "نویسنده: " + book.author : ""}
-                </div>
-
-                <p style="
-                    line-height:2;
-                    color:#555;
-                    font-size:15px;
-                    text-align:right;
-                    margin:0 0 14px;
-                ">
-                    ${book.description || ""}
-                </p>
+                <img
+                    src="${book.cover_url || 'https://via.placeholder.com/120x170'}"
+                    style="
+                        width:${isMobile ? "120px" : "110px"};
+                        height:${isMobile ? "170px" : "155px"};
+                        object-fit:cover;
+                        border-radius:14px;
+                        border:1px solid rgba(200,169,106,.35);
+                        flex-shrink:0;
+                    "
+                >
 
                 <div style="
-                    display:flex;
-                    gap:10px;
-                    flex-wrap:wrap;
-                    justify-content:flex-start;
+                    flex:1;
+                    min-width:0;
+                    width:100%;
                 ">
-                    <button class="gold compact-btn" onclick="sendBook(${book.index})">
-                        دریافت کتاب
-                    </button>
 
-                    <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
-                        بازگشت به کتابخانه
-                    </button>
+                    <h2 style="
+                        font-size:${isMobile ? "22px" : "24px"};
+                        margin:0 0 10px;
+                        line-height:1.6;
+                        color:#111827;
+                        text-align:${isMobile ? "center" : "right"};
+                    ">
+                        ${book.name || ""}
+                    </h2>
+
+                    <div class="small" style="
+                        margin-bottom:12px;
+                        color:#6b7280;
+                        text-align:${isMobile ? "center" : "right"};
+                    ">
+                        ${book.author ? "نویسنده: " + book.author : ""}
+                    </div>
+
+                    <p style="
+                        line-height:2;
+                        color:#555;
+                        font-size:15px;
+                        text-align:${isMobile ? "center" : "right"};
+                        margin:0 0 16px;
+                    ">
+                        ${book.description || ""}
+                    </p>
+
+                    <div style="
+                        display:flex;
+                        gap:10px;
+                        flex-wrap:wrap;
+                        justify-content:${isMobile ? "center" : "flex-start"};
+                    ">
+                        <button class="gold compact-btn" onclick="sendBook(${book.index})">
+                            دریافت کتاب
+                        </button>
+
+                        <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
+                            بازگشت به کتابخانه
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-
-    </div>
-`;
-
+    `;
 }
 
 function filterBooks(){
