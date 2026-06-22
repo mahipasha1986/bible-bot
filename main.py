@@ -2265,8 +2265,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 ${verses.map(v => `
                     <span
                         class="bibleVerse"
-                        onclick="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return false;"
-                        ontouchstart="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return
+                        ondblclick="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return false;"
                     false;"
                         style="
                             cursor:pointer;
