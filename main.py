@@ -2384,7 +2384,7 @@ function openVerseActionSheet(el){
         onclick="highlightSelectedVerse();event.stopPropagation();"
         title="هایلایت"
         style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
-            <span class="highlight-dot"></span>
+            <span style="width:16px;height:16px;border-radius:50%;display:block;background:#FFD54A!important;border:1px solid #D8B83A;"></span>
         </button>
 
         <button
