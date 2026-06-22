@@ -456,7 +456,8 @@ def api_book_file():
         ).json()
 
         if not file_info.get("ok"):
-            return Response("telegram getFile failed", status=502)
+            print("Telegram getFile error:", file_info)
+            return Response(str(file_info), status=502)
 
         file_path = file_info["result"]["file_path"]
         file_url = f"https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}"
