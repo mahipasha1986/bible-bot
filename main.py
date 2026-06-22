@@ -3096,11 +3096,33 @@ function showBookDetails(index){
                         flex-wrap:wrap;
                         justify-content:${isMobile ? "center" : "flex-start"};
                     ">
-                        <button class="gold compact-btn" onclick="sendBook(${book.index})">
+                        <button
+                            onclick="sendBook(${book.index})"
+                            style="
+                                background:linear-gradient(180deg,#d8b15b,#b8892b);
+                                color:white;
+                                border:none;
+                                border-radius:30px;
+                                padding:12px 28px;
+                                font-weight:700;
+                                cursor:pointer;
+                                box-shadow:0 8px 20px rgba(184,137,43,.35);
+                            ">
                             دریافت کتاب
                         </button>
 
-                        <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
+                        <button
+                            onclick="renderBooks(allBooks)"
+                            style="
+                                background:#ffffff;
+                                color:#8b6a2f;
+                                border:2px solid #d4af37;
+                                border-radius:30px;
+                                padding:12px 28px;
+                                font-weight:700;
+                                cursor:pointer;
+                                box-shadow:0 6px 18px rgba(212,175,55,.18);
+                            ">
                             بازگشت به کتابخانه
                         </button>
                     </div>
