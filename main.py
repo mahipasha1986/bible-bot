@@ -3154,7 +3154,7 @@ function showBookDetails(index){
                         margin-top:12px;
                     ">
                         <button
-                            onclick="window.open('/api/book_file?index=${book.index}', '_blank')"
+                            onclick="sendBook(${book.index})"
                             style="
                                 background:#1f4e79;
                                 color:white;
