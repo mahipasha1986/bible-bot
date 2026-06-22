@@ -3119,15 +3119,15 @@ function showBookDetails(index){
                             onclick="renderBooks(allBooks)"
                             style="
                                 background:#ffffff;
-                                color:#111827;
-                                border:1px solid #d8c06b;
+                                color:#1f4e79;
+                                border:1px solid #1f4e79;
                                 border-radius:30px;
                                 width:160px;
                                 height:48px;
                                 padding:0;
                                 font-weight:700;
                                 cursor:pointer;
-                                box-shadow:0 6px 18px rgba(212,175,55,.18);
+                                box-shadow:none;
                             ">
                             بازگشت به کتابخانه
                         </button>
