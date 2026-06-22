@@ -2377,13 +2377,20 @@ function openVerseActionSheet(el){
 
     const actionBox = document.createElement("span");
     actionBox.className = "verse-inline-actions";
+    actionBox.style.cssText = "display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:128px!important;min-width:128px!important;max-width:128px!important;height:34px!important;margin:0 6px!important;padding:3px 8px!important;border-radius:999px!important;background:#fff!important;border:1px solid rgba(200,169,106,.28)!important;box-shadow:0 6px 18px rgba(31,78,121,.14)!important;vertical-align:middle!important;";
 
     actionBox.innerHTML = `
-        <button onclick="highlightSelectedVerse(); event.stopPropagation();" title="هایلایت">
+        <button
+        onclick="highlightSelectedVerse();event.stopPropagation();"
+        title="هایلایت"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
             <span class="highlight-dot"></span>
         </button>
 
-        <button onclick="copySelectedVerse(); event.stopPropagation();" title="کپی">
+        <button
+        onclick="copySelectedVerse();event.stopPropagation();"
+        title="کپی"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
@@ -2392,7 +2399,10 @@ function openVerseActionSheet(el){
             </svg>
         </button>
 
-        <button onclick="closeVerseActionSheet(); event.stopPropagation();" title="بستن">
+        <button
+        onclick="closeVerseActionSheet();event.stopPropagation();"
+        title="بستن"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
             ×
         </button>
     `;
