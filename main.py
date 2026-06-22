@@ -2360,6 +2360,14 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
           block: "start"
       });
 
+      document.querySelectorAll(".bibleVerse").forEach(v => {
+          const key = v.dataset.key;
+
+          if (key && localStorage.getItem("highlight_" + key)) {
+              v.style.background = selectedHighlightColor;
+          }
+      });
+
     }catch(err){
 
         bibleContent.innerHTML =
