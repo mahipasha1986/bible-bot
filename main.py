@@ -2935,7 +2935,9 @@ async function loadBooks(){
 function renderBooks(books){
   const container = document.getElementById("books");
   container.innerHTML = "";
-  container.style.cssText = "display:grid;grid-template-columns:repeat(2,1fr);gap:14px;";
+  container.style.cssText = window.innerWidth <= 520
+    ? "display:grid;grid-template-columns:1fr;gap:12px;"
+    : "display:grid;grid-template-columns:repeat(2,1fr);gap:14px;";
 
   if(!books.length){
     container.innerHTML = "<div class='small'>کتابی پیدا نشد.</div>";
