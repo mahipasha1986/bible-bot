@@ -2951,7 +2951,7 @@ books.forEach(book => {
     const div = document.createElement("div");
 
     div.className = "book-item";
-    div.style.cssText = "margin:0!important;padding:12px!important;border:1px solid rgba(200,169,106,.35)!important;border-radius:18px!important;box-shadow:0 8px 24px rgba(31,78,121,.08)!important;background:#fff!important;min-height:118px!important;";
+    div.style.cssText = "margin:0!important;padding:12px!important;border:1px solid #d6d6d6!important; border-radius:18px!important;box-shadow:0 8px 24px rgba(31,78,121,.08)!important;background:#fff!important;min-height:118px!important;";
 
     div.innerHTML = `
         <div style="
@@ -3028,7 +3028,7 @@ function showBookDetails(index){
             max-width:900px;
             margin:22px auto;
             background:#ffffff;
-            border:1px solid rgba(200,169,106,.35);
+            border:1px solid #d6d6d6;
             border-radius:22px;
             padding:${isMobile ? "18px" : "18px"};
             box-shadow:0 12px 32px rgba(31,78,121,.10);
@@ -3051,7 +3051,7 @@ function showBookDetails(index){
                         height:${isMobile ? "170px" : "155px"};
                         object-fit:cover;
                         border-radius:14px;
-                        border:1px solid rgba(200,169,106,.35);
+                        border:1px solid #d6d6d6;
                         flex-shrink:0;
                     "
                 >
