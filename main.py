@@ -1680,9 +1680,11 @@ audio{
     <button
         onclick="loadBooks()"
         style="
-            background:#1f4e79;
-            color:white;
-            border:none;
+            background:linear-gradient(180deg,#fffdf7,#f6efe0);
+            color:#8b6a2f;
+            border:2px solid #d4af37;
+            box-shadow:0 6px 18px rgba(212,175,55,.25);
+            transition:.25s;
             border-radius:30px;
             padding:12px 28px;
             font-size:16px;
