@@ -1259,6 +1259,32 @@ audio{
     -webkit-user-select:none;
     user-select:none;
 }
+
+.verse-inline-actions{
+    display:inline-flex;
+    gap:8px;
+    margin:8px 0;
+    padding:6px;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    vertical-align:middle;
+}
+
+.verse-inline-actions button{
+    border:none;
+    background:transparent;
+    color:#0b5ed7;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    padding:4px 8px;
+}
+
+.verse-inline-actions button:hover{
+    color:#083b88;
+}
 </style>
 </head>
 <body>
@@ -2329,16 +2355,23 @@ function openVerseActionSheet(el){
     selectedVerseElement = el;
     selectedVerseText = el.innerText.trim();
 
-    document.getElementById("verseActionSheet").style.display = "block";
+    document.querySelectorAll(".verse-inline-actions").forEach(box => box.remove());
+
+    const actionBox = document.createElement("span");
+    actionBox.className = "verse-inline-actions";
+    actionBox.innerHTML = `
+        <button onclick="highlightSelectedVerse(); event.stopPropagation();">هایلایت آیه</button>
+        <button onclick="copySelectedVerse(); event.stopPropagation();">کپی آیه</button>
+    `;
+
+    el.insertAdjacentElement("afterend", actionBox);
 }
 
 function closeVerseActionSheet(){
-
-    document.getElementById("verseActionSheet").style.display = "none";
+    document.querySelectorAll(".verse-inline-actions").forEach(box => box.remove());
 }
 
 function highlightSelectedVerse(){
-
     if(selectedVerseElement){
         selectedVerseElement.style.background = selectedHighlightColor;
     }
@@ -2347,9 +2380,7 @@ function highlightSelectedVerse(){
 }
 
 function copySelectedVerse(){
-
     navigator.clipboard.writeText(selectedVerseText);
-
     closeVerseActionSheet();
 }
 
