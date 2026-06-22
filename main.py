@@ -426,6 +426,60 @@ def api_send_book():
 
     return jsonify({"ok": True})
 
+@app.route("/api/book_file", methods=["GET"])
+def api_book_file():
+    index = request.args.get("index")
+
+    if index is None:
+        return Response("missing index", status=400)
+
+    try:
+        index = int(index)
+    except:
+        return Response("bad index", status=400)
+
+    books = get_library_books()
+
+    if index < 0 or index >= len(books):
+        return Response("not found", status=404)
+
+    file_id = books[index].get("file_id")
+
+    if not file_id:
+        return Response("file not found", status=404)
+
+    try:
+        file_info = requests.get(
+            TG + "getFile",
+            params={"file_id": file_id},
+            timeout=15
+        ).json()
+
+        if not file_info.get("ok"):
+            return Response("telegram getFile failed", status=502)
+
+        file_path = file_info["result"]["file_path"]
+        file_url = f"https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}"
+
+        telegram_response = requests.get(
+            file_url,
+            stream=True,
+            timeout=30
+        )
+
+        return Response(
+            telegram_response.iter_content(chunk_size=32768),
+            status=200,
+            headers={
+                "Content-Type": "application/octet-stream",
+                "Content-Disposition": "attachment; filename=book.pdf"
+            }
+        )
+
+    except Exception as e:
+        print("Book file error:", e)
+        return Response("book file error", status=500)
+
 
 @app.route("/webapp", methods=["GET"])
 def webapp():
@@ -3099,7 +3153,7 @@ function showBookDetails(index){
                         margin-top:12px;
                     ">
                         <button
-                            onclick="sendBook(${book.index})"
+                            onclick="window.open('/api/book_file?index=${book.index}', '_blank')"
                             style="
                                 background:#1f4e79;
                                 color:white;
