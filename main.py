@@ -3099,14 +3099,14 @@ function showBookDetails(index){
                         <button
                             onclick="sendBook(${book.index})"
                             style="
-                                background:linear-gradient(180deg,#d8b15b,#b8892b);
+                                background:#1f4e79;
                                 color:white;
                                 border:none;
                                 border-radius:30px;
                                 padding:12px 28px;
                                 font-weight:700;
                                 cursor:pointer;
-                                box-shadow:0 8px 20px rgba(184,137,43,.35);
+                                box-shadow:0 8px 18px rgba(31,78,121,.25);
                             ">
                             دریافت کتاب
                         </button>
