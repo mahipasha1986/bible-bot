@@ -1681,7 +1681,7 @@ audio{
         onclick="loadBooks()"
         style="
             background:linear-gradient(180deg,#fffdf7,#f6efe0);
-            color:#8b6a2f;
+            color:#111827;
             border:2px solid #d4af37;
             box-shadow:0 6px 18px rgba(212,175,55,.25);
             transition:.25s;
@@ -3119,7 +3119,7 @@ function showBookDetails(index){
                             onclick="renderBooks(allBooks)"
                             style="
                                 background:#ffffff;
-                                color:#8b6a2f;
+                                color:#111827;
                                 border:1px solid #d8c06b;
                                 border-radius:30px;
                                 width:160px;
