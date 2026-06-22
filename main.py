@@ -3016,44 +3016,87 @@ function showBookDetails(index){
     }
 
     container.innerHTML = `
-        <div class="card" style="
-        background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
-        border:1px solid #dbe7f3;
-        box-shadow:0 18px 45px rgba(31,78,121,0.12);
+    <div class="card" style="
+        background:#ffffff;
+        border:1px solid rgba(200,169,106,.35);
+        border-radius:22px;
+        padding:18px;
+        box-shadow:0 12px 32px rgba(31,78,121,.10);
+        text-align:right;
+        direction:rtl;
+    ">
+
+        <div style="
+            display:flex;
+            gap:18px;
+            align-items:flex-start;
+            direction:rtl;
         ">
 
             <img
-                src="${book.cover_url || 'https://via.placeholder.com/160x220'}"
+                src="${book.cover_url || 'https://via.placeholder.com/120x170'}"
                 style="
-                    width:160px;
-                    height:220px;
+                    width:110px;
+                    height:155px;
                     object-fit:cover;
-                    border-radius:18px;
-                    margin-bottom:18px;
-                    border:1px solid #ddd;
+                    border-radius:14px;
+                    border:1px solid rgba(200,169,106,.35);
+                    flex-shrink:0;
                 "
             >
 
-            <h2>${book.name || ""}</h2>
+            <div style="flex:1; min-width:0;">
 
-            <div class="small" style="margin-bottom:18px;">
-                ${book.author ? "نویسنده: " + book.author : ""}
+                <h2 style="
+                    font-size:24px;
+                    margin:0 0 10px;
+                    line-height:1.6;
+                    color:#111827;
+                    text-align:right;
+                ">
+                    ${book.name || ""}
+                </h2>
+
+                <div class="small" style="
+                    margin-bottom:12px;
+                    color:#6b7280;
+                    text-align:right;
+                ">
+                    ${book.author ? "نویسنده: " + book.author : ""}
+                </div>
+
+                <p style="
+                    line-height:2;
+                    color:#555;
+                    font-size:15px;
+                    text-align:right;
+                    margin:0 0 14px;
+                ">
+                    ${book.description || ""}
+                </p>
+
+                <div style="
+                    display:flex;
+                    gap:10px;
+                    flex-wrap:wrap;
+                    justify-content:flex-start;
+                ">
+                    <button class="gold compact-btn" onclick="sendBook(${book.index})">
+                        دریافت کتاب
+                    </button>
+
+                    <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
+                        بازگشت به کتابخانه
+                    </button>
+                </div>
+
             </div>
 
-            <p style="line-height:2; color:#555;">
-                ${book.description || ""}
-            </p>
-
-            <button class="gold compact-btn" onclick="sendBook(${book.index})">
-                دریافت کتاب
-            </button>
-
-            <button class="secondary compact-btn" onclick="renderBooks(allBooks)">
-                بازگشت به کتابخانه
-            </button>
-
         </div>
-    `;
+
+    </div>
+`;
+
 }
 
 function filterBooks(){
