@@ -2291,7 +2291,6 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                             border-radius:8px;
                             padding:2px 4px;
                             transition:.2s;
-                            background:${localStorage.getItem("highlight_${bookId}-${chapterNumber}-${v.verse_number}") ? "#fff4a3" : "transparent"};
                             -webkit-user-select:none;
                             user-select:none;
                             -webkit-touch-callout:none;
