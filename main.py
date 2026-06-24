@@ -2843,6 +2843,8 @@ function renderPagination(container){
   const nav = document.createElement("div");
   nav.style.marginTop = "12px";
   nav.style.display = "flex";
+  nav.style.justifyContent = "space-between";
+  nav.style.direction = "rtl";
   nav.style.gap = "10px";
 
   const prev = document.createElement("button");
@@ -2888,8 +2890,8 @@ function renderPagination(container){
     }
   };
 
-  nav.appendChild(prev);
   nav.appendChild(next);
+  nav.appendChild(prev);
   container.appendChild(nav);
 }
 
