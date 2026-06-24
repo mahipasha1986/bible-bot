@@ -3155,7 +3155,7 @@ function showBookDetails(index){
                         margin-top:12px;
                     ">
                         <button
-                            onclick="window.open(book.download_url, '_blank')"
+                            onclick="window.open('${book.download_url}', '_blank')"
                             style="
                                 background:#1f4e79;
                                 color:white;
