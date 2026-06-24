@@ -390,7 +390,8 @@ def api_books():
             "name": r.get("title", ""),
             "author": r.get("author", ""),
             "description": r.get("description", ""),
-            "cover_url": r.get("cover_url", "")
+            "cover_url": r.get("cover_url", ""),
+            "download_url": r.get("download_url", "")
         })
 
     return jsonify({"ok": True, "books": books})
@@ -3154,7 +3155,7 @@ function showBookDetails(index){
                         margin-top:12px;
                     ">
                         <button
-                            onclick="sendBook(${book.index})"
+                            onclick="window.open(book.download_url, '_blank')"
                             style="
                                 background:#1f4e79;
                                 color:white;
