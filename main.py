@@ -766,12 +766,13 @@ audio{
 }
 .player-actions{
     display:flex;
+    justify-content:center;
     gap:12px;
     margin-top:6px;
 }
 
 .player-actions button{
-    flex:1;
+    flex:0 0 160px;
     height:48px;
     border-radius:999px;
     font-size:14px;
