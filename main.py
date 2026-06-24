@@ -787,7 +787,7 @@ audio{
 
 .player-actions .red{
     background:white !important;
-    color:#8b6b2f !important;
+    color:#000 !important;
     border:1px solid rgba(212,175,55,.38) !important;
 }
 .tab-buttons{
