@@ -3168,7 +3168,7 @@ function showBookDetails(index){
                                 cursor:pointer;
                                 box-shadow:0 8px 18px rgba(31,78,121,.25);
                             ">
-                            دریافت کتاب
+                            دانلود کتاب
                         </button>
 
                         <button
