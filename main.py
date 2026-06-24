@@ -391,7 +391,7 @@ def api_books():
             "author": r.get("author", ""),
             "description": r.get("description", ""),
             "cover_url": r.get("cover_url", ""),
-            "download_url": r.get("download_url", "")
+            "download_url": r.get("file_url", "")
         })
 
     return jsonify({"ok": True, "books": books})
