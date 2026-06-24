@@ -2835,11 +2835,6 @@ function renderPagination(container){
 
   if(totalPages <= 1) return;
 
-  const pageInfo = document.createElement("div");
-  pageInfo.className = "small";
-  pageInfo.innerText = "صفحه " + (currentPage + 1) + " از " + totalPages;
-  container.appendChild(pageInfo);
-
   const nav = document.createElement("div");
   nav.style.marginTop = "12px";
   nav.style.display = "flex";
@@ -2854,7 +2849,7 @@ function renderPagination(container){
   <path d="M9 6L15 12L9 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   صفحه قبل`;
-  prev.style.width = "180px";
+  prev.style.width = "110px";
   prev.style.flex = "0 0 180px";
   prev.style.height = "50px";
   prev.style.background = "#ffffff";
@@ -2879,7 +2874,7 @@ function renderPagination(container){
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:8px">
   <path d="M15 6L9 12L15 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
-  next.style.width = "180px";
+  next.style.width = "110px";
   next.style.flex = "0 0 180px";
   next.style.height = "50px";
   next.style.background = "#ffffff";
