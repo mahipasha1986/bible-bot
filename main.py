@@ -598,12 +598,12 @@ button{
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{
-    background:linear-gradient(
-        135deg,
-        #1f4e79,
-        #3b82c4
-    );
-    color:white;
+.blue{
+    background:#ffffff;
+    color:#111827;
+    border:1px solid #d4af37;
+    height:50px;
+    box-shadow:none;
 }
 .green{
     background:linear-gradient(135deg,#1f4e79,#3d7fc0);
@@ -651,7 +651,13 @@ button{
     line-height:2.2;
     color:#374151;
 }
-.purple{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
+.purple{
+    background:#ffffff;
+    color:#111827;
+    border:1px solid #d4af37;
+    height:50px;
+    box-shadow:none;
+}
 input{
   width:100%;
   box-sizing:border-box;
@@ -2845,7 +2851,7 @@ function renderPagination(container){
   nav.style.gap = "10px";
 
   const prev = document.createElement("button");
-  prev.innerText = "➡️ صفحه قبل";
+  prev.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:6px"><path d="M15 6L9 12L15 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> صفحه قبل`;
   prev.className = "blue";
   prev.style.flex = "1";
   prev.disabled = currentPage === 0;
@@ -2860,7 +2866,7 @@ function renderPagination(container){
   };
 
   const next = document.createElement("button");
-  next.innerText = "صفحه بعد ⬅️";
+  next.innerHTML = `صفحه بعد <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:6px"><path d="M9 6L15 12L9 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   next.className = "purple";
   next.style.flex = "1";
   next.disabled = currentPage >= totalPages - 1;
