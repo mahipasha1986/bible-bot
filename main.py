@@ -2630,6 +2630,22 @@ window.encyclopediaResults = results;
     }
 }
 
+function highlightSearchWord(text){
+    const q = document
+        .getElementById("encyclopediaSearchInput")
+        .value
+        .trim();
+
+    if(!q || !text) return text;
+
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    return text.replace(
+        new RegExp(escaped, "gi"),
+        '<span style="color:#c62828;font-weight:700;">$&</span>'
+    );
+}
+
 function showEncyclopediaPart(index, type){
 
     const penIcon = `
@@ -2659,7 +2675,7 @@ function showEncyclopediaPart(index, type){
         target.innerHTML = `
             <div class="ency-result">
                 <h4>${penIcon} معنی</h4>
-                <p>${item.meaning || "-"}</p>
+                <p>${highlightSearchWord(item.meaning || "-")}</p>
             </div>
         `;
         return;
@@ -2669,7 +2685,7 @@ function showEncyclopediaPart(index, type){
         target.innerHTML = `
             <div class="ency-result">
                 <h4>${penIcon} ریشه ${item.root_language || ""}</h4>
-                <p>${item.root_text || "-"}</p>
+                <p>${highlightSearchWord(item.root_text || "-")}</p>
             </div>
         `;
         return;
@@ -2703,7 +2719,7 @@ function showEncyclopediaPart(index, type){
                         <h4>${penIcon} آیه مرتبط</h4>
                         <p>
                             <strong>${v.chapter_number}:${v.verse_number}</strong>
-                            ${v.verse_text || ""}
+                            ${highlightSearchWord(v.verse_text || "")}
                         </p>
                     </div>
                 `).join("");
@@ -2712,7 +2728,7 @@ function showEncyclopediaPart(index, type){
                 target.innerHTML = `
                     <div class="ency-result">
                         <h4>✒️ آیه مرتبط</h4>
-                        <p>${item.related_verse || "-"}</p>
+                        <p>${highlightSearchWord(item.related_verse || "-")}</p>
                     </div>
                 `;
             });
