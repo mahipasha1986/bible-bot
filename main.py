@@ -2630,6 +2630,12 @@ window.encyclopediaResults = results;
     }
 }
 
+function highlightSearchWord(text){
+    const input = document.getElementById("encyclopediaSearchInput");
+    const q = input ? input.value.trim() : "";
+
+    if(!q
+
 function showEncyclopediaPart(index, type){
 
     const penIcon = `
