@@ -631,24 +631,32 @@ button{
 }
 .ency-btn{
     background:#ffffff;
-    color:#1f4e79;
-    border:2px solid #1f4e79;
+    color:#111111;
+    border:1px solid #d4af37;
     border-radius:18px;
     padding:15px;
     margin-top:10px;
     font-size:18px;
     font-weight:800;
-    box-shadow:0 4px 14px rgba(31,78,121,0.08);
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    transition:.2s;
+}
+
+.ency-btn:hover{
+    background:#1f4e79;
+    color:#ffffff;
 }
 
 .ency-result{
-    background:#f8fafc;
-    border-radius:20px;
+    background:#ffffff;
+    border:1px solid #d4af37;
+    border-radius:18px;
     padding:20px;
     margin-top:16px;
     text-align:center;
     line-height:2.2;
-    color:#374151;
+    color:#111111;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 .purple{
     background:linear-gradient(135deg,#8e2de2,#4a00e0);
