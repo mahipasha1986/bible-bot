@@ -2853,8 +2853,14 @@ function renderPagination(container){
   <path d="M15 6L9 12L15 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   صفحه قبل`;
-  prev.className = "blue";
-  prev.style.flex = "1";
+  prev.style.width = "180px";
+  prev.style.flex = "0 0 180px";
+  prev.style.height = "50px";
+  prev.style.background = "#ffffff";
+  prev.style.color = "#111827";
+  prev.style.border = "1px solid #d4af37";
+  prev.style.borderRadius = "30px";
+  prev.style.boxShadow = "none";
   prev.disabled = currentPage === 0;
   prev.style.opacity = currentPage === 0 ? "0.45" : "1";
   prev.onclick = () => {
@@ -2873,6 +2879,7 @@ function renderPagination(container){
   <path d="M9 6L15 12L9 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
   next.style.width = "180px";
+  next.style.flex = "0 0 180px";
   next.style.height = "50px";
   next.style.background = "#ffffff";
   next.style.color = "#111827";
@@ -2890,8 +2897,8 @@ function renderPagination(container){
     }
   };
 
-  nav.appendChild(next);
   nav.appendChild(prev);
+  nav.appendChild(next);
   container.appendChild(nav);
 }
 
