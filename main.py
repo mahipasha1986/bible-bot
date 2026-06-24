@@ -2630,12 +2630,6 @@ window.encyclopediaResults = results;
     }
 }
 
-function highlightSearchWord(text){
-    const input = document.getElementById("encyclopediaSearchInput");
-    const q = input ? input.value.trim() : "";
-
-    if(!q
-
 function showEncyclopediaPart(index, type){
 
     const penIcon = `
@@ -2665,7 +2659,7 @@ function showEncyclopediaPart(index, type){
         target.innerHTML = `
             <div class="ency-result">
                 <h4>${penIcon} معنی</h4>
-                <p>${highlightSearchWord(item.meaning || "-")}</p>
+                <p>${item.meaning || "-"}</p>
             </div>
         `;
         return;
@@ -2675,7 +2669,7 @@ function showEncyclopediaPart(index, type){
         target.innerHTML = `
             <div class="ency-result">
                 <h4>${penIcon} ریشه ${item.root_language || ""}</h4>
-                <p>${highlightSearchWord(item.root_text || "-")}</p>
+                <p>${item.root_text || "-"}</p>
             </div>
         `;
         return;
@@ -2709,7 +2703,7 @@ function showEncyclopediaPart(index, type){
                         <h4>${penIcon} آیه مرتبط</h4>
                         <p>
                             <strong>${v.chapter_number}:${v.verse_number}</strong>
-                            ${highlightSearchWord(v.verse_text || "")}
+                            ${v.verse_text || ""}
                         </p>
                     </div>
                 `).join("");
@@ -2718,7 +2712,7 @@ function showEncyclopediaPart(index, type){
                 target.innerHTML = `
                     <div class="ency-result">
                         <h4>✒️ آیه مرتبط</h4>
-                        <p>${highlightSearchWord(item.related_verse || "-")}</p>
+                        <p>${item.related_verse || "-"}</p>
                     </div>
                 `;
             });
