@@ -2630,22 +2630,6 @@ window.encyclopediaResults = results;
     }
 }
 
-function highlightSearchWord(text){
-    const q = document
-        .getElementById("encyclopediaSearchInput")
-        .value
-        .trim();
-
-    if(!q || !text) return text;
-
-    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-    return text.replace(
-        new RegExp(escaped, "gi"),
-        '<span style="color:#c62828;font-weight:700;">$&</span>'
-    );
-}
-
 function showEncyclopediaPart(index, type){
 
     const penIcon = `
