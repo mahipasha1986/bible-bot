@@ -2850,7 +2850,7 @@ function renderPagination(container){
 
   const prev = document.createElement("button");
   prev.innerHTML = `
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:8px">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:8px">
   <path d="M15 6L9 12L15 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   صفحه قبل`;
@@ -2876,7 +2876,7 @@ function renderPagination(container){
   const next = document.createElement("button");
   next.innerHTML = `
   صفحه بعد
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:8px">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:8px">
   <path d="M9 6L15 12L9 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
   next.style.width = "180px";
