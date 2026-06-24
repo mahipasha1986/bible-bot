@@ -598,7 +598,6 @@ button{
 }
 .red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
 .blue{
-.blue{
     background:#ffffff;
     color:#111827;
     border:1px solid #d4af37;
@@ -652,11 +651,7 @@ button{
     color:#374151;
 }
 .purple{
-    background:#ffffff;
-    color:#111827;
-    border:1px solid #d4af37;
-    height:50px;
-    box-shadow:none;
+    background:linear-gradient(135deg,#8e2de2,#4a00e0);
 }
 input{
   width:100%;
