@@ -2544,20 +2544,14 @@ function showBibleEncyclopedia(){
         <div class="card">
             <input id="encyclopediaSearchInput"
                    type="text"
-                   placeholder="جستجوی واژه، شخصیت یا مکان...">
-
-            <button class="gold compact-btn" onclick="searchBibleEncyclopedia()">
-                جستجو در دانشنامه
-            </button>
+                   placeholder="جستجوی واژه، شخصیت یا مکان..."
+                   oninput="searchBibleEncyclopedia()">
 
             <div id="encyclopediaContent" class="small">
                 این بخش در حال آماده‌سازی است.
             </div>
         </div>
 
-        <button class="secondary compact-btn" onclick="location.reload()">
-            بازگشت به خانه
-        </button>
     `;
 
     window.scrollTo({top:0, behavior:"smooth"});
