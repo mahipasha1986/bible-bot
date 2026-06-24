@@ -635,11 +635,13 @@ button{
     border:1px solid #d4af37;
     border-radius:18px;
     padding:15px;
-    margin-top:10px;
+    margin:8px 6px;
     font-size:18px;
     font-weight:800;
     box-shadow:0 2px 8px rgba(0,0,0,0.05);
     transition:.2s;
+    display:inline-block;
+    width:140px;
 }
 
 .ency-btn:hover{
