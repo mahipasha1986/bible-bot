@@ -2843,9 +2843,10 @@ function renderPagination(container){
   const nav = document.createElement("div");
   nav.style.marginTop = "12px";
   nav.style.display = "flex";
-  nav.style.justifyContent = "space-between";
-  nav.style.direction = "rtl";
+  nav.style.justifyContent = "center";
   nav.style.gap = "10px";
+  nav.style.alignItems = "center";
+  nav.style.flexWrap = "nowrap";
 
   const prev = document.createElement("button");
   prev.innerHTML = `
