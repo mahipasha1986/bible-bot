@@ -816,7 +816,7 @@ audio{
     padding:8px;
     border-radius:0;
     background:transparent;
-    color:#1f4e79;
+    color:#000000;
     border:none;
     font-size:15px;
     font-weight:800;
