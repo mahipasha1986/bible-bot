@@ -1,0 +1,12 @@
+{
+  "name": "کلام حیات",
+  "short_name": "کلام حیات",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f4e79",
+  "orientation": "portrait",
+  "lang": "fa",
+  "dir": "rtl",
+  "description": "اپلیکیشن مسیحی کلام حیات"
+}
