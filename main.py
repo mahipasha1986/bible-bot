@@ -2193,7 +2193,13 @@ async function loadBibleBooks(testament){
         bibleContent.innerHTML = `
             <div style="text-align:right; direction:rtl;">
                 ${filtered.map(book => {
-                    const bookName = book.name_fa || book.book_name_fa || book.name || book.book_name || "";
+                    let bookName = book.name_fa || book.book_name_fa || book.name || "";
+
+                    bookName = bookName
+                    .replace(/^اول\s+/,"۱ ")
+                    .replace(/^دوم\s+/,"۲ ")
+                    .replace(/^اول/,"۱")
+                    .replace(/^دوم/,"۲");
                     return `
                         <div
                             onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
@@ -2201,6 +2207,8 @@ async function loadBibleBooks(testament){
                                 padding:12px 4px;
                                 font-size:25px;
                                 font-weight:400;
+                                font-family:'Vazirmatn',sans-serif;
+                                letter-spacing:-0.4px;
                                 color:#111;
                                 cursor:pointer;
                                 border-bottom:1px solid #eee;
