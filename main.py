@@ -777,17 +777,18 @@ audio{
 .player-actions{
     display:flex;
     justify-content:center;
-    gap:12px;
-    margin-top:6px;
+    gap:10px;
+    margin-top:14px;
+    margin-bottom:12px;
 }
 
 .player-actions button{
-    flex:0 0 160px;
-    height:48px;
+    flex:0 0 140px;
+    height:42px;
     border-radius:999px;
-    font-size:14px;
-    font-weight:800;
-    padding:0 14px;
+    font-size:13px;
+    font-weight:600;
+    padding:0 12px;
     margin:0;
     box-shadow:none;
 }
