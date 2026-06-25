@@ -495,7 +495,7 @@ def webapp():
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700&family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
@@ -2205,9 +2205,9 @@ async function loadBibleBooks(testament){
                             onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
                             style="
                                 padding:12px 4px;
-                                font-size:23px;
+                                font-size:20px;
                                 font-weight:300;
-                                font-family:'Estedad','Vazirmatn',sans-serif;
+                                font-family:'Estedad',sans-serif;
                                 letter-spacing:-0.4px;
                                 color:#111;
                                 cursor:pointer;
