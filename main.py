@@ -3213,7 +3213,8 @@ function showBookDetails(index){
                                 width:160px;
                                 height:48px;
                                 padding:0;
-                                font-weight:700;
+                                font-size:13px;
+                                font-weight:600;
                                 cursor:pointer;
                                 box-shadow:0 8px 18px rgba(31,78,121,.25);
                             ">
@@ -3230,7 +3231,8 @@ function showBookDetails(index){
                                 width:160px;
                                 height:48px;
                                 padding:0;
-                                font-weight:700;
+                                font-size:13px;
+                                font-weight:600;
                                 cursor:pointer;
                                 box-shadow:none;
                             ">
