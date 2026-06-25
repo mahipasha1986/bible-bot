@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کلام حیات</title>
+
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1f4e79">
 
@@ -12,163 +13,257 @@
 <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --navy:#1f4e79;
+  --navy2:#14385d;
+  --gold:#d4af37;
+  --cream:#fffaf0;
+  --bg:#f7f9fc;
+  --text:#111827;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:'Vazirmatn',sans-serif;
-  background:#f7f9fc;
-  color:#222;
+  background:var(--bg);
+  color:var(--text);
   padding:18px;
   text-align:center;
 }
+.topbar{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  margin-bottom:14px;
+}
+.home-btn{
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  font-weight:800;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+}
 .card{
   background:#fff;
-  border:1px solid rgba(212,175,55,.22);
-  border-radius:26px;
+  border:1px solid rgba(212,175,55,.18);
+  border-radius:28px;
   padding:18px;
-  margin-bottom:16px;
-  box-shadow:0 8px 24px rgba(31,78,121,.08);
+  margin-bottom:18px;
+  box-shadow:0 14px 34px rgba(31,78,121,.08);
 }
-h1,h2{
-  font-family:'Lalezar','Vazirmatn',sans-serif;
-  font-weight:400;
-  color:#111827;
-}
-h1{font-size:42px;margin:8px 0 16px}
-h2{font-size:34px;margin:8px 0 18px}
-p,.small{
-  line-height:2;
-  color:#6b7280;
-  font-size:16px;
-}
-.section{display:none}
-.section.active{display:block}
 .hero-card{
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
+    radial-gradient(circle at 50% 18%, rgba(212,175,55,.13), transparent 28%),
     radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
     linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%);
-  border:1px solid rgba(200,169,106,.18);
   border-radius:34px;
   padding:58px 24px 52px;
   box-shadow:0 24px 60px rgba(31,78,121,.14);
 }
 .hero-mark{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom:26px;
-  color:#C8A96A;
+  color:#b08d57;
+  font-size:36px;
+  margin-bottom:18px;
+}
+h1{
+  font-family:'Lalezar','Vazirmatn',sans-serif;
+  font-size:46px;
+  font-weight:400;
+  margin:8px 0 16px;
+}
+h2{
+  font-family:'Lalezar','Vazirmatn',sans-serif;
+  font-size:34px;
+  font-weight:400;
+  margin:8px 0 18px;
+}
+p{
+  line-height:2;
+  font-size:17px;
+  color:#4b5563;
 }
 .hero-subtitle{
   font-size:18px;
-  font-weight:600;
+  font-weight:700;
   color:#334155;
   line-height:1.9;
 }
+.hero-gold-line{
+  width:80px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#b08d57,transparent);
+  margin:22px auto 14px;
+}
 .hero-verse{
-  margin-top:18px;
   color:#8a6a35;
   font-size:15px;
   line-height:2;
 }
-.hero-gold-line{
-  width:70px;
-  height:2px;
-  background:linear-gradient(90deg,transparent,#b08d57,transparent);
-  margin:0 auto 12px;
-}
-.menu-list{
-  margin:18px;
+.menu-card{
+  padding:18px 22px;
 }
 .menu-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:16px 4px;
+  padding:18px 4px;
+  border-bottom:1px solid #edf0f4;
   cursor:pointer;
-  border-bottom:1px solid #f2f2f2;
-  direction:rtl;
 }
 .menu-row:last-child{border-bottom:none}
-.menu-left{
+.menu-title{
   display:flex;
   align-items:center;
   gap:12px;
-}
-.menu-title{
-  font-size:17px;
-  font-weight:700;
-  color:#222;
-}
-.menu-arrow{
-  font-size:22px;
-  color:#999;
-}
-.daily-verse-card{
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200');
-  background-size:cover;
-  background-position:center;
-  border-radius:28px;
-  padding:35px 25px;
-  color:white;
-  box-shadow:0 12px 30px rgba(31,78,121,.25);
-}
-.daily-verse-card *{color:white!important}
-.top-home-btn{
-  width:auto;
-  padding:8px;
-  background:transparent;
-  color:#000;
-  border:none;
-  font-size:15px;
+  font-size:18px;
   font-weight:800;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  box-shadow:none;
 }
-.hero-image{
-  border-radius:24px;
-  padding:60px 24px;
-  color:white;
-  text-align:center;
-  margin-bottom:20px;
-}
-.bible-hero{
-  background:
-    linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
-    url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
-  background-size:cover;
-  background-position:center;
-}
-.songs-hero{
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200');
-  background-size:cover;
-  background-position:center;
-}
-.library-hero{
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200');
-  background-size:cover;
-  background-position:center;
-}
+.arrow{color:#9ca3af;font-size:28px}
+.icon{font-size:24px}
+.section{display:none}
+.section.active{display:block}
 input{
   width:100%;
-  box-sizing:border-box;
-  padding:14px;
+  padding:14px 16px;
   border-radius:18px;
   border:1px solid #dfe7ef;
-  margin:12px 0 16px;
+  background:#fff;
+  color:#222;
+  margin:8px 0 16px;
   font-size:16px;
   text-align:right;
   outline:none;
+}
+button{
+  border:none;
+  border-radius:18px;
+  padding:13px 18px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+.primary{
+  background:linear-gradient(135deg,var(--navy),#2d6aa0);
+  color:#fff;
+  box-shadow:0 8px 22px rgba(31,78,121,.25);
+}
+.secondary{
+  background:#fff;
+  color:#111;
+  border:1px solid rgba(212,175,55,.38);
+}
+.small{
+  font-size:15px;
+  color:var(--muted);
+  line-height:2;
+}
+.hero-img{
+  background-size:cover;
+  background-position:center;
+  color:white;
+  border-radius:28px;
+  padding:60px 24px;
+  margin-bottom:20px;
+  box-shadow:0 16px 36px rgba(31,78,121,.18);
+}
+.hero-img h1{color:white}
+.song-category-row{
+  display:flex;
+  gap:28px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:22px 0;
+}
+.song-category-btn{
+  background:transparent;
+  color:#222;
+  box-shadow:none;
+  padding:8px 2px;
+}
+.gold-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--gold);
+  display:inline-block;
+  margin-left:8px;
+}
+.list-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 6px;
+  border-bottom:1px solid rgba(212,175,55,.20);
+  text-align:right;
+  cursor:pointer;
+}
+.list-item-title{
+  flex:1;
+  font-size:18px;
+  font-weight:700;
+  color:#243447;
+}
+.player-card{
+  display:none;
+  background:linear-gradient(180deg,#ffffff 0%,#fcfaf6 100%);
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:28px;
+  padding:22px;
+  margin-top:18px;
+  text-align:right;
+  box-shadow:0 18px 45px rgba(0,0,0,.08);
+}
+.player-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.player-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#2f6fb3,#5aa8ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:24px;
+}
+audio{width:100%;margin:12px 0}
+.player-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.book-card{
+  background:#fff;
+  border:1px solid #e3e7ee;
+  border-radius:20px;
+  padding:14px;
+  display:flex;
+  gap:12px;
+  text-align:right;
+  cursor:pointer;
+}
+.book-card img{
+  width:82px;
+  height:118px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #ddd;
 }
 .testament-list{
   background:#fff;
@@ -177,187 +272,169 @@ input{
   overflow:hidden;
   box-shadow:0 14px 34px rgba(31,78,121,.08);
 }
-.testament-list-row{
-  height:58px;
+.testament-row{
+  height:62px;
   display:flex;
   align-items:center;
-  direction:rtl;
   gap:12px;
   padding:0 18px;
   cursor:pointer;
 }
-.testament-row-title{
+.testament-row:not(:last-child){
+  border-bottom:1px solid rgba(200,169,106,.16);
+}
+.testament-title{
   flex:1;
   text-align:right;
-  font-size:17px;
+  font-size:18px;
   font-weight:800;
   color:#183a5a;
 }
-.divider{
-  height:1px;
-  background:rgba(200,169,106,.16);
-  margin:0 18px;
+.chapter-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
 }
-.list-item{
-  padding:15px 6px;
-  border-bottom:1px solid rgba(212,175,55,.20);
-  text-align:right;
-  cursor:pointer;
+.chapter-box{
+  height:48px;
+  background:#efefef;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-size:18px;
-  font-weight:600;
-  color:#243447;
-}
-.btn{
-  width:auto;
-  background:#fff;
-  color:#111827;
-  border:1px solid #d4af37;
-  box-shadow:none;
-  border-radius:30px;
-  padding:12px 28px;
-  font-size:16px;
-  font-weight:bold;
+  font-weight:800;
   cursor:pointer;
+}
+.verse-text{
+  text-align:right;
+  direction:rtl;
+  font-size:18px;
+  line-height:2.5;
+  color:#2b2b2b;
+  padding:0 18px;
+}
+.verse-num{
+  font-size:11px;
+  color:#777;
+  font-weight:700;
+  vertical-align:super;
+  margin-left:5px;
 }
 .ency-btn{
   background:#fff;
   color:#111;
-  border:1px solid #d4af37;
-  border-radius:18px;
-  padding:13px;
-  margin:8px 4px;
-  font-size:15px;
-  font-weight:800;
-  display:inline-block;
-  width:120px;
+  border:1px solid var(--gold);
+  margin:6px;
+  min-width:120px;
 }
 .ency-result{
   background:#fff;
-  border:1px solid #d4af37;
+  border:1px solid rgba(212,175,55,.55);
   border-radius:18px;
   padding:18px;
-  margin-top:16px;
-  text-align:center;
+  margin-top:14px;
   line-height:2.2;
-  color:#111;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+@media(max-width:600px){
+  body{padding:12px}
+  h1{font-size:38px}
+  .hero-card{padding:42px 18px}
+  .book-grid{grid-template-columns:1fr}
+  .song-category-row{gap:12px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="tab-buttons">
-  <button class="top-home-btn" onclick="showSection('homeSection')">
-    ☰ <span>خانه</span>
-  </button>
+<div class="topbar">
+  <button class="home-btn" onclick="showSection('homeSection')">خانه ☰</button>
 </div>
 
 <div id="homeSection" class="section active">
-
   <div class="card hero-card">
-    <div class="hero-mark">
-      <svg viewBox="0 0 64 64" width="34" height="34">
-        <path d="M32 10v44M20 24h24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-    </div>
-
+    <div class="hero-mark">✝</div>
     <h1>کلام حیات</h1>
-
-    <p class="hero-subtitle">
-      مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا
-    </p>
-
+    <p class="hero-subtitle">مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا</p>
+    <div class="hero-gold-line"></div>
     <div class="hero-verse">
-      <div class="hero-gold-line"></div>
       «...یعنی کلام حیات، آن را به شما اعلام می‌کنیم.»
+      <br>
       <strong>۱ یوحنا ۱:۱</strong>
     </div>
   </div>
 
-  <div class="menu-list">
+  <div class="card menu-card">
     <div class="menu-row" onclick="showSection('bibleSection')">
-      <div class="menu-left"><span>📖</span><span class="menu-title">مطالعه کتاب مقدس</span></div>
-      <span class="menu-arrow">›</span>
+      <span class="arrow">‹</span>
+      <div class="menu-title"><span>مطالعه کتاب مقدس</span><span class="icon">📖</span></div>
     </div>
 
     <div class="menu-row" onclick="showBibleEncyclopedia()">
-      <div class="menu-left"><span>📘</span><span class="menu-title">دانشنامه کتاب مقدس</span></div>
-      <span class="menu-arrow">›</span>
+      <span class="arrow">‹</span>
+      <div class="menu-title"><span>دانشنامه کتاب مقدس</span><span class="icon">📘</span></div>
     </div>
 
-    <div class="menu-row" onclick="showSection('songsSection')">
-      <div class="menu-left"><span>🎵</span><span class="menu-title">سرودهای پرستشی</span></div>
-      <span class="menu-arrow">›</span>
+    <div class="menu-row" onclick="showSection('songsSection'); loadSongs();">
+      <span class="arrow">‹</span>
+      <div class="menu-title"><span>سرودهای پرستشی</span><span class="icon">🎵</span></div>
     </div>
 
     <div class="menu-row" onclick="showSection('librarySection')">
-      <div class="menu-left"><span>📚</span><span class="menu-title">کتابخانه مسیحی</span></div>
-      <span class="menu-arrow">›</span>
-    </div>
-
-    <div class="menu-row" onclick="alert('کتاب مقدس صوتی بزودی اضافه می‌شود')">
-      <div class="menu-left"><span>🎧</span><span class="menu-title">کتاب مقدس صوتی</span></div>
-      <span class="menu-arrow">›</span>
-    </div>
-
-    <div class="menu-row" onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس بزودی اضافه می‌شود')">
-      <div class="menu-left"><span>🎯</span><span class="menu-title">بازی‌ها و آزمون‌های کتاب مقدس</span></div>
-      <span class="menu-arrow">›</span>
+      <span class="arrow">‹</span>
+      <div class="menu-title"><span>کتابخانه مسیحی</span><span class="icon">📚</span></div>
     </div>
   </div>
 
-  <div class="card daily-verse-card">
+  <div class="card">
     <h2>آیه روز</h2>
-    <div id="homeDailyVerse" class="small">در انتظار دریافت آیه روز...</div>
-  </div>
-</div>
-
-<div id="bibleSection" class="section">
-  <div id="bibleHero" class="card hero-image bible-hero">
-    <h1 style="color:white;">مطالعه کتاب مقدس</h1>
-    <div style="font-size:18px;line-height:1.9;">کلام تو برای پاهای من چراغ است<br>و برای راه من نور</div>
-    <div style="margin-top:20px;font-size:14px;opacity:.85;">مزمور ۱۱۹:۱۰۵</div>
-  </div>
-
-  <div id="bibleTestamentCards" class="card">
-    <input id="bibleSearchInput" placeholder="جستجو در کتاب مقدس..." onkeydown="if(event.key==='Enter') searchBibleVerse()">
-
-    <div class="testament-list">
-      <div class="testament-list-row" onclick="loadBibleBooks('old')">
-        <div class="testament-row-title">عهد عتیق</div>
-      </div>
-      <div class="divider"></div>
-      <div class="testament-list-row" onclick="loadBibleBooks('new')">
-        <div class="testament-row-title">عهد جدید</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="bibleContentCard" class="card" style="display:none;">
-    <div id="bibleContent"></div>
+    <div id="homeDailyVerse" class="small">در حال دریافت آیه روز...</div>
   </div>
 </div>
 
 <div id="songsSection" class="section">
-  <div class="hero-image songs-hero">
-    <h1 style="color:white;">سرودهای پرستشی</h1>
-    <div style="font-size:18px;line-height:1.9;opacity:.95;">مجموعه‌ای از سرودهای پرستشی</div>
+  <div class="hero-img" style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200')">
+    <h1>سرودهای پرستشی</h1>
+    <div>مجموعه‌ای از سرودهای پرستشی</div>
+  </div>
+
+  <div class="song-category-row">
+    <button onclick="loadSongs()" class="song-category-btn"><span class="gold-dot"></span>آرشیو سرودها</button>
+    <button onclick="loadCategory(0)" class="song-category-btn"><span class="gold-dot"></span>عید قیام</button>
+    <button onclick="loadCategory(1)" class="song-category-btn"><span class="gold-dot"></span>تولد مسیح</button>
+    <button onclick="loadCategory(2)" class="song-category-btn"><span class="gold-dot"></span>جمعه صلیب</button>
   </div>
 
   <div class="card">
-    <button class="btn" onclick="loadSongs()">آرشیو سرودهای پرستشی</button>
-    <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()" style="display:none;">
+    <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
     <div id="status" class="small"></div>
+
+    <div id="playerCard" class="player-card">
+      <div class="player-head">
+        <div class="player-icon">♪</div>
+        <div>
+          <div class="small">در حال پخش</div>
+          <strong id="playerTitle">نام سرود</strong>
+        </div>
+      </div>
+      <audio id="audioPlayer" controls></audio>
+      <div class="player-actions">
+        <button class="primary" onclick="downloadSelectedSong()">دانلود</button>
+        <button class="secondary" onclick="closePlayer()">بستن</button>
+      </div>
+    </div>
+
     <div id="songs"></div>
   </div>
 </div>
 
 <div id="librarySection" class="section">
-  <div class="hero-image library-hero">
-    <h1 style="color:white;">کتابخانه مسیحی</h1>
-    <div style="font-size:18px;line-height:1.9;opacity:.95;">کتاب‌هایی برای رشد ایمان، شاگردی و شناخت عمیق‌تر خدا</div>
-    <button class="btn" onclick="loadBooks()">مشاهده کتاب‌ها</button>
+  <div class="hero-img" style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200')">
+    <h1>کتابخانه مسیحی</h1>
+    <div>کتاب‌هایی برای رشد ایمان، شاگردی و شناخت عمیق‌تر خدا</div>
+    <br>
+    <button class="secondary" onclick="loadBooks()">مشاهده کتاب‌ها</button>
   </div>
 
   <div class="card">
@@ -367,369 +444,439 @@ input{
   </div>
 </div>
 
+<div id="bibleSection" class="section">
+  <div id="bibleHero" class="hero-img" style="background-image:linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200')">
+    <h1>مطالعه کتاب مقدس</h1>
+    <div>کلام تو برای پاهای من چراغ است<br>و برای راه من نور</div>
+    <div class="small" style="color:white;margin-top:14px">مزمور ۱۱۹:۱۰۵</div>
+  </div>
+
+  <div id="bibleTestamentCards" class="card">
+    <input id="bibleSearchInput" placeholder="جستجو در کتاب مقدس..." onkeydown="if(event.key==='Enter') searchBibleVerse()">
+
+    <div class="testament-list">
+      <div class="testament-row" onclick="loadBibleBooks('old')">
+        <span class="icon">📜</span>
+        <div class="testament-title">عهد عتیق</div>
+      </div>
+      <div class="testament-row" onclick="loadBibleBooks('new')">
+        <span class="icon">📖</span>
+        <div class="testament-title">عهد جدید</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bibleContentCard" class="card" style="display:none">
+    <div id="bibleContent"></div>
+  </div>
+</div>
+
+<div id="encyclopediaSection" class="section">
+  <div class="card">
+    <h1>دانشنامه کتاب مقدس</h1>
+    <p>واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را جستجو کنید.</p>
+  </div>
+
+  <div class="card">
+    <input id="encyclopediaSearchInput" placeholder="جستجوی واژه، شخصیت یا مکان..." oninput="searchBibleEncyclopedia()">
+    <div id="encyclopediaContent" class="small">عبارت مورد نظر را وارد کنید.</div>
+  </div>
+</div>
+
 <script>
 const API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev";
 
+const SONG_CATEGORIES = [
+  {button:"سرودهای عید قیام", category_id:1},
+  {button:"سرودهای تولد مسیح", category_id:2},
+  {button:"سرودهای جمعه صلیب", category_id:3}
+];
+
 let allSongs = [];
-let filteredSongs = [];
+let masterSongs = [];
+let selectedSong = null;
+let currentSource = "songs";
 let allBooks = [];
 let currentBibleTestament = "old";
+let encyclopediaResults = [];
 
-function showSection(sectionId){
-  document.querySelectorAll(".section").forEach(sec=>{
-    sec.classList.remove("active");
-    sec.style.display="none";
+function showSection(id){
+  document.querySelectorAll(".section").forEach(s=>{
+    s.classList.remove("active");
+    s.style.display = "none";
   });
-
-  const target=document.getElementById(sectionId);
-  if(target){
-    target.classList.add("active");
-    target.style.display="block";
+  const el = document.getElementById(id);
+  if(el){
+    el.classList.add("active");
+    el.style.display = "block";
   }
-
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
+async function fetchJSON(url){
+  const res = await fetch(url);
+  if(!res.ok) throw new Error("HTTP " + res.status);
+  return await res.json();
+}
+
+function normalizeRows(data){
+  if(Array.isArray(data)) return data;
+  return data.data || data.rows || data.books || data.songs || [];
+}
+
 async function loadDailyVerse(){
-  const box=document.getElementById("homeDailyVerse");
-  box.innerHTML="در حال دریافت آیه روز...";
-
+  const box = document.getElementById("homeDailyVerse");
   try{
-    const res=await fetch(API_BASE + "/bible/daily-verse");
-    const data=await res.json();
-    const verse=Array.isArray(data) ? data[0] : data;
-
-    box.innerHTML=`
-      <div style="line-height:2.2;text-align:center;">
-        <div style="display:inline-block;padding:8px 18px;border-radius:999px;background:rgba(255,255,255,.16);font-size:20px;font-weight:700;margin-bottom:20px;">
+    const data = await fetchJSON(`${API_BASE}/bible/daily-verse`);
+    const verse = Array.isArray(data) ? data[0] : data;
+    box.innerHTML = `
+      <div style="line-height:2.2">
+        <div style="font-size:18px;font-weight:800;color:#1f4e79">
           ${verse.bible_books?.name_fa || ""} ${verse.chapter_number || ""}:${verse.verse_number || ""}
         </div>
-        <div style="font-size:20px;max-width:700px;margin:auto;">${verse.verse_text || ""}</div>
+        <div style="font-size:18px">${verse.verse_text || ""}</div>
       </div>
     `;
-  }catch(err){
-    box.innerHTML="خطا در دریافت آیه روز";
+  }catch(e){
+    box.innerHTML = "آیه روز در دسترس نیست.";
   }
 }
 
+async function loadSongs(){
+  currentSource = "songs";
+  closePlayer();
+  document.getElementById("status").innerText = "در حال دریافت سرودها...";
+  try{
+    const rows = normalizeRows(await fetchJSON(`${API_BASE}/hymns`));
+    allSongs = rows.filter(r => r.title && r.is_active !== false).map((r,i)=>({
+      index:i,
+      name:r.title,
+      audio_url:r.audio_url || r.audio_file_url || r.file_url || r.download_url || "",
+      raw:r
+    }));
+    masterSongs = allSongs;
+    renderSongs(allSongs);
+    document.getElementById("status").innerText = "لیست کامل سرودها";
+  }catch(e){
+    document.getElementById("status").innerText = "خطا در دریافت سرودها";
+  }
+}
+
+async function loadCategory(index){
+  currentSource = "category";
+  closePlayer();
+  document.getElementById("status").innerText = "در حال دریافت سرودها...";
+  try{
+    const rows = normalizeRows(await fetchJSON(`${API_BASE}/hymns`));
+    const catId = SONG_CATEGORIES[index].category_id;
+    allSongs = rows.filter(r => r.title && r.category_id == catId && r.is_active !== false).map((r,i)=>({
+      index:i,
+      name:r.title,
+      audio_url:r.audio_url || r.audio_file_url || r.file_url || r.download_url || "",
+      raw:r
+    }));
+    masterSongs = allSongs;
+    renderSongs(allSongs);
+    document.getElementById("status").innerText = SONG_CATEGORIES[index].button;
+  }catch(e){
+    document.getElementById("status").innerText = "خطا در دریافت سرودها";
+  }
+}
+
+function renderSongs(songs){
+  const container = document.getElementById("songs");
+  if(!songs.length){
+    container.innerHTML = "<div class='small'>موردی پیدا نشد.</div>";
+    return;
+  }
+  container.innerHTML = songs.map((s,i)=>`
+    <div class="list-item" onclick="openPlayer(${i})">
+      <span style="color:#1f4e79;font-size:20px;font-weight:800">▶</span>
+      <span class="list-item-title">${s.name}</span>
+    </div>
+  `).join("");
+}
+
+function filterSongs(){
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  const filtered = !q ? masterSongs : masterSongs.filter(s => (s.name || "").toLowerCase().includes(q));
+  renderSongs(filtered);
+}
+
+function openPlayer(i){
+  selectedSong = masterSongs[i] || allSongs[i];
+  if(!selectedSong) return;
+
+  document.getElementById("playerTitle").innerText = selectedSong.name;
+  const audio = document.getElementById("audioPlayer");
+
+  if(selectedSong.audio_url){
+    audio.src = selectedSong.audio_url;
+  }else{
+    audio.removeAttribute("src");
+    alert("برای پخش در PWA باید لینک مستقیم audio_url در دیتابیس سرودها ثبت شود.");
+  }
+
+  document.getElementById("playerCard").style.display = "block";
+  document.getElementById("playerCard").scrollIntoView({behavior:"smooth"});
+}
+
+function closePlayer(){
+  const audio = document.getElementById("audioPlayer");
+  audio.pause();
+  audio.removeAttribute("src");
+  audio.load();
+  document.getElementById("playerCard").style.display = "none";
+}
+
+function downloadSelectedSong(){
+  if(selectedSong?.audio_url){
+    window.open(selectedSong.audio_url, "_blank");
+  }else{
+    alert("لینک مستقیم دانلود برای این سرود ثبت نشده است.");
+  }
+}
+
+async function loadBooks(){
+  const status = document.getElementById("bookStatus");
+  status.innerText = "در حال دریافت کتاب‌ها...";
+  try{
+    const rows = normalizeRows(await fetchJSON(`${API_BASE}/books`));
+    allBooks = rows.filter(r => r.title && r.is_active !== false).map((r,i)=>({
+      index:i,
+      name:r.title,
+      author:r.author || "",
+      description:r.description || "",
+      cover_url:r.cover_url || "",
+      download_url:r.file_url || r.download_url || ""
+    }));
+    renderBooks(allBooks);
+    status.innerText = "کتابخانه";
+  }catch(e){
+    status.innerText = "خطا در دریافت کتاب‌ها";
+  }
+}
+
+function renderBooks(books){
+  const container = document.getElementById("books");
+  if(!books.length){
+    container.innerHTML = "<div class='small'>کتابی پیدا نشد.</div>";
+    return;
+  }
+  container.className = "book-grid";
+  container.innerHTML = books.map(b=>`
+    <div class="book-card" onclick="showBookDetails(${b.index})">
+      <img src="${b.cover_url || 'https://via.placeholder.com/80x120'}">
+      <div>
+        <div style="font-size:18px;font-weight:800">${b.name}</div>
+        <div class="small">${b.author}</div>
+        <div class="small">${b.description}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function showBookDetails(index){
+  const book = allBooks.find(b=>b.index===index);
+  const container = document.getElementById("books");
+  container.className = "";
+  container.innerHTML = `
+    <div class="card" style="text-align:right">
+      <h2>${book.name}</h2>
+      <div class="small">${book.author ? "نویسنده: " + book.author : ""}</div>
+      <p>${book.description || ""}</p>
+      <button class="primary" onclick="window.open('${book.download_url}','_blank')">دانلود کتاب</button>
+      <button class="secondary" onclick="renderBooks(allBooks)" style="margin-right:8px">بازگشت</button>
+    </div>
+  `;
+}
+
+function filterBooks(){
+  const q = document.getElementById("bookSearch").value.trim().toLowerCase();
+  const filtered = !q ? allBooks : allBooks.filter(b => (b.name || "").toLowerCase().includes(q));
+  renderBooks(filtered);
+}
+
 async function searchBibleVerse(){
-  const input=document.getElementById("bibleSearchInput");
-  const bibleContent=document.getElementById("bibleContent");
-  const bibleContentCard=document.getElementById("bibleContentCard");
+  const q = document.getElementById("bibleSearchInput").value.trim();
+  const card = document.getElementById("bibleContentCard");
+  const box = document.getElementById("bibleContent");
 
-  const q=input.value.trim();
-
+  card.style.display = "block";
   if(!q){
-    bibleContentCard.style.display="block";
-    bibleContent.innerHTML="لطفاً عبارت جستجو را وارد کنید";
+    box.innerHTML = "لطفاً عبارت جستجو را وارد کنید.";
     return;
   }
 
-  bibleContentCard.style.display="block";
-  bibleContent.innerHTML="⏳ در حال جستجو...";
-
+  box.innerHTML = "در حال جستجو...";
   try{
-    const res=await fetch(API_BASE + "/bible/search?q=" + encodeURIComponent(q));
-    const results=await res.json();
-
-    bibleContent.innerHTML=results.map(v=>`
-      <div style="border-right:3px solid #111;padding:0 16px 24px 0;margin:0 0 24px;text-align:right;direction:rtl;">
-        <div style="font-size:18px;line-height:2.3;color:#222;margin-bottom:12px;">${v.verse_text}</div>
-        <div style="font-size:16px;font-weight:700;color:#333;">
-          ${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}
-        </div>
+    const results = normalizeRows(await fetchJSON(`${API_BASE}/bible/search?q=${encodeURIComponent(q)}`));
+    if(!results.length){
+      box.innerHTML = "موردی پیدا نشد.";
+      return;
+    }
+    box.innerHTML = results.map(v=>`
+      <div style="border-right:3px solid #111;padding:0 16px 24px 0;margin-bottom:24px;text-align:right">
+        <div style="font-size:18px;line-height:2.3">${v.verse_text || ""}</div>
+        <strong>${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}</strong>
       </div>
     `).join("");
-  }catch(err){
-    bibleContent.innerHTML="❌ خطا در جستجو";
+  }catch(e){
+    box.innerHTML = "خطا در جستجو.";
   }
 }
 
 async function loadBibleBooks(testament){
-  currentBibleTestament=testament;
+  currentBibleTestament = testament;
+  document.getElementById("bibleHero").style.display = "none";
+  document.getElementById("bibleTestamentCards").style.display = "none";
+  document.getElementById("bibleContentCard").style.display = "block";
 
-  const bibleContent=document.getElementById("bibleContent");
-  document.getElementById("bibleContentCard").style.display="block";
-  document.getElementById("bibleHero").style.display="none";
-  document.getElementById("bibleTestamentCards").style.display="none";
-
-  bibleContent.innerHTML="⌛ در حال دریافت کتاب‌ها...";
+  const box = document.getElementById("bibleContent");
+  box.innerHTML = "در حال دریافت کتاب‌ها...";
 
   try{
-    const res=await fetch(API_BASE + "/bible/books");
-    const books=await res.json();
+    const books = normalizeRows(await fetchJSON(`${API_BASE}/bible/books`));
+    let filtered = books.filter(b=>{
+      if(testament === "old") return ["OT","old","عهد عتیق"].includes(b.testament);
+      return ["NT","new","عهد جدید"].includes(b.testament);
+    });
+    if(!filtered.length) filtered = books;
 
-    let filtered=books;
-
-    if(testament==="old"){
-      filtered=books.filter(b=>b.testament==="OT" || b.testament==="old" || b.testament==="عهد عتیق");
-    }
-
-    if(testament==="new"){
-      filtered=books.filter(b=>b.testament==="NT" || b.testament==="new" || b.testament==="عهد جدید");
-    }
-
-    bibleContent.innerHTML=`
-      <div style="text-align:right;direction:rtl;">
+    box.innerHTML = `
+      <div style="text-align:right">
         ${filtered.map(book=>{
-          let bookName=book.name_fa || book.book_name_fa || book.name || "";
+          let name = book.name_fa || book.book_name_fa || book.name || "";
           return `
-            <div onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
-              style="padding:12px 4px;font-size:20px;font-weight:300;font-family:Estedad,sans-serif;color:#111;cursor:pointer;border-bottom:1px solid #eee;">
-              ${bookName}
+            <div class="list-item" onclick='loadBibleChapters(${book.id}, ${JSON.stringify(name)})'>
+              <span class="list-item-title">${name}</span>
             </div>
           `;
         }).join("")}
       </div>
     `;
-  }catch(err){
-    bibleContent.innerHTML="❌ خطا در دریافت کتاب‌های کتاب مقدس";
+  }catch(e){
+    box.innerHTML = "خطا در دریافت کتاب‌ها.";
   }
 }
 
 async function loadBibleChapters(bookId, bookName){
-  const bibleContent=document.getElementById("bibleContent");
-  bibleContent.innerHTML="⏳ در حال دریافت باب‌های " + bookName + "...";
-
+  const box = document.getElementById("bibleContent");
+  box.innerHTML = "در حال دریافت باب‌ها...";
   try{
-    const res=await fetch(API_BASE + "/bible/chapters?book_id=" + bookId);
-    const chapters=await res.json();
-
-    bibleContent.innerHTML=`
-      <div style="text-align:right;font-size:22px;font-weight:600;color:#444;margin-bottom:18px;">${bookName}</div>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">
-        ${chapters.map(chapter=>`
-          <div onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})"
-            style="background:#efefef;border-radius:12px;height:46px;display:flex;justify-content:center;align-items:center;font-size:18px;font-weight:700;cursor:pointer;">
-            ${chapter.chapter_number}
+    const chapters = normalizeRows(await fetchJSON(`${API_BASE}/bible/chapters?book_id=${bookId}`));
+    box.innerHTML = `
+      <div style="text-align:right;font-size:24px;font-weight:800;margin-bottom:18px">${bookName}</div>
+      <div class="chapter-grid">
+        ${chapters.map(ch=>`
+          <div class="chapter-box" onclick="loadBibleVerses(${bookId}, ${ch.chapter_number}, '${bookName}', ${chapters.length})">
+            ${ch.chapter_number}
           </div>
         `).join("")}
       </div>
-      <div class="list-item" style="margin-top:20px" onclick="loadBibleBooks(currentBibleTestament)">← بازگشت به کتاب‌ها</div>
+      <div class="list-item" style="margin-top:18px" onclick="loadBibleBooks(currentBibleTestament)">
+        <span class="list-item-title">← بازگشت به کتاب‌ها</span>
+      </div>
     `;
-  }catch(err){
-    bibleContent.innerHTML="❌ خطا در دریافت باب‌ها";
+  }catch(e){
+    box.innerHTML = "خطا در دریافت باب‌ها.";
   }
 }
 
 async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
-  const bibleContent=document.getElementById("bibleContent");
-  bibleContent.innerHTML="⌛ در حال دریافت آیات...";
-
+  const box = document.getElementById("bibleContent");
+  box.innerHTML = "در حال دریافت آیات...";
   try{
-    const res=await fetch(API_BASE + "/bible/verses?book_id=" + bookId + "&chapter_number=" + chapterNumber);
-    const verses=await res.json();
-
-    bibleContent.innerHTML=`
-      <div style="text-align:center;direction:rtl;margin-bottom:34px;">
-        <div style="font-size:15px;font-weight:500;color:#8a8a8a;margin-bottom:6px;">${bookName}</div>
-        <div style="font-size:76px;font-weight:800;color:#111;line-height:.9;margin-bottom:34px;">${chapterNumber}</div>
+    const verses = normalizeRows(await fetchJSON(`${API_BASE}/bible/verses?book_id=${bookId}&chapter_number=${chapterNumber}`));
+    box.innerHTML = `
+      <div style="text-align:center;margin-bottom:30px">
+        <div class="small">${bookName}</div>
+        <div style="font-size:72px;font-weight:900;line-height:1">${chapterNumber}</div>
       </div>
 
-      <div style="text-align:right;direction:rtl;font-size:17px;line-height:2.45;font-weight:400;color:#2b2b2b;padding:0 22px;">
+      <div class="verse-text">
         ${verses.map(v=>`
-          <span class="bibleVerse">
-            <span style="font-size:11px;color:#777;font-weight:600;vertical-align:super;margin-left:5px;">
-              ${v.verse_number}
-            </span>
+          <span>
+            <span class="verse-num">${v.verse_number}</span>
             ${v.verse_text}
           </span>
         `).join(" ")}
       </div>
 
-      <div style="width:220px;margin:30px auto 0;padding-top:10px;border-top:1px solid #eee;display:flex;align-items:center;justify-content:space-between;direction:ltr;">
-        <div onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
-          style="font-size:28px;cursor:pointer;visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};">‹</div>
-
-        <div onclick="loadBibleChapters(${bookId}, '${bookName}')"
-          style="font-size:18px;font-weight:700;color:#1f4e79;cursor:pointer;">${bookName}</div>
-
-        <div onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
-          style="font-size:28px;cursor:pointer;visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};">›</div>
+      <div style="width:240px;margin:32px auto 0;display:flex;justify-content:space-between;align-items:center;direction:ltr">
+        <button class="secondary" style="visibility:${chapterNumber < totalChapters ? 'visible':'hidden'}" onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})">‹</button>
+        <button class="secondary" onclick="loadBibleChapters(${bookId}, '${bookName}')">${bookName}</button>
+        <button class="secondary" style="visibility:${chapterNumber > 1 ? 'visible':'hidden'}" onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})">›</button>
       </div>
     `;
-  }catch(err){
-    bibleContent.innerHTML="❌ خطا در دریافت آیات";
+  }catch(e){
+    box.innerHTML = "خطا در دریافت آیات.";
   }
 }
 
 function showBibleEncyclopedia(){
-  const homeSection=document.getElementById("homeSection");
-
-  homeSection.innerHTML=`
-    <div class="card">
-      <h1>دانشنامه کتاب مقدس</h1>
-      <p>واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را در این بخش جستجو و مطالعه کنید.</p>
-    </div>
-
-    <div class="card">
-      <input id="encyclopediaSearchInput" type="text" placeholder="جستجوی واژه، شخصیت یا مکان..." oninput="searchBibleEncyclopedia()">
-      <div id="encyclopediaContent" class="small">لطفاً یک واژه را جستجو کنید.</div>
-    </div>
-  `;
-
-  showSection("homeSection");
+  showSection("encyclopediaSection");
 }
 
 async function searchBibleEncyclopedia(){
-  const input=document.getElementById("encyclopediaSearchInput");
-  const content=document.getElementById("encyclopediaContent");
-  const q=input.value.trim();
+  const q = document.getElementById("encyclopediaSearchInput").value.trim();
+  const box = document.getElementById("encyclopediaContent");
 
   if(!q){
-    content.innerHTML="لطفاً یک واژه، شخصیت یا مکان را وارد کنید.";
+    box.innerHTML = "عبارت مورد نظر را وارد کنید.";
     return;
   }
 
-  content.innerHTML="در حال جستجو...";
-
+  box.innerHTML = "در حال جستجو...";
   try{
-    const res=await fetch(API_BASE + "/bible-words");
-    const rows=await res.json();
-
-    const results=rows.filter(item =>
+    const rows = normalizeRows(await fetchJSON(`${API_BASE}/bible-words`));
+    encyclopediaResults = rows.filter(item =>
       (item.word || "").includes(q) ||
       (item.meaning || "").includes(q) ||
       (item.related_verse || "").includes(q)
     );
 
-    if(!results.length){
-      content.innerHTML="موردی پیدا نشد.";
+    if(!encyclopediaResults.length){
+      box.innerHTML = "موردی پیدا نشد.";
       return;
     }
 
-    window.encyclopediaResults=results;
-
-    content.innerHTML=results.map((item,index)=>`
+    box.innerHTML = encyclopediaResults.map((item,index)=>`
       <div class="card">
-        <h3>${item.word || ""}</h3>
+        <h2>${item.word || ""}</h2>
         <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'meaning')">معنی</button>
-        <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'root')">ریشه</button>
+        <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'root')">ریشه ${item.root_language || ""}</button>
         <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'verse')">آیه مرتبط</button>
-        <div id="encyclopediaResult-${index}" class="small">یکی از بخش‌های بالا را انتخاب کنید.</div>
+        <div id="encyResult-${index}" class="small">یکی از بخش‌ها را انتخاب کنید.</div>
       </div>
     `).join("");
-  }catch(err){
-    content.innerHTML="خطا در دریافت اطلاعات دانشنامه.";
+  }catch(e){
+    box.innerHTML = "خطا در دریافت دانشنامه.";
   }
 }
 
 function showEncyclopediaPart(index,type){
-  const item=window.encyclopediaResults[index];
-  const target=document.getElementById("encyclopediaResult-" + index);
+  const item = encyclopediaResults[index];
+  const target = document.getElementById(`encyResult-${index}`);
+  if(!item || !target) return;
 
-  if(type==="meaning"){
-    target.innerHTML=`<div class="ency-result"><h4>✒️ معنی</h4><p>${item.meaning || "-"}</p></div>`;
+  if(type === "meaning"){
+    target.innerHTML = `<div class="ency-result"><strong>معنی</strong><p>${item.meaning || "-"}</p></div>`;
   }
-
-  if(type==="root"){
-    target.innerHTML=`<div class="ency-result"><h4>✒️ ریشه ${item.root_language || ""}</h4><p>${item.root_text || "-"}</p></div>`;
+  if(type === "root"){
+    target.innerHTML = `<div class="ency-result"><strong>ریشه ${item.root_language || ""}</strong><p>${item.root_text || "-"}</p></div>`;
   }
-
-  if(type==="verse"){
-    target.innerHTML=`<div class="ency-result"><h4>✒️ آیه مرتبط</h4><p>${item.related_verse || "-"}</p></div>`;
+  if(type === "verse"){
+    target.innerHTML = `<div class="ency-result"><strong>آیه مرتبط</strong><p>${item.related_verse || "-"}</p></div>`;
   }
-}
-
-async function loadSongs(){
-  const box=document.getElementById("songs");
-  const search=document.getElementById("search");
-  const status=document.getElementById("status");
-
-  search.style.display="block";
-  status.innerHTML="در حال دریافت سرودها...";
-
-  try{
-    const res=await fetch(API_BASE + "/hymns");
-    const rows=await res.json();
-
-    allSongs=rows.filter(r=>r.title && r.is_active !== false);
-    filteredSongs=allSongs;
-
-    renderSongs(allSongs);
-    status.innerHTML="لیست کامل سرودها";
-  }catch(err){
-    box.innerHTML="<div class='small'>خطا در دریافت سرودها</div>";
-  }
-}
-
-function renderSongs(songs){
-  const box=document.getElementById("songs");
-
-  if(!songs.length){
-    box.innerHTML="<div class='small'>موردی پیدا نشد.</div>";
-    return;
-  }
-
-  box.innerHTML=songs.slice(0,60).map(song=>`
-    <div class="list-item">▶ ${song.title || ""}</div>
-  `).join("");
-}
-
-function filterSongs(){
-  const q=document.getElementById("search").value.trim().toLowerCase();
-
-  if(!q){
-    renderSongs(allSongs);
-    return;
-  }
-
-  const results=allSongs.filter(s=>(s.title || "").toLowerCase().includes(q));
-  renderSongs(results);
-}
-
-async function loadBooks(){
-  const status=document.getElementById("bookStatus");
-  const box=document.getElementById("books");
-
-  status.innerHTML="در حال دریافت کتاب‌ها...";
-
-  try{
-    const res=await fetch(API_BASE + "/books");
-    const rows=await res.json();
-
-    allBooks=rows.filter(r=>r.title && r.is_active !== false);
-    renderBooks(allBooks);
-    status.innerHTML="کتابخانه";
-  }catch(err){
-    box.innerHTML="<div class='small'>خطا در دریافت کتاب‌ها</div>";
-  }
-}
-
-function renderBooks(books){
-  const box=document.getElementById("books");
-
-  if(!books.length){
-    box.innerHTML="<div class='small'>کتابی پیدا نشد.</div>";
-    return;
-  }
-
-  box.innerHTML=books.map(book=>`
-    <div class="list-item">
-      📚 ${book.title || ""}
-      <div class="small">${book.author || ""}</div>
-    </div>
-  `).join("");
-}
-
-function filterBooks(){
-  const q=document.getElementById("bookSearch").value.trim().toLowerCase();
-
-  if(!q){
-    renderBooks(allBooks);
-    return;
-  }
-
-  const results=allBooks.filter(b=>(b.title || "").toLowerCase().includes(q));
-  renderBooks(results);
 }
 
 if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("sw.js");
+  navigator.serviceWorker.register("sw.js").catch(()=>{});
 }
 
 loadDailyVerse();
 </script>
 
 </body>
-      </html>
+</html>
