@@ -2205,8 +2205,8 @@ async function loadBibleBooks(testament){
                             onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
                             style="
                                 padding:12px 4px;
-                                font-size:25px;
-                                font-weight:400;
+                                font-size:23px;
+                                font-weight:300;
                                 font-family:'Vazirmatn',sans-serif;
                                 letter-spacing:-0.4px;
                                 color:#111;
