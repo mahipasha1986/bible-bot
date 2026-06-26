@@ -2290,8 +2290,9 @@ async function loadSongs(){
 
   allSongs = (Array.isArray(data) ? data : data.songs || [])
     .map((s, i) => ({
+        id: s.id,
         index: i,
-        name: s.title
+        name: s.title || s.name || ""
     }));
   filteredSongs = allSongs;
   masterSongs = allSongs;
@@ -2318,6 +2319,7 @@ async function loadCategory(index){
   const data = await res.json();
 
   allSongs = (Array.isArray(data) ? data : (data.songs || [])).map((s, i) => ({
+    id: s.id,
     index: i,
     name: s.title || s.name || ""
   }));
@@ -2483,7 +2485,7 @@ function openPlayer(song){
   const audioPlayer = document.getElementById("audioPlayer");
 
   playerTitle.innerText = song.name;
-  audioPlayer.src = "https://bible-bot-4eo2.onrender.com/api/audio?source=" + currentSource + "&index=" + song.index;
+  audioPlayer.src = API_BASE + "/hymns/" + song.id + "/audio";
   playerCard.style.display = "block";
   setStatus("");
 
