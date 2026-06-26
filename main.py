@@ -3034,7 +3034,7 @@ async function sendSong(index){
 async function loadBooks(){
   document.getElementById("bookStatus").innerText = "⏳ در حال دریافت کتاب‌ها...";
 
-  const res = await fetch("/api/books");
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/books");
   const data = await res.json();
 
   allBooks = data.books || [];
