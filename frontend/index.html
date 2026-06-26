@@ -2556,7 +2556,14 @@ async function loadBooks(){
   const res = await fetch(API_BASE + "/books", { cache: "no-store" });
   const data = await res.json();
 
-  allBooks = data.books || [];
+  allBooks = (Array.isArray(data) ? data : data.books || []).map((b, i) => ({
+    index: i,
+    name: b.title || b.name || "",
+    author: b.author || "",
+    description: b.description || "",
+    cover_url: b.cover_url || "",
+    download_url: b.file_url || b.download_url || ""
+}));
 
   document.getElementById("bookSearch").value = "";
   renderBooks(allBooks);
