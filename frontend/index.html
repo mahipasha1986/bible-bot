@@ -2511,7 +2511,7 @@ function downloadSelectedSong() {
     }
 
     window.open(
-        "https://bible-bot-4eo2.onrender.com/api/audio?source=" + currentSource + "&index=" + selectedSong.index,
+        API_BASE + "/hymns/" + selectedSong.id + "/audio",
         "_blank"
     );
 }
