@@ -2314,7 +2314,7 @@ async function loadCategory(index){
     closePlayer();
     setStatus("");
 
-  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/category/" + index, { cache: "no-store" });
+  const res = await fetch(API_BASE + "/hymns/" + (index + 1), { cache: "no-store" });
   const data = await res.json();
 
   allSongs = data.songs || [];
