@@ -2283,6 +2283,7 @@ async function loadSongs(){
 
   const res = await fetch(API_BASE + "/hymns", { cache: "no-store" });
   const data = await res.json();
+  console.log(data);
 
   allSongs = (Array.isArray(data) ? data : data.songs || []).map((s, i) => ({
     index: i,
