@@ -5,878 +5,2809 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کلام حیات</title>
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1f4e79">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-:root{
-  --navy:#1f4e79;
-  --navy2:#14385d;
-  --gold:#d4af37;
-  --cream:#fffaf0;
-  --bg:#f7f9fc;
-  --text:#111827;
-  --muted:#6b7280;
-}
-*{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:'Vazirmatn',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  padding:18px;
-  text-align:center;
-}
-.topbar{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  margin-bottom:14px;
-}
-.home-btn{
-  background:transparent;
-  border:none;
-  box-shadow:none;
-  font-weight:800;
-  font-size:15px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  cursor:pointer;
+    margin:0;
+    font-family:'Vazirmatn',sans-serif;
+    background:#f7f9fc;
+    color:#222;
+    padding:18px;
+    text-align:center;
 }
 .card{
-  background:#fff;
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:28px;
-  padding:18px;
-  margin-bottom:18px;
-  box-shadow:0 14px 34px rgba(31,78,121,.08);
+    background:#ffffff;
+    border:1px solid #e8edf3;
+    border-radius:26px;
+    padding:12px 14px;
+    margin-bottom:8px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.08);
+}
+.home-hero{
+    background:
+        linear-gradient(135deg, rgba(31,78,121,0.95), rgba(17,24,39,0.92)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 35%);
+    color:white;
+    border-radius:30px;
+    padding:34px 22px;
+    margin-bottom:18px;
+    box-shadow:0 18px 45px rgba(31,78,121,0.25);
+}
+
+.home-hero h1{
+    color:white;
+    font-size:46px;
+    margin-bottom:8px;
+}
+
+.home-hero p,
+.home-hero .small{
+    color:rgba(255,255,255,0.86);
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+}
+
+.quick-card{
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:22px;
+    padding:16px 10px;
+    color:white;
+    font-weight:800;
 }
 .hero-card{
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(212,175,55,.13), transparent 28%),
-    radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
-    linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%);
-  border-radius:34px;
-  padding:58px 24px 52px;
-  box-shadow:0 24px 60px rgba(31,78,121,.14);
-}
-.hero-mark{
-  color:#b08d57;
-  font-size:36px;
-  margin-bottom:18px;
+    background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+    padding:40px 24px;
+    border:none;
+    box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    margin-bottom:20px;
 }
 h1{
-  font-family:'Lalezar','Vazirmatn',sans-serif;
-  font-size:46px;
-  font-weight:400;
-  margin:8px 0 16px;
+    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-size:42px;
+    font-weight:400;
+    color:#111827;
+    line-height:1.4;
+    margin:8px 0 16px;
 }
+
 h2{
-  font-family:'Lalezar','Vazirmatn',sans-serif;
-  font-size:34px;
-  font-weight:400;
-  margin:8px 0 18px;
+    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-size:34px;
+    font-weight:400;
+    color:#111827;
+    line-height:1.5;
+    margin:8px 0 18px;
 }
+
 p{
-  line-height:2;
-  font-size:17px;
-  color:#4b5563;
+    line-height:2;
+    font-size:18px;
+    color:#4b5563;
 }
-.hero-subtitle{
-  font-size:18px;
-  font-weight:700;
-  color:#334155;
-  line-height:1.9;
+button{
+    width:100%;
+    padding:13px;
+    margin-top:10px;
+    border:none;
+    border-radius:18px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,0.08);
+
+    transition:all .25s ease;
 }
-.hero-gold-line{
-  width:80px;
-  height:2px;
-  background:linear-gradient(90deg,transparent,#b08d57,transparent);
-  margin:22px auto 14px;
+.red{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
+.blue{
+    background:#ffffff;
+    color:#111827;
+    border:1px solid #d4af37;
+    height:50px;
+    box-shadow:none;
 }
-.hero-verse{
-  color:#8a6a35;
-  font-size:15px;
-  line-height:2;
+.green{
+    background:linear-gradient(135deg,#1f4e79,#3d7fc0);
+    color:white;
+    box-shadow:0 6px 18px rgba(31,78,121,0.25);
 }
-.menu-card{
-  padding:18px 22px;
+.gold{
+    background:linear-gradient(135deg,#1f4e79,#2d6aa0);
+    color:white;
+    border:none;
+    border-radius:18px;
+    padding:16px 22px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.25);
+    transition:all 0.25s ease;
 }
-.menu-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:18px 4px;
-  border-bottom:1px solid #edf0f4;
-  cursor:pointer;
+
+.gold:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 32px rgba(31,78,121,0.35);
 }
-.menu-row:last-child{border-bottom:none}
-.menu-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:18px;
-  font-weight:800;
+.secondary{
+    background:white;
+    color:#1f4e79;
+    border:2px solid #1f4e79;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
-.arrow{color:#9ca3af;font-size:28px}
-.icon{font-size:24px}
-.section{display:none}
-.section.active{display:block}
+.ency-btn{
+    background:#ffffff;
+    color:#111111;
+    border:1px solid #d4af37;
+    border-radius:18px;
+    padding:15px;
+    margin:8px 6px;
+    font-size:18px;
+    font-weight:800;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    transition:.2s;
+    display:inline-block;
+    width:140px;
+}
+
+.ency-btn:hover{
+    background:#1f4e79;
+    color:#ffffff;
+}
+
+.ency-result{
+    background:#ffffff;
+    border:1px solid #d4af37;
+    border-radius:18px;
+    padding:20px;
+    margin-top:16px;
+    text-align:center;
+    line-height:2.2;
+    color:#111111;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.purple{
+    background:linear-gradient(135deg,#8e2de2,#4a00e0);
+}
 input{
   width:100%;
-  padding:14px 16px;
+  box-sizing:border-box;
+  padding:15px;
   border-radius:18px;
-  border:1px solid #dfe7ef;
-  background:#fff;
+  border:1px solid #dedee6;
+  background:#ffffff;
   color:#222;
-  margin:8px 0 16px;
+  margin-top:12px;
   font-size:16px;
   text-align:right;
   outline:none;
 }
-button{
-  border:none;
-  border-radius:18px;
-  padding:13px 18px;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
+input::placeholder{color:#999;}
+.song-item, .book-item{
+    background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
+    border:1px solid #edf1f5;
+    padding:8px 14px;
+    border-radius:16px;
+    margin-top:8px;
+    cursor:pointer;
+    text-align:right;
+    color:#222;
+    font-family:'Vazirmatn',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:-0.2px;
+    line-height:1.55;
+    box-shadow:0 6px 18px rgba(31,78,121,0.06);
 }
-.primary{
-  background:linear-gradient(135deg,var(--navy),#2d6aa0);
-  color:#fff;
-  box-shadow:0 8px 22px rgba(31,78,121,.25);
-}
-.secondary{
-  background:#fff;
-  color:#111;
-  border:1px solid rgba(212,175,55,.38);
+.song-item:hover,
+.book-item:hover{
+    background:#ffffff;
+    border-color:#dbe7f3;
+    transform:translateY(-1px);
+    box-shadow:0 10px 24px rgba(31,78,121,0.10);
+    transition:all .2s ease;
 }
 .small{
-  font-size:15px;
-  color:var(--muted);
-  line-height:2;
-}
-.hero-img{
-  background-size:cover;
-  background-position:center;
-  color:white;
-  border-radius:28px;
-  padding:60px 24px;
-  margin-bottom:20px;
-  box-shadow:0 16px 36px rgba(31,78,121,.18);
-}
-.hero-img h1{color:white}
-.song-category-row{
-  display:flex;
-  gap:28px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin:22px 0;
-}
-.song-category-btn{
-  background:transparent;
-  color:#222;
-  box-shadow:none;
-  padding:8px 2px;
-}
-.gold-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--gold);
-  display:inline-block;
-  margin-left:8px;
-}
-.list-item{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:18px 6px;
-  border-bottom:1px solid rgba(212,175,55,.20);
-  text-align:right;
-  cursor:pointer;
-}
-.list-item-title{
-  flex:1;
-  font-size:18px;
-  font-weight:700;
-  color:#243447;
+    font-size:16px;
+    color:#6b7280;
+    line-height:2;
 }
 .player-card{
-  display:none;
-  background:linear-gradient(180deg,#ffffff 0%,#fcfaf6 100%);
-  border:1px solid rgba(212,175,55,.22);
-  border-radius:28px;
-  padding:22px;
-  margin-top:18px;
-  text-align:right;
-  box-shadow:0 18px 45px rgba(0,0,0,.08);
+    display:none;
+    background:linear-gradient(180deg,#ffffff 0%,#fcfaf6 100%);
+    border:1px solid rgba(212,175,55,.22);
+    border-radius:28px;
+    padding:22px;
+    margin-top:18px;
+    text-align:right;
+    box-shadow:0 18px 45px rgba(0,0,0,.08);
+    overflow:hidden;
+    position:relative;
+}
+
+.player-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg,#d4af37,#8b6b2f,#d4af37);
+}
+
+.player-card audio{
+    width:100%;
+    margin:18px 0 22px;
+    height:56px;
+    border-radius:18px;
+    overflow:hidden;
+    background:#f6f8fb;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.player-title{
+  font-size:16px;
+  font-weight:bold;
+  margin-bottom:12px;
+  color:#2c2c2c;
+}
+audio{
+  width:100%;
+  margin-top:10px;
 }
 .player-head{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
 }
+
 .player-icon{
-  width:52px;
-  height:52px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#2f6fb3,#5aa8ff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-size:24px;
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#2f6fb3,#5aa8ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:24px;
+    box-shadow:0 10px 24px rgba(47,111,179,.25);
 }
-audio{width:100%;margin:12px 0}
+
+.player-label{
+    font-size:12px;
+    color:#8a8f99;
+    margin-bottom:4px;
+    font-weight:600;
+}
 .player-actions{
-  display:flex;
-  gap:10px;
-  justify-content:center;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:14px;
+    margin-bottom:12px;
 }
-.book-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+
+.player-actions button{
+    flex:0 0 140px;
+    height:42px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    padding:0 12px;
+    margin:0;
+    box-shadow:none;
 }
-.book-card{
-  background:#fff;
-  border:1px solid #e3e7ee;
-  border-radius:20px;
-  padding:14px;
-  display:flex;
-  gap:12px;
-  text-align:right;
-  cursor:pointer;
+
+.player-actions .green{
+    background:linear-gradient(135deg,#1f4e79,#2f78b7) !important;
+    color:white !important;
 }
-.book-card img{
-  width:82px;
-  height:118px;
-  object-fit:cover;
-  border-radius:12px;
-  border:1px solid #ddd;
+
+.player-actions .red{
+    background:white !important;
+    color:#000 !important;
+    border:1px solid rgba(212,175,55,.38) !important;
 }
+.tab-buttons{
+    display:flex;
+    gap:8px;
+    margin-bottom:14px;
+    overflow-x:auto;
+    padding:8px;
+    background:rgba(255,255,255,0.85);
+    border:1px solid #e8edf3;
+    border-radius:22px;
+    box-shadow:0 8px 24px rgba(31,78,121,0.08);
+}
+
+.tab-buttons button{
+    flex:none;
+    min-width:140px;
+    font-size:14px;
+    white-space:nowrap;
+}
+.top-home-btn{
+    width:auto !important;
+    min-width:auto;
+    padding:8px;
+    border-radius:0;
+    background:transparent;
+    color:#000000;
+    border:none;
+    font-size:15px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    box-shadow:none;
+}
+.compact-btn{
+    width:auto !important;
+    display:inline-block;
+    padding:10px 24px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:800;
+    margin:8px 6px;
+}
+.home-menu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+}
+
+.home-menu-btn{
+    width:100%;
+    min-height:74px;
+    background:white;
+    color:#1f4e79;
+    border:2px solid #dbe7f3;
+    border-radius:22px;
+    padding:14px 10px;
+    font-size:15px;
+    font-weight:900;
+    box-shadow:0 10px 26px rgba(31,78,121,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.7;
+}
+
+.home-menu-btn:hover{
+    border-color:#1f4e79;
+    transform:translateY(-2px);
+    box-shadow:0 14px 32px rgba(31,78,121,.16);
+}
+.daily-verse-card{
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:28px;
+    padding:35px 25px;
+    text-align:center;
+    color:white;
+    box-shadow:0 12px 30px rgba(31,78,121,.25);
+}
+
+.daily-verse-card *{
+    color:white !important;
+}
+.encyclopedia-btn{
+    width:auto !important;
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+}
+.encyclopedia-card{
+    background:linear-gradient(135deg,#ffffff,#f7fafc);
+    border:1px solid #e6edf5;
+    padding:24px 25px;
+    text-align:center;
+}
+
+.encyclopedia-card h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.encyclopedia-card p{
+    color:#667085;
+    line-height:2;
+    max-width:700px;
+    margin:0 auto 14px;
+}
+.verse-actions{
+    display:flex;
+    justify-content:center;
+    gap:34px;
+    margin-top:26px;
+}
+
+.verse-actions button{
+    width:auto !important;
+    background:transparent;
+    box-shadow:none;
+    border:none;
+    color:white;
+    font-size:30px;
+    padding:0;
+    margin:0;
+}
+
+.verse-actions span{
+    display:block;
+    font-size:13px;
+    margin-top:4px;
+    font-weight:500;
+    opacity:.9;
+}
+.verse-actions svg{
+    width:28px;
+    height:28px;
+    display:block;
+    margin:0 auto 6px;
+    fill:none;
+    stroke:white;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.verse-actions button:hover{
+    transform:translateY(-2px);
+    opacity:.9;
+}
+.section{
+  display:none;
+}
+.section.active{
+  display:block;
+}
+
+.hero-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffffff 0%,#f8fbff 55%,#eef7ff 100%);
+    border:1px solid rgba(31,78,121,.08);
+    box-shadow:0 18px 45px rgba(31,78,121,.12);
+    animation:heroEnter .8s ease-out both;
+}
+
+.hero-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 42%, rgba(176,141,87,.28), transparent 34%);
+    animation:heroSoftGlow 3.8s ease-in-out infinite;
+    pointer-events:none;
+    z-index:1;
+}
+
+.hero-card > *{
+    position:relative;
+    z-index:3;
+}
+
+.hero-bg-cross{
+    position:absolute;
+    color:rgba(176,141,87,.42);
+    font-size:28px;
+    line-height:1;
+    pointer-events:none;
+    z-index:2;
+    text-shadow:0 0 14px rgba(176,141,87,.35);
+    animation:softCrossFloat 6s ease-in-out infinite;
+}
+
+.hero-bg-cross.c1{top:16%;left:22%;font-size:18px;}
+.hero-bg-cross.c2{top:17%;right:24%;font-size:18px;animation-duration:7s;}
+.hero-bg-cross.c3{bottom:25%;left:26%;font-size:16px;animation-duration:8s;}
+.hero-bg-cross.c4{bottom:22%;right:22%;font-size:22px;animation-duration:7.5s;}
+
+.hero-cross{
+    font-size:30px;
+    color:#b08d57;
+    margin-bottom:10px;
+    text-shadow:0 0 18px rgba(176,141,87,.5);
+    animation:holyGlow 3s ease-in-out infinite;
+}
+.hero-mark{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:26px;
+    font-size:26px;
+    color:#C8A96A;
+    letter-spacing:0px;
+    opacity:.9;
+    animation:heroMark 3s ease-in-out infinite;
+}
+
+@keyframes heroMark{
+    0%,100%{
+        opacity:.45;
+        transform:translateY(0);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateY(-3px);
+    }
+}
+
+.hero-card h1{
+    text-shadow:0 10px 30px rgba(31,78,121,.18);
+}
+
+.hero-subtitle{
+    font-size:18px;
+    font-weight:600;
+    color:#334155;
+    line-height:1.9;
+    margin:14px 0 18px;
+}
+
+.hero-verse{
+    margin-top:18px;
+    color:#8a6a35;
+    font-size:15px;
+    line-height:2;
+}
+
+.hero-verse strong{
+    display:block;
+    margin-top:4px;
+    color:#7a5b2e;
+}
+
+.hero-gold-line{
+    width:70px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#b08d57,transparent);
+    margin:0 auto 12px;
+}
+
+@keyframes heroEnter{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes heroSoftGlow{
+    0%,100%{opacity:.35;transform:scale(1);}
+    50%{opacity:.85;transform:scale(1.12);}
+}
+
+@keyframes softCrossFloat{
+    0%,100%{transform:translateY(0);opacity:.35;}
+    50%{transform:translateY(-14px);opacity:.9;}
+}
+
+@keyframes holyGlow{
+    0%,100%{opacity:.75;transform:scale(1);}
+    50%{opacity:1;transform:scale(1.08);}
+}
+.song-category-btn{
+    background:transparent !important;
+    box-shadow:none !important;
+    border:none !important;
+    border-radius:0 !important;
+    width:auto !important;
+    margin:0 !important;
+    padding:8px 2px 10px !important;
+    color:#222 !important;
+    font-size:18px !important;
+    font-weight:700 !important;
+    cursor:pointer;
+    white-space:nowrap;
+    border-bottom:none !important;
+}
+
+.song-category-btn.active{
+    color:#1f4e79 !important;
+    border-bottom:none !important;
+}
+.songs-hero-animate{
+    animation:songsHero .7s ease;
+}
+
+@keyframes songsHero{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+#songCategories{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    margin:28px 0;
+}
+
+.song-archive-row{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.song-category-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.gold-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#D4AF37;
+    display:inline-block;
+    margin-left:8px;
+    flex-shrink:0;
+}
+/* Final polish — Home Hero */
+#homeSection .hero-card{
+    background:
+        radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
+        linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%) !important;
+    border:1px solid rgba(200,169,106,.18) !important;
+    border-radius:34px !important;
+    padding:58px 24px 52px !important;
+    box-shadow:0 24px 60px rgba(31,78,121,.14) !important;
+}
+/* ===== Songs List Final ===== */
+
+#songs .song-item{
+    background:transparent !important;
+    border:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+#songs .song-item > div{
+    padding:18px 6px !important;
+    border-bottom:1px solid rgba(212,175,55,.20);
+}
+
+#songs .song-item:hover{
+    background:transparent !important;
+    transform:none !important;
+    box-shadow:none !important;
+}
+@media (max-width:480px){
+    #homeSection .hero-card{
+        padding:42px 18px 38px !important;
+        border-radius:26px !important;
+        margin-bottom:16px !important;
+    }
+
+    #homeSection .hero-bg-cross{
+        font-size:14px !important;
+        opacity:.18 !important;
+    }
+
+    #homeSection .hero-card h1{
+        font-size:36px !important;
+        margin-bottom:12px !important;
+    }
+
+    #homeSection .hero-subtitle{
+        font-size:15px !important;
+        line-height:1.9 !important;
+        margin:10px 0 14px !important;
+    }
+
+    #homeSection .hero-verse{
+        font-size:13px !important;
+        line-height:1.8 !important;
+        margin-top:14px !important;
+    }
+}
+
+/* ===== Bible Testament List ===== */
+
+.bible-testament-box{
+    padding:18px !important;
+}
+
+.bible-search-input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:16px;
+    border:1px solid #dfe7ef;
+    margin-bottom:16px;
+    font-size:15px;
+    text-align:right;
+    direction:rtl;
+    outline:none;
+}
+
 .testament-list{
-  background:#fff;
-  border:1px solid rgba(200,169,106,.30);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 14px 34px rgba(31,78,121,.08);
+    background:#ffffff;
+
+    border:1px solid rgba(200,169,106,.30);
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 14px 34px rgba(31,78,121,.08),
+        0 0 0 1px rgba(200,169,106,.18),
+        0 0 18px rgba(200,169,106,.18);
 }
-.testament-row{
-  height:62px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:0 18px;
-  cursor:pointer;
+
+.testament-list-row{
+    height:58px;
+    display:flex;
+    align-items:center;
+    direction:rtl;
+    gap:12px;
+    padding:0 18px;
+    cursor:pointer;
 }
-.testament-row:not(:last-child){
-  border-bottom:1px solid rgba(200,169,106,.16);
+
+.testament-row-icon{
+    width:36px;
+    height:36px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#f8f0df,#ffffff);
+    border:1px solid rgba(200,169,106,.28);
+    color:#1f4e79;
+    flex-shrink:0;
 }
-.testament-title{
-  flex:1;
-  text-align:right;
-  font-size:18px;
-  font-weight:800;
-  color:#183a5a;
+
+.testament-row-title{
+    flex:1;
+    text-align:right;
+    font-size:17px;
+    font-weight:800;
+    color:#183a5a;
 }
-.chapter-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
+
+.testament-divider{
+    height:1px;
+    background:rgba(200,169,106,.16);
+    margin:0 18px;
 }
-.chapter-box{
-  height:48px;
-  background:#efefef;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:18px;
-  font-weight:800;
-  cursor:pointer;
+
+/* ===== Verse Action Sheet ===== */
+
+#verseActionOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.18);
+    z-index:9998;
 }
-.verse-text{
-  text-align:right;
-  direction:rtl;
-  font-size:18px;
-  line-height:2.5;
-  color:#2b2b2b;
-  padding:0 18px;
+
+#verseActionBox{
+    position:fixed;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    z-index:9999;
+
+    background:#ffffff;
+    border:1px solid #e8edf3;
+    border-radius:24px;
+    padding:14px;
+
+    box-shadow:0 18px 45px rgba(31,78,121,.18);
 }
-.verse-num{
-  font-size:11px;
-  color:#777;
-  font-weight:700;
-  vertical-align:super;
-  margin-left:5px;
+
+.verse-sheet-handle{
+    width:42px;
+    height:5px;
+    border-radius:999px;
+    background:#111;
+    margin:0 auto 14px;
 }
-.ency-btn{
-  background:#fff;
-  color:#111;
-  border:1px solid var(--gold);
-  margin:6px;
-  min-width:120px;
+
+#verseActionBox button{
+    background:#f8fafc;
+    color:#1f4e79;
+    border:1px solid #e1e8ef;
+    box-shadow:none;
+    margin-top:8px;
 }
-.ency-result{
-  background:#fff;
-  border:1px solid rgba(212,175,55,.55);
-  border-radius:18px;
-  padding:18px;
-  margin-top:14px;
-  line-height:2.2;
+
+.bibleVerse{
+    -webkit-user-select:none;
+    user-select:none;
 }
-@media(max-width:600px){
-  body{padding:12px}
-  h1{font-size:38px}
-  .hero-card{padding:42px 18px}
-  .book-grid{grid-template-columns:1fr}
-  .song-category-row{gap:12px}
+
+.verse-inline-actions{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    width:auto !important;
+    min-width:118px !important;
+    max-width:140px !important;
+    height:34px !important;
+    margin:0 6px !important;
+    padding:3px 8px !important;
+    border-radius:999px !important;
+    background:#ffffff !important;
+    border:1px solid rgba(200,169,106,.28) !important;
+    box-shadow:0 6px 18px rgba(31,78,121,.14) !important;
+    vertical-align:middle !important;
+}
+
+.verse-inline-actions button{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    padding:0 !important;
+    margin:0 !important;
+    border:none !important;
+    border-radius:50% !important;
+    background:transparent !important;
+    color:#1f4e79 !important;
+    box-shadow:none !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    font-size:18px !important;
+    font-weight:800 !important;
+}
+
+.highlight-dot{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background-color:#FFD54A !important;
+    border:1px solid #E0C85A;
+    display:block;
 }
 </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <button class="home-btn" onclick="showSection('homeSection')">خانه ☰</button>
+<div class="tab-buttons">
+
+    <button class="top-home-btn" onclick="location.reload()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+
+    <span style="font-size:14px;font-weight:700;">خانه</span>
+</button>
+
 </div>
 
 <div id="homeSection" class="section active">
-  <div class="card hero-card">
-    <div class="hero-mark">✝</div>
-    <h1>کلام حیات</h1>
-    <p class="hero-subtitle">مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا</p>
+
+<div class="card hero-card">
+
+<span class="hero-bg-cross c1">+</span>
+<span class="hero-bg-cross c2">+</span>
+<span class="hero-bg-cross c3">+</span>
+<span class="hero-bg-cross c4">+</span>
+
+<div class="hero-mark">
+    <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+        <path d="M32 10v44M20 24h24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"/>
+    </svg>
+</div>
+
+<h1>کلام حیات</h1>
+
+<p class="hero-subtitle">
+مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا
+</p>
+
+<div class="hero-verse">
     <div class="hero-gold-line"></div>
-    <div class="hero-verse">
-      «...یعنی کلام حیات، آن را به شما اعلام می‌کنیم.»
-      <br>
-      <strong>۱ یوحنا ۱:۱</strong>
+    <div>
+        «...یعنی کلام حیات، آن را به شما اعلام می‌کنیم.»
     </div>
-  </div>
+    <strong>۱ یوحنا ۱:۱</strong>
+</div>
 
-  <div class="card menu-card">
-    <div class="menu-row" onclick="showSection('bibleSection')">
-      <span class="arrow">‹</span>
-      <div class="menu-title"><span>مطالعه کتاب مقدس</span><span class="icon">📖</span></div>
+</div>
+
+<!-- Navigation -->
+
+<div style="margin:18px;">
+
+    <!-- مطالعه کتاب مقدس -->
+
+    <div onclick="showSection('bibleSection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+
+        <div style="display:flex;align-items:center;gap:12px;">
+
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#1f4e79" stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+
+            <span style="
+                font-size:17px;
+                font-weight:700;
+                color:#222;
+            ">
+                مطالعه کتاب مقدس
+            </span>
+
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+
     </div>
 
-    <div class="menu-row" onclick="showBibleEncyclopedia()">
-      <span class="arrow">‹</span>
-      <div class="menu-title"><span>دانشنامه کتاب مقدس</span><span class="icon">📘</span></div>
+    <!-- دانشنامه -->
+
+    <div onclick="showBibleEncyclopedia()" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+
+        <div style="display:flex;align-items:center;gap:12px;">
+
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#1f4e79" stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+
+            <span style="
+                font-size:17px;
+                font-weight:700;
+                color:#222;
+            ">
+                دانشنامه کتاب مقدس
+            </span>
+
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+
     </div>
 
-    <div class="menu-row" onclick="showSection('songsSection'); loadSongs();">
-      <span class="arrow">‹</span>
-      <div class="menu-title"><span>سرودهای پرستشی</span><span class="icon">🎵</span></div>
+</div>
+
+<div class="card daily-verse-card">
+  <h2>آیه روز</h2>
+  <div id="homeDailyVerse" class="small">
+    در انتظار دریافت آیه روز...
+  </div>
+</div>
+
+<div style="margin:18px;">
+
+    <div onclick="showSection('songsSection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l11-2v13"/>
+                <circle cx="7" cy="18" r="2"/>
+                <circle cx="18" cy="16" r="2"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                سرودهای پرستشی
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
     </div>
 
-    <div class="menu-row" onclick="showSection('librarySection')">
-      <span class="arrow">‹</span>
-      <div class="menu-title"><span>کتابخانه مسیحی</span><span class="icon">📚</span></div>
-    </div>
-  </div>
+    <div onclick="showSection('librarySection')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                <path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5z"/>
+            </svg>
 
-  <div class="card">
-    <h2>آیه روز</h2>
-    <div id="homeDailyVerse" class="small">در حال دریافت آیه روز...</div>
-  </div>
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                کتابخانه مسیحی
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
+    <div onclick="alert('کتاب مقدس صوتی بزودی اضافه می‌شود')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v3a2 2 0 002 2h2v-7H6a2 2 0 00-2 2z"/>
+                <path d="M20 14v3a2 2 0 01-2 2h-2v-7h2a2 2 0 012 2z"/>
+                <path d="M6 12a6 6 0 0112 0"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                کتاب مقدس صوتی
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
+    <div onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس بزودی اضافه می‌شود')" style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:16px 4px;
+        cursor:pointer;
+        border-bottom:1px solid #f2f2f2;
+        direction:rtl;
+    ">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="#1f4e79" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M9.5 9.5a2.5 2.5 0 115 0c0 2-2.5 2.2-2.5 4"/>
+                <circle cx="12" cy="17.5" r=".6" fill="#1f4e79" stroke="none"/>
+            </svg>
+
+            <span style="font-size:17px;font-weight:700;color:#222;">
+                بازی‌ها و آزمون‌های کتاب مقدس
+            </span>
+        </div>
+
+        <span style="font-size:22px;color:#999;">›</span>
+    </div>
+
+</div>
+
 </div>
 
 <div id="songsSection" class="section">
-  <div class="hero-img" style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200')">
-    <h1>سرودهای پرستشی</h1>
-    <div>مجموعه‌ای از سرودهای پرستشی</div>
-  </div>
 
-  <div class="song-category-row">
-    <button onclick="loadSongs()" class="song-category-btn"><span class="gold-dot"></span>آرشیو سرودها</button>
-    <button onclick="loadCategory(0)" class="song-category-btn"><span class="gold-dot"></span>عید قیام</button>
-    <button onclick="loadCategory(1)" class="song-category-btn"><span class="gold-dot"></span>تولد مسیح</button>
-    <button onclick="loadCategory(2)" class="song-category-btn"><span class="gold-dot"></span>جمعه صلیب</button>
-  </div>
+<div class="songs-hero-animate"
+    style="
+    background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:24px;
+    padding:60px 24px;
+    color:white;
+    text-align:center;
+    margin-bottom:20px;
+">
 
-  <div class="card">
-    <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
-    <div id="status" class="small"></div>
+    <h1 style="color:white;margin-bottom:14px;">
+        سرودهای پرستشی
+    </h1>
 
-    <div id="playerCard" class="player-card">
-      <div class="player-head">
-        <div class="player-icon">♪</div>
-        <div>
-          <div class="small">در حال پخش</div>
-          <strong id="playerTitle">نام سرود</strong>
-        </div>
-      </div>
-      <audio id="audioPlayer" controls></audio>
-      <div class="player-actions">
-        <button class="primary" onclick="downloadSelectedSong()">دانلود</button>
-        <button class="secondary" onclick="closePlayer()">بستن</button>
-      </div>
+    <div style="
+        font-size:18px;
+        line-height:1.9;
+        opacity:.95;
+    ">
+        مجموعه‌ای از سرودهای پرستشی
     </div>
 
-    <div id="songs"></div>
-  </div>
+</div>
+
+<div id="songCategories">
+
+    <div class="song-archive-row">
+
+        <button onclick="loadSongs()" class="song-category-btn active">
+            <span class="gold-dot"></span>
+            آرشیو سرودهای پرستشی
+        </button>
+
+    </div>
+
+    <div class="song-category-row">
+
+        <button onclick="loadCategory(0)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای عید قیام
+        </button>
+
+        <button onclick="loadCategory(1)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای تولد مسیح
+        </button>
+
+        <button onclick="loadCategory(2)" class="song-category-btn">
+            <span class="gold-dot"></span>
+            سرودهای جمعه صلیب
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div id="searchBox" style="display:none;">
+        <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
+    </div>
+    
+  <div id="status" class="small"></div>
+
+  <div id="playerCard" class="player-card">
+
+    <div class="player-head">
+        <div class="player-icon">♪</div>
+
+        <div style="flex:1;">
+            <div class="player-label">در حال پخش</div>
+            <div id="playerTitle" class="player-title">نام سرود</div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div class="player-actions">
+        <button class="green" onclick="downloadSelectedSong()">⬇ دانلود سرود</button>
+        <button class="red" onclick="closePlayer()">بستن</button>
+    </div>
+
+</div>
+
+  <div id="songs"></div>
+</div>
+
 </div>
 
 <div id="librarySection" class="section">
-  <div class="hero-img" style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200')">
-    <h1>کتابخانه مسیحی</h1>
-    <div>کتاب‌هایی برای رشد ایمان، شاگردی و شناخت عمیق‌تر خدا</div>
-    <br>
-    <button class="secondary" onclick="loadBooks()">مشاهده کتاب‌ها</button>
-  </div>
 
-  <div class="card">
-    <input id="bookSearch" placeholder="جستجوی نام کتاب..." oninput="filterBooks()">
-    <div id="bookStatus" class="small"></div>
-    <div id="books"></div>
-  </div>
+<div class="songs-hero-animate"
+    style="
+    background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:24px;
+    padding:60px 24px;
+    color:white;
+    text-align:center;
+">
+
+    <h1 style="color:white;margin-bottom:14px;">
+        کتابخانه مسیحی
+    </h1>
+
+    <div style="
+        font-size:18px;
+        line-height:1.9;
+        margin-bottom:24px;
+        opacity:.95;
+    ">
+        کتاب‌هایی برای رشد ایمان،
+        شاگردی و شناخت عمیق‌تر خدا
+    </div>
+
+    <button
+        onclick="loadBooks()"
+        style="
+            background:#ffffff;
+            color:#111827;
+            border:1px solid #111827;
+            box-shadow:none;
+            transition:.25s;
+            border-radius:30px;
+            padding:12px 28px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            width:auto;
+            display:inline-block;
+            margin-top:10px;
+        ">
+         مشاهده کتاب‌ها
+    </button>
+
+</div>
+
+<div class="card">
+  <input id="bookSearch" placeholder="جستجوی نام کتاب..." oninput="filterBooks()">
+  <div id="bookStatus" class="small"></div>
+  <div id="books"></div>
+</div>
+
 </div>
 
 <div id="bibleSection" class="section">
-  <div id="bibleHero" class="hero-img" style="background-image:linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200')">
-    <h1>مطالعه کتاب مقدس</h1>
-    <div>کلام تو برای پاهای من چراغ است<br>و برای راه من نور</div>
-    <div class="small" style="color:white;margin-top:14px">مزمور ۱۱۹:۱۰۵</div>
-  </div>
 
-  <div id="bibleTestamentCards" class="card">
-    <input id="bibleSearchInput" placeholder="جستجو در کتاب مقدس..." onkeydown="if(event.key==='Enter') searchBibleVerse()">
+    <div id="bibleHero" class="card hero-card" style="
+    background:
+    linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
+    url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:60px 24px;
+    ">
+
+        <h1 style="color:white;margin-bottom:14px;">
+            مطالعه کتاب مقدس
+        </h1>
+
+        <div style="
+        font-size:18px;
+        line-height:1.9;
+        max-width:700px;
+        margin:auto;
+        ">
+            کلام تو برای پاهای من چراغ است
+            <br>
+            و برای راه من نور
+        </div>
+
+        <div style="
+        margin-top:20px;
+        font-size:14px;
+        opacity:.85;
+        ">
+            مزمور ۱۱۹:۱۰۵
+        </div>
+
+    </div>
+
+   <div id="bibleTestamentCards" class="card bible-testament-box">
+
+    <input
+        id="bibleSearchInput"
+        type="text"
+        placeholder="جستجو در کتاب مقدس..."
+        onkeydown="if(event.key==='Enter') searchBibleVerse()"
+        class="bible-search-input"
+    >
 
     <div class="testament-list">
-      <div class="testament-row" onclick="loadBibleBooks('old')">
-        <span class="icon">📜</span>
-        <div class="testament-title">عهد عتیق</div>
-      </div>
-      <div class="testament-row" onclick="loadBibleBooks('new')">
-        <span class="icon">📖</span>
-        <div class="testament-title">عهد جدید</div>
-      </div>
-    </div>
-  </div>
 
-  <div id="bibleContentCard" class="card" style="display:none">
-    <div id="bibleContent"></div>
-  </div>
+    <div class="testament-list-row" onclick="loadBibleBooks('old')">
+        <div class="testament-row-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/>
+            </svg>
+        </div>
+        <div class="testament-row-title">عهد عتیق</div>
+    </div>
+
+    <div class="testament-divider"></div>
+
+    <div class="testament-list-row" onclick="loadBibleBooks('new')">
+        <div class="testament-row-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 6h6a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2V6z"/>
+                <path d="M22 6h-6a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h6V6z"/>
+            </svg>
+        </div>
+        <div class="testament-row-title">عهد جدید</div>
+    </div>
+
 </div>
 
-<div id="encyclopediaSection" class="section">
-  <div class="card">
-    <h1>دانشنامه کتاب مقدس</h1>
-    <p>واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را جستجو کنید.</p>
-  </div>
+</div>
 
-  <div class="card">
-    <input id="encyclopediaSearchInput" placeholder="جستجوی واژه، شخصیت یا مکان..." oninput="searchBibleEncyclopedia()">
-    <div id="encyclopediaContent" class="small">عبارت مورد نظر را وارد کنید.</div>
-  </div>
+<div id="bibleTools" style="display:none;"></div>
+
+<div id="bibleContentCard" class="card" style="display:none;">
+    <div id="bibleContent"></div>
+</div>
+
+</div>
+
+<div id="verseActionSheet" style="display:none;">
+    <div id="verseActionOverlay" onclick="closeVerseActionSheet()"></div>
+
+    <div id="verseActionBox">
+        <div class="verse-sheet-handle"></div>
+
+        <button onclick="highlightSelectedVerse()">
+            هایلایت آیه
+        </button>
+
+        <button onclick="copySelectedVerse()">
+            کپی آیه
+        </button>
+    </div>
 </div>
 
 <script>
-const API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev";
-
-const SONG_CATEGORIES = [
-  {button:"سرودهای عید قیام", category_id:1},
-  {button:"سرودهای تولد مسیح", category_id:2},
-  {button:"سرودهای جمعه صلیب", category_id:3}
-];
+const TG_APP = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+if (TG_APP) {
+    TG_APP.ready();
+    TG_APP.expand();
+}
+function tgUser(){
+    return TG_APP && TG_APP.initDataUnsafe ? TG_APP.initDataUnsafe.user : null;
+}
 
 let allSongs = [];
+let filteredSongs = [];
 let masterSongs = [];
-let selectedSong = null;
 let currentSource = "songs";
+let currentPage = 0;
+const songsPerPage = 30;
+let selectedSong = null;
+
 let allBooks = [];
+
 let currentBibleTestament = "old";
-let encyclopediaResults = [];
 
-function showSection(id){
-  document.querySelectorAll(".section").forEach(s=>{
-    s.classList.remove("active");
-    s.style.display = "none";
-  });
-  const el = document.getElementById(id);
-  if(el){
-    el.classList.add("active");
-    el.style.display = "block";
-  }
-  window.scrollTo({top:0,behavior:"smooth"});
+let selectedVerseElement = null;
+let selectedVerseText = "";
+let selectedHighlightColor = "#fff4a3";
+
+async function searchBibleVerse(){
+
+    const input = document.getElementById("bibleSearchInput");
+    const bibleContent = document.getElementById("bibleContent");
+
+    const q = input.value.trim();
+
+    if(!q){
+        bibleContent.innerHTML = "لطفاً عبارت جستجو را وارد کنید";
+        return;
+    }
+
+    bibleContent.innerHTML = "⏳ در حال جستجو...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" + encodeURIComponent(q)
+        );
+
+        const results = await res.json();
+
+        bibleContent.innerHTML = `
+
+            ${results.map(v => `
+                <div style="
+                    border-right:3px solid #111;
+                    padding:0 16px 24px 0;
+                    margin:0 0 24px 0;
+                    text-align:right;
+                    direction:rtl;
+                ">
+                   <div style="
+                       font-size:18px;
+                       line-height:2.3;
+                       color:#222;
+                       margin-bottom:12px;
+                   ">
+                       ${v.verse_text}
+                   </div>
+
+                   <div style="
+                       font-size:16px;
+                       font-weight:700;
+                       color:#333;
+                   ">
+                       ${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}
+                   </div>
+               </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+        bibleContent.innerHTML = "❌ خطا در جستجو";
+    }
 }
 
-async function fetchJSON(url){
-  const res = await fetch(url);
-  if(!res.ok) throw new Error("HTTP " + res.status);
-  return await res.json();
-}
+async function addBookmark(verseId){
 
-function normalizeRows(data){
-  if(Array.isArray(data)) return data;
-  return data.data || data.rows || data.books || data.songs || [];
+    const userId = tgUser()?.id;
+
+    if(!userId){
+        alert("کاربر شناسایی نشد");
+        return;
+    }
+
+    try{
+
+        const res = await fetch(
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarks/add?user_id=${userId}&verse_id=${verseId}`
+        );
+
+        const data = await res.json();
+
+        alert("✅ آیه ذخیره شد");
+
+    }catch(err){
+
+        alert("❌ خطا در ذخیره آیه");
+
+    }
 }
 
 async function loadDailyVerse(){
-  const box = document.getElementById("homeDailyVerse");
-  try{
-    const data = await fetchJSON(`${API_BASE}/bible/daily-verse`);
-    const verse = Array.isArray(data) ? data[0] : data;
-    box.innerHTML = `
-      <div style="line-height:2.2">
-        <div style="font-size:18px;font-weight:800;color:#1f4e79">
-          ${verse.bible_books?.name_fa || ""} ${verse.chapter_number || ""}:${verse.verse_number || ""}
-        </div>
-        <div style="font-size:18px">${verse.verse_text || ""}</div>
+
+    const homeDailyVerse = document.getElementById("homeDailyVerse");
+
+    if(!homeDailyVerse){
+        return;
+    }
+
+    homeDailyVerse.innerHTML = "در حال دریافت آیه روز...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse"
+        );
+
+        const data = await res.json();
+        const verse = data[0];
+
+        window.currentDailyVerseId = verse.id;
+
+        homeDailyVerse.innerHTML = `
+       <div style="line-height:2.2; text-align:center;">
+
+          <div style="display:inline-block; padding:8px 18px; border-radius:999px; background:rgba(255,255,255,.16); font-size:20px; font-weight:700; margin-bottom:20px;">
+              ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
+          </div>
+
+          <div style="font-size:20px; max-width:700px; margin:auto;">
+              ${verse.verse_text}
+          </div>
+
+          <div class="verse-actions">
+              <button onclick="likeDailyVerse()">
+                  <svg viewBox="0 0 24 24">
+                      <path d="M20.8 4.6c-1.8-1.7-4.6-1.6-6.3.2L12 7.3 9.5 4.8C7.8 3 5 2.9 3.2 4.6c-2 1.9-2.1 5-.2 7l9 8.8 9-8.8c1.9-2 1.8-5.1-.2-7z"/>
+                  </svg>
+                  <span>پسندیدن</span>
+                  <span id="dailyVerseLikeCount">0 نفر</span>
+              </button>
+
+          </div>
+
       </div>
+      `;
+
+      await loadDailyVerseLikes(verse.id);
+
+    }catch(err){
+        homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
+    }
+}
+
+async function likeDailyVerse(){
+
+    const userId = tgUser()?.id;
+
+    if(!userId){
+        return;
+    }
+
+    const verseId = window.currentDailyVerseId;
+
+    const res = await fetch(
+        `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse/like?user_id=${userId}&verse_id=${verseId}`
+    );
+
+    const data = await res.json();
+
+    document.getElementById("dailyVerseLikeCount").innerText =
+        ((data.likes ?? data.length) || 0) + " نفر";
+}
+
+async function loadDailyVerseLikes(verseId){
+
+    const res = await fetch(
+        `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse/likes?verse_id=${verseId}`
+    );
+
+    const data = await res.json();
+
+    const count = Array.isArray(data)
+        ? data.length
+        : Number(data.likes || 0);
+
+    document.getElementById("dailyVerseLikeCount").innerText =
+        count + " نفر";
+}
+
+async function loadBookmarks(){
+
+    const userId = tgUser()?.id;
+    const bibleContent = document.getElementById("bibleContent");
+
+    if(!userId){
+        bibleContent.innerHTML = "کاربر شناسایی نشد";
+        return;
+    }
+
+    bibleContent.innerHTML = "⏳ در حال دریافت آیات ذخیره‌شده...";
+
+    try{
+
+        const res = await fetch(
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarked-verses?user_id=${userId}`
+        );
+
+        const verses = await res.json();
+
+        if(!verses.length){
+            bibleContent.innerHTML = "هنوز آیه‌ای ذخیره نکرده‌اید.";
+            return;
+        }
+
+        bibleContent.innerHTML = `
+            <div class="small">آیات ذخیره‌شده</div>
+
+            ${verses.map(v => `
+                <div style="margin-bottom:14px; line-height:2;">
+                    <span style="font-weight:bold;color:#1f4e79;">
+                        ${v.chapter_number}:${v.verse_number}
+                    </span>
+                    ${v.verse_text}
+                    <button class="gold" onclick="deleteBookmark(${v.id})" style="margin-top:8px;">
+                        🗑 حذف از ذخیره‌ها
+                    </button>
+                </div>
+            `).join("")}
+        `;
+
+    }catch(err){
+        bibleContent.innerHTML = "❌ خطا در دریافت آیات ذخیره‌شده";
+    }
+}
+
+async function deleteBookmark(verseId){
+
+    const userId = tgUser()?.id;
+
+    if(!userId){
+        alert("کاربر شناسایی نشد");
+        return;
+    }
+
+    try{
+        await fetch(
+            `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/bookmarks/delete?user_id=${userId}&verse_id=${verseId}`
+        );
+
+        alert("🗑 آیه حذف شد");
+        loadBookmarks();
+
+    }catch(err){
+        alert("❌ خطا در حذف آیه");
+    }
+}
+
+async function loadBibleBooks(testament){
+
+    currentBibleTestament = testament;
+
+    const bibleContent = document.getElementById("bibleContent");
+    const bibleContentCard = document.getElementById("bibleContentCard");
+
+    if(bibleContentCard){
+        bibleContentCard.style.display = "block";
+    }
+
+    document.getElementById("bibleHero").style.display = "none";
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
+
+    bibleContent.innerHTML = "⌛ در حال دریافت کتاب‌ها...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/books"
+        );
+
+        const books = await res.json();
+
+        let bookList = Array.isArray(books)
+            ? books
+            : (books.books || books.data || []);
+
+        let filtered = bookList;
+
+        if(testament === "old"){
+            filtered = bookList.filter(b =>
+                b.testament === "OT" ||
+                b.testament === "old" ||
+                b.testament === "عهد عتیق"
+            );
+        }
+
+        if(testament === "new"){
+            filtered = bookList.filter(b =>
+                b.testament === "NT" ||
+                b.testament === "new" ||
+                b.testament === "عهد جدید"
+            );
+        }
+
+        if(filtered.length === 0){
+            filtered = bookList;
+        }
+
+        bibleContent.innerHTML = `
+            <div style="text-align:right; direction:rtl;">
+                ${filtered.map(book => {
+                    let bookName = book.name_fa || book.book_name_fa || book.name || "";
+
+                    bookName = bookName
+                    .replace(/^اول\s+/,"۱ ")
+                    .replace(/^دوم\s+/,"۲ ")
+                    .replace(/^اول/,"۱")
+                    .replace(/^دوم/,"۲");
+                    return `
+                        <div
+                            onclick='loadBibleChapters(${book.id}, ${JSON.stringify(bookName)})'
+                            style="
+                                padding:12px 4px;
+                                font-size:20px;
+                                font-weight:300;
+                                font-family:'Estedad',sans-serif;
+                                letter-spacing:-0.4px;
+                                color:#111;
+                                cursor:pointer;
+                                border-bottom:1px solid #eee;
+                            "
+                        >
+                            ${bookName}
+                        </div>
+                    `;
+                }).join("")}
+            </div>
+        `;
+
+    }catch(err){
+
+        bibleContent.innerHTML = "❌ خطا در دریافت کتاب‌های کتاب مقدس";
+
+    }
+}
+
+async function loadBibleChapters(bookId, bookName){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    document.getElementById("bibleHero").style.display = "none";
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
+
+    bibleContent.innerHTML = "⏳ در حال دریافت باب‌های " + bookName + "...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/chapters?book_id=" + bookId
+        );
+
+        const chapters = await res.json();
+
+        bibleContent.innerHTML = `
+        <div style="
+            text-align:right;
+            font-family:Vazirmatn,sans-serif;
+            font-size:22px;
+            font-weight:600;
+            color:#444;
+            margin-bottom:18px;
+        ">
+            ${bookName}
+        </div>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(5,1fr);
+            gap:8px;
+        ">
+
+            ${chapters.map(chapter => `
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapter.chapter_number}, '${bookName}', ${chapters.length})"
+                    style="
+                        background:#efefef;
+                        border-radius:12px;
+                        height:46px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        font-size:18px;
+                        font-weight:700;
+                        cursor:pointer;
+                    ">
+                    ${chapter.chapter_number}
+                </div>
+            `).join("")}
+
+        </div>
+
+        <div
+            class="book-item"
+            style="margin-top:20px"
+            onclick="loadBibleBooks(currentBibleTestament)">
+            ← بازگشت به کتاب‌ها
+        </div>
+        `;
+
+    }catch(err){
+
+        bibleContent.innerHTML = "❌ خطا در دریافت باب‌ها";
+
+    }
+}
+
+async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
+
+    const bibleContent = document.getElementById("bibleContent");
+
+    document.getElementById("bibleHero").style.display = "none";
+    document.getElementById("bibleTestamentCards").style.display = "none";
+    document.getElementById("bibleTools").style.display = "none";
+
+    bibleContent.innerHTML =
+        "⌛ در حال دریافت آیات...";
+
+    try{
+
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/verses?book_id="
+            + bookId +
+            "&chapter_number=" +
+            chapterNumber
+        );
+
+        const verses = await res.json();
+
+        bibleContent.innerHTML = `
+            <div style="text-align:center; direction:rtl; margin-bottom:34px;">
+                <div style="
+                    font-family:Vazirmatn,sans-serif;
+                    font-size:15px;
+                    font-weight:500;
+                    color:#8a8a8a;
+                    letter-spacing:0.5px;
+                    margin-bottom:6px;
+                ">
+                    ${bookName}
+                </div>
+
+                <div style="
+                    font-family:Vazirmatn,sans-serif;
+                    font-size:76px;
+                    font-weight:800;
+                    color:#111;
+                    line-height:0.9;
+                    letter-spacing:-2px;
+                    margin-bottom:34px;
+                ">
+                    ${chapterNumber}
+                </div>
+            </div>
+
+            <div style="
+                text-align:right;
+                direction:rtl;
+                font-family:Vazirmatn,sans-serif;
+                font-size:17px;
+                line-height:2.45;
+                font-weight:400;
+                color:#2b2b2b;
+                padding:0 22px;
+                text-align:right;
+                letter-spacing:0;;
+            ">
+                ${verses.map(v => `
+                    <span
+                        class="bibleVerse"
+                        data-key="${bookId}-${chapterNumber}-${v.verse_number}"
+                        ondblclick="event.preventDefault();event.stopPropagation();openVerseActionSheet(this);return false;"
+                        style="
+                            cursor:pointer;
+                            border-radius:8px;
+                            padding:2px 4px;
+                            transition:.2s;
+                            -webkit-user-select:none;
+                            user-select:none;
+                            -webkit-touch-callout:none;
+                        "
+                     >
+                        <span style="
+                            font-size:11px;
+                            color:#777;
+                            font-weight:600;
+                            vertical-align:super;
+                            margin-left:5px;
+                        ">
+                            ${v.verse_number}
+                        </span>
+
+                        ${v.verse_text}
+                    </span>
+                `).join(" ")}
+            </div>
+
+            <div style="
+                width:220px;
+                margin:30px auto 0;
+                padding-top:10px;
+                border-top:1px solid #eee;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                direction:ltr;
+            ">
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})"
+                    style="
+                        font-size:28px;
+                        cursor:pointer;
+                        visibility:${chapterNumber < totalChapters ? 'visible' : 'hidden'};
+                    ">
+                    ‹
+                </div>
+
+                <div
+                    onclick="loadBibleChapters(${bookId}, '${bookName}')"
+                    style="
+                        font-size:18px;
+                        font-weight:700;
+                        color:#1f4e79;
+                        cursor:pointer;
+                    ">
+                    ${bookName}
+                </div>
+
+                <div
+                    onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})"
+                    style="
+                        font-size:28px;
+                        cursor:pointer;
+                        visibility:${chapterNumber > 1 ? 'visible' : 'hidden'};
+                    ">
+                    ›
+                </div>
+                
+            </div>
+      `;
+
+      bibleContent.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+      });
+
+      document.querySelectorAll(".bibleVerse").forEach(v => {
+          const key = v.dataset.key;
+
+          if (key && localStorage.getItem("highlight_" + key)) {
+              v.style.background = selectedHighlightColor;
+          }
+      });
+
+    }catch(err){
+
+        bibleContent.innerHTML =
+            "❌ خطا در دریافت آیات";
+
+    }
+}
+
+function openVerseActionSheet(el){
+
+    selectedVerseElement = el;
+    selectedVerseText = el.innerText.trim();
+
+    document.querySelectorAll(".verse-inline-actions").forEach(box => box.remove());
+
+    const actionBox = document.createElement("span");
+    actionBox.className = "verse-inline-actions";
+    actionBox.style.cssText = "display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:128px!important;min-width:128px!important;max-width:128px!important;height:34px!important;margin:0 6px!important;padding:3px 8px!important;border-radius:999px!important;background:#fff!important;border:1px solid rgba(200,169,106,.28)!important;box-shadow:0 6px 18px rgba(31,78,121,.14)!important;vertical-align:middle!important;";
+
+    actionBox.innerHTML = `
+        <button
+        onclick="highlightSelectedVerse();event.stopPropagation();"
+        title="هایلایت"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
+            <span style="width:16px;height:16px;border-radius:50%;display:block;background:#FFD54A!important;border:1px solid #D8B83A;"></span>
+        </button>
+
+        <button
+        onclick="copySelectedVerse();event.stopPropagation();"
+        title="کپی"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+        </button>
+
+        <button
+        onclick="closeVerseActionSheet();event.stopPropagation();"
+        title="بستن"
+        style="display:flex;width:28px;height:28px;padding:0;margin:0;border:none;background:transparent;align-items:center;justify-content:center;flex:0 0 28px;">
+            ×
+        </button>
     `;
-  }catch(e){
-    box.innerHTML = "آیه روز در دسترس نیست.";
-  }
+
+    el.insertAdjacentElement("afterend", actionBox);
+}
+
+function closeVerseActionSheet(){
+    document.querySelectorAll(".verse-inline-actions").forEach(box => box.remove());
+}
+
+function highlightSelectedVerse(){
+
+    if(selectedVerseElement){
+
+        const key = selectedVerseElement.dataset.key;
+
+        if(selectedVerseElement.style.background){
+            selectedVerseElement.style.background = "";
+
+            if(key){
+                localStorage.removeItem("highlight_" + key);
+            }
+
+        }else{
+            selectedVerseElement.style.background = "#fff4a3";
+
+            if(key){
+                localStorage.setItem("highlight_" + key, "1");
+            }
+        }
+    }
+
+    closeVerseActionSheet();
+}
+
+function copySelectedVerse(){
+    navigator.clipboard.writeText(selectedVerseText);
+    closeVerseActionSheet();
+}
+
+function openEncyclopediaEntry(word){
+
+    showBibleEncyclopedia();
+
+    setTimeout(() => {
+
+        const input = document.getElementById("encyclopediaSearchInput");
+
+        if(input){
+            input.value = word;
+            searchBibleEncyclopedia();
+        }
+
+    }, 300);
+
+}
+
+function showBibleEncyclopedia(){
+
+    const homeSection = document.getElementById("homeSection");
+
+    homeSection.innerHTML = `
+        <div class="card">
+            <h1>دانشنامه کتاب مقدس</h1>
+            <p>
+                واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را در این بخش جستجو و مطالعه کنید.
+            </p>
+        </div>
+
+        <div class="card">
+            <input id="encyclopediaSearchInput"
+                   type="text"
+                   placeholder="جستجوی واژه، شخصیت یا مکان..."
+                   oninput="searchBibleEncyclopedia()">
+
+            <div id="encyclopediaContent" class="small">
+                این بخش در حال آماده‌سازی است.
+            </div>
+        </div>
+
+    `;
+
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+async function searchBibleEncyclopedia(){
+
+    const input = document.getElementById("encyclopediaSearchInput");
+    const content = document.getElementById("encyclopediaContent");
+
+    const q = input.value.trim();
+
+    if(!q){
+        content.innerHTML = "لطفاً یک واژه، شخصیت یا مکان را وارد کنید.";
+        return;
+    }
+
+    content.innerHTML = "در حال جستجو...";
+
+    try{
+        const res = await fetch(
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible-words"
+        );
+
+        const rows = await res.json();
+
+        const results = rows.filter(item =>
+            (item.word || "").includes(q) ||
+            (item.meaning || "").includes(q) ||
+            (item.related_verse || "").includes(q)
+        );
+
+        if(!results.length){
+            content.innerHTML = "موردی پیدا نشد.";
+            return;
+        }
+
+        content.innerHTML = results.map((item, index) => `
+            <div class="card">
+
+                <h3>${item.word || ""}</h3>
+
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'meaning')">
+                    معنی
+                </button>
+
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'root')">
+                    ریشه ${item.root_language || ""}
+                </button>
+
+                <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'verse')">
+                    آیه مرتبط
+                </button>
+
+                <div id="encyclopediaResult-${index}" class="small">
+            یکی از بخش‌های بالا را انتخاب کنید.
+        </div>
+
+    </div>
+`).join("");
+
+window.encyclopediaResults = results;
+
+    }catch(err){
+        content.innerHTML = "خطا در دریافت اطلاعات دانشنامه.";
+    }
+}
+
+function showEncyclopediaPart(index, type){
+
+    const penIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="18"
+             height="18"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="#111111"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             style="vertical-align:middle;margin-left:8px;">
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+        </svg>
+    `;
+
+    const item = window.encyclopediaResults[index];
+    const target = document.getElementById(`encyclopediaResult-${index}`);
+
+    if(!item || !target){
+        return;
+    }
+
+    if(type === "meaning"){
+        target.innerHTML = `
+            <div class="ency-result">
+                <h4>${penIcon} معنی</h4>
+                <p>${item.meaning || "-"}</p>
+            </div>
+        `;
+        return;
+    }
+
+    if(type === "root"){
+        target.innerHTML = `
+            <div class="ency-result">
+                <h4>${penIcon} ریشه ${item.root_language || ""}</h4>
+                <p>${item.root_text || "-"}</p>
+            </div>
+        `;
+        return;
+    }
+
+    if(type === "verse"){
+
+        target.innerHTML = `
+            <div class="ency-result">
+                <h4>${penIcon} آیه مرتبط</h4>
+                <p>در حال دریافت متن آیه...</p>
+            </div>
+        `;
+
+        fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/bible/search?q=" + encodeURIComponent(item.related_verse || ""))
+            .then(res => res.json())
+            .then(verses => {
+
+                if(!verses || !verses.length){
+                    target.innerHTML = `
+                        <div class="ency-result">
+                            <h4>${penIcon} آیه مرتبط</h4>
+                            <p>${item.related_verse || "-"}</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                target.innerHTML = verses.map(v => `
+                    <div class="ency-result">
+                        <h4>${penIcon} آیه مرتبط</h4>
+                        <p>
+                            <strong>${v.chapter_number}:${v.verse_number}</strong>
+                            ${v.verse_text || ""}
+                        </p>
+                    </div>
+                `).join("");
+            })
+            .catch(() => {
+                target.innerHTML = `
+                    <div class="ency-result">
+                        <h4>✒️ آیه مرتبط</h4>
+                        <p>${item.related_verse || "-"}</p>
+                    </div>
+                `;
+            });
+
+        return;
+    }
+}
+    
+function showSection(sectionId){
+
+    document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+        sec.style.display = "none";
+    });
+
+    const target = document.getElementById(sectionId);
+    if(target){
+        target.classList.add("active");
+        target.style.display = "block";
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function getChatId(){
+  const user = tgUser();
+  return user ? user.id : null;
+}
+
+function setStatus(text){
+  document.getElementById("status").innerText = text || "";
 }
 
 async function loadSongs(){
   currentSource = "songs";
+  document.getElementById("searchBox").style.display = "block";
   closePlayer();
-  document.getElementById("status").innerText = "در حال دریافت سرودها...";
-  try{
-    const rows = normalizeRows(await fetchJSON(`${API_BASE}/hymns`));
-    allSongs = rows.filter(r => r.title && r.is_active !== false).map((r,i)=>({
-      index:i,
-      name:r.title,
-      audio_url:r.audio_url || r.audio_file_url || r.file_url || r.download_url || "",
-      raw:r
-    }));
-    masterSongs = allSongs;
-    renderSongs(allSongs);
-    document.getElementById("status").innerText = "لیست کامل سرودها";
-  }catch(e){
-    document.getElementById("status").innerText = "خطا در دریافت سرودها";
-  }
+  setStatus("");
+
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/songs");
+  const data = await res.json();
+
+  allSongs = data.songs || [];
+  filteredSongs = allSongs;
+  masterSongs = allSongs;
+  currentPage = 0;
+
+  document.getElementById("search").value = "";
+  renderPage();
+
+  setStatus("لیست کامل سرودها");
 }
 
 async function loadCategory(index){
-  currentSource = "category";
-  closePlayer();
-  document.getElementById("status").innerText = "در حال دریافت سرودها...";
-  try{
-    const rows = normalizeRows(await fetchJSON(`${API_BASE}/hymns`));
-    const catId = SONG_CATEGORIES[index].category_id;
-    allSongs = rows.filter(r => r.title && r.category_id == catId && r.is_active !== false).map((r,i)=>({
-      index:i,
-      name:r.title,
-      audio_url:r.audio_url || r.audio_file_url || r.file_url || r.download_url || "",
-      raw:r
-    }));
-    masterSongs = allSongs;
-    renderSongs(allSongs);
-    document.getElementById("status").innerText = SONG_CATEGORIES[index].button;
-  }catch(e){
-    document.getElementById("status").innerText = "خطا در دریافت سرودها";
-  }
+    currentSource = "category";
+    document.getElementById("searchBox").style.display = "none";
+    document.querySelectorAll(".song-category-btn").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    document.querySelectorAll(".song-category-btn")[index].classList.add("active");
+    closePlayer();
+    setStatus("");
+
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/category/" + index);
+  const data = await res.json();
+
+  allSongs = data.songs || [];
+  filteredSongs = allSongs;
+  currentPage = 0;
+
+  document.getElementById("search").value = "";
+  renderPage();
+
+  setStatus(data.title || "سرودهای مناسبتی");
 }
 
-function renderSongs(songs){
+function renderPage(){
+  const start = currentPage * songsPerPage;
+  const end = start + songsPerPage;
+  const songs = filteredSongs.slice(start, end);
+
+  renderSongs(songs, true);
+}
+
+function renderSongs(songs, showPagination){
   const container = document.getElementById("songs");
+  container.innerHTML = "";
+
   if(!songs.length){
     container.innerHTML = "<div class='small'>موردی پیدا نشد.</div>";
     return;
   }
-  container.innerHTML = songs.map((s,i)=>`
-    <div class="list-item" onclick="openPlayer(${i})">
-      <span style="color:#1f4e79;font-size:20px;font-weight:800">▶</span>
-      <span class="list-item-title">${s.name}</span>
-    </div>
-  `).join("");
+
+  songs.forEach(song => {
+    const div = document.createElement("div");
+    div.className = "song-item";
+    div.innerHTML = `
+   <div style="
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 4px;
+    border-bottom:1px solid rgba(212,175,55,.25);
+    ">
+
+    <span style="
+    color:#1f4e79;
+    font-size:20px;
+    font-weight:700;
+    ">
+    ▶
+    </span>
+
+    <span style="
+    flex:1;
+    text-align:right;
+    font-size:18px;
+    font-weight:600;
+    color:#243447;
+    ">
+        ${song.name}
+    </span>
+
+</div>
+`;
+    div.onclick = () => openPlayer(song);
+    container.appendChild(div);
+  });
+
+  if(showPagination){
+    renderPagination(container);
+  }
+}
+
+function renderPagination(container){
+  const totalPages = Math.ceil(filteredSongs.length / songsPerPage);
+
+  if(totalPages <= 1) return;
+
+  const nav = document.createElement("div");
+  nav.style.marginTop = "12px";
+  nav.style.display = "flex";
+  nav.style.justifyContent = "center";
+  nav.style.gap = "10px";
+  nav.style.alignItems = "center";
+  nav.style.flexWrap = "nowrap";
+
+  const prev = document.createElement("button");
+  prev.innerHTML = `
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:8px">
+  <path d="M9 6L15 12L9 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  قبل`;
+  prev.style.width = "90px";
+  prev.style.flex = "0 0 90px";
+  prev.style.height = "50px";
+  prev.style.background = "#ffffff";
+  prev.style.color = "#111827";
+  prev.style.border = "1px solid #d4af37";
+  prev.style.borderRadius = "30px";
+  prev.style.boxShadow = "none";
+  prev.disabled = currentPage === 0;
+  prev.style.opacity = currentPage === 0 ? "0.45" : "1";
+  prev.onclick = () => {
+    if(currentPage > 0){
+      currentPage--;
+      closePlayer();
+      renderPage();
+      window.scrollTo({top: 0, behavior: "smooth"});
+    }
+  };
+
+  const next = document.createElement("button");
+  next.innerHTML = `
+  بعد
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-left:8px">
+  <path d="M15 6L9 12L15 18" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+  next.style.width = "90px";
+  next.style.flex = "0 0 90px";
+  next.style.height = "50px";
+  next.style.background = "#ffffff";
+  next.style.color = "#111827";
+  next.style.border = "1px solid #d4af37";
+  next.style.borderRadius = "30px";
+  next.style.boxShadow = "none";
+  next.disabled = currentPage >= totalPages - 1;
+  next.style.opacity = currentPage >= totalPages - 1 ? "0.45" : "1";
+  next.onclick = () => {
+    if(currentPage < totalPages - 1){
+      currentPage++;
+      closePlayer();
+      renderPage();
+      window.scrollTo({top: 0, behavior: "smooth"});
+    }
+  };
+
+  nav.appendChild(prev);
+  nav.appendChild(next);
+  container.appendChild(nav);
 }
 
 function filterSongs(){
-  const q = document.getElementById("search").value.trim().toLowerCase();
-  const filtered = !q ? masterSongs : masterSongs.filter(s => (s.name || "").toLowerCase().includes(q));
-  renderSongs(filtered);
-}
+  const q = document.getElementById("search").value.toLowerCase().trim();
 
-function openPlayer(i){
-  selectedSong = masterSongs[i] || allSongs[i];
-  if(!selectedSong) return;
-
-  document.getElementById("playerTitle").innerText = selectedSong.name;
-  const audio = document.getElementById("audioPlayer");
-
-  if(selectedSong.audio_url){
-    audio.src = selectedSong.audio_url;
-  }else{
-    audio.removeAttribute("src");
-    alert("برای پخش در PWA باید لینک مستقیم audio_url در دیتابیس سرودها ثبت شود.");
+  if(!q){
+    closePlayer();
+    renderPage();
+    return;
   }
 
-  document.getElementById("playerCard").style.display = "block";
-  document.getElementById("playerCard").scrollIntoView({behavior:"smooth"});
+  const filtered = (masterSongs.length ? masterSongs : allSongs).filter(s => (s.name || "").toLowerCase().includes(q));
+  renderSongs(filtered.slice(0, 100), false);
+
+  if(filtered.length > 100){
+    setStatus("🔍 بیش از ۱۰۰ نتیجه پیدا شد؛ لطفاً دقیق‌تر جستجو کنید.");
+  }else{
+    setStatus("🔍 نتیجه جستجو: " + filtered.length + " مورد");
+  }
+}
+
+function openPlayer(song){
+  selectedSong = song;
+
+  const playerCard = document.getElementById("playerCard");
+  const playerTitle = document.getElementById("playerTitle");
+  const audioPlayer = document.getElementById("audioPlayer");
+
+  playerTitle.innerText = song.name;
+  audioPlayer.src = "https://bible-bot-4eo2.onrender.com/api/audio?source=" + currentSource + "&index=" + song.index;
+
+  playerCard.style.display = "block";
+  setStatus("");
+
+  playerCard.scrollIntoView({behavior:"smooth", block:"start"});
 }
 
 function closePlayer(){
-  const audio = document.getElementById("audioPlayer");
-  audio.pause();
-  audio.removeAttribute("src");
-  audio.load();
-  document.getElementById("playerCard").style.display = "none";
+  const playerCard = document.getElementById("playerCard");
+  const audioPlayer = document.getElementById("audioPlayer");
+
+  audioPlayer.pause();
+  audioPlayer.removeAttribute("src");
+  audioPlayer.load();
+
+  playerCard.style.display = "none";
+  selectedSong = null;
 }
 
-function downloadSelectedSong(){
-  if(selectedSong?.audio_url){
-    window.open(selectedSong.audio_url, "_blank");
+function downloadSelectedSong() {
+    if (!selectedSong) {
+        setStatus("ابتدا یک سرود را انتخاب کنید.");
+        return;
+    }
+
+    window.open(
+        "https://bible-bot-4eo2.onrender.com/api/audio?source=" + currentSource + "&index=" + selectedSong.index,
+        "_blank"
+    );
+}
+
+async function sendSelectedSong(){
+  if(!selectedSong){
+    setStatus("ابتدا یک سرود را انتخاب کنید.");
+    return;
+  }
+
+  await sendSong(selectedSong.index);
+}
+
+async function sendSong(index){
+  const chatId = getChatId();
+
+  if(!chatId){
+    alert("لطفاً این صفحه را از داخل تلگرام باز کنید.");
+    return;
+  }
+
+  setStatus("⏳ در حال ارسال سرود...");
+
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/send_song", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      chat_id:chatId,
+      index:index,
+      source:currentSource
+    })
+  });
+
+  const data = await res.json();
+
+  if(data.ok){
+    setStatus("✅ سرود در تلگرام برای شما ارسال شد.");
   }else{
-    alert("لینک مستقیم دانلود برای این سرود ثبت نشده است.");
+    setStatus("❌ ارسال سرود انجام نشد.");
   }
 }
 
 async function loadBooks(){
-  const status = document.getElementById("bookStatus");
-  status.innerText = "در حال دریافت کتاب‌ها...";
-  try{
-    const rows = normalizeRows(await fetchJSON(`${API_BASE}/books`));
-    allBooks = rows.filter(r => r.title && r.is_active !== false).map((r,i)=>({
-      index:i,
-      name:r.title,
-      author:r.author || "",
-      description:r.description || "",
-      cover_url:r.cover_url || "",
-      download_url:r.file_url || r.download_url || ""
-    }));
-    renderBooks(allBooks);
-    status.innerText = "کتابخانه";
-  }catch(e){
-    status.innerText = "خطا در دریافت کتاب‌ها";
-  }
+  document.getElementById("bookStatus").innerText = "⏳ در حال دریافت کتاب‌ها...";
+
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/books");
+  const data = await res.json();
+
+  allBooks = data.books || [];
+
+  document.getElementById("bookSearch").value = "";
+  renderBooks(allBooks);
+
+  document.getElementById("bookStatus").innerText = "کتابخانه";
 }
 
 function renderBooks(books){
   const container = document.getElementById("books");
+  container.innerHTML = "";
+  container.style.cssText = window.innerWidth <= 520
+    ? "display:grid;grid-template-columns:1fr;gap:12px;"
+    : "display:grid;grid-template-columns:repeat(2,1fr);gap:14px;";
+
   if(!books.length){
     container.innerHTML = "<div class='small'>کتابی پیدا نشد.</div>";
     return;
   }
-  container.className = "book-grid";
-  container.innerHTML = books.map(b=>`
-    <div class="book-card" onclick="showBookDetails(${b.index})">
-      <img src="${b.cover_url || 'https://via.placeholder.com/80x120'}">
-      <div>
-        <div style="font-size:18px;font-weight:800">${b.name}</div>
-        <div class="small">${b.author}</div>
-        <div class="small">${b.description}</div>
-      </div>
-    </div>
-  `).join("");
+
+books.forEach(book => {
+
+    const div = document.createElement("div");
+
+    div.className = "book-item";
+    div.style.cssText = "margin:0!important;padding:12px!important;border:1px solid #d6d6d6!important; border-radius:18px!important;box-shadow:0 8px 24px rgba(31,78,121,.08)!important;background:#fff!important;min-height:118px!important;";
+
+    div.innerHTML = `
+        <div style="
+            display:flex;
+            gap:12px;
+            align-items:center;
+            text-align:right;
+        ">
+
+            <img
+                src="${book.cover_url || 'https://via.placeholder.com/80x120'}"
+                style="
+                    width:80px;
+                    height:120px;
+                    object-fit:cover;
+                    border-radius:12px;
+                    border:1px solid #ddd;
+                "
+            >
+
+            <div style="flex:1">
+
+                <div style="
+                    font-size:18px;
+                    font-weight:bold;
+                    margin-bottom:6px;
+                ">
+                    ${book.name}
+                </div>
+
+                <div style="
+                    color:#666;
+                    font-size:14px;
+                    margin-bottom:8px;
+                ">
+                    ${book.author || ""}
+                </div>
+
+                <div style="
+                    color:#888;
+                    font-size:13px;
+                    line-height:1.7;
+                ">
+                    ${book.description || ""}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    div.onclick = () => showBookDetails(book.index);
+
+    container.appendChild(div);
+
+});
 }
 
 function showBookDetails(index){
-  const book = allBooks.find(b=>b.index===index);
-  const container = document.getElementById("books");
-  container.className = "";
-  container.innerHTML = `
-    <div class="card" style="text-align:right">
-      <h2>${book.name}</h2>
-      <div class="small">${book.author ? "نویسنده: " + book.author : ""}</div>
-      <p>${book.description || ""}</p>
-      <button class="primary" onclick="window.open('${book.download_url}','_blank')">دانلود کتاب</button>
-      <button class="secondary" onclick="renderBooks(allBooks)" style="margin-right:8px">بازگشت</button>
-    </div>
-  `;
+
+    const book = allBooks.find(b => b.index === index);
+    const container = document.getElementById("books");
+
+    if(!book){
+        return;
+    }
+
+    const isMobile = window.innerWidth <= 520;
+
+    container.style.cssText = "display:block;";
+
+    container.innerHTML = `
+        <div class="card" style="
+            max-width:900px;
+            margin:22px auto;
+            background:#ffffff;
+            border:1px solid #d6d6d6;
+            border-radius:22px;
+            padding:${isMobile ? "18px" : "18px"};
+            box-shadow:0 12px 32px rgba(31,78,121,.10);
+            text-align:right;
+            direction:rtl;
+        ">
+
+            <div style="
+                display:flex;
+                flex-direction:${isMobile ? "column" : "row"};
+                gap:18px;
+                align-items:${isMobile ? "center" : "flex-start"};
+                direction:rtl;
+            ">
+
+                <img
+                    src="${book.cover_url || 'https://via.placeholder.com/120x170'}"
+                    style="
+                        width:${isMobile ? "120px" : "110px"};
+                        height:${isMobile ? "170px" : "155px"};
+                        object-fit:cover;
+                        border-radius:14px;
+                        border:1px solid #d6d6d6;
+                        flex-shrink:0;
+                    "
+                >
+
+                <div style="
+                    flex:1;
+                    min-width:0;
+                    width:100%;
+                ">
+
+                    <h2 style="
+                        font-size:${isMobile ? "22px" : "24px"};
+                        margin:0 0 10px;
+                        line-height:1.6;
+                        color:#111827;
+                        text-align:${isMobile ? "center" : "right"};
+                    ">
+                        ${book.name || ""}
+                    </h2>
+
+                    <div class="small" style="
+                        margin-bottom:12px;
+                        color:#6b7280;
+                        text-align:${isMobile ? "center" : "right"};
+                    ">
+                        ${book.author ? "نویسنده: " + book.author : ""}
+                    </div>
+
+                    <p style="
+                        line-height:2;
+                        color:#555;
+                        font-size:15px;
+                        text-align:${isMobile ? "center" : "right"};
+                        margin:0 0 16px;
+                    ">
+                        ${book.description || ""}
+                    </p>
+
+                    <div style="
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        gap:12px;
+                        flex-wrap:nowrap;
+                        margin-top:12px;
+                    ">
+                        <button
+                            onclick="window.open('${book.download_url}', '_blank')"
+                            style="
+                                background:#1f4e79;
+                                color:white;
+                                border:none;
+                                border-radius:30px;
+                                width:160px;
+                                height:48px;
+                                padding:0;
+                                font-size:13px;
+                                font-weight:600;
+                                cursor:pointer;
+                                box-shadow:0 8px 18px rgba(31,78,121,.25);
+                            ">
+                            دانلود کتاب
+                        </button>
+
+                        <button
+                            onclick="renderBooks(allBooks)"
+                            style="
+                                background:#ffffff;
+                                color:#444444;
+                                border:1px solid #d6d6d6;
+                                border-radius:30px;
+                                width:160px;
+                                height:48px;
+                                padding:0;
+                                font-size:13px;
+                                font-weight:600;
+                                cursor:pointer;
+                                box-shadow:none;
+                            ">
+                            بازگشت به کتابخانه
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
 }
 
 function filterBooks(){
-  const q = document.getElementById("bookSearch").value.trim().toLowerCase();
-  const filtered = !q ? allBooks : allBooks.filter(b => (b.name || "").toLowerCase().includes(q));
+  const q = document.getElementById("bookSearch").value.toLowerCase().trim();
+
+  if(!q){
+    renderBooks(allBooks);
+    return;
+  }
+
+  const filtered = allBooks.filter(b => (b.name || "").toLowerCase().includes(q));
   renderBooks(filtered);
 }
 
-async function searchBibleVerse(){
-  const q = document.getElementById("bibleSearchInput").value.trim();
-  const card = document.getElementById("bibleContentCard");
-  const box = document.getElementById("bibleContent");
+async function sendBook(index){
+  const chatId = getChatId();
 
-  card.style.display = "block";
-  if(!q){
-    box.innerHTML = "لطفاً عبارت جستجو را وارد کنید.";
+  if(!chatId){
+    alert("لطفاً این صفحه را از داخل تلگرام باز کنید.");
     return;
   }
 
-  box.innerHTML = "در حال جستجو...";
-  try{
-    const results = normalizeRows(await fetchJSON(`${API_BASE}/bible/search?q=${encodeURIComponent(q)}`));
-    if(!results.length){
-      box.innerHTML = "موردی پیدا نشد.";
-      return;
-    }
-    box.innerHTML = results.map(v=>`
-      <div style="border-right:3px solid #111;padding:0 16px 24px 0;margin-bottom:24px;text-align:right">
-        <div style="font-size:18px;line-height:2.3">${v.verse_text || ""}</div>
-        <strong>${v.bible_books?.name_fa || ""} ${v.chapter_number}:${v.verse_number}</strong>
-      </div>
-    `).join("");
-  }catch(e){
-    box.innerHTML = "خطا در جستجو.";
+  document.getElementById("bookStatus").innerText = "⏳ در حال ارسال کتاب...";
+
+  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/send_book", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      chat_id:chatId,
+      index:index
+    })
+  });
+
+  const data = await res.json();
+
+  if(data.ok){
+    document.getElementById("bookStatus").innerText = "✅ کتاب در تلگرام برای شما ارسال شد.";
+  }else{
+    document.getElementById("bookStatus").innerText = "❌ ارسال کتاب انجام نشد.";
   }
-}
-
-async function loadBibleBooks(testament){
-  currentBibleTestament = testament;
-  document.getElementById("bibleHero").style.display = "none";
-  document.getElementById("bibleTestamentCards").style.display = "none";
-  document.getElementById("bibleContentCard").style.display = "block";
-
-  const box = document.getElementById("bibleContent");
-  box.innerHTML = "در حال دریافت کتاب‌ها...";
-
-  try{
-    const books = normalizeRows(await fetchJSON(`${API_BASE}/bible/books`));
-    let filtered = books.filter(b=>{
-      if(testament === "old") return ["OT","old","عهد عتیق"].includes(b.testament);
-      return ["NT","new","عهد جدید"].includes(b.testament);
-    });
-    if(!filtered.length) filtered = books;
-
-    box.innerHTML = `
-      <div style="text-align:right">
-        ${filtered.map(book=>{
-          let name = book.name_fa || book.book_name_fa || book.name || "";
-          return `
-            <div class="list-item" onclick='loadBibleChapters(${book.id}, ${JSON.stringify(name)})'>
-              <span class="list-item-title">${name}</span>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    `;
-  }catch(e){
-    box.innerHTML = "خطا در دریافت کتاب‌ها.";
-  }
-}
-
-async function loadBibleChapters(bookId, bookName){
-  const box = document.getElementById("bibleContent");
-  box.innerHTML = "در حال دریافت باب‌ها...";
-  try{
-    const chapters = normalizeRows(await fetchJSON(`${API_BASE}/bible/chapters?book_id=${bookId}`));
-    box.innerHTML = `
-      <div style="text-align:right;font-size:24px;font-weight:800;margin-bottom:18px">${bookName}</div>
-      <div class="chapter-grid">
-        ${chapters.map(ch=>`
-          <div class="chapter-box" onclick="loadBibleVerses(${bookId}, ${ch.chapter_number}, '${bookName}', ${chapters.length})">
-            ${ch.chapter_number}
-          </div>
-        `).join("")}
-      </div>
-      <div class="list-item" style="margin-top:18px" onclick="loadBibleBooks(currentBibleTestament)">
-        <span class="list-item-title">← بازگشت به کتاب‌ها</span>
-      </div>
-    `;
-  }catch(e){
-    box.innerHTML = "خطا در دریافت باب‌ها.";
-  }
-}
-
-async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
-  const box = document.getElementById("bibleContent");
-  box.innerHTML = "در حال دریافت آیات...";
-  try{
-    const verses = normalizeRows(await fetchJSON(`${API_BASE}/bible/verses?book_id=${bookId}&chapter_number=${chapterNumber}`));
-    box.innerHTML = `
-      <div style="text-align:center;margin-bottom:30px">
-        <div class="small">${bookName}</div>
-        <div style="font-size:72px;font-weight:900;line-height:1">${chapterNumber}</div>
-      </div>
-
-      <div class="verse-text">
-        ${verses.map(v=>`
-          <span>
-            <span class="verse-num">${v.verse_number}</span>
-            ${v.verse_text}
-          </span>
-        `).join(" ")}
-      </div>
-
-      <div style="width:240px;margin:32px auto 0;display:flex;justify-content:space-between;align-items:center;direction:ltr">
-        <button class="secondary" style="visibility:${chapterNumber < totalChapters ? 'visible':'hidden'}" onclick="loadBibleVerses(${bookId}, ${chapterNumber + 1}, '${bookName}', ${totalChapters})">‹</button>
-        <button class="secondary" onclick="loadBibleChapters(${bookId}, '${bookName}')">${bookName}</button>
-        <button class="secondary" style="visibility:${chapterNumber > 1 ? 'visible':'hidden'}" onclick="loadBibleVerses(${bookId}, ${chapterNumber - 1}, '${bookName}', ${totalChapters})">›</button>
-      </div>
-    `;
-  }catch(e){
-    box.innerHTML = "خطا در دریافت آیات.";
-  }
-}
-
-function showBibleEncyclopedia(){
-  showSection("encyclopediaSection");
-}
-
-async function searchBibleEncyclopedia(){
-  const q = document.getElementById("encyclopediaSearchInput").value.trim();
-  const box = document.getElementById("encyclopediaContent");
-
-  if(!q){
-    box.innerHTML = "عبارت مورد نظر را وارد کنید.";
-    return;
-  }
-
-  box.innerHTML = "در حال جستجو...";
-  try{
-    const rows = normalizeRows(await fetchJSON(`${API_BASE}/bible-words`));
-    encyclopediaResults = rows.filter(item =>
-      (item.word || "").includes(q) ||
-      (item.meaning || "").includes(q) ||
-      (item.related_verse || "").includes(q)
-    );
-
-    if(!encyclopediaResults.length){
-      box.innerHTML = "موردی پیدا نشد.";
-      return;
-    }
-
-    box.innerHTML = encyclopediaResults.map((item,index)=>`
-      <div class="card">
-        <h2>${item.word || ""}</h2>
-        <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'meaning')">معنی</button>
-        <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'root')">ریشه ${item.root_language || ""}</button>
-        <button class="ency-btn" onclick="showEncyclopediaPart(${index}, 'verse')">آیه مرتبط</button>
-        <div id="encyResult-${index}" class="small">یکی از بخش‌ها را انتخاب کنید.</div>
-      </div>
-    `).join("");
-  }catch(e){
-    box.innerHTML = "خطا در دریافت دانشنامه.";
-  }
-}
-
-function showEncyclopediaPart(index,type){
-  const item = encyclopediaResults[index];
-  const target = document.getElementById(`encyResult-${index}`);
-  if(!item || !target) return;
-
-  if(type === "meaning"){
-    target.innerHTML = `<div class="ency-result"><strong>معنی</strong><p>${item.meaning || "-"}</p></div>`;
-  }
-  if(type === "root"){
-    target.innerHTML = `<div class="ency-result"><strong>ریشه ${item.root_language || ""}</strong><p>${item.root_text || "-"}</p></div>`;
-  }
-  if(type === "verse"){
-    target.innerHTML = `<div class="ency-result"><strong>آیه مرتبط</strong><p>${item.related_verse || "-"}</p></div>`;
-  }
-}
-
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("sw.js").catch(()=>{});
 }
 
 loadDailyVerse();
+
 </script>
 
 </body>
-</html>
+  </html>
