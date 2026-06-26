@@ -2516,44 +2516,6 @@ function downloadSelectedSong() {
     );
 }
 
-async function sendSelectedSong(){
-  if(!selectedSong){
-    setStatus("ابتدا یک سرود را انتخاب کنید.");
-    return;
-  }
-
-  await sendSong(selectedSong.index);
-}
-
-async function sendSong(index){
-  const chatId = getChatId();
-
-  if(!chatId){
-    alert("لطفاً این صفحه را از داخل تلگرام باز کنید.");
-    return;
-  }
-
-  setStatus("⏳ در حال ارسال سرود...");
-
-  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/send_song", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      chat_id:chatId,
-      index:index,
-      source:currentSource
-    })
-  });
-
-  const data = await res.json();
-
-  if(data.ok){
-    setStatus("✅ سرود در تلگرام برای شما ارسال شد.");
-  }else{
-    setStatus("❌ ارسال سرود انجام نشد.");
-  }
-}
-
 async function loadBooks(){
   document.getElementById("bookStatus").innerText = "⏳ در حال دریافت کتاب‌ها...";
 
@@ -2794,34 +2756,6 @@ function filterBooks(){
 
   const filtered = allBooks.filter(b => (b.name || "").toLowerCase().includes(q));
   renderBooks(filtered);
-}
-
-async function sendBook(index){
-  const chatId = getChatId();
-
-  if(!chatId){
-    alert("لطفاً این صفحه را از داخل تلگرام باز کنید.");
-    return;
-  }
-
-  document.getElementById("bookStatus").innerText = "⏳ در حال ارسال کتاب...";
-
-  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/send_book", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      chat_id:chatId,
-      index:index
-    })
-  });
-
-  const data = await res.json();
-
-  if(data.ok){
-    document.getElementById("bookStatus").innerText = "✅ کتاب در تلگرام برای شما ارسال شد.";
-  }else{
-    document.getElementById("bookStatus").innerText = "❌ ارسال کتاب انجام نشد.";
-  }
 }
 
 loadDailyVerse();
