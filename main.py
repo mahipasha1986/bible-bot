@@ -5,6 +5,12 @@ import re
 import random
 
 app = Flask(__name__)
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return response
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev"
