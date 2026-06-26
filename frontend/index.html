@@ -1558,16 +1558,16 @@ async function loadDailyVerse(){
 
 async function likeDailyVerse(){
 
-    const userId = tgUser()?.id;
+    const userId = tgUser()?.id || 999999;
+    const verseId = window.currentDailyVerseId;
 
-    if(!userId){
+    if(!verseId){
+        alert("آیه روز هنوز آماده نیست");
         return;
     }
 
-    const verseId = window.currentDailyVerseId;
-
     const res = await fetch(
-        `https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse/like?user_id=${userId}&verse_id=${verseId}`
+        API_BASE + "/bible/daily-verse/like?user_id=" + userId + "&verse_id=" + verseId
     );
 
     const data = await res.json();
