@@ -2318,7 +2318,7 @@ async function loadCategory(index){
   const data = await res.json();
 
   allSongs = (Array.isArray(data) ? data : data.songs || []).map((s, i) => ({
-    index: i,
+    index: s.id || i,
     name: s.title || s.name || ""
   }));
   filteredSongs = allSongs;
