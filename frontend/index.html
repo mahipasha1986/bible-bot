@@ -2285,10 +2285,12 @@ async function loadSongs(){
   const data = await res.json();
   console.log(data);
 
-  allSongs = (Array.isArray(data) ? data : data.songs || []).map((s, i) => ({
-    index: i,
-    name: s.title || s.name || ""
-  }));
+  allSongs = (Array.isArray(data) ? data : data.songs || [])
+    .filter(s => s.title && s.audio_file_id && s.is_active !== false)
+    .map((s, i) => ({
+        index: i,
+        name: s.title
+    }));
   filteredSongs = allSongs;
   masterSongs = allSongs;
   currentPage = 0;
