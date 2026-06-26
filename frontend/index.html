@@ -2281,10 +2281,13 @@ async function loadSongs(){
   closePlayer();
   setStatus("");
 
-  const res = await fetch("https://bible-bot-4eo2.onrender.com/api/songs", { cache: "no-store" });
+  const res = await fetch(API_BASE + "/hymns", { cache: "no-store" });
   const data = await res.json();
 
-  allSongs = data.songs || [];
+  allSongs = (Array.isArray(data) ? data : data.songs || []).map((s, i) => ({
+    index: i,
+    name: s.title || s.name || ""
+  }));
   filteredSongs = allSongs;
   masterSongs = allSongs;
   currentPage = 0;
