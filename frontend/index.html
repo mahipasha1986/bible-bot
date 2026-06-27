@@ -344,7 +344,7 @@ audio{
     width:auto !important;
     min-width:auto;
     height:auto;
-    padding:0;
+    padding:0 16px 0 0;
     color:#111827;
     font-weight:700;
 }
@@ -1017,8 +1017,14 @@ audio{
 
     <span class="home-divider"></span>
 
-    <button class="home-text-btn" onclick="location.reload()" type="button">
-        خانه
+    <button class="home-text-btn" onclick="location.reload()" type="button" aria-label="خانه">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10.5L12 3l9 7.5"/>
+            <path d="M5 10v10h14V10"/>
+            <path d="M9 20v-6h6v6"/>
+        </svg>
     </button>
 </div>
 
