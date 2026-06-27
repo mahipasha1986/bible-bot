@@ -884,6 +884,91 @@ audio{
     border:1px solid #E0C85A;
     display:block;
 }
+
+    .hamburger-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #d4af37;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 15, 35, 0.55);
+  z-index: 998;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(180deg, #071a35, #0b2347);
+  z-index: 999;
+  padding: 22px 18px;
+  box-shadow: -12px 0 30px rgba(0, 0, 0, 0.25);
+  transition: right 0.3s ease;
+  direction: rtl;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.side-menu-header {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.side-menu-title {
+  color: #d4af37;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.side-menu-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.side-menu-item {
+  width: 100%;
+  padding: 14px 12px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  text-align: right;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.side-menu-item:hover {
+  background: rgba(212, 175, 55, 0.14);
+}
 </style>
 </head>
 <body>
@@ -901,6 +986,33 @@ audio{
 
     <span style="font-size:14px;font-weight:700;">خانه</span>
 </button>
+
+    <button id="hamburgerBtn" class="hamburger-btn" type="button">
+  ☰
+</button>
+
+<div id="sideMenu" class="side-menu">
+  <button class="side-menu-close" id="closeMenuBtn">×</button>
+
+  <div class="side-menu-header">
+    <div class="side-menu-title">کلام حیات</div>
+    <div class="side-menu-subtitle">منوی اپلیکیشن</div>
+  </div>
+
+  <button class="side-menu-item" onclick="openAppGuide()">
+    راهنمای اپلیکیشن
+  </button>
+
+  <button class="side-menu-item" onclick="openUserSettings()">
+    پروفایل و تنظیمات کاربر
+  </button>
+
+  <button class="side-menu-item" onclick="openTelegramChannel()">
+    عضویت در کانال تلگرام
+  </button>
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
 
 </div>
 
@@ -2759,6 +2871,37 @@ function filterBooks(){
 }
 
 loadDailyVerse();
+
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const sideMenu = document.getElementById("sideMenu");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+const menuOverlay = document.getElementById("menuOverlay");
+
+function openMenu() {
+    sideMenu.classList.add("active");
+    menuOverlay.classList.add("active");
+}
+
+function closeMenu() {
+    sideMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+}
+
+hamburgerBtn.addEventListener("click", openMenu);
+closeMenuBtn.addEventListener("click", closeMenu);
+menuOverlay.addEventListener("click", closeMenu);
+
+function openAppGuide() {
+    closeMenu();
+}
+
+function openUserSettings() {
+    closeMenu();
+}
+
+function openTelegramChannel() {
+    closeMenu();
+}
 
 </script>
 
