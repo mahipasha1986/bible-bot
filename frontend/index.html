@@ -998,6 +998,20 @@ audio{
     background:rgba(0,0,0,0.18);
     display:inline-block;
 }
+
+.setting-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(15,23,42,.08);
+    font-weight:700;
+}
+
+.setting-row:last-child{
+    border-bottom:none;
+}
 </style>
 </head>
 <body>
@@ -2930,22 +2944,100 @@ function openAppGuide() {
 function openUserSettings() {
     closeMenu();
 
+    const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user || {};
+    const userName = tgUser.first_name || "کاربر کلام حیات";
+    const userUsername = tgUser.username ? "@" + tgUser.username : "نام کاربری ثبت نشده";
+    const userPhoto = tgUser.photo_url || "";
+
     const homeSection = document.getElementById("homeSection");
 
     homeSection.innerHTML = `
         <div class="card">
-            <h1>پروفایل و تنظیمات</h1>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;">
+                <div style="
+                    width:84px;
+                    height:84px;
+                    border-radius:50%;
+                    background:linear-gradient(135deg,#0b2347,#d4af37);
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    overflow:hidden;
+                    box-shadow:0 12px 28px rgba(11,35,71,.18);
+                ">
+                    ${
+                        userPhoto
+                        ? `<img src="${userPhoto}" style="width:100%;height:100%;object-fit:cover;">`
+                        : `<span style="color:white;font-size:32px;font-weight:900;">${userName.charAt(0)}</span>`
+                    }
+                </div>
 
-            <p class="small">
-                این بخش توسط خادمین در حال تکمیل است.
-            </p>
+                <div>
+                    <h1 style="margin:0;">پروفایل و تنظیمات</h1>
+                    <p class="small" style="margin-top:8px;">${userName}</p>
+                    <p class="small" style="margin-top:4px;">${userUsername}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>تنظیمات مطالعه</h2>
+
+            <div class="setting-row">
+                <span>اندازه فونت</span>
+                <span class="small">متوسط</span>
+            </div>
+
+            <div class="setting-row">
+                <span>حالت روشن / تیره</span>
+                <span class="small">به‌زودی</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>اعلان‌ها</h2>
+
+            <div class="setting-row">
+                <span>آیه روز</span>
+                <span class="small">به‌زودی</span>
+            </div>
+
+            <div class="setting-row">
+                <span>یادآوری مطالعه کتاب مقدس</span>
+                <span class="small">به‌زودی</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>درباره برنامه</h2>
+
+            <div class="setting-row">
+                <span>نسخه برنامه</span>
+                <span class="small">1.0.0</span>
+            </div>
+
+            <div class="setting-row">
+                <span>حریم خصوصی</span>
+                <span class="small">به‌زودی</span>
+            </div>
+
+            <div class="setting-row">
+                <span>قوانین استفاده</span>
+                <span class="small">به‌زودی</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>ارتباط با ما</h2>
+
+            <div class="setting-row" onclick="openTelegramChannel()" style="cursor:pointer;">
+                <span>عضویت در کانال تلگرام</span>
+                <span class="small">باز کردن</span>
+            </div>
         </div>
     `;
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function openTelegramChannel() {
