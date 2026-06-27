@@ -969,27 +969,56 @@ audio{
 .side-menu-item:hover {
   background: rgba(212, 175, 55, 0.14);
 }
+
+.home-menu-icon {
+  background: transparent;
+  border: none;
+  color: #111827;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(17, 24, 39, 0.22);
+  display: inline-block;
+}
+
+.home-text-btn {
+  background: transparent;
+  border: none;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
 
 <div class="tab-buttons">
 
-    <button class="top-home-btn" onclick="location.reload()">
+    <div class="top-home-btn">
+    <button id="hamburgerBtn" class="home-menu-icon" type="button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
 
-    <span style="font-size:14px;font-weight:700;">خانه</span>
-</button>
+    <span class="home-divider"></span>
 
-    <button id="hamburgerBtn" class="hamburger-btn" type="button">
-  ☰
-</button>
+    <button class="home-text-btn" onclick="location.reload()" type="button">
+        خانه
+    </button>
+</div>
 
 <div id="sideMenu" class="side-menu">
   <button class="side-menu-close" id="closeMenuBtn">×</button>
