@@ -2929,6 +2929,23 @@ function openAppGuide() {
 
 function openUserSettings() {
     closeMenu();
+
+    const homeSection = document.getElementById("homeSection");
+
+    homeSection.innerHTML = `
+        <div class="card">
+            <h1>پروفایل و تنظیمات</h1>
+
+            <p class="small">
+                این بخش توسط خادمین در حال تکمیل است.
+            </p>
+        </div>
+    `;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 function openTelegramChannel() {
