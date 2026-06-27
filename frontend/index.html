@@ -1140,6 +1140,24 @@ body.font-large .settings-item span,
 body.font-large .settings-item small {
     font-size:19px !important;
 }
+
+.bible-reading-text{
+    line-height:2.3;
+    color:#222;
+    margin-bottom:12px;
+}
+
+body.font-small .bible-reading-text{
+    font-size:16px !important;
+}
+
+body.font-medium .bible-reading-text{
+    font-size:20px !important;
+}
+
+body.font-large .bible-reading-text{
+    font-size:24px !important;
+}
 </style>
 </head>
 <body>
@@ -1966,7 +1984,7 @@ async function loadBibleBooks(testament){
     try{
 
         const res = await fetch(
-            "https://square-silence-9274.mahi-pasha1986.workers.dev/bible/books"
+            "https://square-silence-9274.mahi-pasha1986.workers.dev/biblebooks"
         );
 
         const books = await res.json();
@@ -2158,7 +2176,11 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 text-align:right;
                 direction:rtl;
                 font-family:Vazirmatn,sans-serif;
-                font-size:17px;
+                font-size:${
+                    localStorage.getItem("appFontSize") === "large" ? "22px" :
+                    localStorage.getItem("appFontSize") === "small" ? "15px" :
+                    "17px"
+                };
                 line-height:2.45;
                 font-weight:400;
                 color:#2b2b2b;
