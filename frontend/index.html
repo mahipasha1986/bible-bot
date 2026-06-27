@@ -3123,6 +3123,12 @@ function openUserSettings() {
 
 function openTelegramChannel() {
     closeMenu();
+
+    if (window.Telegram && Telegram.WebApp) {
+        Telegram.WebApp.openTelegramLink("https://t.me/persian_bible");
+    } else {
+        window.open("https://t.me/persian_bible", "_blank");
+    }
 }
 
 </script>
