@@ -1916,9 +1916,11 @@ async function loadBibleBooks(testament){
 
     try{
 
-        const res = await fetch(
-            "https://square-silence-9274.mahi-pasha1986.workers.dev/biblebooks"
-        );
+        let res = await fetch(API_BASE + "/biblebooks", { cache: "no-store" });
+
+        if (!res.ok) {
+            res = await fetch(API_BASE + "/bible/books", { cache: "no-store" });
+        }
 
         const books = await res.json();
 
