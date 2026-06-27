@@ -1095,51 +1095,6 @@ audio{
     font-size:14px;
     color:#6b7280;
 }
-
-body.font-small,
-body.font-small p,
-body.font-small button,
-body.font-small input,
-body.font-small .small,
-body.font-small .verse,
-body.font-small .verse-text,
-body.font-small .bible-verse,
-body.font-small .chapter-verse,
-body.font-small .verse-card,
-body.font-small .settings-item span,
-body.font-small .settings-item small {
-    font-size:14px !important;
-}
-
-body.font-medium,
-body.font-medium p,
-body.font-medium button,
-body.font-medium input,
-body.font-medium .small,
-body.font-medium .verse,
-body.font-medium .verse-text,
-body.font-medium .bible-verse,
-body.font-medium .chapter-verse,
-body.font-medium .verse-card,
-body.font-medium .settings-item span,
-body.font-medium .settings-item small {
-    font-size:16px !important;
-}
-
-body.font-large,
-body.font-large p,
-body.font-large button,
-body.font-large input,
-body.font-large .small,
-body.font-large .verse,
-body.font-large .verse-text,
-body.font-large .bible-verse,
-body.font-large .chapter-verse,
-body.font-large .verse-card,
-body.font-large .settings-item span,
-body.font-large .settings-item small {
-    font-size:19px !important;
-}
 </style>
 </head>
 <body>
@@ -3070,13 +3025,6 @@ function openUserSettings() {
 
     const homeSection = document.getElementById("homeSection");
 
-    const savedFontSize = localStorage.getItem("appFontSize") || "medium";
-
-    const fontSizeText =
-    savedFontSize === "small" ? "کوچک" :
-    savedFontSize === "large" ? "بزرگ" :
-    "متوسط";
-
     homeSection.innerHTML = `
         <div class="settings-page">
 
@@ -3116,7 +3064,7 @@ function openUserSettings() {
 
                 <div class="settings-item" onclick="changeFontSize()">
                     <span>اندازه فونت</span>
-                    <small id="fontSizeLabel">${fontSizeText}</small>
+                    <small>متوسط</small>
                 </div>
 
                 <div class="settings-item">
