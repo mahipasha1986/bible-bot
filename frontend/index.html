@@ -2176,11 +2176,7 @@ async function loadBibleVerses(bookId, chapterNumber, bookName, totalChapters){
                 text-align:right;
                 direction:rtl;
                 font-family:Vazirmatn,sans-serif;
-                font-size:${
-                    localStorage.getItem("appFontSize") === "large" ? "22px" :
-                    localStorage.getItem("appFontSize") === "small" ? "15px" :
-                    "17px"
-                };
+                font-size:var(--bible-font-size, 17px);
                 line-height:2.45;
                 font-weight:400;
                 color:#2b2b2b;
