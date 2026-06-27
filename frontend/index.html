@@ -1095,6 +1095,40 @@ audio{
     font-size:14px;
     color:#6b7280;
 }
+
+body.dark-mode{
+    background:#07111f;
+    color:#f8fafc;
+}
+
+body.dark-mode .card,
+body.dark-mode .settings-page,
+body.dark-mode .settings-group{
+    background:#0f1f35;
+    color:#f8fafc;
+    border-color:rgba(212,175,55,.22);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode .settings-item span,
+body.dark-mode .settings-name{
+    color:#ffffff;
+}
+
+body.dark-mode p,
+body.dark-mode .small,
+body.dark-mode .settings-item small,
+body.dark-mode .settings-username{
+    color:#cbd5e1;
+}
+
+body.dark-mode input{
+    background:#111827;
+    color:#ffffff;
+    border-color:#334155;
+}
 </style>
 </head>
 <body>
@@ -3064,9 +3098,9 @@ function openUserSettings() {
             <div class="settings-group">
                 <h3>مطالعه کتاب مقدس</h3>
 
-                <div class="settings-item">
+                <div class="settings-item" onclick="toggleDarkMode()">
                     <span>حالت شب</span>
-                    <small>به‌زودی</small>
+                    <small id="darkModeLabel">خاموش</small>
                 </div>
             </div>
 
@@ -3127,6 +3161,28 @@ function openTelegramChannel() {
     }
 }
 
+function toggleDarkMode() {
+    const current = localStorage.getItem("darkMode") === "on";
+    const next = current ? "off" : "on";
+
+    localStorage.setItem("darkMode", next);
+    applyDarkMode();
+
+    const label = document.getElementById("darkModeLabel");
+    if (label) label.textContent = next === "on" ? "روشن" : "خاموش";
+}
+
+function applyDarkMode() {
+    const isOn = localStorage.getItem("darkMode") === "on";
+
+    document.body.classList.toggle("dark-mode", isOn);
+
+    const label = document.getElementById("darkModeLabel");
+    if (label) label.textContent = isOn ? "روشن" : "خاموش";
+}
+
+applyDarkMode();
+    
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
