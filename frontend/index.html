@@ -3064,11 +3064,6 @@ function openUserSettings() {
             <div class="settings-group">
                 <h3>مطالعه کتاب مقدس</h3>
 
-                <div class="settings-item" onclick="changeFontSize()">
-                    <span>اندازه فونت</span>
-                    <small>متوسط</small>
-                </div>
-
                 <div class="settings-item">
                     <span>حالت شب</span>
                     <small>به‌زودی</small>
@@ -3131,35 +3126,6 @@ function openTelegramChannel() {
         window.open("https://t.me/persian_bible", "_blank");
     }
 }
-
-function changeFontSize() {
-    const sizes = ["کوچک", "متوسط", "بزرگ"];
-    const values = ["small", "medium", "large"];
-
-    const current = localStorage.getItem("appFontSize") || "medium";
-    const currentIndex = values.indexOf(current);
-    const nextIndex = (currentIndex + 1) % values.length;
-
-    const nextValue = values[nextIndex];
-    const nextLabel = sizes[nextIndex];
-
-    localStorage.setItem("appFontSize", nextValue);
-
-    const label = document.getElementById("fontSizeLabel");
-    if (label) label.textContent = nextLabel;
-
-    document.body.classList.remove("font-small", "font-medium", "font-large");
-    document.body.classList.add("font-" + nextValue);
-}
-
-function applySavedFontSize() {
-    const saved = localStorage.getItem("appFontSize") || "medium";
-
-    document.body.classList.remove("font-small", "font-medium", "font-large");
-    document.body.classList.add("font-" + saved);
-}
-
-applySavedFontSize();
 
 </script>
 
