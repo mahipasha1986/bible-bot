@@ -3058,6 +3058,13 @@ function openUserSettings() {
 
     const homeSection = document.getElementById("homeSection");
 
+    const savedFontSize = localStorage.getItem("appFontSize") || "medium";
+
+    const fontSizeText =
+    savedFontSize === "small" ? "کوچک" :
+    savedFontSize === "large" ? "بزرگ" :
+    "متوسط";
+
     homeSection.innerHTML = `
         <div class="settings-page">
 
@@ -3097,7 +3104,7 @@ function openUserSettings() {
 
                 <div class="settings-item" onclick="changeFontSize()">
                     <span>اندازه فونت</span>
-                    <small id="fontSizeLabel">متوسط</small>
+                    <small id="fontSizeLabel">${fontSizeText}</small>
                 </div>
 
                 <div class="settings-item">
