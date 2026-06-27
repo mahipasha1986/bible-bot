@@ -335,18 +335,22 @@ audio{
 }
 .top-home-btn{
     width:auto !important;
-    min-width:auto;
-    padding:8px;
-    border-radius:0;
-    background:transparent;
+    min-width:160px;
+    height:46px;
+
+    background:#ffffff;
     color:#000000;
-    border:none;
-    font-size:15px;
-    font-weight:800;
+
+    border:1px solid rgba(219,231,243,0.95);
+    border-radius:18px;
+
     display:flex;
     align-items:center;
-    gap:8px;
-    box-shadow:none;
+    justify-content:center;
+    gap:12px;
+
+    padding:0 18px;
+    box-shadow:0 10px 26px rgba(31,78,121,.08);
 }
 .compact-btn{
     width:auto !important;
@@ -885,7 +889,7 @@ audio{
     display:block;
 }
 
-    .hamburger-btn {
+.hamburger-btn {
   width: 42px;
   height: 42px;
   border-radius: 14px;
@@ -970,31 +974,28 @@ audio{
   background: rgba(212, 175, 55, 0.14);
 }
 
-.home-menu-icon {
-  background: transparent;
-  border: none;
-  color: #111827;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.home-menu-icon,
+.home-text-btn{
+    background:transparent;
+    border:none;
+    color:#000000;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
 }
 
-.home-divider {
-  width: 1px;
-  height: 22px;
-  background: rgba(17, 24, 39, 0.22);
-  display: inline-block;
+.home-text-btn{
+    font-size:14px;
+    font-weight:800;
 }
 
-.home-text-btn {
-  background: transparent;
-  border: none;
-  color: #111827;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
+.home-divider{
+    width:1px;
+    height:22px;
+    background:rgba(0,0,0,0.18);
+    display:inline-block;
 }
 </style>
 </head>
