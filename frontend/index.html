@@ -1230,6 +1230,24 @@ body.dark-mode .song-category-btn{
 body.dark-mode .song-category-btn.active{
     color:#ffffff !important;
 }
+
+/* Chapter Numbers - Dark Mode */
+
+body.dark-mode #bibleContent div[style*="background:#efefef"]{
+    background:#18304d !important;
+    color:#ffffff !important;
+    border:1px solid rgba(212,175,55,.25) !important;
+}
+
+body.dark-mode .library-book-description{
+    color:#cbd5e1 !important;
+}
+
+body.dark-mode .library-back-btn{
+    background:#18304d !important;
+    color:#ffffff !important;
+    border:1px solid #d4af37 !important;
+}
 </style>
 </head>
 <body>
@@ -2967,7 +2985,7 @@ books.forEach(book => {
                     ${book.author || ""}
                 </div>
 
-                <div style="
+                <div class="library-book-description" style="
                     color:#888;
                     font-size:13px;
                     line-height:1.7;
@@ -3094,6 +3112,7 @@ function showBookDetails(index){
                         </button>
 
                         <button
+                            class="library-back-btn"
                             onclick="renderBooks(allBooks)"
                             style="
                                 background:#ffffff;
