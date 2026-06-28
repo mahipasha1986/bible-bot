@@ -1,5 +1,24 @@
+const CACHE_NAME = "kalame-hayat-v1";
+
+const APP_FILES = [
+  "/",
+  "/index.html",
+  "/manifest.json"
+];
+
 self.addEventListener("install", (event) => {
-  console.log("Service Worker Installed");
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_FILES))
+  );
+  self.skipWaiting();
 });
 
-self.addEventListener("fetch", (event) => {});
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request))
+  );
+});
