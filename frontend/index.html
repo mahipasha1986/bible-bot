@@ -10,21 +10,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
+
+11 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+12 <style>
+
+:root {
+  --color-navy-900: #071527;
+  --color-navy-800: #0b1f3a;
+  --color-blue-700: #1f4e79;
+
+  --color-gold-500: #d4af37;
+  --color-gold-300: #f1d999;
+
+  --color-cream-50: #fffaf0;
+  --color-white: #ffffff;
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-light: #ffffff;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 34px;
+
+  --shadow-soft: 0 8px 24px rgba(31,78,121,.08);
+  --shadow-card: 0 12px 32px rgba(31,78,121,.10);
+  --shadow-hero: 0 24px 60px rgba(31,78,121,.14);
+
+  --font-title: 'Lalezar','Vazirmatn',sans-serif;
+  --font-body: 'Vazirmatn',sans-serif;
+}
+
 body{
     margin:0;
-    font-family:'Vazirmatn',sans-serif;
-    background:#f7f9fc;
-    color:#222;
+    font-family: var(--font-body);
+    background: var(--color-cream-50);
+    color: var(--text-primary);
     padding:18px;
     text-align:center;
 }
 .card{
-    background:#ffffff;
+    background:var(--color-white);
     border:1px solid #e8edf3;
-    border-radius:26px;
+    border-radius:var(--radius-lg);
     padding:12px 14px;
     margin-bottom:8px;
-    box-shadow:0 8px 24px rgba(31,78,121,0.08);
+    box-shadow:var(--shadow-soft);
 }
 .home-hero{
     background:
@@ -71,7 +104,7 @@ body{
     margin-bottom:20px;
 }
 h1{
-    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-family:var(--font-title);
     font-size:42px;
     font-weight:400;
     color:#111827;
@@ -80,7 +113,7 @@ h1{
 }
 
 h2{
-    font-family:'Lalezar','Vazirmatn',sans-serif;
+    font-family:var(--font-title);
     font-size:34px;
     font-weight:400;
     color:#111827;
@@ -122,8 +155,12 @@ button{
     box-shadow:0 6px 18px rgba(31,78,121,0.25);
 }
 .gold{
-    background:linear-gradient(135deg,#1f4e79,#2d6aa0);
-    color:white;
+    background:linear-gradient(
+        135deg,
+        var(--color-blue-700),
+        var(--color-navy-800)
+    );
+    color:var(--color-white);
     border:none;
     border-radius:18px;
     padding:16px 22px;
@@ -133,7 +170,7 @@ button{
 
 .gold:hover{
     transform:translateY(-2px);
-    box-shadow:0 12px 32px rgba(31,78,121,0.35);
+    box-shadow:var(--shadow-card);
 }
 .secondary{
     background:white;
