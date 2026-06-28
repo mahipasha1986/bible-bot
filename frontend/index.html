@@ -3374,36 +3374,6 @@ async function enableDailyVerseNotification() {
     openDailyVerseNotificationSettings();
 }
 
-async function enableDailyVerseNotification() {
-
-    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
-
-    if (isOn) {
-        localStorage.setItem("dailyVerseNotification", "off");
-        openDailyVerseNotificationSettings();
-        return;
-    }
-
-    if (!("Notification" in window)) {
-        alert("اعلان روی این دستگاه پشتیبانی نمی‌شود");
-        return;
-    }
-
-    const permission = await Notification.requestPermission();
-
-    if (permission === "granted") {
-        localStorage.setItem("dailyVerseNotification", "on");
-
-        new Notification("کلام حیات", {
-            body: "اعلان آیه روز فعال شد."
-        });
-    } else {
-        localStorage.setItem("dailyVerseNotification", "off");
-    }
-
-    openDailyVerseNotificationSettings();
-}
-
 function toggleDarkMode() {
     const current = localStorage.getItem("darkMode") === "on";
     const next = current ? "off" : "on";
