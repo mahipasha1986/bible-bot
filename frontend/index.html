@@ -3283,7 +3283,70 @@ function openTelegramChannel() {
 }
 
 function openDailyVerseNotificationSettings() {
-    alert("تنظیمات اعلان آیه روز در حال آماده‌سازی است");
+    const homeSection = document.getElementById("homeSection");
+
+    homeSection.innerHTML = `
+        <div class="settings-page">
+
+            <div class="settings-header">
+                <h1>اعلان آیه روز</h1>
+            </div>
+
+            <div class="settings-group">
+
+                <div class="settings-item" onclick="toggleDailyVerseNotification()">
+                    <span>اعلان آیه روز</span>
+                    <small id="dailyVerseNotifyLabel">خاموش</small>
+                </div>
+
+                <div class="settings-item">
+                    <span>ساعت دریافت</span>
+                    <input
+                        id="dailyVerseTime"
+                        type="time"
+                        value="${localStorage.getItem("dailyVerseTime") || "08:00"}"
+                        onchange="saveDailyVerseTime()"
+                        style="width:140px;margin:0;text-align:center;"
+                    >
+                </div>
+
+            </div>
+
+            <button class="gold" onclick="openUserSettings()">
+                بازگشت به تنظیمات
+            </button>
+
+        </div>
+    `;
+
+    applyDailyVerseNotificationUI();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function toggleDailyVerseNotification() {
+    const current = localStorage.getItem("dailyVerseNotification") === "on";
+    const next = current ? "off" : "on";
+
+    localStorage.setItem("dailyVerseNotification", next);
+
+    if (next === "on" && "Notification" in window) {
+        Notification.requestPermission();
+    }
+
+    applyDailyVerseNotificationUI();
+}
+
+function saveDailyVerseTime() {
+    const time = document.getElementById("dailyVerseTime").value;
+    localStorage.setItem("dailyVerseTime", time);
+}
+
+function applyDailyVerseNotificationUI() {
+    const label = document.getElementById("dailyVerseNotifyLabel");
+    if (!label) return;
+
+    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
+    label.textContent = isOn ? "روشن" : "خاموش";
 }
 
 function toggleDarkMode() {
