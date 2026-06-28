@@ -1129,6 +1129,56 @@ body.dark-mode input{
     color:#ffffff;
     border-color:#334155;
 }
+
+body.dark-mode{
+    background:#07111f;
+    color:#f8fafc;
+}
+
+/* متن‌هایی که داخل کد inline رنگ تیره دارند */
+body.dark-mode div,
+body.dark-mode span,
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3{
+    color:#f8fafc !important;
+}
+
+/* کارت‌ها */
+body.dark-mode .card{
+    background:#10233d !important;
+    border-color:rgba(212,175,55,.28) !important;
+}
+
+/* آیه روز */
+body.dark-mode .daily-verse-card{
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200') !important;
+}
+
+/* فیلدها */
+body.dark-mode input{
+    background:#0b1728 !important;
+    color:#ffffff !important;
+    border-color:#334155 !important;
+}
+
+body.dark-mode input::placeholder{
+    color:#94a3b8 !important;
+}
+
+/* منوهای خانه */
+body.dark-mode #homeSection > div,
+body.dark-mode .settings-page{
+    background:transparent !important;
+}
+
+/* خط‌های جداکننده */
+body.dark-mode [style*="border-bottom"]{
+    border-bottom-color:rgba(255,255,255,.18) !important;
+}
 </style>
 </head>
 <body>
