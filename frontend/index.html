@@ -1325,6 +1325,61 @@ body.dark-mode .daily-notify-card{
 </head>
 <body>
 
+<!-- Splash Screen -->
+<div id="splash-screen">
+  <div class="splash-content">
+    <img src="icon-512.png" alt="کلام حیات" class="splash-logo">
+  </div>
+</div>
+
+<style>
+#splash-screen{
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    transition:opacity .5s ease;
+}
+
+.splash-content{
+    text-align:center;
+}
+
+.splash-logo{
+    width:170px;
+    height:170px;
+    border-radius:36px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    animation:splashLogo .8s ease;
+}
+
+@keyframes splashLogo{
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
+
+<script>
+window.addEventListener("load",function(){
+    setTimeout(function(){
+        const splash=document.getElementById("splash-screen");
+        splash.style.opacity="0";
+        setTimeout(function(){
+            splash.remove();
+        },500);
+    },1200);
+});
+</script>
+    
 <div class="tab-buttons">
 
     <div class="top-home-btn">
