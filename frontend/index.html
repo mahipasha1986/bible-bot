@@ -3284,69 +3284,57 @@ function openTelegramChannel() {
 
 function openDailyVerseNotificationSettings() {
     const homeSection = document.getElementById("homeSection");
+    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
 
     homeSection.innerHTML = `
         <div class="settings-page">
-
             <div class="settings-header">
                 <h1>اعلان آیه روز</h1>
             </div>
 
             <div class="settings-group">
-
-                <div class="settings-item" onclick="toggleDailyVerseNotification()">
-                    <span>اعلان آیه روز</span>
-                    <small id="dailyVerseNotifyLabel">خاموش</small>
-                </div>
-
                 <div class="settings-item">
-                    <span>ساعت دریافت</span>
-                    <input
-                        id="dailyVerseTime"
-                        type="time"
-                        value="${localStorage.getItem("dailyVerseTime") || "08:00"}"
-                        onchange="saveDailyVerseTime()"
-                        style="width:140px;margin:0;text-align:center;"
-                    >
+                    <span>وضعیت اعلان</span>
+                    <small id="dailyVerseNotificationLabel">
+                        ${isOn ? "روشن" : "غیرفعال"}
+                    </small>
                 </div>
 
+                <button class="gold" onclick="enableDailyVerseNotification()">
+                    فعال‌سازی اعلان آیه روز
+                </button>
             </div>
 
-            <button class="gold" onclick="openUserSettings()">
+            <button class="green" onclick="openUserSettings()">
                 بازگشت به تنظیمات
             </button>
-
         </div>
     `;
 
-    applyDailyVerseNotificationUI();
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function toggleDailyVerseNotification() {
-    const current = localStorage.getItem("dailyVerseNotification") === "on";
-    const next = current ? "off" : "on";
+async function enableDailyVerseNotification() {
+    const label = document.getElementById("dailyVerseNotificationLabel");
 
-    localStorage.setItem("dailyVerseNotification", next);
-
-    if (next === "on" && "Notification" in window) {
-        Notification.requestPermission();
+    if (!("Notification" in window)) {
+        alert("اعلان روی این دستگاه پشتیبانی نمی‌شود");
+        return;
     }
 
-    applyDailyVerseNotificationUI();
-}
+    const permission = await Notification.requestPermission();
 
-function saveDailyVerseTime() {
-    const time = document.getElementById("dailyVerseTime").value;
-    localStorage.setItem("dailyVerseTime", time);
-}
+    if (permission === "granted") {
+        localStorage.setItem("dailyVerseNotification", "on");
+        if (label) label.textContent = "روشن";
 
-function applyDailyVerseNotificationUI() {
-    const label = document.getElementById("dailyVerseNotifyLabel");
-    if (!label) return;
-
-    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
-    label.textContent = isOn ? "روشن" : "خاموش";
+        new Notification("کلام حیات", {
+            body: "اعلان آیه روز فعال شد."
+        });
+    } else {
+        localStorage.setItem("dailyVerseNotification", "off");
+        if (label) label.textContent = "غیرفعال";
+    }
 }
 
 function toggleDarkMode() {
