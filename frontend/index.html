@@ -1314,14 +1314,12 @@ body.dark-mode .daily-notify-card{
 }
 
 .daily-switch-btn{
-    width:70px;
-    height:36px;
-    border:none;
+    width:58px;
+    height:30px;
+    padding:0;
+    font-size:13px;
+    font-weight:800;
     border-radius:999px;
-    background:#2b5f94;
-    color:#fff;
-    font-weight:700;
-    cursor:pointer;
 }
 </style>
 </head>
@@ -3351,36 +3349,29 @@ function openTelegramChannel() {
     }
 }
 
-function openDailyVerseNotificationSettings() {
-    const homeSection = document.getElementById("homeSection");
+async function enableDailyVerseNotification() {
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
 
-    homeSection.innerHTML = `
-        <div class="settings-page daily-notification-page">
-            <div class="settings-header">
-                <h1>اعلان آیه روز</h1>
-            </div>
+    if (isOn) {
+        localStorage.setItem("dailyVerseNotification", "off");
+        openDailyVerseNotificationSettings();
+        return;
+    }
 
-            <div class="daily-notify-card">
-                <div class="daily-notify-row">
-                    <span>اعلان آیه روز</span>
+    if (!("Notification" in window)) {
+        alert("اعلان روی این دستگاه پشتیبانی نمی‌شود");
+        return;
+    }
 
-                    <button
-                        class="daily-switch-btn"
-                        onclick="enableDailyVerseNotification()"
-                    >
-                        ${isOn ? "ON" : "OFF"}
-                    </button>
-                </div>
-            </div>
+    const permission = await Notification.requestPermission();
 
-            <button class="daily-notification-btn" onclick="openUserSettings()">
-                بازگشت به تنظیمات
-            </button>
-        </div>
-    `;
+    if (permission === "granted") {
+        localStorage.setItem("dailyVerseNotification", "on");
+    } else {
+        localStorage.setItem("dailyVerseNotification", "off");
+    }
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    openDailyVerseNotificationSettings();
 }
 
 async function enableDailyVerseNotification() {
