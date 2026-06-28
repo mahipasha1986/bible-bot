@@ -1254,6 +1254,43 @@ body.dark-mode .daily-verse-card{
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200') center/cover no-repeat !important;
 }
+
+/* ===== Daily Verse Notification ===== */
+
+.daily-notification-page{
+    max-width:520px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.daily-notification-page .settings-group{
+    max-width:420px;
+    margin:20px auto;
+    padding:18px 22px;
+    border-radius:20px;
+    background:rgba(18,38,65,.95);
+    border:1px solid rgba(212,175,55,.18);
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+
+.daily-notification-btn{
+    display:block;
+    width:100%;
+    max-width:320px;
+    margin:18px auto 0;
+    padding:14px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(180deg,#2b5f94,#1d4f84);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.daily-notification-btn:hover{
+    filter:brightness(1.08);
+}
 </style>
 </head>
 <body>
@@ -3287,7 +3324,7 @@ function openDailyVerseNotificationSettings() {
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
 
     homeSection.innerHTML = `
-        <div class="settings-page">
+        <div class="settings-page daily-notification-page">
             <div class="settings-header">
                 <h1>اعلان آیه روز</h1>
             </div>
@@ -3300,12 +3337,12 @@ function openDailyVerseNotificationSettings() {
                     </small>
                 </div>
 
-                <button class="gold" onclick="enableDailyVerseNotification()">
+                <button class="daily-notification-btn" onclick="enableDailyVerseNotification()">
                     فعال‌سازی اعلان آیه روز
                 </button>
             </div>
 
-            <button class="green" onclick="openUserSettings()">
+            <button class="daily-notification-btn" onclick="openUserSettings()">
                 بازگشت به تنظیمات
             </button>
         </div>
