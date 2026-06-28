@@ -3349,6 +3349,35 @@ function openTelegramChannel() {
     }
 }
 
+function openDailyVerseNotificationSettings() {
+    const homeSection = document.getElementById("homeSection");
+    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
+
+    homeSection.innerHTML = `
+        <div class="settings-page daily-notification-page">
+            <div class="settings-header">
+                <h1>اعلان آیه روز</h1>
+            </div>
+
+            <div class="daily-notify-card">
+                <div class="daily-notify-row">
+                    <span>اعلان آیه روز</span>
+
+                    <button class="daily-switch-btn" onclick="enableDailyVerseNotification()">
+                        ${isOn ? "ON" : "OFF"}
+                    </button>
+                </div>
+            </div>
+
+            <button class="daily-back-btn" onclick="openUserSettings()">
+                بازگشت به تنظیمات
+            </button>
+        </div>
+    `;
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 async function enableDailyVerseNotification() {
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
 
