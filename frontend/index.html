@@ -3582,6 +3582,77 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 
+let deferredInstallPrompt = null;
+
+function isAppInstalled(){
+    return window.matchMedia("(display-mode: standalone)").matches
+        || window.navigator.standalone === true;
+}
+
+function isIOSDevice(){
+    return /iphone|ipad|ipod/i.test(navigator.userAgent);
+}
+
+function isAndroidDevice(){
+    return /android/i.test(navigator.userAgent);
+}
+
+window.addEventListener("beforeinstallprompt", function(event){
+    event.preventDefault();
+    deferredInstallPrompt = event;
+
+    const installBtn = document.getElementById("installAppBtn");
+
+    if(installBtn && isAndroidDevice() && !isAppInstalled()){
+        installBtn.style.display = "block";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    const installBtn = document.getElementById("installAppBtn");
+
+    if(installBtn){
+        installBtn.addEventListener("click", async function(){
+
+            if(deferredInstallPrompt){
+                deferredInstallPrompt.prompt();
+                const choice = await deferredInstallPrompt.userChoice;
+
+                if(choice.outcome === "accepted"){
+                    installBtn.style.display = "none";
+                }
+
+                deferredInstallPrompt = null;
+                return;
+            }
+
+            if(isIOSDevice() && !isAppInstalled()){
+                openIOSInstallGuide();
+            }
+        });
+    }
+
+    if(isIOSDevice() && !isAppInstalled()){
+        setTimeout(function(){
+            openIOSInstallGuide();
+        }, 1200);
+    }
+});
+
+function openIOSInstallGuide(){
+    const guide = document.getElementById("iosInstallGuide");
+    if(guide){
+        guide.style.display = "flex";
+    }
+}
+
+function closeIOSInstallGuide(){
+    const guide = document.getElementById("iosInstallGuide");
+    if(guide){
+        guide.style.display = "none";
+    }
+}
+
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 <script>eruda.init();</script>
 
