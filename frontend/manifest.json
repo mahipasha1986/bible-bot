@@ -3,7 +3,7 @@
   "short_name": "کلام حیات",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
+  "background_color": "#FFFAF0",
   "theme_color": "#1F4E79",
   "orientation": "portrait",
   "lang": "fa",
