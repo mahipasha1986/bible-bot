@@ -3699,6 +3699,7 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 
+<script>
 let deferredInstallPrompt = null;
 
 function isAppInstalled(){
@@ -3714,29 +3715,54 @@ function isAndroidDevice(){
     return /android/i.test(navigator.userAgent);
 }
 
+function shouldShowInstallPrompt(){
+    const hiddenUntil = Number(localStorage.getItem("installPromptHiddenUntil") || 0);
+    return Date.now() > hiddenUntil && !isAppInstalled();
+}
+
+function showInstallPromptCard(){
+    const card = document.getElementById("installPromptCard");
+    if(card && shouldShowInstallPrompt()){
+        card.style.display = "flex";
+    }
+}
+
+function hideInstallPrompt(){
+    const card = document.getElementById("installPromptCard");
+    if(card){
+        card.style.display = "none";
+    }
+
+    const sevenDays = 7 * 24 * 60 * 60 * 1000;
+    localStorage.setItem("installPromptHiddenUntil", Date.now() + sevenDays);
+}
+
 window.addEventListener("beforeinstallprompt", function(event){
     event.preventDefault();
     deferredInstallPrompt = event;
 
-    const installBtn = document.getElementById("installAppBtn");
-
-    if(installBtn && isAndroidDevice() && !isAppInstalled()){
-        installBtn.style.display = "block";
+    if(isAndroidDevice() && shouldShowInstallPrompt()){
+        showInstallPromptCard();
     }
 });
 
 document.addEventListener("DOMContentLoaded", function(){
     const installBtn = document.getElementById("installAppBtn");
 
+    if(isAndroidDevice() && shouldShowInstallPrompt()){
+        setTimeout(showInstallPromptCard, 1600);
+    }
+
     if(installBtn){
         installBtn.addEventListener("click", async function(){
 
             if(deferredInstallPrompt){
                 deferredInstallPrompt.prompt();
+
                 const choice = await deferredInstallPrompt.userChoice;
 
                 if(choice.outcome === "accepted"){
-                    installBtn.style.display = "none";
+                    hideInstallPrompt();
                 }
 
                 deferredInstallPrompt = null;
@@ -3745,14 +3771,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(isIOSDevice() && !isAppInstalled()){
                 openIOSInstallGuide();
+                return;
             }
+
+            alert("برای نصب، از دکمه Install یا Add to Home Screen در مرورگر استفاده کنید.");
         });
     }
 
-    if(isIOSDevice() && !isAppInstalled()){
+    if(isIOSDevice() && shouldShowInstallPrompt()){
         setTimeout(function(){
-            openIOSInstallGuide();
-        }, 1200);
+            showInstallPromptCard();
+        }, 1600);
     }
 });
 
@@ -3769,6 +3798,7 @@ function closeIOSInstallGuide(){
         guide.style.display = "none";
     }
 }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 <script>eruda.init();</script>
