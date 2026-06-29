@@ -1655,19 +1655,37 @@ body.dark-mode #homeSection .hero-card strong{
 </style>
 
 <script>
-window.addEventListener("load",function(){
-    setTimeout(function(){
-        const splash=document.getElementById("splash-screen");
-        if (splash) {
-            splash.style.opacity = "0";
-        }
+(function(){
+    function hideSplashScreen(){
+        const splash = document.getElementById("splash-screen");
+        if(!splash) return;
+
+        splash.style.opacity = "0";
+        splash.style.pointerEvents = "none";
+
         setTimeout(function(){
-            if (splash) {
-                splash.style.display = "none";
-            }
-        },500);
-    },2200);
-});
+            splash.style.display = "none";
+        }, 400);
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", function(){
+            setTimeout(hideSplashScreen, 1200);
+        });
+    }else{
+        setTimeout(hideSplashScreen, 1200);
+    }
+
+    window.addEventListener("load", function(){
+        setTimeout(hideSplashScreen, 1200);
+    });
+
+    window.addEventListener("pageshow", function(){
+        setTimeout(hideSplashScreen, 1200);
+    });
+
+    setTimeout(hideSplashScreen, 3500);
+})();
 </script>
     
 <div class="tab-buttons">
