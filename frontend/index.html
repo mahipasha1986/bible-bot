@@ -1415,6 +1415,15 @@ body.dark-mode .daily-notify-card{
     filter:drop-shadow(0 0 18px rgba(176,141,87,.18));
 }
 
+.splash-welcome{
+    margin-top:18px;
+    font-size:16px;
+    font-weight:600;
+    color:#7a5b2e;
+    opacity:.85;
+    animation:splashLogo 1s ease;
+}
+
 @keyframes splashLogo{
     from{
         opacity:0;
@@ -1435,7 +1444,7 @@ window.addEventListener("load",function(){
         setTimeout(function(){
             splash.remove();
         },500);
-    },1200);
+    },2200);
 });
 </script>
     
