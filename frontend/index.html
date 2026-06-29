@@ -385,7 +385,7 @@ audio{
     display:flex;
     gap:8px;
     margin-bottom:14px;
-    overflow-x:auto;
+    overflow-x:hidden;
     padding:8px 20px;
     background:rgba(255,255,255,0.85);
     border:1px solid #e8edf3;
@@ -394,11 +394,12 @@ audio{
 }
 
 .tab-buttons button{
-    flex:none;
-    min-width:140px;
+    flex:1;
+    min-width:0;
     font-size:14px;
     white-space:nowrap;
 }
+  
 .top-home-btn{
     display:flex;
     align-items:center;
