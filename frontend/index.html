@@ -3656,10 +3656,21 @@ function openTelegramChannel() {
 }
 
 function openDailyVerseNotificationSettings() {
-    const homeSection = document.getElementById("homeSection");
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
 
-    homeSection.innerHTML = `
+    let dailySection = document.getElementById("dailyNotificationSection");
+
+    if (!dailySection) {
+        dailySection = document.createElement("div");
+        dailySection.id = "dailyNotificationSection";
+        dailySection.className = "section";
+        document.body.insertBefore(
+            dailySection,
+            document.getElementById("verseActionSheet")
+        );
+    }
+
+    dailySection.innerHTML = `
         <div class="settings-page daily-notification-page">
             <div class="settings-header">
                 <h1>اعلان آیه روز</h1>
@@ -3681,7 +3692,7 @@ function openDailyVerseNotificationSettings() {
         </div>
     `;
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    showSection("dailyNotificationSection");
 }
 
 async function enableDailyVerseNotification() {
