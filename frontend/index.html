@@ -2338,9 +2338,26 @@ async function loadDailyVerse(){
     }
 }
 
+function getAppUserId(){
+    let userId = tgUser()?.id;
+
+    if(userId){
+        return String(userId);
+    }
+
+    userId = localStorage.getItem("klh_user_id");
+
+    if(!userId){
+        userId = String(Date.now()) + String(Math.floor(Math.random() * 1000000));
+        localStorage.setItem("klh_user_id", userId);
+    }
+
+    return userId;
+}
+
 async function likeDailyVerse(){
 
-    const userId = tgUser()?.id || 999999;
+    const userId = getAppUserId();
     const verseId = window.currentDailyVerseId;
 
     if(!verseId){
@@ -2348,14 +2365,15 @@ async function likeDailyVerse(){
         return;
     }
 
-    const res = await fetch(
-        API_BASE + "/bible/daily-verse/like?user_id=" + userId + "&verse_id=" + verseId
+    await fetch(
+        API_BASE + "/bible/daily-verse/like?user_id=" +
+        encodeURIComponent(userId) +
+        "&verse_id=" +
+        encodeURIComponent(verseId),
+        { cache: "no-store" }
     );
 
-    const data = await res.json();
-
-    document.getElementById("dailyVerseLikeCount").innerText =
-        ((data.likes ?? data.length) || 0) + " نفر";
+    await loadDailyVerseLikes(verseId);
 }
 
 async function loadDailyVerseLikes(verseId){
