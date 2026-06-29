@@ -1312,7 +1312,6 @@ body.dark-mode input::placeholder{
 }
 
 /* منوهای خانه */
-body.dark-mode #homeSection > div:not(.daily-verse-card),
 body.dark-mode .settings-page{
     background:transparent !important;
 }
@@ -1395,32 +1394,6 @@ body.dark-mode .daily-verse-card{
     background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200') center/cover no-repeat !important;
-}
-
-body.dark-mode #homeSection .hero-card{
-    background:
-        radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
-        linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%) !important;
-    border:1px solid rgba(200,169,106,.18) !important;
-    box-shadow:0 24px 60px rgba(31,78,121,.14) !important;
-}
-
-body.dark-mode #homeSection .hero-card div,
-body.dark-mode #homeSection .hero-card span,
-body.dark-mode #homeSection .hero-card p,
-body.dark-mode #homeSection .hero-card strong{
-    color:#071527 !important;
-}
-
-body.dark-mode #homeSection .hero-card .hero-subtitle{
-    color:#334155 !important;
-}
-
-body.dark-mode #homeSection .hero-card .hero-verse,
-body.dark-mode #homeSection .hero-card .hero-verse div,
-body.dark-mode #homeSection .hero-card .hero-verse strong{
-    color:#8a6a35 !important;
 }
 
 /* ===== Daily Verse Notification ===== */
@@ -1626,6 +1599,35 @@ body.dark-mode .daily-notify-card{
     background:#1F4E79;
     color:#fff;
 }
+
+ /* ===== Hero Dark Mode Fix ===== */
+
+body.dark-mode #homeSection .hero-card{
+    background:
+        radial-gradient(circle at 50% 18%, rgba(212,175,55,.08), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(31,78,121,.10), transparent 30%),
+        linear-gradient(180deg,#fffaf0 0%,#ffffff 46%,#eef6ff 100%) !important;
+
+    border:1px solid rgba(200,169,106,.18) !important;
+    box-shadow:0 24px 60px rgba(31,78,121,.14) !important;
+}
+
+body.dark-mode #homeSection .hero-card,
+body.dark-mode #homeSection .hero-card *{
+    color:#071527 !important;
+}
+
+body.dark-mode #homeSection .hero-card .hero-subtitle{
+    color:#334155 !important;
+}
+
+body.dark-mode #homeSection .hero-card .hero-verse,
+body.dark-mode #homeSection .hero-card .hero-verse *,
+body.dark-mode #homeSection .hero-card strong{
+    color:#8a6a35 !important;
+}
+
+</style>
 </style>
 
 <script>
