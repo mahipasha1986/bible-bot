@@ -3741,16 +3741,16 @@ window.addEventListener("beforeinstallprompt", function(event){
     event.preventDefault();
     deferredInstallPrompt = event;
 
-    if(isAndroidDevice() && shouldShowInstallPrompt()){
-        showInstallPromptCard();
+    if(!isIOSDevice() && shouldShowInstallPrompt()){
+         showInstallPromptCard();
     }
 });
 
 document.addEventListener("DOMContentLoaded", function(){
     const installBtn = document.getElementById("installAppBtn");
 
-    if(isAndroidDevice() && shouldShowInstallPrompt()){
-        setTimeout(showInstallPromptCard, 1600);
+    if(!isIOSDevice() && shouldShowInstallPrompt()){
+         setTimeout(showInstallPromptCard, 1600);
     }
 
     if(installBtn){
