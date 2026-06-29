@@ -1676,8 +1676,6 @@ window.addEventListener("load",function(){
     </button>
 </div>
 
-<div id="menuOverlay" class="menu-overlay"></div>
-
 </div>
 
 <div id="installPromptCard" class="install-prompt-card" style="display:none;">
@@ -3508,31 +3506,7 @@ function filterBooks(){
 
 loadDailyVerse();
 
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const sideMenu = document.getElementById("sideMenu");
-const closeMenuBtn = document.getElementById("closeMenuBtn");
-const menuOverlay = document.getElementById("menuOverlay");
-
-function openMenu() {
-    sideMenu.classList.add("active");
-    menuOverlay.classList.add("active");
-}
-
-function closeMenu() {
-    sideMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
-}
-
-hamburgerBtn.addEventListener("click", openMenu);
-closeMenuBtn.addEventListener("click", closeMenu);
-menuOverlay.addEventListener("click", closeMenu);
-
-function openAppGuide() {
-    closeMenu();
-}
-
 function openUserSettings() {
-    closeMenu();
 
     let settingsSection = document.getElementById("settingsSection");
 
@@ -3630,7 +3604,6 @@ function openUserSettings() {
 }
 
 function openTelegramChannel() {
-    closeMenu();
 
     if (window.Telegram && Telegram.WebApp) {
         Telegram.WebApp.openTelegramLink("https://t.me/persian_bible");
