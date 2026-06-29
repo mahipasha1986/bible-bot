@@ -18,8 +18,8 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 
-11 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-12 <style>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
 
 :root {
   --color-navy-900: #071527;
@@ -1658,9 +1658,13 @@ body.dark-mode #homeSection .hero-card strong{
 window.addEventListener("load",function(){
     setTimeout(function(){
         const splash=document.getElementById("splash-screen");
-        splash.style.opacity="0";
+        if (splash) {
+            splash.style.opacity = "0";
+        }
         setTimeout(function(){
-            splash.remove();
+            if (splash) {
+                splash.style.display = "none";
+            }
         },500);
     },2200);
 });
