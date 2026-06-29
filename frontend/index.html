@@ -3385,9 +3385,17 @@ function openAppGuide() {
 function openUserSettings() {
     closeMenu();
 
-    const homeSection = document.getElementById("homeSection");
+    let settingsSection = document.getElementById("settingsSection");
 
-    homeSection.innerHTML = `
+    if (!settingsSection) {
+        settingsSection = document.createElement("div");
+        settingsSection.id = "settingsSection";
+        settingsSection.className = "section";
+        document.body.insertBefore(settingsSection,
+    document.getElementById("verseActionSheet"));
+    }
+
+    settingsSection.innerHTML = `
         <div class="settings-page">
 
             <div class="settings-header">
@@ -3466,7 +3474,9 @@ function openUserSettings() {
 
         </div>
     `;
-
+  
+    showSection("settingsSection");
+  
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
