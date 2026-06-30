@@ -463,7 +463,7 @@ audio{
     background-position:center;
     border-radius:28px;
     padding:35px 25px;
-    text-align:center;ع
+    text-align:center;
     color:white;
     box-shadow:0 12px 30px rgba(31,78,121,.25);
 }
@@ -3053,6 +3053,25 @@ function showEncyclopediaPart(index, type){
 
         return;
     }
+}
+
+function openBibleHome(){
+
+    const bibleHero = document.getElementById("bibleHero");
+    const bibleTestamentCards = document.getElementById("bibleTestamentCards");
+    const bibleTools = document.getElementById("bibleTools");
+    const bibleContentCard = document.getElementById("bibleContentCard");
+    const bibleContent = document.getElementById("bibleContent");
+    const bibleSearchInput = document.getElementById("bibleSearchInput");
+
+    if(bibleHero) bibleHero.style.display = "block";
+    if(bibleTestamentCards) bibleTestamentCards.style.display = "block";
+    if(bibleTools) bibleTools.style.display = "none";
+    if(bibleContentCard) bibleContentCard.style.display = "none";
+    if(bibleContent) bibleContent.innerHTML = "";
+    if(bibleSearchInput) bibleSearchInput.value = "";
+
+    showSection("bibleSection");
 }
     
 function showSection(sectionId){
