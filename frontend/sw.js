@@ -1,11 +1,12 @@
-const CACHE_NAME = "kalame-hayat-v2";
+const CACHE_NAME = "kalame-hayat-v3";
 
 const APP_FILES = [
   "/",
   "/index.html",
   "/manifest.json",
   "/icon-192.png",
-  "/icon-512.png"
+  "/icon-512.png",
+  "/brand-logo.svg"
 ];
 
 self.addEventListener("install", (event) => {
@@ -16,7 +17,16 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then((names) =>
+      Promise.all(
+        names
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      )
+    )
+  );
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
