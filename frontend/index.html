@@ -3902,46 +3902,6 @@ function openPrivacyPolicy() {
     showSection("privacyPolicySection");
 }
 
-function openDailyVerseNotificationSettings() {
-    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
-
-    let dailySection = document.getElementById("dailyNotificationSection");
-
-    if (!dailySection) {
-        dailySection = document.createElement("div");
-        dailySection.id = "dailyNotificationSection";
-        dailySection.className = "section";
-        document.body.insertBefore(
-            dailySection,
-            document.getElementById("verseActionSheet")
-        );
-    }
-
-    dailySection.innerHTML = `
-        <div class="settings-page daily-notification-page">
-            <div class="settings-header">
-                <h1>اعلان آیه روز</h1>
-            </div>
-
-            <div class="daily-notify-card">
-                <div class="daily-notify-row">
-                    <span>اعلان آیه روز</span>
-
-                    <button class="daily-switch-btn" onclick="enableDailyVerseNotification()">
-                        ${isOn ? "ON" : "OFF"}
-                    </button>
-                </div>
-            </div>
-
-            <button class="daily-back-btn" onclick="openUserSettings()">
-                بازگشت به تنظیمات
-            </button>
-        </div>
-    `;
-
-    showSection("dailyNotificationSection");
-}
-
 async function enableDailyVerseNotification() {
 
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
@@ -3965,18 +3925,41 @@ async function enableDailyVerseNotification() {
         return;
     }
 
+    if (!("serviceWorker" in navigator)) {
+        alert("Service Worker پشتیبانی نمی‌شود");
+        return;
+    }
+
+    const registration = await navigator.serviceWorker.ready;
+
+    let subscription = await registration.pushManager.getSubscription();
+
+    if (!subscription) {
+        subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
+        });
+    }
+
+    console.log("Push subscription:", subscription);
+
+    await fetch(API_BASE + "/push/subscribe", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(subscription)
+    });
+
     localStorage.setItem("dailyVerseNotification", "on");
     openDailyVerseNotificationSettings();
 
-    if ("serviceWorker" in navigator) {
-        const registration = await navigator.serviceWorker.ready;
-
-        await registration.showNotification("آیه روز", {
-            body: "اعلان آیه روز با موفقیت فعال شد.",
-            icon: "/apple-touch-icon.png?v=4",
-            badge: "/apple-touch-icon.png?v=4"
-        });
-    }
+    await registration.showNotification("آیه روز", {
+        body: "اعلان آیه روز با موفقیت فعال شد.",
+        icon: "/apple-touch-icon.png?v=4",
+        badge: "/apple-touch-icon.png?v=4"
+    });
+}
 
 }
 
