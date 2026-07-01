@@ -3965,6 +3965,9 @@ async function enableDailyVerseNotification() {
         return;
     }
 
+    localStorage.setItem("dailyVerseNotification", "on");
+    openDailyVerseNotificationSettings();
+
     if ("serviceWorker" in navigator) {
         const registration = await navigator.serviceWorker.ready;
 
@@ -3993,8 +3996,6 @@ async function enableDailyVerseNotification() {
         } 
     }
 
-    localStorage.setItem("dailyVerseNotification", "on");
-    openDailyVerseNotificationSettings();
 }
 
 function urlBase64ToUint8Array(base64String) {
