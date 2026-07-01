@@ -3606,15 +3606,47 @@ function openUserSettings() {
     settingsSection.innerHTML = `
         <div class="settings-page">
 
+            <input
+                id="profileImageInput"
+                type="file"
+                accept="image/*"
+                style="display:none"
+                onchange="saveProfileImage(event)"
+            >
+
             <div class="settings-header">
                 <h1>تنظیمات</h1>
             </div>
 
             <div class="settings-profile">
 
-                <div class="settings-avatar">
-                    ${avatarLetter}
-                </div>
+                <div
+                    class="settings-avatar"
+                    onclick="document.getElementById('profileImageInput').click()"
+                    style="cursor:pointer;overflow:hidden;"
+                    title="تغییر عکس پروفایل"
+                >
+                    <img
+                        id="profileAvatarImage"
+                        src="${localStorage.getItem('klh_profile_image') || ''}"
+                        style="
+                            width:100%;
+                            height:100%;
+                            object-fit:cover;
+                            display:${localStorage.getItem('klh_profile_image') ? 'block' : 'none'};
+                        "
+                   >
+
+                   <span
+                       id="profileAvatarLetter"
+                       style="display:${localStorage.getItem('klh_profile_image') ? 'none' : 'flex'};
+                            width:100%;
+                            height:100%;
+                            align-items:center;
+                            justify-content:center;">
+                  ${avatarLetter}
+              </span>
+          </div>
 
                 <div class="settings-profile-info">
                     <div class="settings-name">${savedName}</div>
@@ -3709,6 +3741,30 @@ function editUserName() {
     localStorage.setItem("klh_user_name", name);
 
     openUserSettings();
+}
+
+function saveProfileImage(event){
+
+    const file = event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        localStorage.setItem(
+            "klh_profile_image",
+            e.target.result
+        );
+
+        openUserSettings();
+
+    };
+
+    reader.readAsDataURL(file);
 }
 
 function openTelegramChannel() {
