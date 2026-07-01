@@ -3976,35 +3976,33 @@ async function enableDailyVerseNotification() {
             icon: "/apple-touch-icon.png?v=4",
             badge: "/apple-touch-icon.png?v=4"
         });
-    }
 
-    if ("PushManager" in window) {
-        try {
-            let subscription = await registration.pushManager.getSubscription();
+        if ("PushManager" in window) {
+            try {
+                let subscription = await registration.pushManager.getSubscription();
 
-            if (!subscription) {
-                subscription = await registration.pushManager.subscribe({
-                    userVisibleOnly: true,
-                    applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
+                if (!subscription) {
+                    subscription = await registration.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
+                    });
+                }
+
+                console.log("Push subscription:", subscription);
+
+                await fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/push/subscribe", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(subscription)
                 });
+
+            } catch (err) {
+                console.log("Push subscription error:", err);
             }
-
-            console.log("Push subscription:", subscription);
-
-            await fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/push/subscribe", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(subscription)
-            });
-
-        } catch (err) {
-            console.log("Push subscription error:", err);
         }
     }
-
-}
 
 function urlBase64ToUint8Array(base64String) {
     const padding = "=".repeat((4 - base64String.length % 4) % 4);
