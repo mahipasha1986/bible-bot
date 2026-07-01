@@ -3991,6 +3991,14 @@ async function enableDailyVerseNotification() {
 
             console.log("Push subscription:", subscription);
 
+            await fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/push/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(subscription)
+            });
+
         } catch (err) {
             console.log("Push subscription error:", err);
         } 
