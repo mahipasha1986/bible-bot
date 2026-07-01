@@ -3976,12 +3976,21 @@ async function enableDailyVerseNotification() {
     }
 
     if ("PushManager" in window) {
-    const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
-    });
+        try {
+            let subscription = await registration.pushManager.getSubscription();
 
-    console.log(subscription);
+            if (!subscription) {
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
+                });
+            }
+
+            console.log("Push subscription:", subscription);
+
+        } catch (err) {
+            console.log("Push subscription error:", err);
+        } 
     }
 
     localStorage.setItem("dailyVerseNotification", "on");
