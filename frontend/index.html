@@ -1452,7 +1452,7 @@ body.dark-mode .daily-notify-card{
 }
 
 .daily-switch-btn{
-    width:58px;6
+    width:58px;
     height:30px;
     padding:0;
     font-size:13px;
@@ -3589,6 +3589,10 @@ loadDailyVerse();
 
 function openUserSettings() {
 
+  const appUserId = getAppUserId();
+  const savedName = localStorage.getItem("klh_user_name") || "کاربر";
+  const avatarLetter = savedName.trim().charAt(0) || "ک";
+
     let settingsSection = document.getElementById("settingsSection");
 
     if (!settingsSection) {
@@ -3609,12 +3613,12 @@ function openUserSettings() {
             <div class="settings-profile">
 
                 <div class="settings-avatar">
-                    ک
+                    ${avatarLetter}
                 </div>
 
                 <div class="settings-profile-info">
-                    <div class="settings-name">کاربر</div>
-                    <div class="settings-username">نام کاربری ثبت نشده</div>
+                    <div class="settings-name">${savedName}</div>
+                    <div class="settings-username">شناسه: ${appUserId}</div>
                 </div>
 
             </div>
@@ -3622,14 +3626,14 @@ function openUserSettings() {
             <div class="settings-group">
                 <h3>پروفایل و حساب</h3>
 
-                <div class="settings-item">
+                <div class="settings-item" onclick="editUserName()">
                     <span>نام کاربر</span>
-                    <small>کاربر کلام حیات</small>
+                    <small>${savedName}</small>
                 </div>
 
                 <div class="settings-item">
-                    <span>نام کاربری تلگرام</span>
-                    <small>ثبت نشده</small>
+                    <span>شناسه کاربر</span>
+                    <small>${appUserId}</small>
                 </div>
             </div>
 
@@ -3681,7 +3685,31 @@ function openUserSettings() {
   
     showSection("settingsSection");
   
+    applyDarkMode();
+  
     window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function editUserName() {
+
+    const currentName = localStorage.getItem("klh_user_name") || "کاربر";
+
+    const newName = prompt("نام خود را وارد کنید", currentName);
+
+    if (newName === null) {
+        return;
+    }
+
+    const name = newName.trim();
+
+    if (name.length < 2) {
+        alert("نام باید حداقل ۲ حرف باشد.");
+        return;
+    }
+
+    localStorage.setItem("klh_user_name", name);
+
+    openUserSettings();
 }
 
 function openTelegramChannel() {
