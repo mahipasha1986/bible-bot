@@ -3796,17 +3796,50 @@ function saveProfileImage(event){
         return;
     }
 
+    if(!file.type.startsWith("image/")){
+        alert("لطفاً فقط فایل عکس انتخاب کنید.");
+        return;
+    }
+
     const reader = new FileReader();
 
     reader.onload = function(e){
 
-        localStorage.setItem(
-            "klh_profile_image",
-            e.target.result
-        );
+        const img = new Image();
 
-        openUserSettings();
+        img.onload = function(){
 
+            const size = 300;
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = size;
+            canvas.height = size;
+
+            const minSide = Math.min(img.width, img.height);
+            const sx = (img.width - minSide) / 2;
+            const sy = (img.height - minSide) / 2;
+
+            ctx.drawImage(
+                img,
+                sx,
+                sy,
+                minSide,
+                minSide,
+                0,
+                0,
+                size,
+                size
+            );
+
+            const compressedImage = canvas.toDataURL("image/jpeg", 0.82);
+
+            localStorage.setItem("klh_profile_image", compressedImage);
+
+            openUserSettings();
+        };
+
+        img.src = e.target.result;
     };
 
     reader.readAsDataURL(file);
