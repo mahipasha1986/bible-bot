@@ -1217,6 +1217,40 @@ audio{
     font-weight:900;
 }
 
+.profile-avatar-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.profile-camera-badge{
+    position:absolute;
+    right:-2px;
+    bottom:-2px;
+
+    width:24px;
+    height:24px;
+    border-radius:50%;
+
+    background:#1f4e79;
+    border:2px solid #ffffff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.18);
+
+    pointer-events:none;
+}
+
+.profile-camera-badge svg{
+    width:13px;
+    height:13px;
+    stroke:#ffffff;
+    stroke-width:2;
+    fill:none;
+}
+
 .settings-profile-info{
     display:flex;
     flex-direction:column;
@@ -3620,6 +3654,8 @@ function openUserSettings() {
 
             <div class="settings-profile">
 
+            <div class="profile-avatar-wrapper">
+
                 <div
                     class="settings-avatar"
                     onclick="document.getElementById('profileImageInput').click()"
@@ -3647,6 +3683,15 @@ function openUserSettings() {
                   ${avatarLetter}
               </span>
           </div>
+
+                <div class="profile-camera-badge">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7h3l1.4-2h7.2L17 7h3v11H4z"/>
+                        <circle cx="12" cy="13" r="3.5"/>
+                    </svg>
+                </div>
+
+                </div>
 
                 <div class="settings-profile-info">
                     <div class="settings-name">${savedName}</div>
