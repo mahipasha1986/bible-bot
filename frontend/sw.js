@@ -31,3 +31,31 @@ self.addEventListener("fetch", (event) => {
     fetch(event.request).catch(() => caches.match(event.request))
   );
 });
+
+self.addEventListener("push", (event) => {
+  const data = event.data ? event.data.json() : {};
+
+  event.waitUntil(
+    self.registration.showNotification(
+      data.title || "آیه روز",
+      {
+        body: data.body || "آیه امروز آماده است.",
+        icon: "/apple-touch-icon.png?v=4",
+        badge: "/apple-touch-icon.png?v=4",
+        data: {
+          url: data.url || "/"
+        }
+      }
+    )
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow(
+      event.notification.data?.url || "/"
+    )
+  );
+});
