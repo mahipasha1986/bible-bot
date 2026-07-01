@@ -3754,7 +3754,7 @@ function openUserSettings() {
                 <div class="settings-item" onclick="openTelegramChannel()">
 
                     <div
-                    style="display:flex;align-items:center;justify-content:flex-start;gap:10px;direction:rtl;"
+                    style="display:flex;align-items:center;justify-content:flex-start;gap:10px;direction:rtl;">
 
                         <span>عضویت در کانال تلگرام</span>
 
@@ -3863,6 +3863,46 @@ function openTelegramChannel() {
     } else {
         window.open("https://t.me/persian_bible", "_blank");
     }
+}
+
+function openPrivacyPolicy() {
+
+    let privacySection = document.getElementById("privacyPolicySection");
+
+    if (!privacySection) {
+        privacySection = document.createElement("div");
+        privacySection.id = "privacyPolicySection";
+        privacySection.className = "section";
+        document.body.insertBefore(
+            privacySection,
+            document.getElementById("verseActionSheet")
+        );
+    }
+
+    privacySection.innerHTML = `
+        <div class="settings-page">
+
+            <div class="settings-header">
+                <h1>Privacy Policy</h1>
+            </div>
+
+            <div class="card" style="text-align:right;direction:rtl;line-height:2.1;">
+
+                <p>
+                    حفظ حریم خصوصی کاربران برای ما اهمیت دارد.
+                    اطلاعات شخصی کاربران مطابق با سیاست‌های این برنامه محافظت شده و در اختیار اشخاص ثالث قرار نخواهد گرفت.
+                </p>
+
+            </div>
+
+            <button class="daily-back-btn" onclick="openUserSettings()">
+                بازگشت به تنظیمات
+            </button>
+
+        </div>
+    `;
+
+    showSection("privacyPolicySection");
 }
 
 function openDailyVerseNotificationSettings() {
