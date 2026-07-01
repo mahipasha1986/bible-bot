@@ -3902,6 +3902,46 @@ function openPrivacyPolicy() {
     showSection("privacyPolicySection");
 }
 
+function openDailyVerseNotificationSettings() {
+    const isOn = localStorage.getItem("dailyVerseNotification") === "on";
+
+    let dailySection = document.getElementById("dailyNotificationSection");
+
+    if (!dailySection) {
+        dailySection = document.createElement("div");
+        dailySection.id = "dailyNotificationSection";
+        dailySection.className = "section";
+        document.body.insertBefore(
+            dailySection,
+            document.getElementById("verseActionSheet")
+        );
+    }
+
+    dailySection.innerHTML = `
+        <div class="settings-page daily-notification-page">
+            <div class="settings-header">
+                <h1>اعلان آیه روز</h1>
+            </div>
+
+            <div class="daily-notify-card">
+                <div class="daily-notify-row">
+                    <span>اعلان آیه روز</span>
+
+                    <button class="daily-switch-btn" onclick="enableDailyVerseNotification()">
+                        ${isOn ? "ON" : "OFF"}
+                    </button>
+                </div>
+            </div>
+
+            <button class="daily-back-btn" onclick="openUserSettings()">
+                بازگشت به تنظیمات
+            </button>
+        </div>
+    `;
+
+    showSection("dailyNotificationSection");
+}
+
 async function enableDailyVerseNotification() {
 
     const isOn = localStorage.getItem("dailyVerseNotification") === "on";
