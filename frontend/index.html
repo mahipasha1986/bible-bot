@@ -3975,8 +3975,33 @@ async function enableDailyVerseNotification() {
         });
     }
 
+    if ("PushManager" in window) {
+    const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array("BLEuQ5S_aWoOaWKsFdaZypjp_Hxh9OVYAeEAFM88cn-soezvMxE4HJ7jVqtz2aL9BUY0fUkAcwPpr8ZoKpPK-mo")
+    });
+
+    console.log(subscription);
+    }
+
     localStorage.setItem("dailyVerseNotification", "on");
     openDailyVerseNotificationSettings();
+}
+
+function urlBase64ToUint8Array(base64String) {
+    const padding = "=".repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/-/g, "+")
+        .replace(/_/g, "/");
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+
+    return outputArray;
 }
 
 function toggleDarkMode() {
