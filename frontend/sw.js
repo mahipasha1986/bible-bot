@@ -48,7 +48,7 @@ self.addEventListener("push", (event) => {
         });
       })
       .catch(() => {
-        return self.registration.showNotification("📖 آیه روز", {
+        return self.registration.showNotification("آیه روز", {
           body: "آیه امروز آماده است.",
           icon: "/apple-touch-icon.png?v=4",
           badge: "/apple-touch-icon.png?v=4",
