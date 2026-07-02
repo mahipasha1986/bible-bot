@@ -3130,8 +3130,42 @@ function openBibleHome(){
 
     showSection("bibleSection");
 }
+
+function resetSongsSection(){
+
+    closePlayer();
+
+    const songsBox = document.getElementById("songs");
+    const statusBox = document.getElementById("status");
+    const searchInput = document.getElementById("search");
+    const searchBox = document.getElementById("searchBox");
+
+    if(songsBox) songsBox.innerHTML = "";
+    if(statusBox) statusBox.innerText = "";
+    if(searchInput) searchInput.value = "";
+    if(searchBox) searchBox.style.display = "none";
+}
+
+function resetLibrarySection(){
+
+    const booksBox = document.getElementById("books");
+    const bookStatus = document.getElementById("bookStatus");
+    const bookSearch = document.getElementById("bookSearch");
+
+    if(booksBox) booksBox.innerHTML = "";
+    if(bookStatus) bookStatus.innerText = "";
+    if(bookSearch) bookSearch.value = "";
+}
     
 function showSection(sectionId){
+
+    if(sectionId !== "songsSection"){
+        resetSongsSection();
+    }
+
+    if(sectionId !== "librarySection"){
+        resetLibrarySection();
+    }
 
     document.querySelectorAll(".section").forEach(sec => {
         sec.classList.remove("active");
