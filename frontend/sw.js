@@ -36,7 +36,7 @@ self.addEventListener("push", (event) => {
         const verse = Array.isArray(data) ? data[0] : data;
         const bookName = verse?.bible_books?.name_fa || "";
 
-        return self.registration.showNotification("📖 آیه روز", {
+        return self.registration.showNotification("آیه روز", {
           body: verse
             ? `${verse.verse_text}\n\n${bookName} ${verse.chapter_number}:${verse.verse_number}`
             : "آیه امروز آماده است.",
