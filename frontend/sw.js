@@ -33,21 +33,27 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("push", (event) => {
+
   const data = event.data ? event.data.json() : {};
 
   event.waitUntil(
+
     self.registration.showNotification(
-      data.title || "آیه روز",
+      data.title || "📖 آیه روز",
       {
-        body: data.body || "آیه امروز آماده است.",
-        icon: "/apple-touch-icon.png?v=4",
-        badge: "/apple-touch-icon.png?v=4",
+        body: data.body || "",
+        icon: data.icon || "/apple-touch-icon.png?v=4",
+        badge: data.badge || "/apple-touch-icon.png?v=4",
+
         data: {
           url: data.url || "/"
         }
+
       }
     )
+
   );
+
 });
 
 self.addEventListener("notificationclick", (event) => {
