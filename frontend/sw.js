@@ -1,4 +1,4 @@
-const CACHE_NAME = "kalame-hayat-v3";
+const CACHE_NAME = "kalame-hayat-v5";
 
 const APP_FILES = [
   "/",
@@ -26,34 +26,38 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
-  );
-});
-
 self.addEventListener("push", (event) => {
-
-  const data = event.data ? event.data.json() : {};
-
   event.waitUntil(
+    fetch("https://square-silence-9274.mahi-pasha1986.workers.dev/bible/daily-verse", {
+      cache: "no-store"
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const verse = Array.isArray(data) ? data[0] : data;
+        const bookName = verse?.bible_books?.name_fa || "";
 
-    self.registration.showNotification(
-      data.title || "📖 آیه روز",
-      {
-        body: data.body || "",
-        icon: data.icon || "/apple-touch-icon.png?v=4",
-        badge: data.badge || "/apple-touch-icon.png?v=4",
-
-        data: {
-          url: data.url || "/"
-        }
-
-      }
-    )
-
+        return self.registration.showNotification("📖 آیه روز", {
+          body: verse
+            ? `${verse.verse_text}\n\n${bookName} ${verse.chapter_number}:${verse.verse_number}`
+            : "آیه امروز آماده است.",
+          icon: "/apple-touch-icon.png?v=4",
+          badge: "/apple-touch-icon.png?v=4",
+          data: {
+            url: "/"
+          }
+        });
+      })
+      .catch(() => {
+        return self.registration.showNotification("📖 آیه روز", {
+          body: "آیه امروز آماده است.",
+          icon: "/apple-touch-icon.png?v=4",
+          badge: "/apple-touch-icon.png?v=4",
+          data: {
+            url: "/"
+          }
+        });
+      })
   );
-
 });
 
 self.addEventListener("notificationclick", (event) => {
