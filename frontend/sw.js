@@ -41,7 +41,6 @@ self.addEventListener("push", (event) => {
             ? `${verse.verse_text}\n\n${bookName} ${verse.chapter_number}:${verse.verse_number}`
             : "آیه امروز آماده است.",
           icon: "/apple-touch-icon.png?v=4",
-          badge: "/apple-touch-icon.png?v=4",
           data: {
             url: "/"
           }
