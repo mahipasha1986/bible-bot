@@ -1,4 +1,4 @@
-const CACHE_NAME = "kalame-hayat-v5";
+const CACHE_NAME = "kalame-hayat-v6";
 
 const APP_FILES = [
   "/",
