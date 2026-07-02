@@ -1,4 +1,4 @@
-const CACHE_NAME = "kalame-hayat-v6";
+const CACHE_NAME = "kalame-hayat-v8";
 
 const APP_FILES = [
   "/",
@@ -40,7 +40,6 @@ self.addEventListener("push", (event) => {
           body: verse
             ? `${verse.verse_text}\n\n${bookName} ${verse.chapter_number}:${verse.verse_number}`
             : "آیه امروز آماده است.",
-          icon: "/apple-touch-icon.png?v=4",
           data: {
             url: "/"
           }
@@ -49,8 +48,6 @@ self.addEventListener("push", (event) => {
       .catch(() => {
         return self.registration.showNotification("آیه روز", {
           body: "آیه امروز آماده است.",
-          icon: "/apple-touch-icon.png?v=4",
-          badge: "/apple-touch-icon.png?v=4",
           data: {
             url: "/"
           }
