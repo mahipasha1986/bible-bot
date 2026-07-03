@@ -1706,6 +1706,11 @@ body.dark-mode #bibleContent .verse-inline-actions button[title="بستن"]{
     color:#1f4e79 !important;
 }
 
+body.dark-mode .encyclopedia-hero-card,
+body.dark-mode .encyclopedia-hero-card *{
+    color:#ffffff !important;
+}
+  
 </style>
 
 <script>
@@ -2941,11 +2946,30 @@ function showBibleEncyclopedia(){
     }
 
     encyclopediaSection.innerHTML = `
-        <div class="card">
-            <h1>دانشنامه کتاب مقدس</h1>
-            <p>
-                واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را در این بخش جستجو و مطالعه کنید.
-            </p>
+        <div class="card encyclopedia-hero-card" style="
+            background:
+            linear-gradient(rgba(8,20,40,.62),rgba(8,20,40,.62)),
+            url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1200');
+            background-size:cover;
+            background-position:center;
+            color:white;
+            text-align:center;
+            padding:60px 24px;
+            border-radius:24px;
+        ">
+            <h1 style="color:white;margin-bottom:14px;">
+                دانشنامه کتاب مقدس
+            </h1>
+
+            <div style="
+                font-size:18px;
+                line-height:1.9;
+                max-width:700px;
+                margin:auto;
+                color:white;
+            ">
+                واژه‌ها، شخصیت‌ها، مکان‌ها و مفاهیم مهم کتاب مقدس را جستجو و مطالعه کنید.
+            </div>
         </div>
 
         <div class="card">
