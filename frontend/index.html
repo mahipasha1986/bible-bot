@@ -2261,6 +2261,11 @@ async function searchBibleVerse(){
 
     const input = document.getElementById("bibleSearchInput");
     const bibleContent = document.getElementById("bibleContent");
+    const bibleContentCard = document.getElementById("bibleContentCard");
+
+    if(bibleContentCard){
+        bibleContentCard.style.display = "block";
+    }
 
     const q = input.value.trim();
 
