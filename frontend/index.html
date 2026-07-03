@@ -1710,6 +1710,18 @@ body.dark-mode .encyclopedia-hero-card,
 body.dark-mode .encyclopedia-hero-card *{
     color:#ffffff !important;
 }
+
+body.dark-mode #bibleHero{
+    background:
+        linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
+        url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200') center/cover no-repeat !important;
+}
+
+body.dark-mode .encyclopedia-hero-card{
+    background:
+        linear-gradient(rgba(8,20,40,.62),rgba(8,20,40,.62)),
+        url('./file_000000005d6c71f4b08b30389a4fb067.png') center/cover no-repeat !important;
+}
   
 </style>
 
@@ -2946,7 +2958,7 @@ function showBibleEncyclopedia(){
     }
 
     encyclopediaSection.innerHTML = `
-        <div class="card encyclopedia-hero-card" style="
+        <div class="card encyclopedia-hero-card songs-hero-animate" style="
             background:
             linear-gradient(rgba(8,20,40,.62),rgba(8,20,40,.62)),
             url('./file_000000005d6c71f4b08b30389a4fb067.png');
