@@ -2392,16 +2392,11 @@ async function loadDailyVerse(){
 }
 
 function getAppUserId(){
-    let userId = tgUser()?.id;
 
-    if(userId){
-        return String(userId);
-    }
-
-    userId = localStorage.getItem("klh_user_id");
+    let userId = localStorage.getItem("klh_user_id");
 
     if(!userId){
-        userId = String(Date.now()) + String(Math.floor(Math.random() * 1000000));
+        userId = "web_" + Date.now() + "_" + Math.floor(Math.random() * 1000000);
         localStorage.setItem("klh_user_id", userId);
     }
 
@@ -3193,8 +3188,7 @@ function showSection(sectionId){
 }
 
 function getChatId(){
-  const user = tgUser();
-  return user ? user.id : null;
+    return getAppUserId();
 }
 
 function setStatus(text){
