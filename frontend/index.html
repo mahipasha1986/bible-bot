@@ -15,7 +15,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 
 :root {
@@ -2238,17 +2237,8 @@ body.dark-mode .encyclopedia-hero-card{
 </div>
 
 <script>
-const TG_APP = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
-if (TG_APP) {
-    TG_APP.ready();
-    TG_APP.expand();
-}
 
 const API_BASE = "https://square-silence-9274.mahi-pasha1986.workers.dev";
-    
-function tgUser(){
-    return TG_APP && TG_APP.initDataUnsafe ? TG_APP.initDataUnsafe.user : null;
-}
 
 let allSongs = [];
 let filteredSongs = [];
@@ -2330,12 +2320,7 @@ async function searchBibleVerse(){
 
 async function addBookmark(verseId){
 
-    const userId = tgUser()?.id;
-
-    if(!userId){
-        alert("کاربر شناسایی نشد");
-        return;
-    }
+    const userId = getAppUserId();
 
     try{
 
@@ -2462,13 +2447,8 @@ async function loadDailyVerseLikes(verseId){
 
 async function loadBookmarks(){
 
-    const userId = tgUser()?.id;
+    const userId = getAppUserId();
     const bibleContent = document.getElementById("bibleContent");
-
-    if(!userId){
-        bibleContent.innerHTML = "کاربر شناسایی نشد";
-        return;
-    }
 
     bibleContent.innerHTML = "⏳ در حال دریافت آیات ذخیره‌شده...";
 
@@ -2508,12 +2488,7 @@ async function loadBookmarks(){
 
 async function deleteBookmark(verseId){
 
-    const userId = tgUser()?.id;
-
-    if(!userId){
-        alert("کاربر شناسایی نشد");
-        return;
-    }
+    const userId = getAppUserId();
 
     try{
         await fetch(
