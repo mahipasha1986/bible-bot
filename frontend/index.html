@@ -3406,7 +3406,7 @@ function openPlayer(song){
   const audioPlayer = document.getElementById("audioPlayer");
 
   playerTitle.innerText = song.name;
-  audioPlayer.src = API_BASE + "/storage/" + encodeURIComponent(song.fileName);
+  audioPlayer.src = API_BASE + "/hymns/" + song.id + "/audio";
   playerCard.style.display = "block";
   setStatus("");
 
