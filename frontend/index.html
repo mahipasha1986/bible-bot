@@ -3208,6 +3208,7 @@ async function loadSongs(){
   allSongs = (Array.isArray(data) ? data : data.songs || [])
     .map((s, i) => ({
         id: s.id,
+        fileName: s.file_name || "",
         index: i,
         name: s.title || s.name || "",
         searchTitle: s.search_title || s.title || s.name || ""
@@ -3405,7 +3406,7 @@ function openPlayer(song){
   const audioPlayer = document.getElementById("audioPlayer");
 
   playerTitle.innerText = song.name;
-  audioPlayer.src = API_BASE + "/hymns/" + song.id + "/audio";
+  audioPlayer.src = API_BASE + "/storage/" + encodeURIComponent(song.fileName);
   playerCard.style.display = "block";
   setStatus("");
 
