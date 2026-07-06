@@ -3209,7 +3209,8 @@ async function loadSongs(){
     .map((s, i) => ({
         id: s.id,
         index: i,
-        name: s.title || s.name || ""
+        name: s.title || s.name || "",
+        searchTitle: s.search_title || s.title || s.name || ""
     }));
   filteredSongs = allSongs;
   masterSongs = allSongs;
@@ -3384,7 +3385,9 @@ function filterSongs(){
     return;
   }
 
-  const filtered = (masterSongs.length ? masterSongs : allSongs).filter(s => (s.name || "").toLowerCase().includes(q));
+  const filtered = (masterSongs.length ? masterSongs : allSongs).filter(s =>
+    ((s.name || "") + " " + (s.searchTitle || "")).toLowerCase().includes(q)
+  );
   renderSongs(filtered.slice(0, 100), false);
 
   if(filtered.length > 100){
