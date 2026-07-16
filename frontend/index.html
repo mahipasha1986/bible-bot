@@ -2004,49 +2004,71 @@ body.dark-mode .encyclopedia-hero-card{
 }
 
 /* ===== Home Hero - Tablet Landscape ===== */
-@media (min-width:901px) and (max-width:1200px){
+@media (min-width:521px) and (max-width:900px){
 
     .home-hero-new{
-        min-height:350px;
-        height:350px;
-        border-radius:28px;
+        min-height:330px;
+        height:330px;
+        border-radius:24px;
 
         background:
             linear-gradient(
                 90deg,
-                rgba(255,250,240,.96) 0%,
-                rgba(255,250,240,.84) 29%,
-                rgba(255,250,240,.34) 51%,
-                rgba(255,250,240,0) 72%
+                rgba(255,250,240,.97) 0%,
+                rgba(255,250,240,.89) 31%,
+                rgba(255,250,240,.46) 52%,
+                rgba(255,250,240,.06) 72%,
+                rgba(255,250,240,0) 100%
             ),
             url('./file_000000000be0720ab8298d8199bc6cdf.png')
-            65% center/cover no-repeat;
+            66% center/cover no-repeat;
     }
 
     .home-hero-content{
+        position:absolute;
         left:5%;
-        width:38%;
+        top:50%;
+        transform:translateY(-50%);
+        width:44%;
+        padding:0;
+        direction:rtl;
+        text-align:right;
+        align-items:flex-start;
     }
 
     .home-hero-content h1{
-        font-size:38px;
-        line-height:1.5;
-        margin-bottom:14px;
+        margin:0 0 12px;
+        font-family:'Vazirmatn',sans-serif;
+        font-size:28px;
+        font-weight:900;
+        line-height:1.55;
+        letter-spacing:-.8px;
         text-align:right;
+        color:#08284d;
     }
 
     .home-hero-content p{
-        font-size:16px;
+        margin:0 0 18px;
+        font-family:'Vazirmatn',sans-serif;
+        font-size:13px;
+        font-weight:500;
         line-height:1.9;
-        margin-bottom:22px;
         text-align:right;
+        color:#263b53;
     }
 
     .home-hero-continue{
-        width:205px;
-        min-width:205px;
-        height:56px;
-        font-size:15px;
+        width:165px;
+        min-width:165px;
+        height:48px;
+        padding:0 16px;
+        gap:9px;
+        font-size:13px;
+    }
+
+    .home-hero-continue svg{
+        width:18px;
+        height:18px;
     }
 }
   
