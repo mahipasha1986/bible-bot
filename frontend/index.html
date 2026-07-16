@@ -1897,37 +1897,140 @@ body.dark-mode .encyclopedia-hero-card{
             64% center/cover no-repeat;
     }
 
+/* ===== Home Hero - Clean Final CSS ===== */
+
+.home-hero-new{
+    position:relative;
+    overflow:hidden;
+    height:400px;
+    min-height:400px;
+    margin-bottom:18px;
+    border-radius:28px;
+    box-shadow:0 18px 45px rgba(31,78,121,.16);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,250,240,.97) 0%,
+            rgba(255,250,240,.90) 28%,
+            rgba(255,250,240,.48) 48%,
+            rgba(255,250,240,.08) 68%,
+            rgba(255,250,240,0) 100%
+        ),
+        url('./file_000000000be0720ab8298d8199bc6cdf.png')
+        66% center / cover no-repeat;
+}
+
+.home-hero-content{
+    position:absolute;
+    left:4%;
+    top:50%;
+    transform:translateY(-50%);
+    width:40%;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    direction:rtl;
+    text-align:right;
+}
+
+.home-hero-content h1{
+    margin:0 0 18px;
+    color:#08284d;
+    font-family:'Vazirmatn',sans-serif;
+    font-size:42px;
+    font-weight:900;
+    line-height:1.55;
+    letter-spacing:-1.2px;
+    text-align:right;
+    text-shadow:none;
+}
+
+.home-hero-content p{
+    margin:0 0 24px;
+    color:#263b53;
+    font-family:'Vazirmatn',sans-serif;
+    font-size:17px;
+    font-weight:500;
+    line-height:2;
+    text-align:right;
+}
+
+.home-hero-continue{
+    width:220px;
+    min-width:220px;
+    height:60px;
+    margin:0;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    border:none;
+    border-radius:999px;
+    background:#082f5c;
+    color:#ffffff;
+
+    font-family:'Vazirmatn',sans-serif;
+    font-size:16px;
+    font-weight:800;
+    box-shadow:0 12px 28px rgba(8,47,92,.28);
+}
+
+.home-hero-continue svg{
+    width:21px;
+    height:21px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+/* ===== Phone ===== */
+
+@media (max-width:520px){
+
+    .home-hero-new{
+        height:330px;
+        min-height:330px;
+        margin-bottom:14px;
+        border-radius:20px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255,250,240,.97) 0%,
+                rgba(255,250,240,.90) 29%,
+                rgba(255,250,240,.50) 48%,
+                rgba(255,250,240,.08) 68%,
+                rgba(255,250,240,0) 100%
+            ),
+            url('./file_000000000be0720ab8298d8199bc6cdf.png')
+            64% center / cover no-repeat;
+    }
+
     .home-hero-content{
-        position:absolute;
-        left:6%;
-        top:50%;
-        transform:translateY(-50%);
-        width:46%;
-        padding:0;
-        direction:rtl;
-        text-align:right;
-        align-items:flex-start;
+        left:5%;
+        width:47%;
     }
 
     .home-hero-content h1{
-        margin:0 0 12px;
-        font-family:'Vazirmatn',sans-serif;
+        margin-bottom:12px;
         font-size:25px;
-        font-weight:900;
         line-height:1.55;
         letter-spacing:-.8px;
-        text-align:right;
-        color:#08284d;
     }
 
     .home-hero-content p{
-        margin:0 0 16px;
-        font-family:'Vazirmatn',sans-serif;
+        margin-bottom:16px;
         font-size:11px;
-        font-weight:500;
         line-height:1.9;
-        text-align:right;
-        color:#263b53;
     }
 
     .home-hero-continue{
@@ -1936,10 +2039,7 @@ body.dark-mode .encyclopedia-hero-card{
         height:44px;
         padding:0 14px;
         gap:8px;
-        border-radius:999px;
-        font-family:'Vazirmatn',sans-serif;
         font-size:12px;
-        font-weight:800;
     }
 
     .home-hero-continue svg{
@@ -1948,120 +2048,51 @@ body.dark-mode .encyclopedia-hero-card{
     }
 }
 
-/* ===== Home Hero - Tablet Portrait ===== */
-@media (min-width:521px) and (max-width:900px){
+/* ===== Tablet Portrait ===== */
+
+@media (min-width:521px) and (max-width:900px) and (orientation:portrait){
 
     .home-hero-new{
-        min-height:560px;
-        height:560px;
-        border-radius:34px;
+        height:380px;
+        min-height:380px;
+        border-radius:26px;
 
         background:
             linear-gradient(
                 90deg,
-                rgba(255,250,240,.96) 0%,
-                rgba(255,250,240,.86) 34%,
-                rgba(255,250,240,.38) 56%,
-                rgba(255,250,240,0) 76%
-            ),
-            url('./file_000000000be0720ab8298d8199bc6cdf.png')
-            78% center/cover no-repeat;
-    }
-
-    .home-hero-content{
-        position:absolute;
-        left:5%;
-        top:50%;
-        transform:translateY(-50%);
-        width:43%;
-        padding:0;
-        align-items:flex-start;
-        text-align:right;
-        direction:rtl;
-    }
-
-    .home-hero-content h1{
-        font-size:34px;
-        line-height:1.55;
-        letter-spacing:-1px;
-        margin:0 0 16px;
-        text-align:right;
-    }
-
-    .home-hero-content p{
-        font-size:15px;
-        line-height:1.95;
-        margin:0 0 22px;
-        text-align:right;
-    }
-
-    .home-hero-continue{
-        width:185px;
-        min-width:185px;
-        height:52px;
-        font-size:14px;
-    }
-}
-
-/* ===== Home Hero - Tablet Landscape ===== */
-@media (min-width:521px) and (max-width:900px){
-
-    .home-hero-new{
-        min-height:330px;
-        height:330px;
-        border-radius:24px;
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(255,250,240,.97) 0%,
-                rgba(255,250,240,.89) 31%,
-                rgba(255,250,240,.46) 52%,
+                rgba(255,250,240,.98) 0%,
+                rgba(255,250,240,.92) 30%,
+                rgba(255,250,240,.46) 51%,
                 rgba(255,250,240,.06) 72%,
                 rgba(255,250,240,0) 100%
             ),
             url('./file_000000000be0720ab8298d8199bc6cdf.png')
-            66% center/cover no-repeat;
+            70% center / cover no-repeat;
     }
 
     .home-hero-content{
-        position:absolute;
-        left:2%;
-        top:50%;
-        transform:translateY(-50%);
-        width:38%;
-        padding:0;
-        direction:rtl;
-        text-align:right;
-        align-items:flex-start;
+        left:3%;
+        width:39%;
     }
 
     .home-hero-content h1{
-        margin:0 0 12px;
-        font-family:'Vazirmatn',sans-serif;
-        font-size:28px;
-        font-weight:900;
+        margin-bottom:14px;
+        font-size:31px;
         line-height:1.55;
-        letter-spacing:-.8px;
-        text-align:right;
-        color:#08284d;
+        letter-spacing:-.9px;
     }
 
     .home-hero-content p{
-        margin:0 0 18px;
-        font-family:'Vazirmatn',sans-serif;
-        font-size:13px;
-        font-weight:500;
+        margin-bottom:19px;
+        font-size:14px;
         line-height:1.9;
-        text-align:right;
-        color:#263b53;
     }
 
     .home-hero-continue{
-        width:165px;
-        min-width:165px;
-        height:48px;
-        padding:0 16px;
+        width:175px;
+        min-width:175px;
+        height:50px;
+        padding:0 17px;
         gap:9px;
         font-size:13px;
     }
@@ -2069,6 +2100,61 @@ body.dark-mode .encyclopedia-hero-card{
     .home-hero-continue svg{
         width:18px;
         height:18px;
+    }
+}
+
+/* ===== Tablet Landscape ===== */
+
+@media (min-width:700px) and (max-width:1366px) and (orientation:landscape){
+
+    .home-hero-new{
+        height:350px;
+        min-height:350px;
+        border-radius:28px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255,250,240,.97) 0%,
+                rgba(255,250,240,.89) 27%,
+                rgba(255,250,240,.43) 47%,
+                rgba(255,250,240,.05) 68%,
+                rgba(255,250,240,0) 100%
+            ),
+            url('./file_000000000be0720ab8298d8199bc6cdf.png')
+            67% center / cover no-repeat;
+    }
+
+    .home-hero-content{
+        left:4%;
+        width:38%;
+    }
+
+    .home-hero-content h1{
+        margin-bottom:14px;
+        font-size:36px;
+        line-height:1.5;
+        letter-spacing:-1px;
+    }
+
+    .home-hero-content p{
+        margin-bottom:20px;
+        font-size:15px;
+        line-height:1.9;
+    }
+
+    .home-hero-continue{
+        width:195px;
+        min-width:195px;
+        height:54px;
+        padding:0 20px;
+        gap:10px;
+        font-size:14px;
+    }
+
+    .home-hero-continue svg{
+        width:19px;
+        height:19px;
     }
 }
 
