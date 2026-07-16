@@ -1721,6 +1721,59 @@ body.dark-mode .encyclopedia-hero-card{
         linear-gradient(rgba(8,20,40,.62),rgba(8,20,40,.62)),
         url('./file_000000005d6c71f4b08b30389a4fb067.png') center/cover no-repeat !important;
 }
+
+.home-hero-new{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  min-height:420px;
+  padding:36px 28px;
+  display:flex;
+  align-items:flex-end;
+  background:
+    linear-gradient(rgba(8,20,40,.55),rgba(8,20,40,.70)),
+    url('./file_000000000be0720ab8298d8199bc6cdf.png') center/cover no-repeat;
+}
+
+.home-hero-content{
+  position:relative;
+  z-index:2;
+  color:#fff;
+}
+
+.home-hero-content h1{
+  font-size:34px;
+  line-height:1.4;
+  margin:0 0 16px;
+  font-weight:700;
+}
+
+.home-hero-content p{
+  font-size:17px;
+  line-height:1.9;
+  opacity:.95;
+  margin:0 0 28px;
+}
+
+.home-hero-continue{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:none;
+  border-radius:999px;
+  padding:14px 22px;
+  background:#ffffff;
+  color:#111827;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.home-hero-continue svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+}
   
 </style>
 
@@ -1835,36 +1888,31 @@ body.dark-mode .encyclopedia-hero-card{
 
 <div id="homeSection" class="section active">
 
-<div class="card hero-card">
+<div class="home-hero-new">
 
-<span class="hero-bg-cross c1">+</span>
-<span class="hero-bg-cross c2">+</span>
-<span class="hero-bg-cross c3">+</span>
-<span class="hero-bg-cross c4">+</span>
+    <div class="home-hero-content">
 
-<div class="hero-mark">
-    <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
-        <path d="M32 10v44M20 24h24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="5"
-              stroke-linecap="round"/>
-    </svg>
-</div>
+        <h1>
+            امروز را با کلام خدا
+            <br>
+            شروع کن
+        </h1>
 
-<img src="brand-logo.svg" alt="کلام حیات" class="brand-logo-text">
+        <p>
+            مسیری روزانه برای رشد در ایمان،
+            <br>
+            پرستش و شناخت عمیق‌تر خدا
+        </p>
 
-<p class="hero-subtitle">
-    مسیری روزانه برای رشد در ایمان، پرستش و شناخت عمیق‌تر خدا
-</p>
+        <button type="button" class="home-hero-continue" onclick="openBibleHome()">
+            ادامه مطالعه
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v14a3 3 0 0 0-3-3H6.5A2.5 2.5 0 0 0 4 19.5z"/>
+                <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v17a3 3 0 0 1 3-3h.5A2.5 2.5 0 0 1 20 19.5z"/>
+            </svg>
+        </button>
 
-<div class="hero-verse">
-    <div class="hero-gold-line"></div>
-    <div>
-        «...یعنی کلام حیات، آن را به شما اعلام می‌کنیم.»
     </div>
-    <strong>۱ یوحنا ۱:۱</strong>
-</div>
 
 </div>
 
