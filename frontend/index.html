@@ -1723,56 +1723,122 @@ body.dark-mode .encyclopedia-hero-card{
 }
 
 .home-hero-new{
-  position:relative;
-  overflow:hidden;
-  border-radius:28px;
-  min-height:420px;
-  padding:36px 28px;
-  display:flex;
-  align-items:flex-end;
-  background:
-    linear-gradient(rgba(8,20,40,.55),rgba(8,20,40,.70)),
-    url('./file_000000000be0720ab8298d8199bc6cdf.png') center/cover no-repeat;
+    position:relative;
+    overflow:hidden;
+    min-height:360px;
+    margin-bottom:18px;
+    border-radius:28px;
+    box-shadow:0 18px 45px rgba(31,78,121,.16);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,250,240,.94) 0%,
+            rgba(255,250,240,.82) 28%,
+            rgba(255,250,240,.38) 52%,
+            rgba(255,250,240,0) 72%
+        ),
+        url('./file_000000000be0720ab8298d8199bc6cdf.png')
+        center/cover no-repeat;
 }
 
 .home-hero-content{
-  position:relative;
-  z-index:2;
-  color:#fff;
+    position:absolute;
+    left:6%;
+    top:50%;
+    transform:translateY(-50%);
+    width:42%;
+    z-index:2;
+    direction:rtl;
+    text-align:right;
 }
 
 .home-hero-content h1{
-  font-size:34px;
-  line-height:1.4;
-  margin:0 0 16px;
-  font-weight:700;
+    margin:0 0 14px;
+    color:#0b2747;
+    font-family:var(--font-body);
+    font-size:40px;
+    font-weight:900;
+    line-height:1.55;
+    text-shadow:none;
 }
 
 .home-hero-content p{
-  font-size:17px;
-  line-height:1.9;
-  opacity:.95;
-  margin:0 0 28px;
+    margin:0 0 24px;
+    color:#334155;
+    font-size:17px;
+    font-weight:500;
+    line-height:2;
 }
 
 .home-hero-continue{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  border:none;
-  border-radius:999px;
-  padding:14px 22px;
-  background:#ffffff;
-  color:#111827;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
+    width:auto;
+    min-width:190px;
+    height:58px;
+    margin:0;
+    padding:0 24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    border:none;
+    border-radius:999px;
+    background:#0b315c;
+    color:#ffffff;
+
+    font-family:var(--font-body);
+    font-size:16px;
+    font-weight:800;
+    box-shadow:0 10px 24px rgba(11,49,92,.25);
 }
 
 .home-hero-continue svg{
-  width:20px;
-  height:20px;
-  fill:currentColor;
+    width:22px;
+    height:22px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+@media(max-width:700px){
+    .home-hero-new{
+        min-height:390px;
+        border-radius:24px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255,250,240,.94) 0%,
+                rgba(255,250,240,.80) 45%,
+                rgba(255,250,240,.12) 78%
+            ),
+            url('./file_000000000be0720ab8298d8199bc6cdf.png')
+            center/cover no-repeat;
+    }
+
+    .home-hero-content{
+        left:6%;
+        width:56%;
+    }
+
+    .home-hero-content h1{
+        font-size:30px;
+        line-height:1.55;
+    }
+
+    .home-hero-content p{
+        font-size:14px;
+        line-height:1.9;
+    }
+
+    .home-hero-continue{
+        min-width:165px;
+        height:52px;
+        font-size:14px;
+    }
 }
   
 </style>
