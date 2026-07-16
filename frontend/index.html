@@ -1817,28 +1817,63 @@ body.dark-mode .encyclopedia-hero-card{
             ),
             url('./file_000000000be0720ab8298d8199bc6cdf.png')
             center/cover no-repeat;
-    }
+}
 
-    .home-hero-content{
-        left:6%;
-        width:56%;
-    }
+.home-hero-content{
+    position:absolute;
+    left:5%;
+    top:50%;
+    transform:translateY(-50%);
+    width:39%;
+    z-index:2;
+    direction:rtl;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
 
-    .home-hero-content h1{
-        font-size:30px;
-        line-height:1.55;
-    }
+.home-hero-content h1{
+    margin:0 0 22px;
+    color:#08284d;
+    font-family:'Vazirmatn',sans-serif;
+    font-size:43px;
+    font-weight:900;
+    line-height:1.72;
+    letter-spacing:-1.4px;
+    text-align:left;
+}
 
-    .home-hero-content p{
-        font-size:14px;
-        line-height:1.9;
-    }
+.home-hero-content p{
+    margin:0 0 26px;
+    color:#263b53;
+    font-family:'Vazirmatn',sans-serif;
+    font-size:17px;
+    font-weight:500;
+    line-height:2.05;
+    text-align:left;
+}
 
-    .home-hero-continue{
-        min-width:165px;
-        height:52px;
-        font-size:14px;
-    }
+.home-hero-continue{
+    width:240px;
+    min-width:240px;
+    height:66px;
+    margin:0;
+    padding:0 28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+
+    border:none;
+    border-radius:999px;
+    background:#082f5c;
+    color:#ffffff;
+
+    font-family:'Vazirmatn',sans-serif;
+    font-size:17px;
+    font-weight:700;
+    box-shadow:0 12px 28px rgba(8,47,92,.28);
 }
   
 </style>
