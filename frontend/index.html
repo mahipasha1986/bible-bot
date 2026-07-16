@@ -1803,84 +1803,12 @@ body.dark-mode .encyclopedia-hero-card{
     stroke-linejoin:round;
 }
 
-@media(max-width:700px){
-    .home-hero-new{
-        min-height:390px;
-        border-radius:24px;
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(255,250,240,.94) 0%,
-                rgba(255,250,240,.80) 45%,
-                rgba(255,250,240,.12) 78%
-            ),
-            url('./file_000000000be0720ab8298d8199bc6cdf.png')
-            center/cover no-repeat;
-}
-
-.home-hero-content{
-    position:absolute;
-    left:5%;
-    top:50%;
-    transform:translateY(-50%);
-    width:39%;
-    z-index:2;
-    direction:rtl;
-    text-align:left;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-}
-
-.home-hero-content h1{
-    margin:0 0 22px;
-    color:#08284d;
-    font-family:'Vazirmatn',sans-serif;
-    font-size:43px;
-    font-weight:900;
-    line-height:1.72;
-    letter-spacing:-1.4px;
-    text-align:left;
-}
-
-.home-hero-content p{
-    margin:0 0 26px;
-    color:#263b53;
-    font-family:'Vazirmatn',sans-serif;
-    font-size:17px;
-    font-weight:500;
-    line-height:2.05;
-    text-align:left;
-}
-
-.home-hero-continue{
-    width:240px;
-    min-width:240px;
-    height:66px;
-    margin:0;
-    padding:0 28px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-
-    border:none;
-    border-radius:999px;
-    background:#082f5c;
-    color:#ffffff;
-
-    font-family:'Vazirmatn',sans-serif;
-    font-size:17px;
-    font-weight:700;
-    box-shadow:0 12px 28px rgba(8,47,92,.28);
-}
-
+/* ===== Mobile ===== */
 @media (max-width:520px){
 
     .home-hero-new{
-        min-height:330px;
         height:330px;
+        min-height:330px;
         margin-bottom:14px;
         border-radius:20px;
 
@@ -1894,10 +1822,145 @@ body.dark-mode .encyclopedia-hero-card{
                 rgba(255,250,240,0) 100%
             ),
             url('./file_000000000be0720ab8298d8199bc6cdf.png')
-            64% center/cover no-repeat;
+            64% center / cover no-repeat;
     }
 
-/* ===== Home Hero - Tablet Landscape Final ===== */
+    .home-hero-content{
+        position:absolute;
+        left:6%;
+        top:50%;
+        transform:translateY(-50%);
+        width:46%;
+        padding:0;
+        z-index:2;
+
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+
+        direction:rtl;
+        text-align:right;
+    }
+
+    .home-hero-content h1{
+        margin:0 0 12px;
+        color:#08284d;
+        font-family:'Vazirmatn',sans-serif;
+        font-size:25px;
+        font-weight:900;
+        line-height:1.55;
+        letter-spacing:-.8px;
+        text-align:right;
+    }
+
+    .home-hero-content p{
+        margin:0 0 16px;
+        color:#263b53;
+        font-family:'Vazirmatn',sans-serif;
+        font-size:11px;
+        font-weight:500;
+        line-height:1.9;
+        text-align:right;
+    }
+
+    .home-hero-continue{
+        width:145px;
+        min-width:145px;
+        height:44px;
+        margin:0;
+        padding:0 14px;
+        gap:8px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        background:#ffffff;
+        color:#111827;
+        border:1px solid rgba(15,23,42,.12);
+        border-radius:999px;
+
+        font-size:12px;
+        font-weight:800;
+        box-shadow:0 8px 20px rgba(15,23,42,.14);
+    }
+
+    .home-hero-continue svg{
+        width:18px;
+        height:18px;
+    }
+}
+
+
+/* ===== Tablet Portrait ===== */
+@media (min-width:521px) and (max-width:900px) and (orientation:portrait){
+
+    .home-hero-new{
+        height:560px;
+        min-height:560px;
+        border-radius:30px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255,250,240,.97) 0%,
+                rgba(255,250,240,.88) 34%,
+                rgba(255,250,240,.38) 56%,
+                rgba(255,250,240,0) 78%
+            ),
+            url('./file_000000000be0720ab8298d8199bc6cdf.png')
+            78% center / cover no-repeat;
+    }
+
+    .home-hero-content{
+        position:absolute;
+        left:5%;
+        top:50%;
+        transform:translateY(-50%);
+        width:43%;
+        z-index:2;
+
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+
+        direction:rtl;
+        text-align:right;
+    }
+
+    .home-hero-content h1{
+        margin:0 0 16px;
+        font-size:34px;
+        line-height:1.55;
+        text-align:right;
+    }
+
+    .home-hero-content p{
+        margin:0 0 22px;
+        font-size:15px;
+        line-height:1.95;
+        text-align:right;
+    }
+
+    .home-hero-continue{
+        width:175px;
+        min-width:175px;
+        height:48px;
+        margin:0;
+        padding:0 16px;
+
+        background:#ffffff;
+        color:#111827;
+        border:1px solid rgba(15,23,42,.12);
+        border-radius:999px;
+
+        font-size:13px;
+        box-shadow:0 8px 20px rgba(15,23,42,.14);
+    }
+}
+
+
+/* ===== Tablet Landscape ===== */
 @media (min-width:701px) and (max-width:2000px) and (orientation:landscape){
 
     .home-hero-new{
@@ -1909,9 +1972,9 @@ body.dark-mode .encyclopedia-hero-card{
             linear-gradient(
                 90deg,
                 rgba(255,250,240,.97) 0%,
-                rgba(255,250,240,.90) 27%,
-                rgba(255,250,240,.46) 46%,
-                rgba(255,250,240,.06) 66%,
+                rgba(255,250,240,.90) 25%,
+                rgba(255,250,240,.42) 44%,
+                rgba(255,250,240,.04) 64%,
                 rgba(255,250,240,0) 100%
             ),
             url('./file_000000000be0720ab8298d8199bc6cdf.png')
@@ -1919,44 +1982,60 @@ body.dark-mode .encyclopedia-hero-card{
     }
 
     .home-hero-content{
-        left:2%;
+        position:absolute;
+        left:3%;
         top:50%;
-        width:34%;
         transform:translateY(-50%);
+        width:34%;
+        z-index:2;
+
+        display:flex;
+        flex-direction:column;
         align-items:flex-start;
-        text-align:right;
+
         direction:rtl;
+        text-align:right;
     }
 
     .home-hero-content h1{
-        font-size:34px;
-        line-height:1.55;
-        margin:0 0 14px;
+        margin:0 0 12px;
+        font-size:32px;
+        line-height:1.5;
         text-align:right;
     }
 
     .home-hero-content p{
+        margin:0 0 18px;
         font-size:14px;
-        line-height:1.95;
-        margin:0 0 20px;
+        line-height:1.9;
         text-align:right;
     }
 
     .home-hero-continue{
-        width:175px;
-        min-width:175px;
-        height:48px;
-        padding:0 16px;
-        background:#ffffff;
-        color:#111827;
-        border:1px solid rgba(15,23,42,.12);
+        width:165px;
+        min-width:165px;
+        height:46px;
+        margin:0;
+        padding:0 14px;
+        gap:8px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        background:#ffffff !important;
+        color:#111827 !important;
+        border:1px solid rgba(15,23,42,.12) !important;
+        border-radius:999px;
+
         font-size:13px;
+        font-weight:800;
         box-shadow:0 8px 20px rgba(15,23,42,.14);
     }
 
     .home-hero-continue svg{
-        width:18px;
-        height:18px;
+        width:17px;
+        height:17px;
     }
 }
 
