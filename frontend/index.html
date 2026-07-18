@@ -488,53 +488,103 @@ audio{
 }
 
 .home-feature-content{
-    position:relative;
+    position:absolute;
+    inset:0;
     z-index:2;
-    height:100%;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    text-align:right;
-    margin-right:auto;
     color:#fff;
     direction:rtl;
 }
 
 .home-feature-icon{
-    width:58px;
-    height:58px;
-    border-radius:18px;
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:52px;
+    height:52px;
+    border-radius:16px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(168,76,216,.55);
+    background:rgba(168,76,216,.62);
     backdrop-filter:blur(8px);
 }
 
 .home-feature-icon svg{
-    width:30px;
-    height:30px;
+    width:28px;
+    height:28px;
 }
 
 .home-feature-title{
-    margin-top:22px;
-    font-size:26px;
+    position:absolute;
+    top:92px;
+    left:20px;
+    margin:0;
+    font-size:22px;
     font-weight:800;
     line-height:1.4;
+    text-align:left;
+    white-space:nowrap;
 }
 
 .home-feature-arrow{
-    margin-top:auto;
-    width:54px;
-    height:54px;
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    width:46px;
+    height:46px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     background:#bd4bea;
-    font-size:30px;
+    font-size:24px;
     line-height:1;
+    cursor:pointer;
+}
+
+@media (max-width:600px){
+
+    .home-feature-grid{
+        gap:10px;
+        margin:18px 12px;
+    }
+
+    .home-feature-card{
+        height:auto;
+        aspect-ratio:1.15 / 1;
+        border-radius:20px;
+    }
+
+    .home-feature-icon{
+        top:12px;
+        left:12px;
+        width:40px;
+        height:40px;
+        border-radius:13px;
+    }
+
+    .home-feature-icon svg{
+        width:22px;
+        height:22px;
+    }
+
+    .home-feature-title{
+        top:62px;
+        left:12px;
+        right:12px;
+        font-size:16px;
+        line-height:1.5;
+        text-align:left;
+        white-space:normal;
+    }
+
+    .home-feature-arrow{
+        left:12px;
+        bottom:12px;
+        width:36px;
+        height:36px;
+        font-size:20px;
+    }
 }
   
 .daily-verse-side-actions{
