@@ -467,6 +467,22 @@ audio{
     overflow:hidden;
 }
 
+.home-feature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin:22px 0;
+}
+
+.home-feature-card{
+    position:relative;
+    height:260px;
+    border-radius:28px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#d9d9d9;
+}
+  
 .daily-verse-side-actions{
     display:flex;
     flex-direction:column;
@@ -2997,112 +3013,14 @@ body.dark-mode .encyclopedia-hero-card{
 
 </div>
 
-<div style="margin:18px;">
-
-    <div onclick="showSection('songsSection')" style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:16px 4px;
-        cursor:pointer;
-        border-bottom:1px solid #f2f2f2;
-        direction:rtl;
-    ">
-        <div style="display:flex;align-items:center;gap:12px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="#1f4e79" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18V5l11-2v13"/>
-                <circle cx="7" cy="18" r="2"/>
-                <circle cx="18" cy="16" r="2"/>
-            </svg>
-
-            <span style="font-size:17px;font-weight:700;color:#222;">
-                سرودهای پرستشی
-            </span>
-        </div>
-
-        <span style="font-size:22px;color:#999;">›</span>
-    </div>
-
-    <div onclick="showSection('librarySection')" style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:16px 4px;
-        cursor:pointer;
-        border-bottom:1px solid #f2f2f2;
-        direction:rtl;
-    ">
-        <div style="display:flex;align-items:center;gap:12px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="#1f4e79" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-                <path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5z"/>
-            </svg>
-
-            <span style="font-size:17px;font-weight:700;color:#222;">
-                کتابخانه مسیحی
-            </span>
-        </div>
-
-        <span style="font-size:22px;color:#999;">›</span>
-    </div>
-
-    <div onclick="alert('کتاب مقدس صوتی بزودی اضافه می‌شود')" style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:16px 4px;
-        cursor:pointer;
-        border-bottom:1px solid #f2f2f2;
-        direction:rtl;
-    ">
-        <div style="display:flex;align-items:center;gap:12px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="#1f4e79" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 14v3a2 2 0 002 2h2v-7H6a2 2 0 00-2 2z"/>
-                <path d="M20 14v3a2 2 0 01-2 2h-2v-7h2a2 2 0 012 2z"/>
-                <path d="M6 12a6 6 0 0112 0"/>
-            </svg>
-
-            <span style="font-size:17px;font-weight:700;color:#222;">
-                کتاب مقدس صوتی
-            </span>
-        </div>
-
-        <span style="font-size:22px;color:#999;">›</span>
-    </div>
-
-    <div onclick="alert('بازی‌ها و آزمون‌های کتاب مقدس بزودی اضافه می‌شود')" style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:16px 4px;
-        cursor:pointer;
-        border-bottom:1px solid #f2f2f2;
-        direction:rtl;
-    ">
-        <div style="display:flex;align-items:center;gap:12px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="#1f4e79" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M9.5 9.5a2.5 2.5 0 115 0c0 2-2.5 2.2-2.5 4"/>
-                <circle cx="12" cy="17.5" r=".6" fill="#1f4e79" stroke="none"/>
-            </svg>
-
-            <span style="font-size:17px;font-weight:700;color:#222;">
-                بازی‌ها و آزمون‌های کتاب مقدس
-            </span>
-        </div>
-
-        <span style="font-size:22px;color:#999;">›</span>
-    </div>
-
 </div>
+
+<div class="home-feature-grid">
+
+    <div class="home-feature-card"
+         onclick="showSection('songsSection')">
+
+    </div>
 
 </div>
 
