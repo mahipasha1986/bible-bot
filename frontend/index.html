@@ -2866,8 +2866,16 @@ body.dark-mode .encyclopedia-hero-card{
 
     </div>
 
-    <div id="homeDailyVerse" class="daily-verse-content">
-        در انتظار دریافت آیه روز...
+    <div class="daily-verse-content">
+
+        <div id="dailyVerseReferenceFixed">
+            ---
+        </div>
+
+        <div id="homeDailyVerse">
+            در انتظار دریافت آیه روز...
+        </div>
+
     </div>
 
     <div class="daily-verse-side-actions">
@@ -3373,31 +3381,13 @@ async function loadDailyVerse(){
 
         window.currentDailyVerseId = verse.id;
 
-        homeDailyVerse.innerHTML = `
-       <div style="line-height:1.45; text-align:center; margin-top:-8px;">
+        const dailyVerseReferenceFixed =
+            document.getElementById("dailyVerseReferenceFixed");
 
-           <div class="daily-verse-reference">
-               ${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}
-           </div>
+        dailyVerseReferenceFixed.textContent =
+            `${verse.bible_books?.name_fa || ""} ${verse.chapter_number}:${verse.verse_number}`;
 
-           <div style="font-size:18px; max-width:700px; margin:2px auto 0;">
-               ${verse.verse_text}
-           </div>
-
-           <div class="verse-actions" style="margin-top:28px;">
-               <button onclick="likeDailyVerse()">
-                   <svg viewBox="0 0 24 24">
-                       <path d="M20.8 4.6c-1.8-1.7-4.6-1.6-6.3.2L12 7.3 9.5 4.8C7.8 3 5 2.9 3.2 4.6c-2 1.9-2.1 5-.2 7l9 8.8 9-8.8c1.9-2 1.8-5.1-.2-7z"/>
-                   </svg>
-                   <span>پسندیدن</span>
-                   <span id="dailyVerseLikeCount">0 نفر</span>
-               </button>
-           </div>
-
-       </div>
-      `;
-
-      await loadDailyVerseLikes(verse.id);
+        homeDailyVerse.textContent = verse.verse_text;
 
     }catch(err){
         homeDailyVerse.innerHTML = "خطا در دریافت آیه روز";
