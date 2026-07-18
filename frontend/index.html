@@ -2716,6 +2716,44 @@ body.dark-mode .encyclopedia-hero-card{
     }
 
 }
+
+/* ===== Daily Verse Right Column Final ===== */
+
+.daily-verse-date{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+#dailyVerseReferenceFixed{
+    display:block !important;
+    position:static !important;
+    width:100% !important;
+
+    margin:4px 0 5px !important;
+    padding:0 !important;
+
+    color:#C79B42 !important;
+    font-size:10px !important;
+    font-weight:700 !important;
+    line-height:1.3 !important;
+    text-align:center !important;
+
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:none !important;
+}
+
+@media (max-width:520px){
+
+    #dailyVerseReferenceFixed{
+        margin:3px 0 4px !important;
+        font-size:8px !important;
+        line-height:1.25 !important;
+    }
+
+}
   
 </style>
 
@@ -2879,6 +2917,10 @@ body.dark-mode .encyclopedia-hero-card{
             </svg>
         </div>
 
+        <div id="dailyVerseReferenceFixed" class="daily-verse-reference">
+            --
+        </div>
+
         <div id="dailyVerseDay" class="daily-verse-day">--</div>
 
         <div id="dailyVerseMonthYear" class="daily-verse-month">
@@ -2888,10 +2930,6 @@ body.dark-mode .encyclopedia-hero-card{
     </div>
 
     <div class="daily-verse-content">
-
-        <div id="dailyVerseReferenceFixed">
-            ---
-        </div>
 
         <div id="homeDailyVerse">
             در انتظار دریافت آیه روز...
