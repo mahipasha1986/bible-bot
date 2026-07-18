@@ -2599,6 +2599,76 @@ body.dark-mode .encyclopedia-hero-card{
         opacity:1 !important;
     }
 }
+
+/* ===== FINAL DAILY VERSE FIX ===== */
+@media (max-width:520px){
+
+    .daily-verse-card{
+        height:155px !important;
+        min-height:155px !important;
+        max-height:155px !important;
+    }
+
+    #homeDailyVerse{
+        position:relative !important;
+        height:100% !important;
+        padding:0 4px !important;
+        overflow:hidden !important;
+    }
+
+    #homeDailyVerse > div{
+        position:relative !important;
+        width:100% !important;
+        height:100% !important;
+        margin:0 !important;
+        padding:20px 0 0 !important;
+
+        display:block !important;
+        overflow:hidden !important;
+    }
+
+    #homeDailyVerse .daily-verse-reference{
+        display:block !important;
+        position:absolute !important;
+
+        top:1px !important;
+        right:0 !important;
+        left:0 !important;
+
+        width:100% !important;
+        margin:0 !important;
+        padding:0 !important;
+
+        color:#a16f19 !important;
+        font-size:9px !important;
+        font-weight:700 !important;
+        line-height:16px !important;
+        text-align:center !important;
+
+        visibility:visible !important;
+        opacity:1 !important;
+        transform:none !important;
+        overflow:visible !important;
+        z-index:20 !important;
+    }
+
+    #homeDailyVerse > div > div:nth-child(2){
+        width:100% !important;
+        margin:0 !important;
+        padding:0 !important;
+
+        color:#263548 !important;
+        font-size:10px !important;
+        font-weight:500 !important;
+        line-height:1.55 !important;
+        text-align:center !important;
+
+        display:-webkit-box !important;
+        -webkit-box-orient:vertical !important;
+        -webkit-line-clamp:5 !important;
+        overflow:hidden !important;
+    }
+}
   
 </style>
 
