@@ -3489,6 +3489,47 @@ function getAppUserId(){
     return userId;
 }
 
+async function shareDailyVerse(){
+
+    const verseText =
+        document.getElementById("homeDailyVerse")?.textContent.trim() || "";
+
+    const verseReference =
+        document.getElementById("dailyVerseReferenceFixed")?.textContent.trim() || "";
+
+    if(!verseText){
+        alert("آیه روز هنوز آماده نیست");
+        return;
+    }
+
+    const shareText =
+`${verseText}
+
+${verseReference}
+
+کلام حیات`;
+
+    try{
+
+        if(navigator.share){
+
+            await navigator.share({
+                title:"آیه روز | کلام حیات",
+                text:shareText
+            });
+
+        }else{
+
+            await navigator.clipboard.writeText(shareText);
+            alert("متن آیه کپی شد");
+
+        }
+
+    }catch(err){
+        console.log(err);
+    }
+}
+
 async function likeDailyVerse(){
 
     const userId = getAppUserId();
