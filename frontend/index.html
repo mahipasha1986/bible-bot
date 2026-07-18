@@ -2953,6 +2953,10 @@ body.dark-mode .encyclopedia-hero-card{
             </svg>
         </button>
 
+        <div id="dailyVerseLikeCount" class="daily-verse-like-count">
+            0 نفر
+        </div>
+
     </div>
 
 </div>
@@ -3463,6 +3467,8 @@ async function loadDailyVerse(){
         const verse = data[0];
 
         window.currentDailyVerseId = verse.id;
+
+        await loadDailyVerseLikes(verse.id);
 
         const dailyVerseReferenceFixed =
             document.getElementById("dailyVerseReferenceFixed");
