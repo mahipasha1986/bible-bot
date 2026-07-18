@@ -494,7 +494,9 @@ audio{
     padding:22px;
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
+    align-items:flex-end;
+    text-align:right;
+    margin-right:auto;
     color:#fff;
     direction:rtl;
 }
@@ -3067,9 +3069,7 @@ body.dark-mode .encyclopedia-hero-card{
 
 <div class="home-feature-grid">
 
-    <div class="home-feature-card"
-      
-         onclick="showSection('songsSection')">
+    <div class="home-feature-card">
 
         <div class="home-feature-content">
 
@@ -3087,7 +3087,8 @@ body.dark-mode .encyclopedia-hero-card{
                 سرودهای پرستشی
             </div>
 
-            <div class="home-feature-arrow">
+            <div class="home-feature-arrow"
+                 onclick="showSection('songsSection')">
                 ←
             </div>
 
