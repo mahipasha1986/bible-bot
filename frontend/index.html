@@ -2122,70 +2122,81 @@ body.dark-mode .encyclopedia-hero-card{
     display:none !important;
 }
 
-/* ===== Daily Verse Mobile Final Fix ===== */
+/* ===== Daily Verse Mobile Horizontal Final ===== */
 @media (max-width:520px){
 
     .daily-verse-card{
-        display:grid !important;
-        grid-template-columns:1fr auto !important;
-        grid-template-areas:
-            "date actions"
-            "content content" !important;
-
         width:100% !important;
-        min-height:0 !important;
-        height:auto !important;
+        height:150px !important;
+        min-height:150px !important;
         box-sizing:border-box !important;
 
-        padding:18px 16px !important;
-        gap:16px 12px !important;
-        margin-bottom:16px !important;
+        display:grid !important;
+        grid-template-columns:76px minmax(0,1fr) 48px !important;
+        grid-template-areas:"date content actions" !important;
+        align-items:center !important;
 
+        gap:10px !important;
+        padding:14px 12px !important;
+        margin:0 0 16px !important;
+
+        background:#ffffff !important;
+        border:1px solid rgba(15,23,42,.08) !important;
         border-radius:22px !important;
+        box-shadow:0 10px 28px rgba(31,78,121,.10) !important;
         overflow:hidden !important;
     }
 
     .daily-verse-date{
         grid-area:date !important;
-        width:auto !important;
-        min-width:0 !important;
-        height:auto !important;
 
-        padding:0 !important;
-        border:none !important;
+        width:76px !important;
+        height:100% !important;
+        min-width:76px !important;
+        box-sizing:border-box !important;
 
         display:flex !important;
         flex-direction:column !important;
-        align-items:flex-start !important;
-        justify-content:flex-start !important;
+        align-items:center !important;
+        justify-content:center !important;
 
-        text-align:right !important;
-        justify-self:start !important;
+        padding:0 0 0 10px !important;
+        margin:0 !important;
+
+        border-left:1px solid rgba(15,23,42,.10) !important;
+        text-align:center !important;
     }
 
     .daily-verse-label{
         display:flex !important;
         align-items:center !important;
-        gap:5px !important;
+        justify-content:center !important;
+        gap:4px !important;
 
-        font-size:12px !important;
+        font-size:10px !important;
+        color:#6b7280 !important;
         white-space:nowrap !important;
     }
 
     .daily-verse-label svg{
-        width:18px !important;
-        height:18px !important;
+        width:16px !important;
+        height:16px !important;
+        stroke:#c28a2c !important;
     }
 
     .daily-verse-day{
-        font-size:34px !important;
+        margin-top:5px !important;
+        font-size:28px !important;
+        font-weight:900 !important;
         line-height:1 !important;
-        margin-top:8px !important;
+        color:#102b52 !important;
     }
 
     .daily-verse-month{
-        font-size:11px !important;
-        margin-top:6px !important;
+        margin-top:5px !important;
+        font-size:9px !important;
+        line-height:1.4 !important;
+        color:#475569 !important;
         white-space:nowrap !important;
     }
 
@@ -2195,31 +2206,40 @@ body.dark-mode .encyclopedia-hero-card{
         width:100% !important;
         min-width:0 !important;
         max-width:none !important;
+        height:auto !important;
 
-        padding:4px 2px 0 !important;
+        padding:0 !important;
         margin:0 !important;
 
+        font-size:12px !important;
+        line-height:1.8 !important;
         text-align:center !important;
-        font-size:15px !important;
-        line-height:2 !important;
+        color:#1e293b !important;
 
-        overflow-wrap:normal !important;
         word-break:normal !important;
+        overflow-wrap:break-word !important;
         white-space:normal !important;
+    }
+
+    .daily-verse-content > div{
+        margin:0 !important;
+        line-height:1.8 !important;
     }
 
     .daily-verse-side-actions{
         grid-area:actions !important;
 
-        display:flex !important;
-        flex-direction:row !important;
-        align-items:center !important;
-        justify-content:flex-end !important;
+        width:48px !important;
+        height:100% !important;
 
-        gap:8px !important;
-        width:auto !important;
-        margin:0 !important;
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:center !important;
+
+        gap:10px !important;
         padding:0 !important;
+        margin:0 !important;
     }
 
     .daily-verse-side-actions button{
@@ -2227,14 +2247,25 @@ body.dark-mode .encyclopedia-hero-card{
         min-width:42px !important;
         height:42px !important;
 
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+
         padding:0 !important;
         margin:0 !important;
+
+        background:#ffffff !important;
+        color:#10233d !important;
+        border:none !important;
         border-radius:13px !important;
+        box-shadow:0 6px 18px rgba(15,23,42,.10) !important;
     }
 
     .daily-verse-side-actions svg{
         width:21px !important;
         height:21px !important;
+        fill:none !important;
+        stroke:currentColor !important;
     }
 }
   
