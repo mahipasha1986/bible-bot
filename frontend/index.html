@@ -3419,6 +3419,31 @@ async function addBookmark(verseId){
     }
 }
 
+function updateDailyVerseDate(){
+
+    const now = new Date();
+
+    const dayElement = document.getElementById("dailyVerseDay");
+    const monthYearElement = document.getElementById("dailyVerseMonthYear");
+
+    const day = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+        day: "numeric"
+    }).format(now);
+
+    const monthYear = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+        month: "long",
+        year: "numeric"
+    }).format(now);
+
+    if(dayElement){
+        dayElement.textContent = day;
+    }
+
+    if(monthYearElement){
+        monthYearElement.textContent = monthYear;
+    }
+}
+
 async function loadDailyVerse(){
 
     const homeDailyVerse = document.getElementById("homeDailyVerse");
@@ -4745,6 +4770,7 @@ function filterBooks(){
 }
 
 loadDailyVerse();
+updateDailyVerseDate();
 
 function openUserSettings() {
 
