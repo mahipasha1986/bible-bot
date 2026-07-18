@@ -3426,15 +3426,14 @@ function updateDailyVerseDate(){
     const dayElement = document.getElementById("dailyVerseDay");
     const monthYearElement = document.getElementById("dailyVerseMonthYear");
 
-    const day = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+    const day = new Intl.DateTimeFormat("en-US", {
         day: "numeric"
     }).format(now);
 
-    const monthYear = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+    const monthYear = new Intl.DateTimeFormat("en-US", {
         month: "long",
         year: "numeric"
     }).format(now);
-
     if(dayElement){
         dayElement.textContent = day;
     }
