@@ -506,6 +506,14 @@ audio{
     text-align:center;
 }
 
+.daily-verse-like-count{
+    font-size:12px;
+    color:#888;
+    font-weight:500;
+    margin-top:8px;
+    text-align:center;
+}
+
 .daily-verse-label{
     display:flex;
     justify-content:center;
@@ -3594,7 +3602,7 @@ async function loadDailyVerseLikes(verseId){
         : Number(data.likes || 0);
 
     document.getElementById("dailyVerseLikeCount").innerText =
-        count + " نفر";
+        count +  " پسندیدن";
 }
 
 async function loadBookmarks(){
