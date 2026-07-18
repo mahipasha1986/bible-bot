@@ -2118,155 +2118,131 @@ body.dark-mode .encyclopedia-hero-card{
     display:none !important;
 }
 
-.tab-buttons{
-    display:none !important;
+/* ===== Daily Verse Mobile ===== */
+
+.daily-verse-card{
+    display:grid;
+    grid-template-columns:72px 1fr 72px;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    border-radius:28px;
+    padding:16px;
+    margin:18px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-/* ===== Daily Verse Mobile Horizontal Final ===== */
+.daily-verse-date{
+    text-align:center;
+    border-left:1px solid #ececec;
+    padding-left:10px;
+}
+
+.daily-verse-label{
+    font-size:13px;
+    color:#8b8b8b;
+    margin-bottom:8px;
+}
+
+.daily-verse-day{
+    font-size:36px;
+    font-weight:700;
+    line-height:1;
+}
+
+.daily-verse-month{
+    font-size:13px;
+    color:#888;
+    margin-top:8px;
+}
+
+.daily-verse-content{
+    text-align:center;
+    padding:0 10px;
+}
+
+.daily-verse-content strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.daily-verse-content p{
+    font-size:15px;
+    line-height:1.9;
+    margin:0;
+}
+
+.daily-verse-reference{
+    display:block;
+    margin-top:12px;
+    font-size:15px;
+    font-weight:700;
+    color:#b07a22;
+}
+
+.daily-verse-side-actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+}
+
+.daily-verse-side-actions button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:14px;
+    background:#fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.daily-verse-side-actions svg{
+    width:20px;
+    height:20px;
+}
+
 @media (max-width:520px){
 
-    .daily-verse-card{
-        width:100% !important;
-        height:150px !important;
-        min-height:150px !important;
-        box-sizing:border-box !important;
+.daily-verse-card{
+    grid-template-columns:48px 1fr 58px;
+    gap:8px;
+    padding:12px;
+    min-height:145px;
+}
 
-        display:grid !important;
-        grid-template-columns:76px minmax(0,1fr) 48px !important;
-        grid-template-areas:"date content actions" !important;
-        align-items:center !important;
+.daily-verse-side-actions button{
+    width:34px;
+    height:34px;
+}
 
-        gap:10px !important;
-        padding:14px 12px !important;
-        margin:0 0 16px !important;
+.daily-verse-side-actions svg{
+    width:17px;
+    height:17px;
+}
 
-        background:#ffffff !important;
-        border:1px solid rgba(15,23,42,.08) !important;
-        border-radius:22px !important;
-        box-shadow:0 10px 28px rgba(31,78,121,.10) !important;
-        overflow:hidden !important;
-    }
+.daily-verse-content strong{
+    font-size:15px;
+}
 
-    .daily-verse-date{
-        grid-area:date !important;
+.daily-verse-content p{
+    font-size:13px;
+    line-height:1.8;
+}
 
-        width:76px !important;
-        height:100% !important;
-        min-width:76px !important;
-        box-sizing:border-box !important;
+.daily-verse-reference{
+    font-size:13px;
+}
 
-        display:flex !important;
-        flex-direction:column !important;
-        align-items:center !important;
-        justify-content:center !important;
+.daily-verse-day{
+    font-size:28px;
+}
 
-        padding:0 0 0 10px !important;
-        margin:0 !important;
+.daily-verse-label,
+.daily-verse-month{
+    font-size:11px;
+}
 
-        border-left:1px solid rgba(15,23,42,.10) !important;
-        text-align:center !important;
-    }
-
-    .daily-verse-label{
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-        gap:4px !important;
-
-        font-size:10px !important;
-        color:#6b7280 !important;
-        white-space:nowrap !important;
-    }
-
-    .daily-verse-label svg{
-        width:16px !important;
-        height:16px !important;
-        stroke:#c28a2c !important;
-    }
-
-    .daily-verse-day{
-        margin-top:5px !important;
-        font-size:28px !important;
-        font-weight:900 !important;
-        line-height:1 !important;
-        color:#102b52 !important;
-    }
-
-    .daily-verse-month{
-        margin-top:5px !important;
-        font-size:9px !important;
-        line-height:1.4 !important;
-        color:#475569 !important;
-        white-space:nowrap !important;
-    }
-
-    .daily-verse-content{
-        grid-area:content !important;
-
-        width:100% !important;
-        min-width:0 !important;
-        max-width:none !important;
-        height:auto !important;
-
-        padding:0 !important;
-        margin:0 !important;
-
-        font-size:10.5px !important;
-        line-height:1.6 !important;
-        text-align:center !important;
-        color:#1e293b !important;
-
-        word-break:normal !important;
-        overflow-wrap:break-word !important;
-        white-space:normal !important;
-    }
-
-    .daily-verse-content > div{
-        margin:0 !important;
-        line-height:1.8 !important;
-    }
-
-    .daily-verse-side-actions{
-        grid-area:actions !important;
-
-        width:48px !important;
-        height:100% !important;
-
-        display:flex !important;
-        flex-direction:column !important;
-        align-items:center !important;
-        justify-content:center !important;
-
-        gap:10px !important;
-        padding:0 !important;
-        margin:0 !important;
-    }
-
-    .daily-verse-side-actions button{
-        width:34px !important;
-        min-width:34px !important;
-        height:34px !important;
-
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-
-        padding:0 !important;
-        margin:0 !important;
-
-        background:#ffffff !important;
-        color:#10233d !important;
-        border:none !important;
-        border-radius:13px !important;
-        box-shadow:0 6px 18px rgba(15,23,42,.10) !important;
-    }
-
-    .daily-verse-side-actions svg{
-        width:17px !important;
-        height:17px !important;
-        fill:none !important;
-        stroke:currentColor !important;
-    }
 }
   
 </style>
