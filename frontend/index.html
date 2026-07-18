@@ -3475,6 +3475,15 @@ async function loadDailyVerse(){
 
         await loadDailyVerseLikes(verse.id);
 
+        const likeButton = document.getElementById("dailyVerseLikeButton");
+
+        if (
+            likeButton &&
+            localStorage.getItem("liked_daily_verse_" + verse.id) === "1"
+        ){
+            likeButton.classList.add("liked");
+        }
+
         const dailyVerseReferenceFixed =
             document.getElementById("dailyVerseReferenceFixed");
 
@@ -3567,6 +3576,7 @@ async function likeDailyVerse(){
 
     if(likeButton){
         likeButton.classList.add("liked");
+        localStorage.setItem("liked_daily_verse_" + verseId, "1");
 }
 
 }
