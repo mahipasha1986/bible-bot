@@ -3502,14 +3502,14 @@ async function shareDailyVerse(){
         return;
     }
 
+    const appLink = window.location.origin;
+
     const shareText =
     `${verseText}
 
     ${verseReference}
 
-    کلام حیات
-
-    https://YOUR_APP_LINK`;
+    ${appLink}`;
 
     try{
 
