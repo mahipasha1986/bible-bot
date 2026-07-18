@@ -2754,6 +2754,11 @@ body.dark-mode .encyclopedia-hero-card{
     }
 
 }
+
+#dailyVerseLikeButton.liked svg{
+    fill:#d94b5b !important;
+    stroke:#d94b5b !important;
+}
   
 </style>
 
@@ -3557,6 +3562,11 @@ async function likeDailyVerse(){
     );
 
     await loadDailyVerseLikes(verseId);
+
+    const likeButton = document.getElementById("dailyVerseLikeButton");
+
+    if(likeButton){
+        likeButton.classList.add("liked");
 }
 
 async function loadDailyVerseLikes(verseId){
