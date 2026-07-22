@@ -4464,7 +4464,7 @@ function renderSongs(songs, showPagination){
     border-bottom:1px solid rgba(212,175,55,.25);
     ">
 
-    <span style="
+    <span class="song-play-icon" style="
     color:#1f4e79;
     font-size:20px;
     font-weight:700;
@@ -4607,6 +4607,17 @@ function openPlayer(song, songElement){
   playerCard.style.display = "block";
   songElement.insertAdjacentElement("afterend", playerCard);
 
+  document.querySelectorAll(".song-item").forEach(item => {
+    item.style.background = "";
+    const icon = item.querySelector(".song-play-icon");
+    if (icon) icon.innerText = "▶";
+});
+
+songElement.style.background = "#fff8e1";
+
+const currentIcon = songElement.querySelector(".song-play-icon");
+if (currentIcon) currentIcon.innerText = "⏸";
+
   setStatus("");
 
   audioPlayer.play().catch(() => {});
@@ -4621,6 +4632,14 @@ function closePlayer(){
   audioPlayer.load();
 
   playerCard.style.display = "none";
+
+  document.querySelectorAll(".song-item").forEach(item => {
+  item.style.background = "";
+
+  const icon = item.querySelector(".song-play-icon");
+  if (icon) icon.innerText = "▶";
+});
+  
   selectedSong = null;
 }
 
