@@ -315,44 +315,121 @@ audio{
     color:#000 !important;
     border:1px solid rgba(212,175,55,.38) !important;
 }
-  
+
 .tab-buttons{
-    display:flex;
-    gap:8px;
-    margin-bottom:14px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:8px;
-    background:rgba(255,255,255,0.85);
-    border:1px solid #e8edf3;
-    border-radius:22px;
-    box-shadow:0 8px 24px rgba(31,78,121,0.08);
-    max-width:100%;
-    box-sizing:border-box;
+  position:fixed;
+  left:18px;
+  right:18px;
+  bottom:14px;
+  z-index:9999;
+
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  align-items:stretch;
+
+  padding:8px 10px 6px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:28px;
+  box-shadow:0 12px 34px rgba(15,23,42,.14);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 }
 
-.tab-buttons button{
-    flex:none;
-    min-width:auto;
-    font-size:14px;
-    white-space:nowrap;
+.tab-buttons .home-text-btn{
+  position:relative;
+  width:100%;
+  min-width:0;
+  height:68px;
+  padding:7px 3px 9px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+
+  background:transparent;
+  border:0;
+  border-radius:18px;
+  box-shadow:none;
+  color:#66707c;
+
+  font-family:inherit;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.25;
+  text-align:center;
+  cursor:pointer;
+  transition:color .22s ease, transform .22s ease;
 }
+
+.tab-buttons .home-text-btn svg{
+  width:25px;
+  height:25px;
+  flex:none;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.tab-buttons .home-text-btn span{
+  display:block;
+  white-space:normal;
+}
+
+.tab-buttons .home-text-btn::after{
+  content:"";
+  position:absolute;
+  left:18%;
+  right:18%;
+  bottom:-6px;
+  height:3px;
+  border-radius:10px 10px 0 0;
+  background:transparent;
+  transition:background .22s ease;
+}
+
+.tab-buttons .home-text-btn.active{
+  color:#b7791f;
+}
+
+.tab-buttons .home-text-btn.active::after{
+  background:#c58a2b;
+}
+
+.tab-buttons .home-text-btn:active{
+  transform:scale(.95);
+}
+
+body{
+  padding-bottom:105px;
+}
+
+@media (max-width:600px){
+  .tab-buttons{
+    left:12px;
+    right:12px;
+    bottom:10px;
+    border-radius:24px;
+    padding:7px 5px 5px;
+  }
+
+  .tab-buttons .home-text-btn{
+    height:64px;
+    padding-left:1px;
+    padding-right:1px;
+    font-size:10px;
+  }
+
+  .tab-buttons .home-text-btn svg{
+    width:24px;
+    height:24px;
+  }
+}  
   
-.top-home-btn{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:10px;
-    background:transparent;
-    border:none;
-    box-shadow:none;
-    width:auto !important;
-    min-width:auto;
-    height:auto;
-    padding:0 4px;
-    color:#111827;
-    font-weight:700;
-}
 .home-menu-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -1208,8 +1285,7 @@ audio{
   background: rgba(212, 175, 55, 0.14);
 }
 
-.home-menu-icon,
-.home-text-btn{
+.home-menu-icon{
     background:transparent !important;
     border:none !important;
     box-shadow:none !important;
@@ -1223,18 +1299,6 @@ audio{
     align-items:center;
     justify-content:center;
     cursor:pointer;
-}
-
-.home-text-btn{
-    font-size:14px;
-    font-weight:800;
-}
-
-.home-divider{
-    width:1px;
-    height:22px;
-    background:rgba(0,0,0,0.18);
-    display:inline-block;
 }
 
 .settings-page{
