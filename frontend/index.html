@@ -4484,7 +4484,7 @@ function renderSongs(songs, showPagination){
 
 </div>
 `;
-    div.onclick = () => openPlayer(song);
+    div.onclick = () => openPlayer(song, div);
     container.appendChild(div);
   });
 
@@ -4582,19 +4582,34 @@ function filterSongs(){
   }
 }
 
-function openPlayer(song){
-  selectedSong = song;
-
+function openPlayer(song, songElement){
   const playerCard = document.getElementById("playerCard");
   const playerTitle = document.getElementById("playerTitle");
   const audioPlayer = document.getElementById("audioPlayer");
 
+  if(!playerCard || !playerTitle || !audioPlayer || !songElement) return;
+
+  const isSameSongOpen =
+    selectedSong &&
+    selectedSong.id === song.id &&
+    playerCard.style.display !== "none";
+
+  if(isSameSongOpen){
+    closePlayer();
+    return;
+  }
+
+  selectedSong = song;
+
   playerTitle.innerText = song.name;
   audioPlayer.src = API_BASE + "/hymns/" + song.id + "/audio";
+
   playerCard.style.display = "block";
+  songElement.insertAdjacentElement("afterend", playerCard);
+
   setStatus("");
 
-  playerCard.scrollIntoView({behavior:"smooth", block:"start"});
+  audioPlayer.play().catch(() => {});
 }
 
 function closePlayer(){
