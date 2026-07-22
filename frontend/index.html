@@ -5435,6 +5435,21 @@ function closeIOSInstallGuide(){
         guide.style.display = "none";
     }
 }
+
+function setActiveBottomNav(button) {
+  document
+    .querySelectorAll(".tab-buttons .home-text-btn")
+    .forEach(item => item.classList.remove("active"));
+
+  button.classList.add("active");
+}
+
+document.querySelectorAll(".tab-buttons .home-text-btn").forEach(button => {
+  button.addEventListener("click", function () {
+    setActiveBottomNav(this);
+  });
+});  
+  
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
