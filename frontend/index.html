@@ -3172,16 +3172,8 @@ body.dark-mode .encyclopedia-hero-card{
 ">
 
     <h1 style="color:white;margin-bottom:14px;">
-        سرودهای پرستشی
+        آرشیو سرودهای پرستشی
     </h1>
-
-    <div style="
-        font-size:18px;
-        line-height:1.9;
-        opacity:.95;
-    ">
-        مجموعه‌ای از سرودهای پرستشی
-    </div>
 
 </div>
 
@@ -3190,8 +3182,6 @@ body.dark-mode .encyclopedia-hero-card{
     <div id="searchBox" style="display:none;">
         <input id="search" placeholder="جستجوی نام سرود..." oninput="filterSongs()">
     </div>
-    
-  <div id="status" class="small"></div>
 
   <div id="playerCard" class="player-card">
 
@@ -4440,7 +4430,7 @@ async function loadSongs(){
   document.getElementById("search").value = "";
   renderPage();
 
-  setStatus("لیست کامل سرودها");
+  setStatus("");
 }
 
 function renderPage(){
