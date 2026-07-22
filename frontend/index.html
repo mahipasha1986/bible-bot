@@ -2907,6 +2907,29 @@ body.dark-mode .encyclopedia-hero-card{
     animation:dailyVerseHeartPop .35s ease;
     transform-origin:center;
 }
+
+/* انیمیشن نرم ورود به بخش‌ها */
+.section.section-enter{
+  animation:sectionEnter .32s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes sectionEnter{
+  from{
+    opacity:0;
+    transform:translateY(14px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .section.section-enter{
+    animation:none;
+  }
+}  
   
 </style>
 
@@ -4443,9 +4466,20 @@ function showSection(sectionId){
     });
 
     const target = document.getElementById(sectionId);
+
     if(target){
-        target.classList.add("active");
-        target.style.display = "block";
+      target.classList.remove("section-enter");
+      target.classList.add("active");
+      target.style.display = "block";
+
+      void target.offsetWidth;
+
+      target.classList.add("section-enter");
+
+      target.addEventListener("animationend", function clearSectionAnimation(){
+        target.classList.remove("section-enter");
+        target.removeEventListener("animationend", clearSectionAnimation);
+      });
     }
 
     window.scrollTo({
