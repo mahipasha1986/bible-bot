@@ -337,7 +337,16 @@ audio{
 
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
+
+  transition: transform .28s ease, opacity .28s ease;
+  will-change: transform;
 }
+
+.tab-buttons.nav-hidden{
+  transform:translateY(calc(100% + 18px));
+  opacity:0;
+  pointer-events:none;
+}  
 
 .tab-buttons .home-text-btn{
   position:relative;
@@ -5481,6 +5490,35 @@ document.querySelectorAll(".tab-buttons .home-text-btn").forEach(button => {
   button.addEventListener("click", function () {
     setActiveBottomNav(this);
   });
+});  
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".tab-buttons");
+  if (!nav) return;
+
+  const home = document.getElementById("homeSection");
+
+  if (home && home.style.display !== "none") {
+    nav.classList.remove("nav-hidden");
+    lastScrollY = window.scrollY;
+    return;
+  }
+
+  const currentY = window.scrollY;
+
+  if (currentY > lastScrollY + 10) {
+    nav.classList.add("nav-hidden");
+  } else if (currentY < lastScrollY - 10) {
+    nav.classList.remove("nav-hidden");
+  }
+
+  if (currentY <= 10) {
+    nav.classList.remove("nav-hidden");
+  }
+
+  lastScrollY = currentY;
 });  
   
 </script>
