@@ -320,115 +320,123 @@ audio{
   position:fixed;
   left:18px;
   right:18px;
-  bottom:14px;
+  bottom:10px;
   z-index:9999;
 
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  align-items:stretch;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
 
-  padding:8px 10px 6px;
-  background:rgba(255,255,255,.96);
-  border:1px solid rgba(15,23,42,.08);
+  height:76px;
+  padding:4px 8px 2px;
+
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(17,24,39,.06);
   border-radius:28px;
-  box-shadow:0 12px 34px rgba(15,23,42,.14);
+  box-shadow:0 8px 24px rgba(15,23,42,.10);
+
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
 }
 
 .tab-buttons .home-text-btn{
   position:relative;
+
   width:100%;
   min-width:0;
   height:68px;
-  padding:7px 3px 9px;
+  padding:5px 2px 8px;
 
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:4px;
+  gap:3px;
 
   background:transparent;
-  border:0;
-  border-radius:18px;
+  border:none;
   box-shadow:none;
-  color:#66707c;
+  border-radius:18px;
 
+  color:#666b73;
   font-family:inherit;
   font-size:11px;
-  font-weight:700;
-  line-height:1.25;
-  text-align:center;
+  font-weight:600;
+  line-height:1.15;
   cursor:pointer;
-  transition:color .22s ease, transform .22s ease;
+
+  transition:color .2s ease, transform .2s ease;
 }
 
 .tab-buttons .home-text-btn svg{
-  width:25px;
-  height:25px;
-  flex:none;
+  width:27px;
+  height:27px;
+
   fill:none;
   stroke:currentColor;
-  stroke-width:1.8;
+  stroke-width:1.65;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
 
 .tab-buttons .home-text-btn span{
   display:block;
-  white-space:normal;
+  white-space:nowrap;
 }
 
 .tab-buttons .home-text-btn::after{
   content:"";
   position:absolute;
-  left:18%;
-  right:18%;
-  bottom:-6px;
-  height:3px;
-  border-radius:10px 10px 0 0;
+
+  left:22%;
+  right:22%;
+  bottom:-3px;
+
+  height:2px;
+  border-radius:99px;
   background:transparent;
-  transition:background .22s ease;
 }
 
 .tab-buttons .home-text-btn.active{
-  color:#b7791f;
+  color:#b57a22;
 }
 
 .tab-buttons .home-text-btn.active::after{
-  background:#c58a2b;
+  background:#c28b35;
 }
 
 .tab-buttons .home-text-btn:active{
-  transform:scale(.95);
+  transform:scale(.96);
 }
 
 body{
-  padding-bottom:105px;
+  padding-bottom:100px;
 }
 
 @media (max-width:600px){
+
   .tab-buttons{
     left:12px;
     right:12px;
-    bottom:10px;
-    border-radius:24px;
-    padding:7px 5px 5px;
+    bottom:8px;
+
+    height:72px;
+    padding:3px 4px 1px;
+    border-radius:25px;
   }
 
   .tab-buttons .home-text-btn{
     height:64px;
-    padding-left:1px;
-    padding-right:1px;
+    padding:4px 1px 7px;
     font-size:10px;
+    gap:2px;
   }
 
   .tab-buttons .home-text-btn svg{
-    width:24px;
-    height:24px;
+    width:25px;
+    height:25px;
   }
-}  
+}
   
 .home-menu-grid{
     display:grid;
