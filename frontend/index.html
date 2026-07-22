@@ -2881,6 +2881,52 @@ body.dark-mode .encyclopedia-hero-card{
     animation:none;
   }
 }  
+
+.song-equalizer{
+  display:none;
+  width:22px;
+  height:20px;
+  align-items:flex-end;
+  justify-content:center;
+  gap:2px;
+  flex-shrink:0;
+}
+
+.song-equalizer i{
+  display:block;
+  width:3px;
+  height:7px;
+  border-radius:3px;
+  background:#d4af37;
+  transform-origin:bottom;
+  animation:songEqualizerBars .75s ease-in-out infinite;
+}
+
+.song-equalizer i:nth-child(2){
+  animation-delay:.12s;
+}
+
+.song-equalizer i:nth-child(3){
+  animation-delay:.24s;
+}
+
+.song-equalizer i:nth-child(4){
+  animation-delay:.36s;
+}
+
+.song-item.is-playing .song-equalizer{
+  display:flex;
+}
+
+@keyframes songEqualizerBars{
+  0%,100%{
+    transform:scaleY(.45);
+  }
+
+  50%{
+    transform:scaleY(1.65);
+  }
+}
   
 </style>
 
@@ -3200,7 +3246,6 @@ body.dark-mode .encyclopedia-hero-card{
 
     <div class="player-actions">
         <button class="green" onclick="downloadSelectedSong()">⬇ دانلود سرود</button>
-        <button class="red" onclick="closePlayer()">بستن</button>
     </div>
 
 </div>
@@ -4464,12 +4509,11 @@ function renderSongs(songs, showPagination){
     border-bottom:1px solid rgba(212,175,55,.25);
     ">
 
-    <span class="song-play-icon" style="
-    color:#1f4e79;
-    font-size:20px;
-    font-weight:700;
-    ">
-    ▶
+    <span class="song-equalizer" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
     </span>
 
     <span style="
@@ -4609,14 +4653,11 @@ function openPlayer(song, songElement){
 
   document.querySelectorAll(".song-item").forEach(item => {
     item.style.background = "";
-    const icon = item.querySelector(".song-play-icon");
-    if (icon) icon.innerText = "▶";
-});
+    item.classList.remove("is-playing");
+  });
 
-songElement.style.background = "#fff8e1";
-
-const currentIcon = songElement.querySelector(".song-play-icon");
-if (currentIcon) currentIcon.innerText = "⏸";
+  songElement.style.background = "#fff8e1";
+  songElement.classList.add("is-playing");
 
   setStatus("");
 
@@ -4634,11 +4675,9 @@ function closePlayer(){
   playerCard.style.display = "none";
 
   document.querySelectorAll(".song-item").forEach(item => {
-  item.style.background = "";
-
-  const icon = item.querySelector(".song-play-icon");
-  if (icon) icon.innerText = "▶";
-});
+    item.style.background = "";
+    item.classList.remove("is-playing");
+  });
   
   selectedSong = null;
 }
