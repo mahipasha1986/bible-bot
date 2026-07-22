@@ -888,26 +888,7 @@ body{
     0%,100%{opacity:.75;transform:scale(1);}
     50%{opacity:1;transform:scale(1.08);}
 }
-.song-category-btn{
-    background:transparent !important;
-    box-shadow:none !important;
-    border:none !important;
-    border-radius:0 !important;
-    width:auto !important;
-    margin:0 !important;
-    padding:8px 2px 10px !important;
-    color:#222 !important;
-    font-size:18px !important;
-    font-weight:700 !important;
-    cursor:pointer;
-    white-space:nowrap;
-    border-bottom:none !important;
-}
 
-.song-category-btn.active{
-    color:#1f4e79 !important;
-    border-bottom:none !important;
-}
 .songs-hero-animate{
     animation:songsHero .7s ease;
 }
@@ -922,37 +903,7 @@ body{
         transform:translateY(0) scale(1);
     }
 }
-#songCategories{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    margin:28px 0;
-}
 
-.song-archive-row{
-    width:100%;
-    display:flex;
-    justify-content:center;
-}
-
-.song-category-row{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.gold-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#D4AF37;
-    display:inline-block;
-    margin-left:8px;
-    flex-shrink:0;
-}
 /* Final polish — Home Hero */
 #homeSection .hero-card{
     background:
@@ -3234,38 +3185,6 @@ body.dark-mode .encyclopedia-hero-card{
 
 </div>
 
-<div id="songCategories">
-
-    <div class="song-archive-row">
-
-        <button onclick="loadSongs()" class="song-category-btn active">
-            <span class="gold-dot"></span>
-            آرشیو سرودهای پرستشی
-        </button>
-
-    </div>
-
-    <div class="song-category-row">
-
-        <button onclick="loadCategory(0)" class="song-category-btn">
-            <span class="gold-dot"></span>
-            سرودهای عید قیام
-        </button>
-
-        <button onclick="loadCategory(1)" class="song-category-btn">
-            <span class="gold-dot"></span>
-            سرودهای تولد مسیح
-        </button>
-
-        <button onclick="loadCategory(2)" class="song-category-btn">
-            <span class="gold-dot"></span>
-            سرودهای جمعه صلیب
-        </button>
-
-    </div>
-
-</div>
-
 <div class="card">
 
     <div id="searchBox" style="display:none;">
@@ -4522,34 +4441,6 @@ async function loadSongs(){
   renderPage();
 
   setStatus("لیست کامل سرودها");
-}
-
-async function loadCategory(index){
-    currentSource = "category";
-    document.getElementById("searchBox").style.display = "none";
-    document.querySelectorAll(".song-category-btn").forEach(btn=>{
-        btn.classList.remove("active");
-    });
-
-    document.querySelectorAll(".song-category-btn")[index].classList.add("active");
-    closePlayer();
-    setStatus("");
-
-  const res = await fetch(API_BASE + "/hymns/" + (index + 1), { cache: "no-store" });
-  const data = await res.json();
-
-  allSongs = (Array.isArray(data) ? data : (data.songs || [])).map((s, i) => ({
-    id: s.id,
-    index: i,
-    name: s.title || s.name || ""
-  }));
-  filteredSongs = allSongs;
-  currentPage = 0;
-
-  document.getElementById("search").value = "";
-  renderPage();
-
-  setStatus(data.title || "سرودهای مناسبتی");
 }
 
 function renderPage(){
