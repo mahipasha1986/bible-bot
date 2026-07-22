@@ -318,80 +318,80 @@ audio{
 
 .tab-buttons{
   position:fixed;
-  left:18px;
-  right:18px;
-  bottom:10px;
+  left:28px;
+  right:28px;
+  bottom:8px;
   z-index:9999;
 
   display:grid;
   grid-template-columns:repeat(4,1fr);
   align-items:center;
 
-  height:60px;
-  padding:0 8px;
+  height:54px;
+  padding:0 6px;
 
   background:rgba(255,255,255,.97);
   border:1px solid rgba(17,24,39,.06);
-  border-radius:28px;
-  box-shadow:0 8px 24px rgba(15,23,42,.10);
+  border-radius:22px;
+  box-shadow:0 6px 18px rgba(15,23,42,.10);
 
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 
 .tab-buttons .home-text-btn{
   position:relative;
-
   width:100%;
   min-width:0;
-  height:56px;
-  padding:2px 0;
+  height:50px;
+  padding:2px 1px;
 
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:1px;
+  gap:0;
 
   background:transparent;
   border:none;
   box-shadow:none;
-  border-radius:18px;
+  border-radius:14px;
 
-  color:#666b73;
+  color:#686d75;
   font-family:inherit;
-  font-size:11px;
+  font-size:9px;
   font-weight:600;
-  line-height:1.15;
+  line-height:1.05;
+  text-align:center;
   cursor:pointer;
-
-  transition:color .2s ease, transform .2s ease;
 }
 
 .tab-buttons .home-text-btn svg{
-  width:27px;
-  height:27px;
+  width:21px;
+  height:21px;
+  flex:none;
 
   fill:none;
   stroke:currentColor;
-  stroke-width:1.65;
+  stroke-width:1.55;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
 
 .tab-buttons .home-text-btn span{
   display:block;
+  max-width:100%;
   white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .tab-buttons .home-text-btn::after{
   content:"";
   position:absolute;
-
-  left:22%;
-  right:22%;
-  bottom:-3px;
-
+  left:25%;
+  right:25%;
+  bottom:-2px;
   height:2px;
   border-radius:99px;
   background:transparent;
@@ -410,31 +410,41 @@ audio{
 }
 
 body{
-  padding-bottom:100px;
+  padding-bottom:78px;
 }
 
 @media (max-width:600px){
 
   .tab-buttons{
-    left:12px;
-    right:12px;
-    bottom:8px;
+    left:8px;
+    right:8px;
+    bottom:5px;
 
-    height:58px;
-    padding:0 4px;
-    border-radius:25px;
+    height:48px;
+    padding:0 2px;
+    border-radius:18px;
   }
 
   .tab-buttons .home-text-btn{
-    height:54px;
-    padding:4px 1px 7px;
-    font-size:10px;
-    gap:2px;
+    height:44px;
+    padding:1px 0;
+    font-size:7.5px;
+    line-height:1;
   }
 
   .tab-buttons .home-text-btn svg{
-    width:25px;
-    height:25px;
+    width:18px;
+    height:18px;
+  }
+
+  .tab-buttons .home-text-btn::after{
+    left:28%;
+    right:28%;
+    bottom:-1px;
+  }
+
+  body{
+    padding-bottom:66px;
   }
 }
   
