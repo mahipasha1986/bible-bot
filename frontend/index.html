@@ -4489,6 +4489,13 @@ function renderPage(){
 
 function renderSongs(songs, showPagination){
   const container = document.getElementById("songs");
+
+  const playerCard = document.getElementById("playerCard");
+
+  if(playerCard && container.contains(playerCard)){
+    closePlayer();
+    container.parentNode.insertBefore(playerCard, container);
+  }
   container.innerHTML = "";
 
   if(!songs.length){
